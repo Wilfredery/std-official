@@ -1,7 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { renderHook } from "@testing-library/react";
 import { act } from "react";
-import userEvent from "@testing-library/user-event";
 
 const mockSetTheme = vi.fn();
 let currentTheme = "light";
@@ -25,9 +24,7 @@ describe("useThemeShortcut", () => {
     renderHook(() => useThemeShortcut());
 
     act(() => {
-      window.dispatchEvent(
-        new KeyboardEvent("keydown", { key: "d" }),
-      );
+      window.dispatchEvent(new KeyboardEvent("keydown", { key: "d" }));
     });
 
     expect(mockSetTheme).toHaveBeenCalledWith("dark");
@@ -38,9 +35,7 @@ describe("useThemeShortcut", () => {
     renderHook(() => useThemeShortcut());
 
     act(() => {
-      window.dispatchEvent(
-        new KeyboardEvent("keydown", { key: "d" }),
-      );
+      window.dispatchEvent(new KeyboardEvent("keydown", { key: "d" }));
     });
 
     expect(mockSetTheme).toHaveBeenCalledWith("light");
