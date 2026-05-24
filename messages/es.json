@@ -1,1 +1,30 @@
-{}
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "cta": "Contáctanos",
+    "language": "Idioma",
+    "menuOpen": "Abrir menú"
+  },
+  "footer": {
+    "tagline": "Soluciones tecnológicas para transformar tu negocio",
+    "services": "Servicios",
+    "company": "Empresa",
+    "rights": "Todos los derechos reservados.",
+    "links": {
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Uso"
+    }
+  },
+  "serviceDetail": {
+    "services": {
+      "data-analysis": { "title": "Análisis de Datos" },
+      "business-intelligence": { "title": "Business Intelligence" },
+      "machine-learning": { "title": "Machine Learning" },
+      "data-auditing": { "title": "Auditoría de Datos" },
+      "digital-transformation": { "title": "Transformación Digital" },
+      "process-automation": { "title": "Automatización de Procesos" }
+    }
+  }
+}
