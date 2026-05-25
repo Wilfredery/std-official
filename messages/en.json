@@ -1,1 +1,30 @@
-{}
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "contact": "Contact",
+    "cta": "Contact Us",
+    "language": "Language",
+    "menuOpen": "Open menu"
+  },
+  "footer": {
+    "tagline": "Technology solutions to transform your business",
+    "services": "Services",
+    "company": "Company",
+    "rights": "All rights reserved.",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
+    }
+  },
+  "serviceDetail": {
+    "services": {
+      "data-analysis": { "title": "Data Analysis" },
+      "business-intelligence": { "title": "Business Intelligence" },
+      "machine-learning": { "title": "Machine Learning" },
+      "data-auditing": { "title": "Data Auditing" },
+      "digital-transformation": { "title": "Digital Transformation" },
+      "process-automation": { "title": "Process Automation" }
+    }
+  }
+}
