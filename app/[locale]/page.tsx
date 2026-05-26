@@ -5,6 +5,7 @@ import { SolutionSection } from "@/components/home/solution/SolutionSection";
 import { ServicesSection } from "@/components/home/services/ServicesSection";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { BenefitsSection } from "@/components/home/benefits/BenefitsSection";
+import { ProcessSection } from "@/components/home/Process/ProcessSection";
 
 export default async function HomePage({
   params,
@@ -34,6 +35,10 @@ export default async function HomePage({
 
       <ScrollReveal direction="scale">
         <BenefitsSection locale={locale} />
+      </ScrollReveal>
+
+      <ScrollReveal direction="right">
+        <ProcessSection locale={locale} />
       </ScrollReveal>
     </>
   );
