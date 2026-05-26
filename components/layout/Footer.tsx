@@ -145,7 +145,7 @@ export function Footer() {
           </p>
 
           <p className="text-xs text-muted-foreground">
-            Est. 2024 · Remote-first
+            Dev: Wilfredery Ant. Dilone Cordero
           </p>
         </div>
       </div>

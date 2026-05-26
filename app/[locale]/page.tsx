@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { HeroSection } from "@/components/home/hero/HeroSection";
+import { ProblemSection } from "@/components/home/problem/ProblemSection";
 
 export default async function HomePage({
   params,
@@ -12,6 +13,7 @@ export default async function HomePage({
   return (
     <>
       <HeroSection locale={locale} />
+      <ProblemSection locale={locale} />
     </>
   );
 }
