@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 export async function ProblemSection({ locale }: { locale: string }) {
   const t = await getTranslations("home.problem");
   return (
-    <section className="py-5 border-b border-border">
+    <section className="py-12 border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center mb-12">
           <span className="text-xs font-mono uppercase tracking-widest text-primary mb-4 block">
