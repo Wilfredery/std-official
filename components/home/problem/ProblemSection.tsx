@@ -8,7 +8,7 @@ export async function ProblemSection({ locale }: { locale: string }) {
           <span className="text-xs font-mono uppercase tracking-widest text-primary mb-4 block">
             {t("eyebrow")}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          <h2 className="text-xl sm:text-4xl font-extrabold tracking-tight">
             {t("title")}
           </h2>
         </div>

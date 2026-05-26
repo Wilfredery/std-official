@@ -6,7 +6,7 @@ export async function SolutionSection({ locale }: { locale: string }) {
   return (
     <section className="py-14 border-b border-border">
       <div className="max-w-7xl max-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-1xl mx-auto text-center">
           <span className="text-xs font-mono uppercase tracking-widset text-primary mb-4 block">
             {t("eyebrow")}
           </span>
