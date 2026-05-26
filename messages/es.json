@@ -86,19 +86,6 @@
         }
       ]
     },
-    "metrics": {
-      "items": [
-        { "value": "40%", "label": "Mejora de eficiencia promedio" },
-        { "value": "$2.4M", "label": "Costos optimizados" },
-        { "value": "<6sem", "label": "Tiempo promedio al valor" },
-        { "value": "100%", "label": "Seguridad y cumplimiento" }
-      ]
-    },
-    "testimonial": {
-      "quote": "Shine Tech no solo nos dio un dashboard — replantearon cómo pensamos nuestra cadena de suministro. Vemos correlaciones que nunca supimos que existían.",
-      "author": "Marcus Thorne",
-      "role": "COO, Meridian Logistics"
-    },
     "cta": {
       "title": "¿Listo para desbloquear el potencial de tus datos?",
       "subtitle": "Únete a equipos que ya transformaron su toma de decisiones con Shine Tech Data.",

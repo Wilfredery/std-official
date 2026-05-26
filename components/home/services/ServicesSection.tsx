@@ -17,7 +17,7 @@ export async function ServicesSection({ locale }: { locale: string }) {
     );
   }
   return (
-    <section className="py-14 border-b border-border">
+    <section className="py-16 sm:py-20 border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span
