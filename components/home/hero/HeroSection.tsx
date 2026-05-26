@@ -6,7 +6,7 @@ export async function HeroSection({ locale }: { locale: string }) {
   const t = await getTranslations("home.hero");
 
   return (
-    <section className="relative overflow-hidden py-10 lg:pt-19">
+    <section className="relative overflow-hidden pt-15 pb-4">
       <div className="absolute inset-0 hero-glow -z-10" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">

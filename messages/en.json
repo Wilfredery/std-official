@@ -88,7 +88,7 @@
     },
     "cta": {
       "title": "Ready to unlock your data's potential?",
-      "subtitle": "Join growing teams who've transformed their decision-making with Shine Tech Data.",
+      "subtitle": "Join growing teams who've transformed their decision-making with ShineTechData.",
       "button": "Start Your Free Audit"
     }
   },
@@ -445,7 +445,7 @@
   },
   "contact": {
     "header": {
-      "title": "Contact Shine Tech Data",
+      "title": "Contact ShineTechData",
       "subtitle": "Let's partner up. Reach out to discuss your project, ask questions, or request a custom consultation."
     },
     "form": {
@@ -515,19 +515,19 @@
   },
   "seo": {
     "home": {
-      "title": "Shine Tech Data — Turn your data into smarter decisions",
-      "description": "Shine Tech Data helps SMBs turn raw data into clear insights, automated processes, and real business growth."
+      "title": "ShineTechData — Turn your data into smarter decisions",
+      "description": "ShineTechData helps SMBs turn raw data into clear insights, automated processes, and real business growth."
     },
     "services": {
-      "title": "Services — Shine Tech Data",
+      "title": "Services — ShineTechData",
       "description": "Data Analysis, Business Intelligence, Machine Learning, Auditing, Digital Transformation, and Process Automation."
     },
     "contact": {
-      "title": "Contact — Shine Tech Data",
+      "title": "Contact — ShineTechData",
       "description": "Let's work together. Reach out to discuss your data project."
     },
     "serviceDetail": {
-      "title": "Services — Shine Tech Data",
+      "title": "Services — ShineTechData",
       "description": "Specialized data services for SMBs: analysis, BI, machine learning, and more."
     }
   },

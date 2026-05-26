@@ -88,7 +88,7 @@
     },
     "cta": {
       "title": "¿Listo para desbloquear el potencial de tus datos?",
-      "subtitle": "Únete a equipos que ya transformaron su toma de decisiones con Shine Tech Data.",
+      "subtitle": "Únete a equipos que ya transformaron su toma de decisiones con ShineTechData.",
       "button": "Comienza tu Auditoría Gratis"
     }
   },
@@ -448,7 +448,7 @@
   },
   "contact": {
     "header": {
-      "title": "Contacta a Shine Tech Data",
+      "title": "Contacta a ShineTechData",
       "subtitle": "Trabajemos juntos. Escríbenos para discutir tu proyecto, hacer preguntas o solicitar una consultoría personalizada."
     },
     "form": {
@@ -518,19 +518,19 @@
   },
   "seo": {
     "home": {
-      "title": "Shine Tech Data — Convierte tus datos en decisiones inteligentes",
-      "description": "Shine Tech Data ayuda a PyMEs a transformar datos crudos en insights claros, procesos automatizados y crecimiento real."
+      "title": "ShineTechData — Convierte tus datos en decisiones inteligentes",
+      "description": "ShineTechData ayuda a PyMEs a transformar datos crudos en insights claros, procesos automatizados y crecimiento real."
     },
     "services": {
-      "title": "Servicios — Shine Tech Data",
+      "title": "Servicios — ShineTechData",
       "description": "Análisis de datos, Business Intelligence, Machine Learning, Auditoría, Transformación Digital y Automatización de Procesos."
     },
     "contact": {
-      "title": "Contacto — Shine Tech Data",
+      "title": "Contacto — ShineTechData",
       "description": "Trabajemos juntos. Contáctanos para discutir tu proyecto de datos."
     },
     "serviceDetail": {
-      "title": "Servicios — Shine Tech Data",
+      "title": "Servicios — ShineTechData",
       "description": "Servicios especializados de datos para PyMEs: análisis, BI, machine learning y más."
     }
   },
