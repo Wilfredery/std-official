@@ -3,28 +3,540 @@
     "home": "Inicio",
     "services": "Servicios",
     "contact": "Contacto",
-    "cta": "Contáctanos",
+    "cta": "Consultoría Gratis",
     "language": "Idioma",
-    "menuOpen": "Abrir menú"
+    "theme": "Cambiar tema",
+    "menuOpen": "Abrir menú",
+    "loading": "Cargando"
   },
-  "footer": {
-    "tagline": "Soluciones tecnológicas para transformar tu negocio",
-    "services": "Servicios",
-    "company": "Empresa",
-    "rights": "Todos los derechos reservados.",
-    "links": {
-      "privacy": "Política de Privacidad",
-      "terms": "Términos de Uso"
+  "common": {
+    "learnMore": "Conocer más",
+    "viewDetails": "Ver detalles",
+    "scheduleConsultation": "Agendar Consultoría Gratis",
+    "requestProposal": "Solicitar Propuesta",
+    "bookCall": "Reservar Consultoría Gratis",
+    "backToServices": "Volver a Servicios"
+  },
+  "home": {
+    "hero": {
+      "badge": "Potenciamos a 50+ equipos basados en datos",
+      "title": "Convierte tus datos en",
+      "titleAccent": "Decisiones Inteligentes de Negocio",
+      "subtitleStatic": "Transforma datos crudos en",
+      "subtitleDynamic": "insights claros, procesos automatizados y crecimiento real — sin contratar un equipo interno.",
+      "cta_primary": "Agendar Consultoría Gratis",
+      "cta_secondary": "Conocer más"
+    },
+    "problem": {
+      "eyebrow": "El Costo de los Datos Fragmentados",
+      "title": "Ahogados en datos, sedientos de insight",
+      "items": [
+        "Departamentos aislados con KPIs inconsistentes y reportes contradictorios.",
+        "Los reportes manuales consumen 40% del tiempo productivo del equipo.",
+        "Decisiones basadas en intuición en lugar de datos duros."
+      ]
+    },
+    "solution": {
+      "eyebrow": "La Solución Shine",
+      "title": "Una única fuente de verdad que trabaja mientras duermes",
+      "description": "Automatizamos pipelines, unificamos esquemas y desplegamos inteligencia para que tu equipo se enfoque en crecer — no en hojas de cálculo."
+    },
+    "services": {
+      "eyebrow": "Capacidades Clave",
+      "title": "Servicios estratégicos para el stack moderno",
+      "subtitle": "Seis capacidades probadas, entregadas con resultados medibles."
+    },
+    "benefits": {
+      "eyebrow": "Por Qué Shine Tech",
+      "title": "Impacto medible, no solo dashboards",
+      "items": [
+        {
+          "title": "Reducir Costos",
+          "description": "Elimina desperdicio con optimización basada en datos."
+        },
+        {
+          "title": "Más Productividad",
+          "description": "Automatiza reportes repetitivos y flujos manuales."
+        },
+        {
+          "title": "Mejores Decisiones",
+          "description": "Opera con números duros, no con suposiciones."
+        },
+        {
+          "title": "Insights en Tiempo Real",
+          "description": "Dashboards que se actualizan al instante."
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "Cómo Funciona",
+      "title": "Un roadmap diseñado para victorias rápidas",
+      "steps": [
+        {
+          "title": "Descubrir",
+          "description": "Mapeamos tus flujos de datos, metas y madurez actual para encontrar las mayores oportunidades."
+        },
+        {
+          "title": "Diseñar",
+          "description": "Arquitecturamos una solución a medida — dashboards, modelos o automatización — sobre tu stack."
+        },
+        {
+          "title": "Entregar",
+          "description": "Implementamos, integramos y capacitamos. Resultados en semanas, no trimestres."
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para desbloquear el potencial de tus datos?",
+      "subtitle": "Únete a equipos que ya transformaron su toma de decisiones con ShineTechData.",
+      "button": "Comienza tu Auditoría Gratis"
+    }
+  },
+  "services": {
+    "header": {
+      "eyebrow": "Servicios",
+      "title": "Servicios de datos prácticos con resultados reales",
+      "subtitle": "Desde victorias rápidas hasta transformaciones completas — entregamos lo que mueve la aguja."
+    },
+    "whyUs": {
+      "title": "Por qué los equipos eligen Shine Tech",
+      "items": [
+        {
+          "title": "Visión de negocio primero",
+          "description": "Traducimos lo técnico en ingresos, ahorro y tiempo recuperado."
+        },
+        {
+          "title": "Implementación rápida",
+          "description": "Semanas, no trimestres. Entregamos soluciones funcionales temprano e iteramos."
+        },
+        {
+          "title": "Resultados medibles",
+          "description": "Cada proyecto incluye KPIs claros y un dashboard de seguimiento."
+        }
+      ]
+    },
+    "process": {
+      "title": "Nuestro proceso de entrega",
+      "subtitle": "Transparente, estructurado y centrado en tu equipo."
+    },
+    "cta": {
+      "title": "¿Necesitas una estrategia de datos a medida?"
     }
   },
   "serviceDetail": {
+    "breadcrumb": "Servicios",
+    "summaryLabel": "Resumen del servicio",
+    "forWhoLabel": "Para quién",
+    "problemLabel": "El problema",
+    "deliverables": "Entregables Clave",
+    "outcomes": "Resultados Tangibles",
+    "timeline": "Cómo Entregamos",
+    "faq": "Preguntas Frecuentes",
+    "notFound": "Servicio no encontrado",
+    "back": "Volver a todos los servicios",
     "services": {
-      "data-analysis": { "title": "Análisis de Datos" },
-      "business-intelligence": { "title": "Business Intelligence" },
-      "machine-learning": { "title": "Machine Learning" },
-      "data-auditing": { "title": "Auditoría de Datos" },
-      "digital-transformation": { "title": "Transformación Digital" },
-      "process-automation": { "title": "Automatización de Procesos" }
+      "data-analysis": {
+        "title": "Análisis de Datos",
+        "shortDescription": "Diagnósticos profundos para descubrir eficiencias ocultas y tendencias de mercado.",
+        "summary": "Auditoría, parsing y análisis exploratorio prácticos que revelan los patrones que tu negocio ha estado perdiendo.",
+        "overview": "Nuestro servicio de Análisis de Datos va más allá del reporting superficial. Nos sumergimos en tus datos crudos para descubrir patrones ocultos, anomalías y oportunidades que tu equipo podría estar perdiendo. Ya sea que tengas bases de datos estructuradas, hojas de cálculo o fuentes de datos diversas, las convertimos en una historia coherente respaldada por rigor estadístico.",
+        "forWho": "Equipos con datos en los que no confían — o que aún no saben cómo usar.",
+        "problem": "La mayoría de las PyMEs tienen datos dispersos entre CRMs, ERPs, hojas de cálculo y herramientas cloud — sin forma de ver el panorama completo.",
+        "deliverables": [
+          "Reporte completo de análisis exploratorio",
+          "Dataset limpio y documentado, listo para BI",
+          "Presentación de insights para liderazgo",
+          "Próximos pasos recomendados y victorias rápidas"
+        ],
+        "outcomes": [
+          { "metric": "30%", "label": "Más tiempo productivo de analistas" },
+          { "metric": "5x", "label": "Tiempo al insight más rápido" },
+          { "metric": "100%", "label": "Linaje de datos documentado" }
+        ],
+        "timeline": [
+          {
+            "step": "Semana 1",
+            "title": "Alcance",
+            "description": "Entrevistas e inventario de datos."
+          },
+          {
+            "step": "Semana 2",
+            "title": "Auditoría",
+            "description": "Controles de calidad, profiling y limpieza."
+          },
+          {
+            "step": "Semana 3",
+            "title": "Insight",
+            "description": "Análisis, visualización y entrega."
+          }
+        ],
+        "testimonial": {
+          "quote": "En tres semanas supimos más de nuestros clientes que en tres años.",
+          "author": "Helena Park",
+          "role": "VP Marketing, NorthLine"
+        },
+        "faq": [
+          {
+            "question": "¿Necesitan acceso a datos de producción?",
+            "answer": "Normalmente trabajamos con muestras anonimizadas o entornos de staging primero."
+          },
+          {
+            "question": "¿Qué herramientas usan?",
+            "answer": "Python, SQL y dbt para análisis; Looker / Metabase / Power BI para reportes."
+          }
+        ]
+      },
+      "business-intelligence": {
+        "title": "Business Intelligence",
+        "shortDescription": "Dashboards en tiempo real a medida que ponen las métricas clave en manos de quien decide.",
+        "summary": "Diseñamos y entregamos dashboards interactivos que tu equipo realmente usará todos los días.",
+        "overview": "Diseñamos y construimos soluciones de BI que convierten tu data warehouse en un motor de toma de decisiones. Desde dashboards de KPIs ejecutivos hasta reportes operativos departamentales, creamos visualizaciones intuitivas que tu equipo realmente usará cada día.",
+        "forWho": "Líderes cansados de esperar hojas de cálculo para tomar decisiones.",
+        "problem": "Archivos Excel y PDFs estáticos no escalan. Tu equipo necesita dashboards en vivo, interactivos y que se actualicen automáticamente.",
+        "deliverables": [
+          "Dashboards conectados (Metabase, Looker, Power BI o Tableau)",
+          "Capa de métricas modeladas con definiciones compartidas",
+          "Accesos por rol y analítica embebida",
+          "Capacitación y documentación del equipo"
+        ],
+        "outcomes": [
+          { "metric": "10x", "label": "Ciclos de reporte más rápidos" },
+          { "metric": "90%", "label": "Menos pedidos ad-hoc" },
+          { "metric": "24/7", "label": "Visibilidad en tiempo real" }
+        ],
+        "timeline": [
+          {
+            "step": "Semana 1",
+            "title": "Descubrimiento",
+            "description": "Workshop de KPIs y definición de métricas."
+          },
+          {
+            "step": "Semana 2",
+            "title": "Construcción",
+            "description": "Modelado, diseño de dashboards y QA."
+          },
+          {
+            "step": "Semana 3",
+            "title": "Lanzamiento",
+            "description": "Rollout, capacitación e iteración."
+          }
+        ],
+        "testimonial": {
+          "quote": "Nuestra reunión semanal de directorio pasó de pesada a una revisión de cinco minutos.",
+          "author": "Diego Ruiz",
+          "role": "CEO, Trama Studios"
+        },
+        "faq": [
+          {
+            "question": "¿Qué herramienta de BI recomiendan?",
+            "answer": "Somos agnósticos — elegimos lo que mejor encaja con tu equipo y presupuesto."
+          },
+          {
+            "question": "¿Integran con nuestro warehouse?",
+            "answer": "Sí — Snowflake, BigQuery, Redshift o Postgres."
+          }
+        ]
+      },
+      "machine-learning": {
+        "title": "Machine Learning",
+        "shortDescription": "Modelos predictivos e integraciones de AI a medida para automatizar razonamiento complejo.",
+        "summary": "Desde predicción de churn hasta forecast de demanda, entregamos modelos que mueven métricas de negocio.",
+        "overview": "Construimos modelos de ML a medida, adaptados a tus problemas de negocio específicos — desde predicción de demanda y churn hasta detección de anomalías y motores de recomendación. Sin cajas negras genéricas; cada modelo es explicado, testeado y construido para que tu equipo lo entienda.",
+        "forWho": "Equipos listos para pasar de lo descriptivo a lo predictivo.",
+        "problem": "La toma de decisiones reactiva basada en reportes históricos deja dinero sobre la mesa. Los modelos predictivos te permiten actuar antes de que los problemas ocurran.",
+        "deliverables": [
+          "Modelo entrenado, validado y desplegado",
+          "Pipeline de monitoreo y reentrenamiento",
+          "Integración por API o batch con tu stack",
+          "Reporte de evaluación de performance"
+        ],
+        "outcomes": [
+          { "metric": "25%", "label": "Mejora promedio en KPI objetivo" },
+          { "metric": "<200ms", "label": "Latencia de inferencia" },
+          { "metric": "MLOps", "label": "Monitoreo incluido" }
+        ],
+        "timeline": [
+          {
+            "step": "Semana 1-2",
+            "title": "Definir",
+            "description": "Plantear el problema de negocio como tarea de ML."
+          },
+          {
+            "step": "Semana 3",
+            "title": "Construir",
+            "description": "Feature engineering, entrenamiento, validación."
+          },
+          {
+            "step": "Semana 4",
+            "title": "Desplegar",
+            "description": "Despliegue a producción con monitoreo."
+          }
+        ],
+        "testimonial": {
+          "quote": "Su modelo de churn pagó todo el proyecto en el primer mes.",
+          "author": "Priya Shah",
+          "role": "Head of Growth, Loop"
+        },
+        "faq": [
+          {
+            "question": "¿Construyen features con LLMs?",
+            "answer": "Sí — incluyendo RAG, fine-tuning y pipelines de evaluación."
+          },
+          {
+            "question": "¿Cuántos datos necesitamos?",
+            "answer": "Depende del problema — te lo decimos honestamente al definir alcance."
+          }
+        ]
+      },
+      "data-auditing": {
+        "title": "Auditoría de Datos",
+        "shortDescription": "Aseguramiento de calidad y revisiones de cumplimiento para GDPR, HIPAA y SOC 2.",
+        "summary": "Evaluamos la salud de tus datos — completitud, exactitud, linaje y cumplimiento — y te entregamos un plan de remediación.",
+        "overview": "Datos malos cuestan a las empresas un promedio de $12.9M al año. Nuestro servicio de Auditoría de Datos identifica exactamente dónde están tus problemas de calidad de datos, qué tan serios son y qué hacer al respecto — antes de que impacten tus operaciones o cumplimiento.",
+        "forWho": "Empresas preparando cumplimiento, M&A o un proyecto grande de datos.",
+        "problem": "Registros duplicados, campos vacíos, formatos inconsistentes y datos obsoletos corrompen silenciosamente cada reporte y decisión construida sobre ellos.",
+        "deliverables": [
+          "Scorecard de calidad de datos",
+          "Análisis de brechas de cumplimiento",
+          "Roadmap de remediación priorizado",
+          "Resumen ejecutivo"
+        ],
+        "outcomes": [
+          { "metric": "100%", "label": "Documentación lista para auditoría" },
+          {
+            "metric": "60%",
+            "label": "Preparación de cumplimiento más rápida"
+          },
+          { "metric": "Cero", "label": "Hallazgos sorpresa después" }
+        ],
+        "timeline": [
+          {
+            "step": "Semana 1",
+            "title": "Inventario",
+            "description": "Catalogar todas las fuentes y flujos de datos."
+          },
+          {
+            "step": "Semana 2",
+            "title": "Evaluar",
+            "description": "Correr controles de calidad y cumplimiento."
+          },
+          {
+            "step": "Semana 3",
+            "title": "Reportar",
+            "description": "Entregar hallazgos y roadmap priorizado."
+          }
+        ],
+        "testimonial": {
+          "quote": "Pasamos SOC 2 sin problemas gracias al trabajo previo de Shine Tech.",
+          "author": "Aaron Wells",
+          "role": "CISO, Finmark"
+        },
+        "faq": [
+          {
+            "question": "¿Auditan también la configuración cloud?",
+            "answer": "Nos enfocamos en datos, pero nos asociamos con firmas de seguridad para auditorías completas."
+          },
+          {
+            "question": "¿Cuánto toma una auditoría?",
+            "answer": "Entre 2 y 4 semanas según el alcance."
+          }
+        ]
+      },
+      "digital-transformation": {
+        "title": "Transformación Digital",
+        "shortDescription": "Migración de sistemas legacy a arquitecturas cloud-native y escalables.",
+        "summary": "Moderniza tu stack sin romper lo que funciona. Planeamos y ejecutamos transformaciones pragmáticas y por fases.",
+        "overview": "La transformación digital no se trata de reemplazar todo de golpe. Tomamos un enfoque por fases, pragmático, para modernizar tu stack tecnológico — empezando por los cambios de mayor impacto y construyendo hacia una operación completamente integrada y basada en datos.",
+        "forWho": "PyMEs listas para ir más allá de hojas de cálculo y CRMs legacy.",
+        "problem": "Sistemas anticuados no comparten datos, crean silos, ralentizan equipos y hacen el reporting preciso casi imposible.",
+        "deliverables": [
+          "Roadmap de transformación por fases",
+          "Arquitectura cloud y setup de data warehouse",
+          "Capa de integración entre sistemas viejos y nuevos",
+          "Gestión del cambio y capacitación"
+        ],
+        "outcomes": [
+          { "metric": "50%", "label": "Reducción en costos operativos" },
+          { "metric": "3x", "label": "Ciclos de despliegue más rápidos" },
+          { "metric": "Cero", "label": "Downtime durante la migración" }
+        ],
+        "timeline": [
+          {
+            "step": "Semana 1",
+            "title": "Evaluar",
+            "description": "Auditar sistemas actuales, costos y riesgos."
+          },
+          {
+            "step": "Semana 2",
+            "title": "Arquitectar",
+            "description": "Diseñar el stack futuro."
+          },
+          {
+            "step": "Semana 3+",
+            "title": "Migrar",
+            "description": "Rollout por fases con ejecución paralela."
+          }
+        ],
+        "testimonial": {
+          "quote": "Reemplazamos ocho herramientas por una plataforma y bajamos costos 60%.",
+          "author": "Sofía Mendez",
+          "role": "COO, RetailPlus"
+        },
+        "faq": [
+          {
+            "question": "¿Cómo evitan disrupciones?",
+            "answer": "Ejecución paralela, rollouts por fases y testing agresivo."
+          },
+          {
+            "question": "¿Manejan gestión del cambio?",
+            "answer": "Sí — capacitación, documentación y seguimiento de adopción incluidos."
+          }
+        ]
+      },
+      "process-automation": {
+        "title": "Automatización de Procesos",
+        "shortDescription": "Eliminamos tareas repetitivas con RPA robusto y workflows de API a medida.",
+        "summary": "Identificamos los workflows manuales que drenan a tu equipo y los reemplazamos con automatización confiable.",
+        "overview": "Identificamos, diseñamos e implementamos soluciones de automatización que reemplazan procesos manuales que consumen tiempo en tu negocio. Desde reportes automatizados y sincronización de datos hasta workflows inteligentes con triggers y aprobaciones, ayudamos a tu equipo a trabajar de forma más inteligente.",
+        "forWho": "Equipos de operaciones y finanzas atrapados en copy-paste.",
+        "problem": "Los procesos manuales son lentos, propensos a errores y costosos. Cada hora gastada en tareas repetitivas es una hora que no se dedica al crecimiento.",
+        "deliverables": [
+          "Auditoría de procesos y roadmap de automatización",
+          "Automatizaciones construidas y desplegadas (n8n, Zapier, Make o custom)",
+          "Monitoreo y alertas de error",
+          "Entrega al equipo y documentación"
+        ],
+        "outcomes": [
+          { "metric": "20+", "label": "Horas ahorradas por semana" },
+          { "metric": "99%", "label": "Reducción de errores manuales" },
+          { "metric": "<8sem", "label": "Período de payback" }
+        ],
+        "timeline": [
+          {
+            "step": "Semana 1",
+            "title": "Mapear",
+            "description": "Entrevistar equipos, mapear workflows actuales."
+          },
+          {
+            "step": "Semana 2",
+            "title": "Construir",
+            "description": "Desarrollar y testear cada automatización."
+          },
+          {
+            "step": "Semana 3",
+            "title": "Operar",
+            "description": "Desplegar, monitorear e iterar."
+          }
+        ],
+        "testimonial": {
+          "quote": "Nuestro equipo de finanzas recuperó 30 horas por semana. Cambió el juego.",
+          "author": "James O'Brien",
+          "role": "CFO, Tradepoint"
+        },
+        "faq": [
+          {
+            "question": "¿Qué plataformas de automatización usan?",
+            "answer": "Principalmente n8n y Make para workflows visuales, o código custom cuando se necesita."
+          },
+          {
+            "question": "¿Quién mantiene las automatizaciones?",
+            "answer": "Entregamos con documentación; también ofrecemos soporte continuo."
+          }
+        ]
+      }
     }
+  },
+  "contact": {
+    "header": {
+      "title": "Contacta a ShineTechData",
+      "subtitle": "Trabajemos juntos. Escríbenos para discutir tu proyecto, hacer preguntas o solicitar una consultoría personalizada."
+    },
+    "form": {
+      "title": "Envíanos un mensaje",
+      "name": "Nombre completo",
+      "company": "Empresa",
+      "email": "Email corporativo",
+      "phone": "Teléfono (opcional)",
+      "budget": "Presupuesto del proyecto",
+      "budgetOptions": [
+        "Menos de $10k",
+        "$10k – $50k",
+        "$50k – $150k",
+        "$150k+",
+        "Aún no estoy seguro"
+      ],
+      "message": "Cuéntanos sobre tu proyecto",
+      "submit": "Solicitar Consultoría",
+      "success": "Gracias — te contactaremos en 1 día hábil."
+    },
+    "channels": {
+      "title": "Otras formas de contactarnos",
+      "email": "Email",
+      "emailValue": "contact@shinetechdata.com",
+      "phone": "Teléfono",
+      "phoneValue": "829-584-9184",
+      "hours": "Horario de atención",
+      "hoursValue": "Lun–Vie · 9am – 6pm (UTC-4)",
+      "meeting": "100% remoto",
+      "meetingValue": "Reuniones virtuales en todo el mundo"
+    },
+    "faq": {
+      "title": "Preguntas antes de empezar",
+      "items": [
+        {
+          "q": "¿Firman NDAs?",
+          "a": "Sí — firmamos NDAs mutuos antes de cualquier conversación con datos sensibles."
+        },
+        {
+          "q": "¿Qué tan rápido responden?",
+          "a": "Respondemos toda consulta en menos de 1 día hábil."
+        },
+        {
+          "q": "¿Cómo estructuran los precios?",
+          "a": "Ofrecemos proyectos a precio fijo, retainers mensuales y pricing por resultados."
+        },
+        {
+          "q": "¿Dónde está tu equipo?",
+          "a": "Distribuidos por las Américas, con solapamiento horario para clientes en Europa."
+        }
+      ]
+    }
+  },
+  "footer": {
+    "tagline": "Consultoría práctica de datos y AI para empresas listas para crecer más inteligentes.",
+    "services": "Servicios",
+    "company": "Empresa",
+    "legal": "Legal",
+    "links": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "contact": "Contacto",
+      "privacy": "Privacidad",
+      "terms": "Términos"
+    },
+    "rights": "Todos los derechos reservados."
+  },
+  "seo": {
+    "home": {
+      "title": "ShineTechData — Convierte tus datos en decisiones inteligentes",
+      "description": "ShineTechData ayuda a PyMEs a transformar datos crudos en insights claros, procesos automatizados y crecimiento real."
+    },
+    "services": {
+      "title": "Servicios — ShineTechData",
+      "description": "Análisis de datos, Business Intelligence, Machine Learning, Auditoría, Transformación Digital y Automatización de Procesos."
+    },
+    "contact": {
+      "title": "Contacto — ShineTechData",
+      "description": "Trabajemos juntos. Contáctanos para discutir tu proyecto de datos."
+    },
+    "serviceDetail": {
+      "title": "Servicios — ShineTechData",
+      "description": "Servicios especializados de datos para PyMEs: análisis, BI, machine learning y más."
+    }
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe o fue movida.",
+    "backToHome": "Volver al inicio"
   }
 }

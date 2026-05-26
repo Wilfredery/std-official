@@ -37,7 +37,7 @@ export function LanguageSwitcher() {
       {isPending && (
         <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[9px] text-muted-foreground flex items-center gap-0.5">
           <Loader2 className="size-2.5 animate-spin" />
-          <span className="sr-only">{t("switching")}</span>
+          <span className="sr-only">{t("loading")}</span>
         </span>
       )}
       {routing.locales.map((l) => (

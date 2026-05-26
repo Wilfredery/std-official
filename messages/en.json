@@ -3,28 +3,537 @@
     "home": "Home",
     "services": "Services",
     "contact": "Contact",
-    "cta": "Contact Us",
+    "cta": "Free Consultation",
     "language": "Language",
-    "menuOpen": "Open menu"
+    "theme": "Toggle theme",
+    "menuOpen": "Open menu",
+    "loading": "Loading"
   },
-  "footer": {
-    "tagline": "Technology solutions to transform your business",
-    "services": "Services",
-    "company": "Company",
-    "rights": "All rights reserved.",
-    "links": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Use"
+  "common": {
+    "learnMore": "Learn More",
+    "viewDetails": "View Details",
+    "scheduleConsultation": "Schedule a Free Consultation",
+    "requestProposal": "Request Custom Proposal",
+    "bookCall": "Book a Free Consultation",
+    "backToServices": "Back to Services"
+  },
+  "home": {
+    "hero": {
+      "badge": "Powering 50+ data-driven teams",
+      "title": "Transform Your Data into",
+      "titleAccent": "Smart Business Decisions",
+      "subtitleStatic": "Turn raw data into",
+      "subtitleDynamic": "clear insights, automated processes, and real business growth — without hiring an internal team.",
+      "cta_primary": "Schedule a Free Consultation",
+      "cta_secondary": "Learn More"
+    },
+    "problem": {
+      "eyebrow": "The Cost of Fragmented Data",
+      "title": "Drowning in data, starving for insight",
+      "items": [
+        "Siloed departments produce inconsistent KPIs and conflicting reports.",
+        "Manual reporting drains 40% of your team's productive time.",
+        "Decisions made on gut feel instead of hard numbers."
+      ]
+    },
+    "solution": {
+      "eyebrow": "The Shine Solution",
+      "title": "A unified source of truth that works while you sleep",
+      "description": "We automate the pipelines, unify the schemas, and deploy intelligence layers so your team can finally focus on growth — not spreadsheets."
+    },
+    "services": {
+      "eyebrow": "Core Capabilities",
+      "title": "Strategic services for the modern data stack",
+      "subtitle": "Six battle-tested capabilities, delivered with measurable business outcomes."
+    },
+    "benefits": {
+      "eyebrow": "Why Shine Tech",
+      "title": "Measurable impact, not just dashboards",
+      "items": [
+        {
+          "title": "Reduce Costs",
+          "description": "Eliminate waste through data-driven optimization."
+        },
+        {
+          "title": "Increase Productivity",
+          "description": "Automate repetitive reporting and manual workflows."
+        },
+        {
+          "title": "Better Decisions",
+          "description": "Base operations on hard numbers, not guesses."
+        },
+        {
+          "title": "Real-Time Insights",
+          "description": "Dashboards updated the instant your data changes."
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "How It Works",
+      "title": "A roadmap built for fast wins",
+      "steps": [
+        {
+          "title": "Discover",
+          "description": "We map your data flows, goals, and current maturity to find the highest-impact opportunities."
+        },
+        {
+          "title": "Design",
+          "description": "We architect a tailored solution — dashboards, models, or automation — built around your stack."
+        },
+        {
+          "title": "Deliver",
+          "description": "We ship, integrate, and train your team. You see results within weeks, not quarters."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to unlock your data's potential?",
+      "subtitle": "Join growing teams who've transformed their decision-making with ShineTechData.",
+      "button": "Start Your Free Audit"
+    }
+  },
+  "services": {
+    "header": {
+      "eyebrow": "Services",
+      "title": "Practical data services for real business outcomes",
+      "subtitle": "From quick wins to full transformations — we deliver what moves the needle."
+    },
+    "whyUs": {
+      "title": "Why teams choose Shine Tech",
+      "items": [
+        {
+          "title": "Business-first thinking",
+          "description": "We translate technical work into revenue, savings, and time back."
+        },
+        {
+          "title": "Fast implementation",
+          "description": "Weeks, not quarters. We ship working solutions early and iterate."
+        },
+        {
+          "title": "Measurable results",
+          "description": "Every engagement comes with clear KPIs and a tracking dashboard."
+        }
+      ]
+    },
+    "process": {
+      "title": "Our delivery process",
+      "subtitle": "Transparent, structured, and built around your team."
+    },
+    "cta": {
+      "title": "Need a tailored data strategy for your company?"
     }
   },
   "serviceDetail": {
+    "breadcrumb": "Services",
+    "summaryLabel": "Service overview",
+    "forWhoLabel": "Who it's for",
+    "problemLabel": "The problem",
+    "deliverables": "Key Deliverables",
+    "outcomes": "Tangible Outcomes",
+    "timeline": "How We Deliver",
+    "faq": "Frequently Asked Questions",
+    "notFound": "Service not found",
+    "back": "Back to all services",
     "services": {
-      "data-analysis": { "title": "Data Analysis" },
-      "business-intelligence": { "title": "Business Intelligence" },
-      "machine-learning": { "title": "Machine Learning" },
-      "data-auditing": { "title": "Data Auditing" },
-      "digital-transformation": { "title": "Digital Transformation" },
-      "process-automation": { "title": "Process Automation" }
+      "data-analysis": {
+        "title": "Data Analysis",
+        "shortDescription": "Deep-dive diagnostics to uncover hidden operational efficiencies and market trends.",
+        "summary": "Practical data auditing, parsing, and exploratory analysis that surfaces the patterns your business has been missing.",
+        "overview": "Our Data Analysis service goes beyond surface-level reporting. We dig deep into your raw data to uncover hidden patterns, anomalies, and opportunities that your team might be missing. Whether you have structured databases, spreadsheets, or disparate data sources, we turn them into a coherent story backed by statistical rigor.",
+        "forWho": "Teams sitting on data they don't trust — or don't yet know how to use.",
+        "problem": "Most SMBs have data spread across CRMs, ERPs, spreadsheets, and cloud tools — but no way to see the full picture.",
+        "deliverables": [
+          "Full exploratory data analysis report",
+          "Cleaned, documented dataset ready for BI",
+          "Key insights deck for leadership",
+          "Recommended next steps and quick wins"
+        ],
+        "outcomes": [
+          { "metric": "30%", "label": "More productive analyst time" },
+          { "metric": "5x", "label": "Faster time to insight" },
+          { "metric": "100%", "label": "Documented data lineage" }
+        ],
+        "timeline": [
+          {
+            "step": "Week 1",
+            "title": "Scope",
+            "description": "Stakeholder interviews and data inventory."
+          },
+          {
+            "step": "Week 2",
+            "title": "Audit",
+            "description": "Quality checks, profiling, and cleansing."
+          },
+          {
+            "step": "Week 3",
+            "title": "Insight",
+            "description": "Analysis, visualization, and handoff."
+          }
+        ],
+        "testimonial": {
+          "quote": "In three weeks we knew more about our customers than we'd learned in three years.",
+          "author": "Helena Park",
+          "role": "VP Marketing, NorthLine"
+        },
+        "faq": [
+          {
+            "question": "Do you need access to production data?",
+            "answer": "We typically work with anonymized samples or staging environments first."
+          },
+          {
+            "question": "What tools do you use?",
+            "answer": "Python, SQL, and dbt for analysis; Looker / Metabase / Power BI for reporting."
+          }
+        ]
+      },
+      "business-intelligence": {
+        "title": "Business Intelligence",
+        "shortDescription": "Custom real-time dashboards that put key metrics in the hands of decision makers.",
+        "summary": "We design and ship interactive BI dashboards that your team will actually use every day.",
+        "overview": "We design and build BI solutions that turn your data warehouse into a decision-making engine. From executive KPI dashboards to department-level operational reports, we create intuitive visualizations your team will actually use every day.",
+        "forWho": "Leaders tired of waiting on spreadsheets to make decisions.",
+        "problem": "Excel files and static PDFs don't scale. Your team needs live, interactive dashboards that update automatically.",
+        "deliverables": [
+          "Connected dashboards (Metabase, Looker, Power BI, or Tableau)",
+          "Modeled metrics layer with shared definitions",
+          "Role-based access and embedded analytics",
+          "Team training and documentation"
+        ],
+        "outcomes": [
+          { "metric": "10x", "label": "Faster reporting cycles" },
+          { "metric": "90%", "label": "Reduction in ad-hoc requests" },
+          { "metric": "24/7", "label": "Real-time visibility" }
+        ],
+        "timeline": [
+          {
+            "step": "Week 1",
+            "title": "Discovery",
+            "description": "KPI workshop and metric definition."
+          },
+          {
+            "step": "Week 2",
+            "title": "Build",
+            "description": "Modeling, dashboard design, and QA."
+          },
+          {
+            "step": "Week 3",
+            "title": "Launch",
+            "description": "Rollout, training, and iteration."
+          }
+        ],
+        "testimonial": {
+          "quote": "Our weekly board meeting went from a chore to a five-minute review.",
+          "author": "Diego Ruiz",
+          "role": "CEO, Trama Studios"
+        },
+        "faq": [
+          {
+            "question": "Which BI tool do you recommend?",
+            "answer": "We're tool-agnostic — we pick what fits your team and budget."
+          },
+          {
+            "question": "Can you integrate with our warehouse?",
+            "answer": "Yes — Snowflake, BigQuery, Redshift, or Postgres."
+          }
+        ]
+      },
+      "machine-learning": {
+        "title": "Machine Learning",
+        "shortDescription": "Predictive modeling and custom AI integrations to automate complex reasoning.",
+        "summary": "From churn prediction to demand forecasting, we ship ML models that move business metrics.",
+        "overview": "We build custom ML models tailored to your specific business problems — from demand forecasting and churn prediction to anomaly detection and recommendation engines. No off-the-shelf black boxes; every model is explained, tested, and built with your team's understanding in mind.",
+        "forWho": "Teams ready to graduate from descriptive to predictive analytics.",
+        "problem": "Reactive decision-making based on historical reports leaves money on the table. Predictive models let you act before problems arise.",
+        "deliverables": [
+          "Trained, validated, and deployed model",
+          "Monitoring and retraining pipeline",
+          "API or batch integration with your stack",
+          "Performance evaluation report"
+        ],
+        "outcomes": [
+          { "metric": "25%", "label": "Average lift in target KPI" },
+          { "metric": "<200ms", "label": "Inference latency" },
+          { "metric": "MLOps", "label": "Built-in monitoring" }
+        ],
+        "timeline": [
+          {
+            "step": "Week 1-2",
+            "title": "Define",
+            "description": "Frame the business problem as an ML task."
+          },
+          {
+            "step": "Week 3",
+            "title": "Build",
+            "description": "Feature engineering, training, validation."
+          },
+          {
+            "step": "Week 4",
+            "title": "Deploy",
+            "description": "Production deploy with monitoring."
+          }
+        ],
+        "testimonial": {
+          "quote": "Their churn model paid for the entire engagement in the first month.",
+          "author": "Priya Shah",
+          "role": "Head of Growth, Loop"
+        },
+        "faq": [
+          {
+            "question": "Do you build LLM features?",
+            "answer": "Yes — including RAG, fine-tuning, and evaluation pipelines."
+          },
+          {
+            "question": "How much data do we need?",
+            "answer": "It depends on the problem — we'll tell you honestly during scoping."
+          }
+        ]
+      },
+      "data-auditing": {
+        "title": "Data Auditing",
+        "shortDescription": "Quality assurance and compliance reviews for GDPR, HIPAA, and SOC 2.",
+        "summary": "We assess the health of your data — completeness, accuracy, lineage, and compliance — and give you a remediation plan.",
+        "overview": "Bad data costs businesses an average of $12.9M per year. Our Data Auditing service identifies exactly where your data quality issues are, how serious they are, and what to do about them — before they impact your operations or compliance.",
+        "forWho": "Companies preparing for compliance, M&A, or a major data project.",
+        "problem": "Duplicate records, missing fields, inconsistent formats, and stale data silently corrupt every report and decision built on top of them.",
+        "deliverables": [
+          "Data quality scorecard",
+          "Compliance gap analysis",
+          "Prioritized remediation roadmap",
+          "Executive summary deck"
+        ],
+        "outcomes": [
+          { "metric": "100%", "label": "Audit-ready documentation" },
+          { "metric": "60%", "label": "Faster compliance prep" },
+          { "metric": "Zero", "label": "Surprise findings later" }
+        ],
+        "timeline": [
+          {
+            "step": "Week 1",
+            "title": "Inventory",
+            "description": "Catalog all data sources and flows."
+          },
+          {
+            "step": "Week 2",
+            "title": "Assess",
+            "description": "Run quality and compliance checks."
+          },
+          {
+            "step": "Week 3",
+            "title": "Report",
+            "description": "Deliver findings with a prioritized roadmap."
+          }
+        ],
+        "testimonial": {
+          "quote": "We sailed through SOC 2 thanks to the prep work Shine Tech did.",
+          "author": "Aaron Wells",
+          "role": "CISO, Finmark"
+        },
+        "faq": [
+          {
+            "question": "Do you audit our cloud configuration too?",
+            "answer": "We focus on data, but partner with security firms for full infra audits."
+          },
+          {
+            "question": "How long does an audit take?",
+            "answer": "Most audits complete in 2–4 weeks depending on scope."
+          }
+        ]
+      },
+      "digital-transformation": {
+        "title": "Digital Transformation",
+        "shortDescription": "Legacy system migration to cloud-native, scalable microservices architectures.",
+        "summary": "Modernize your tech stack without breaking what's working. We plan and execute pragmatic, phased transformations.",
+        "overview": "Digital transformation isn't about replacing everything at once. We take a phased, pragmatic approach to modernizing your technology stack — starting with the highest-impact changes and building toward a fully integrated, data-driven operation.",
+        "forWho": "SMBs ready to move beyond spreadsheets and legacy CRMs.",
+        "problem": "Outdated systems can't share data, create silos, slow teams down, and make accurate reporting nearly impossible.",
+        "deliverables": [
+          "Phased transformation roadmap",
+          "Cloud architecture and data warehouse setup",
+          "Integration layer between old and new systems",
+          "Change management and training"
+        ],
+        "outcomes": [
+          { "metric": "50%", "label": "Reduction in operating costs" },
+          { "metric": "3x", "label": "Faster deployment cycles" },
+          { "metric": "Zero", "label": "Downtime during migration" }
+        ],
+        "timeline": [
+          {
+            "step": "Week 1",
+            "title": "Assess",
+            "description": "Audit current systems, costs, and risks."
+          },
+          {
+            "step": "Week 2",
+            "title": "Architect",
+            "description": "Design the future-state stack."
+          },
+          {
+            "step": "Week 3+",
+            "title": "Migrate",
+            "description": "Phased rollout with parallel running."
+          }
+        ],
+        "testimonial": {
+          "quote": "We replaced eight tools with one platform and cut costs by 60%.",
+          "author": "Sofía Mendez",
+          "role": "COO, RetailPlus"
+        },
+        "faq": [
+          {
+            "question": "How do you avoid disruption?",
+            "answer": "Parallel running, phased rollouts, and aggressive testing."
+          },
+          {
+            "question": "Do you handle change management?",
+            "answer": "Yes — training, documentation, and adoption tracking are included."
+          }
+        ]
+      },
+      "process-automation": {
+        "title": "Process Automation",
+        "shortDescription": "Eliminating repetitive tasks with robust RPA and custom API workflows.",
+        "summary": "We identify the manual workflows draining your team and replace them with reliable automation.",
+        "overview": "We identify, design, and implement automation solutions that replace time-consuming manual processes across your business. From automated reporting and data sync to intelligent workflow triggers and approvals, we help your team work smarter.",
+        "forWho": "Operations and finance teams stuck in copy-paste hell.",
+        "problem": "Manual processes are slow, error-prone, and expensive. Every hour spent on repetitive tasks is an hour not spent on growth.",
+        "deliverables": [
+          "Process audit and automation roadmap",
+          "Built and deployed automations (n8n, Zapier, Make, or custom)",
+          "Monitoring and error alerting",
+          "Team handoff and documentation"
+        ],
+        "outcomes": [
+          { "metric": "20+", "label": "Hours saved per week" },
+          { "metric": "99%", "label": "Reduction in manual errors" },
+          { "metric": "<8wk", "label": "Payback period" }
+        ],
+        "timeline": [
+          {
+            "step": "Week 1",
+            "title": "Map",
+            "description": "Interview teams, map current workflows."
+          },
+          {
+            "step": "Week 2",
+            "title": "Build",
+            "description": "Develop and test each automation."
+          },
+          {
+            "step": "Week 3",
+            "title": "Operate",
+            "description": "Deploy, monitor, and iterate."
+          }
+        ],
+        "testimonial": {
+          "quote": "Our finance team got 30 hours a week back. Game changer.",
+          "author": "James O'Brien",
+          "role": "CFO, Tradepoint"
+        },
+        "faq": [
+          {
+            "question": "Which automation platforms do you use?",
+            "answer": "Mostly n8n and Make for visual workflows, or custom code when needed."
+          },
+          {
+            "question": "Who maintains the automations?",
+            "answer": "We hand off with docs; we can also offer ongoing support."
+          }
+        ]
+      }
     }
+  },
+  "contact": {
+    "header": {
+      "title": "Contact ShineTechData",
+      "subtitle": "Let's partner up. Reach out to discuss your project, ask questions, or request a custom consultation."
+    },
+    "form": {
+      "title": "Send us a message",
+      "name": "Full name",
+      "company": "Company name",
+      "email": "Business email",
+      "phone": "Phone (optional)",
+      "budget": "Project budget",
+      "budgetOptions": [
+        "Under $10k",
+        "$10k – $50k",
+        "$50k – $150k",
+        "$150k+",
+        "Not sure yet"
+      ],
+      "message": "Tell us about your project",
+      "submit": "Request Consultation",
+      "success": "Thanks — we'll be in touch within 1 business day."
+    },
+    "channels": {
+      "title": "Other ways to reach us",
+      "email": "Email",
+      "emailValue": "contact@shinetechdata.com",
+      "phone": "Phone",
+      "phoneValue": "829-584-9184",
+      "hours": "Support hours",
+      "hoursValue": "Mon–Fri · 9am – 6pm (UTC-4)",
+      "meeting": "Remote-friendly",
+      "meetingValue": "Virtual meetings worldwide"
+    },
+    "faq": {
+      "title": "Pre-sales questions",
+      "items": [
+        {
+          "q": "Do you sign NDAs?",
+          "a": "Yes — we sign mutual NDAs before any project discussion involving sensitive data."
+        },
+        {
+          "q": "How quickly do you respond?",
+          "a": "We reply to all inbound consultations within 1 business day."
+        },
+        {
+          "q": "How is pricing structured?",
+          "a": "We offer fixed-scope projects, monthly retainers, and outcome-based pricing."
+        },
+        {
+          "q": "Where is your team located?",
+          "a": "Distributed across the Americas with timezone overlap for EU clients."
+        }
+      ]
+    }
+  },
+  "footer": {
+    "tagline": "Practical data and AI consulting for businesses ready to grow smarter.",
+    "services": "Services",
+    "company": "Company",
+    "legal": "Legal",
+    "links": {
+      "home": "Home",
+      "services": "Services",
+      "contact": "Contact",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "rights": "All rights reserved."
+  },
+  "seo": {
+    "home": {
+      "title": "ShineTechData — Turn your data into smarter decisions",
+      "description": "ShineTechData helps SMBs turn raw data into clear insights, automated processes, and real business growth."
+    },
+    "services": {
+      "title": "Services — ShineTechData",
+      "description": "Data Analysis, Business Intelligence, Machine Learning, Auditing, Digital Transformation, and Process Automation."
+    },
+    "contact": {
+      "title": "Contact — ShineTechData",
+      "description": "Let's work together. Reach out to discuss your data project."
+    },
+    "serviceDetail": {
+      "title": "Services — ShineTechData",
+      "description": "Specialized data services for SMBs: analysis, BI, machine learning, and more."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has moved.",
+    "backToHome": "Back to home"
   }
 }
