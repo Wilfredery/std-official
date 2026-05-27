@@ -2,9 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { HeroSection } from "@/components/home/hero/HeroSection";
 import { ProblemSection } from "@/components/home/problem/ProblemSection";
 import { SolutionSection } from "@/components/home/solution/SolutionSection";
-import { ServicesSection } from "@/components/home/services/ServicesSection";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { BenefitsSection } from "@/components/home/benefits/BenefitsSection";
 import { ProcessSection } from "@/components/home/Process/ProcessSection";
 import { CtaSection } from "@/components/home/cta/CtaSection";
 
@@ -28,14 +26,6 @@ export default async function HomePage({
 
       <ScrollReveal direction="right">
         <SolutionSection locale={locale} />
-      </ScrollReveal>
-
-      <ScrollReveal direction="down">
-        <ServicesSection locale={locale} />
-      </ScrollReveal>
-
-      <ScrollReveal direction="scale">
-        <BenefitsSection locale={locale} />
       </ScrollReveal>
 
       <ScrollReveal direction="right">
