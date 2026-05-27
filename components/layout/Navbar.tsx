@@ -71,7 +71,7 @@ export function Navbar() {
               </div>
             )}
             <span className="font-bold text-lg tracking-tight">
-              <span className="text-primary">Shine</span>TechData
+              <span className="gradient-text">Shine</span>TechData
             </span>
           </Link>
 

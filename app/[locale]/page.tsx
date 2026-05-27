@@ -28,7 +28,7 @@ export default async function HomePage({
         <SolutionSection locale={locale} />
       </ScrollReveal>
 
-      <ScrollReveal direction="right">
+      <ScrollReveal direction="down">
         <ProcessSection locale={locale} />
       </ScrollReveal>
 

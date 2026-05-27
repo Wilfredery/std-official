@@ -449,8 +449,11 @@
   },
   "contact": {
     "header": {
-      "title": "Contact ShineTechData",
-      "subtitle": "Let's partner up. Reach out to discuss your project, ask questions, or request a custom consultation."
+      "eyebrow": "Contact",
+      "title": "Let's build something together with",
+      "titleAccent": "ShineTechData",
+      "subtitleStatic": "Let's partner up. Reach out to discuss your",
+      "subtitleDynamic": "project, ask questions, or request a custom consultation."
     },
     "form": {
       "title": "Send us a message",

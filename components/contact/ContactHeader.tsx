@@ -1,0 +1,29 @@
+import { getTranslations } from "next-intl/server";
+import { SubtitleTyping } from "../home/hero/SubtitleTyping";
+
+export async function ContactHeader({ locale }: { locale: string }) {
+  const t = await getTranslations("contact.header");
+
+  return (
+    <section className="relative overflow-hidden pt-15 pb-6">
+      <div className="absolute inset-0 hero-glow -z-10" />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl text-center">
+          <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+            {t("eyebrow")}
+          </span>
+          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            {t("title")}
+            <span className="gradient-text">{t("titleAccent")}</span>
+          </h1>
+
+          <SubtitleTyping
+            key={t("subtitleDynamic")}
+            staticText={t("subtitleStatic")}
+            dynamicText={t("subtitleDynamic")}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -452,11 +452,11 @@
   },
   "contact": {
     "header": {
-      "eyebrow": "Servicios",
-      "title": "Servicios de datos prácticos para",
-      "titleAccent": "resultados reales de negocio",
-      "subtitleStatic": "Desde victorias rápidas hasta transformaciones completas —",
-      "subtitleDynamic": "entregamos lo que mueve la aguja."
+      "eyebrow": "Contacto",
+      "title": "Construyamos algo juntos con",
+      "titleAccent": "ShineTechData",
+      "subtitleStatic": "Contactanos para hablar sobre tu",
+      "subtitleDynamic": "proyecto, preguntas o solicitar una consulta personalizada."
     },
     "form": {
       "title": "Envíanos un mensaje",
