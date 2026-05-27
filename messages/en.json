@@ -47,7 +47,7 @@
       "subtitle": "Six battle-tested capabilities, delivered with measurable business outcomes."
     },
     "benefits": {
-      "eyebrow": "Why Shine Tech",
+      "eyebrow": "Why ShineTechData?",
       "title": "Measurable impact, not just dashboards",
       "items": [
         {
@@ -95,11 +95,13 @@
   "services": {
     "header": {
       "eyebrow": "Services",
-      "title": "Practical data services for real business outcomes",
-      "subtitle": "From quick wins to full transformations — we deliver what moves the needle."
+      "title": "Practical data services for",
+      "titleAccent": "real business outcomes",
+      "subtitleStatic": "From quick wins to full transformations —",
+      "subtitleDynamic": "we deliver what moves the needle."
     },
     "whyUs": {
-      "title": "Why teams choose Shine Tech",
+      "title": "Why teams choose ShineTechData?",
       "items": [
         {
           "title": "Business-first thinking",
@@ -120,7 +122,9 @@
       "subtitle": "Transparent, structured, and built around your team."
     },
     "cta": {
-      "title": "Need a tailored data strategy for your company?"
+      "title": "Need a tailored data strategy for your company?",
+      "subtitle": "Let's build a roadmap that turns your data into your competitive advantage.",
+      "button": "Schedule a Free Consultation"
     }
   },
   "serviceDetail": {
@@ -324,7 +328,7 @@
           }
         ],
         "testimonial": {
-          "quote": "We sailed through SOC 2 thanks to the prep work Shine Tech did.",
+          "quote": "We sailed through SOC 2 thanks to the prep work ShineTechData did.",
           "author": "Aaron Wells",
           "role": "CISO, Finmark"
         },

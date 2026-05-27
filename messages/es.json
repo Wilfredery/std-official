@@ -47,7 +47,7 @@
       "subtitle": "Seis capacidades probadas, entregadas con resultados medibles."
     },
     "benefits": {
-      "eyebrow": "Por Qué Shine Tech",
+      "eyebrow": "¿Por Qué ShineTechData?",
       "title": "Impacto medible, no solo dashboards",
       "items": [
         {
@@ -95,11 +95,13 @@
   "services": {
     "header": {
       "eyebrow": "Servicios",
-      "title": "Servicios de datos prácticos con resultados reales",
-      "subtitle": "Desde victorias rápidas hasta transformaciones completas — entregamos lo que mueve la aguja."
+      "title": "Servicios de datos prácticos para",
+      "titleAccent": "resultados reales de negocio",
+      "subtitleStatic": "Desde victorias rápidas hasta transformaciones completas —",
+      "subtitleDynamic": "entregamos lo que mueve la aguja."
     },
     "whyUs": {
-      "title": "Por qué los equipos eligen Shine Tech",
+      "title": "¿Por qué los equipos eligen ShineTechData?",
       "items": [
         {
           "title": "Visión de negocio primero",
@@ -120,7 +122,9 @@
       "subtitle": "Transparente, estructurado y centrado en tu equipo."
     },
     "cta": {
-      "title": "¿Necesitas una estrategia de datos a medida?"
+      "title": "¿Necesitas una estrategia de datos a medida?",
+      "subtitle": "Let's build a roadmap that turns your data into your competitive advantage.",
+      "button": "Agendar Consultoría Gratis"
     }
   },
   "serviceDetail": {
@@ -327,7 +331,7 @@
           }
         ],
         "testimonial": {
-          "quote": "Pasamos SOC 2 sin problemas gracias al trabajo previo de Shine Tech.",
+          "quote": "Pasamos SOC 2 sin problemas gracias al trabajo previo de ShineTechData.",
           "author": "Aaron Wells",
           "role": "CISO, Finmark"
         },
@@ -448,8 +452,11 @@
   },
   "contact": {
     "header": {
-      "title": "Contacta a ShineTechData",
-      "subtitle": "Trabajemos juntos. Escríbenos para discutir tu proyecto, hacer preguntas o solicitar una consultoría personalizada."
+      "eyebrow": "Servicios",
+      "title": "Servicios de datos prácticos para",
+      "titleAccent": "resultados reales de negocio",
+      "subtitleStatic": "Desde victorias rápidas hasta transformaciones completas —",
+      "subtitleDynamic": "entregamos lo que mueve la aguja."
     },
     "form": {
       "title": "Envíanos un mensaje",
