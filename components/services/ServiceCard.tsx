@@ -11,6 +11,7 @@ interface ServiceCardProps {
   index: number;
   slug: string;
   accent: "primary" | "accent";
+  fixedHeight?: boolean;
 }
 
 export function ServiceCard({
@@ -20,6 +21,7 @@ export function ServiceCard({
   index,
   slug,
   accent,
+  fixedHeight = true,
 }: ServiceCardProps) {
   const service = services.find((s) => s.slug === slug);
   if (!service) return null;
@@ -33,8 +35,8 @@ export function ServiceCard({
   return (
     <Link
       href={`/services/${slug}` as `/services/${string}`}
-      className="group gradient-border-card hover-glow flex flex-col p-6 rounded-2xl transition-all
-        duration-300 animate-[fadeInUp_0.6s_ease-out_forwards] h-60"
+      className={`group gradient-border-card hover-glow flex flex-col p-6 rounded-2xl transition-all
+        duration-300 animate-[fadeInUp_0.6s_ease-out_forwards] ${fixedHeight ? "h-60" : ""}`}
       style={{ animationDelay: `${index * 0.05}s` }}
     >
       <div

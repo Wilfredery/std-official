@@ -1,6 +1,10 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen, createMockTranslator } from "@/lib/__tests__/test-utils";
-import { BenefitsSection } from "@/components/home/benefits/BenefitsSection";
+import {
+  render,
+  screen,
+  createMockTranslator,
+} from "@/lib/__tests__/test-utils";
+import { BenefitsSection } from "@/components/services/benefits/BenefitsSection";
 import enMessages from "@/messages/en.json";
 
 vi.mock("next-intl/server", () => ({
@@ -13,13 +17,17 @@ describe("BenefitsSection", () => {
   it("renders eyebrow text", async () => {
     const jsx = await BenefitsSection({ locale: "en" });
     render(jsx);
-    expect(screen.getByText(enMessages.home.benefits.eyebrow)).toBeInTheDocument();
+    expect(
+      screen.getByText(enMessages.home.benefits.eyebrow),
+    ).toBeInTheDocument();
   });
 
   it("renders title text", async () => {
     const jsx = await BenefitsSection({ locale: "en" });
     render(jsx);
-    expect(screen.getByText(enMessages.home.benefits.title)).toBeInTheDocument();
+    expect(
+      screen.getByText(enMessages.home.benefits.title),
+    ).toBeInTheDocument();
   });
 
   it("renders exactly 4 benefit cards", async () => {
