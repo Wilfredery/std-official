@@ -95,8 +95,10 @@
   "services": {
     "header": {
       "eyebrow": "Servicios",
-      "title": "Servicios de datos prácticos con resultados reales",
-      "subtitle": "Desde victorias rápidas hasta transformaciones completas — entregamos lo que mueve la aguja."
+      "title": "Servicios de datos prácticos para",
+      "titleAccent": "resultados reales de negocio",
+      "subtitleStatic": "Desde victorias rápidas hasta transformaciones completas —",
+      "subtitleDynamic": "entregamos lo que mueve la aguja."
     },
     "whyUs": {
       "title": "Por qué los equipos eligen Shine Tech",
@@ -448,8 +450,11 @@
   },
   "contact": {
     "header": {
-      "title": "Contacta a ShineTechData",
-      "subtitle": "Trabajemos juntos. Escríbenos para discutir tu proyecto, hacer preguntas o solicitar una consultoría personalizada."
+      "eyebrow": "Servicios",
+      "title": "Servicios de datos prácticos para",
+      "titleAccent": "resultados reales de negocio",
+      "subtitleStatic": "Desde victorias rápidas hasta transformaciones completas —",
+      "subtitleDynamic": "entregamos lo que mueve la aguja."
     },
     "form": {
       "title": "Envíanos un mensaje",

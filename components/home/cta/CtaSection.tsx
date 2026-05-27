@@ -5,7 +5,7 @@ export async function CtaSection({ locale }: { locale: string }) {
   const t = await getTranslations("home.cta");
 
   return (
-    <section className="py-16">
+    <section className="pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className="relative rounded-2xl overflow-hidden gradient-border-card p-8

@@ -93,10 +93,12 @@
     }
   },
   "services": {
-    "header": {
+"header": {
       "eyebrow": "Services",
-      "title": "Practical data services for real business outcomes",
-      "subtitle": "From quick wins to full transformations — we deliver what moves the needle."
+      "title": "Practical data services for",
+      "titleAccent": "real business outcomes",
+      "subtitleStatic": "From quick wins to full transformations —",
+      "subtitleDynamic": "we deliver what moves the needle."
     },
     "whyUs": {
       "title": "Why teams choose Shine Tech",
