@@ -477,15 +477,23 @@
       "success": "Gracias — te contactaremos en 1 día hábil."
     },
     "channels": {
-      "title": "Otras formas de contactarnos",
-      "email": "Email",
+      "title": "Otras formas de contactar a ",
+      "titleAccent": "ShineTechData",
+      "emailAddress": "Email",
       "emailValue": "contact@shinetechdata.com",
       "phone": "Teléfono",
-      "phoneValue": "829-584-9184",
+      "phoneValue": "+1829-584-9184",
       "hours": "Horario de atención",
       "hoursValue": "Lun–Vie · 9am – 6pm (UTC-4)",
       "meeting": "100% remoto",
-      "meetingValue": "Reuniones virtuales en todo el mundo"
+      "meetingValue": "Reuniones virtuales en todo el mundo",
+      "whatsapp": "Chatear por WhatsApp",
+      "whatsappAria": "Contactanos por WhatsApp",
+      "number": "18295849184",
+      "message": "Hola, estoy interesado en sus servicios de ...",
+      "email": "contact@shinetechdata.com",
+      "subject": "Consulta",
+      "body": "Hola, quiero más información"
     },
     "faq": {
       "title": "Preguntas antes de empezar",

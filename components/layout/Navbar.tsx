@@ -34,7 +34,7 @@ export function Navbar() {
 
   const logoSrc =
     mounted && resolvedTheme === "dark"
-      ? "/images/isotipo/isotipo-dark.webp"
+      ? "/images/decorations/composicion-visual.webp"
       : "/images/isotipo/isotipo-light.webp";
 
   const [prevPathname, setPrevPathname] = useState(pathname);

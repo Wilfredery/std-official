@@ -1,6 +1,7 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { setRequestLocale } from "next-intl/server";
 import { ContactHeader } from "@/components/contact/ContactHeader";
+import { ContactChannels } from "@/components/contact/Channels/ContactChannels";
 
 export default async function HomePage({
   params,
@@ -14,6 +15,10 @@ export default async function HomePage({
     <>
       <ScrollReveal direction="up">
         <ContactHeader locale={locale} />
+      </ScrollReveal>
+
+      <ScrollReveal direction="scale">
+        <ContactChannels />
       </ScrollReveal>
     </>
   );
