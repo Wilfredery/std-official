@@ -3,6 +3,7 @@ import { ServicesHeader } from "@/components/services/ServicesHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ServicesSection } from "@/components/services/ServicesSection";
 import { BenefitsSection } from "@/components/services/benefits/BenefitsSection";
+import { CtaSection } from "@/components/services/cta/CtaSection";
 
 export default async function ServicesPage({
   params,
@@ -23,6 +24,10 @@ export default async function ServicesPage({
 
       <ScrollReveal direction="scale">
         <BenefitsSection locale={locale} />
+      </ScrollReveal>
+
+      <ScrollReveal direction="down">
+        <CtaSection locale={locale} />
       </ScrollReveal>
     </>
   );

@@ -122,7 +122,9 @@
       "subtitle": "Transparent, structured, and built around your team."
     },
     "cta": {
-      "title": "Need a tailored data strategy for your company?"
+      "title": "Need a tailored data strategy for your company?",
+      "subtitle": "Let's build a roadmap that turns your data into your competitive advantage.",
+      "button": "Schedule a Free Consultation"
     }
   },
   "serviceDetail": {
