@@ -34,7 +34,7 @@ export function Navbar() {
 
   const logoSrc =
     mounted && resolvedTheme === "dark"
-      ? "/images/isotipo/isotipo-dark.webp"
+      ? "/images/decorations/composicion-visual.webp"
       : "/images/isotipo/isotipo-light.webp";
 
   const [prevPathname, setPrevPathname] = useState(pathname);
@@ -71,7 +71,7 @@ export function Navbar() {
               </div>
             )}
             <span className="font-bold text-lg tracking-tight">
-              <span className="text-primary">Shine</span>TechData
+              <span className="gradient-text">Shine</span>TechData
             </span>
           </Link>
 

@@ -24,8 +24,8 @@ export function Footer() {
 
   const footerLogoSrc =
     mounted && resolvedTheme === "dark"
-      ? "/images/logo/logo-horizontal-dark.webp"
-      : "/images/logo/logo-horizontal-light.webp";
+      ? "/images/decorations/composicion-visual.webp"
+      : "/images/isotipo/isotipo-light.webp";
 
   return (
     <footer className="border-t border-border mt-24">
@@ -50,7 +50,7 @@ export function Footer() {
                 </div>
               )}
               <span className="font-bold text-lg tracking-tight">
-                <span className="text-primary">Shine</span>
+                <span className="gradient-text">Shine</span>
                 TechData
               </span>
             </Link>

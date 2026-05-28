@@ -449,8 +449,11 @@
   },
   "contact": {
     "header": {
-      "title": "Contact ShineTechData",
-      "subtitle": "Let's partner up. Reach out to discuss your project, ask questions, or request a custom consultation."
+      "eyebrow": "Contact",
+      "title": "Let's build something with ",
+      "titleAccent": "ShineTechData",
+      "subtitleStatic": "Let's partner up. Reach out to discuss your",
+      "subtitleDynamic": "project, ask questions, or request a custom consultation."
     },
     "form": {
       "title": "Send us a message",
@@ -471,15 +474,23 @@
       "success": "Thanks — we'll be in touch within 1 business day."
     },
     "channels": {
-      "title": "Other ways to reach us",
-      "email": "Email",
+      "title": "Other ways to reach ",
+      "titleAccent": "ShineTechData",
+      "emailAddress": "Email",
       "emailValue": "contact@shinetechdata.com",
       "phone": "Phone",
-      "phoneValue": "829-584-9184",
+      "phoneValue": "+1829-584-9184",
       "hours": "Support hours",
       "hoursValue": "Mon–Fri · 9am – 6pm (UTC-4)",
       "meeting": "Remote-friendly",
-      "meetingValue": "Virtual meetings worldwide"
+      "meetingValue": "Virtual meetings worldwide",
+      "whatsapp": "Chat on WhatsApp",
+      "whatsappAria": "Contact us on WhatsApp",
+      "number": "18295849184",
+      "message": "Hi, I'm interested in your ...",
+      "email": "contact@shinetechdata.com",
+      "subject": "Inquiry",
+      "body": "Hello, I would like more information"
     },
     "faq": {
       "title": "Pre-sales questions",

@@ -452,11 +452,11 @@
   },
   "contact": {
     "header": {
-      "eyebrow": "Servicios",
-      "title": "Servicios de datos prácticos para",
-      "titleAccent": "resultados reales de negocio",
-      "subtitleStatic": "Desde victorias rápidas hasta transformaciones completas —",
-      "subtitleDynamic": "entregamos lo que mueve la aguja."
+      "eyebrow": "Contacto",
+      "title": "Construyamos juntos con ",
+      "titleAccent": "ShineTechData",
+      "subtitleStatic": "Contactanos para hablar sobre tu",
+      "subtitleDynamic": "proyecto, preguntas o solicitar una consulta personalizada."
     },
     "form": {
       "title": "Envíanos un mensaje",
@@ -477,15 +477,23 @@
       "success": "Gracias — te contactaremos en 1 día hábil."
     },
     "channels": {
-      "title": "Otras formas de contactarnos",
-      "email": "Email",
+      "title": "Otras formas de contactar a ",
+      "titleAccent": "ShineTechData",
+      "emailAddress": "Email",
       "emailValue": "contact@shinetechdata.com",
       "phone": "Teléfono",
-      "phoneValue": "829-584-9184",
+      "phoneValue": "+1829-584-9184",
       "hours": "Horario de atención",
       "hoursValue": "Lun–Vie · 9am – 6pm (UTC-4)",
       "meeting": "100% remoto",
-      "meetingValue": "Reuniones virtuales en todo el mundo"
+      "meetingValue": "Reuniones virtuales en todo el mundo",
+      "whatsapp": "Chatear por WhatsApp",
+      "whatsappAria": "Contactanos por WhatsApp",
+      "number": "18295849184",
+      "message": "Hola, estoy interesado en sus servicios de ...",
+      "email": "contact@shinetechdata.com",
+      "subject": "Consulta",
+      "body": "Hola, quiero más información"
     },
     "faq": {
       "title": "Preguntas antes de empezar",

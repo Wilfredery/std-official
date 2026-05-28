@@ -1,6 +1,10 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen, createMockTranslator } from "@/lib/__tests__/test-utils";
-import { ProcessSection } from "@/components/home/process/ProcessSection";
+import {
+  render,
+  screen,
+  createMockTranslator,
+} from "@/lib/__tests__/test-utils";
+import { ProcessSection } from "@/components/home/Process/ProcessSection";
 import enMessages from "@/messages/en.json";
 
 vi.mock("next-intl/server", () => ({
@@ -13,7 +17,9 @@ describe("ProcessSection", () => {
   it("renders eyebrow text", async () => {
     const jsx = await ProcessSection({ locale: "en" });
     render(jsx);
-    expect(screen.getByText(enMessages.home.process.eyebrow)).toBeInTheDocument();
+    expect(
+      screen.getByText(enMessages.home.process.eyebrow),
+    ).toBeInTheDocument();
   });
 
   it("renders title text", async () => {
