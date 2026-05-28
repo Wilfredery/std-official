@@ -2,6 +2,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { setRequestLocale } from "next-intl/server";
 import { ContactHeader } from "@/components/contact/ContactHeader";
 import { ContactChannels } from "@/components/contact/Channels/ContactChannels";
+import { ContactFaq } from "@/components/contact/Faq/FaqSection";
 
 export default async function HomePage({
   params,
@@ -19,6 +20,10 @@ export default async function HomePage({
 
       <ScrollReveal direction="scale">
         <ContactChannels />
+      </ScrollReveal>
+
+      <ScrollReveal direction="left">
+        <ContactFaq />
       </ScrollReveal>
     </>
   );
