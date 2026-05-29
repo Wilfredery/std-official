@@ -141,6 +141,8 @@
     "services": {
       "data-analysis": {
         "title": "Data Analysis",
+        "subtitleStatic": "We deliver",
+        "subtitleDynamic": "deep-dive diagnostics that uncover hidden opportunities.",
         "shortDescription": "Deep-dive diagnostics to uncover hidden operational efficiencies and market trends.",
         "summary": "Practical data auditing, parsing, and exploratory analysis that surfaces the patterns your business has been missing.",
         "overview": "Our Data Analysis service goes beyond surface-level reporting. We dig deep into your raw data to uncover hidden patterns, anomalies, and opportunities that your team might be missing. Whether you have structured databases, spreadsheets, or disparate data sources, we turn them into a coherent story backed by statistical rigor.",
@@ -192,6 +194,8 @@
       },
       "business-intelligence": {
         "title": "Business Intelligence",
+        "subtitleStatic": "We design",
+        "subtitleDynamic": "real-time dashboards your team will actually use.",
         "shortDescription": "Custom real-time dashboards that put key metrics in the hands of decision makers.",
         "summary": "We design and ship interactive BI dashboards that your team will actually use every day.",
         "overview": "We design and build BI solutions that turn your data warehouse into a decision-making engine. From executive KPI dashboards to department-level operational reports, we create intuitive visualizations your team will actually use every day.",
@@ -243,6 +247,8 @@
       },
       "machine-learning": {
         "title": "Machine Learning",
+        "subtitleStatic": "We build",
+        "subtitleDynamic": "predictive models that move real business metrics.",
         "shortDescription": "Predictive modeling and custom AI integrations to automate complex reasoning.",
         "summary": "From churn prediction to demand forecasting, we ship ML models that move business metrics.",
         "overview": "We build custom ML models tailored to your specific business problems — from demand forecasting and churn prediction to anomaly detection and recommendation engines. No off-the-shelf black boxes; every model is explained, tested, and built with your team's understanding in mind.",
@@ -294,6 +300,8 @@
       },
       "data-auditing": {
         "title": "Data Auditing",
+        "subtitleStatic": "We uncover",
+        "subtitleDynamic": "data quality issues before they cost you millions.",
         "shortDescription": "Quality assurance and compliance reviews for GDPR, HIPAA, and SOC 2.",
         "summary": "We assess the health of your data — completeness, accuracy, lineage, and compliance — and give you a remediation plan.",
         "overview": "Bad data costs businesses an average of $12.9M per year. Our Data Auditing service identifies exactly where your data quality issues are, how serious they are, and what to do about them — before they impact your operations or compliance.",
@@ -345,6 +353,8 @@
       },
       "digital-transformation": {
         "title": "Digital Transformation",
+        "subtitleStatic": "We modernize",
+        "subtitleDynamic": "your tech stack without breaking what's working.",
         "shortDescription": "Legacy system migration to cloud-native, scalable microservices architectures.",
         "summary": "Modernize your tech stack without breaking what's working. We plan and execute pragmatic, phased transformations.",
         "overview": "Digital transformation isn't about replacing everything at once. We take a phased, pragmatic approach to modernizing your technology stack — starting with the highest-impact changes and building toward a fully integrated, data-driven operation.",
@@ -396,6 +406,8 @@
       },
       "process-automation": {
         "title": "Process Automation",
+        "subtitleStatic": "We replace",
+        "subtitleDynamic": "manual workflows with reliable, scalable automation.",
         "shortDescription": "Eliminating repetitive tasks with robust RPA and custom API workflows.",
         "summary": "We identify the manual workflows draining your team and replace them with reliable automation.",
         "overview": "We identify, design, and implement automation solutions that replace time-consuming manual processes across your business. From automated reporting and data sync to intelligent workflow triggers and approvals, we help your team work smarter.",

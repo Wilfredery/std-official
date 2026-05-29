@@ -141,6 +141,8 @@
     "services": {
       "data-analysis": {
         "title": "Análisis de Datos",
+        "subtitleStatic": "Entregamos",
+        "subtitleDynamic": "diagnósticos profundos que revelan oportunidades ocultas.",
         "shortDescription": "Diagnósticos profundos para descubrir eficiencias ocultas y tendencias de mercado.",
         "summary": "Auditoría, parsing y análisis exploratorio prácticos que revelan los patrones que tu negocio ha estado perdiendo.",
         "overview": "Nuestro servicio de Análisis de Datos va más allá del reporting superficial. Nos sumergimos en tus datos crudos para descubrir patrones ocultos, anomalías y oportunidades que tu equipo podría estar perdiendo. Ya sea que tengas bases de datos estructuradas, hojas de cálculo o fuentes de datos diversas, las convertimos en una historia coherente respaldada por rigor estadístico.",
@@ -192,6 +194,8 @@
       },
       "business-intelligence": {
         "title": "Business Intelligence",
+        "subtitleStatic": "Diseñamos",
+        "subtitleDynamic": "dashboards en tiempo real que tu equipo usará.",
         "shortDescription": "Dashboards en tiempo real a medida que ponen las métricas clave en manos de quien decide.",
         "summary": "Diseñamos y entregamos dashboards interactivos que tu equipo realmente usará todos los días.",
         "overview": "Diseñamos y construimos soluciones de BI que convierten tu data warehouse en un motor de toma de decisiones. Desde dashboards de KPIs ejecutivos hasta reportes operativos departamentales, creamos visualizaciones intuitivas que tu equipo realmente usará cada día.",
@@ -243,6 +247,8 @@
       },
       "machine-learning": {
         "title": "Machine Learning",
+        "subtitleStatic": "Construimos",
+        "subtitleDynamic": "modelos predictivos que mueven métricas reales.",
         "shortDescription": "Modelos predictivos e integraciones de AI a medida para automatizar razonamiento complejo.",
         "summary": "Desde predicción de churn hasta forecast de demanda, entregamos modelos que mueven métricas de negocio.",
         "overview": "Construimos modelos de ML a medida, adaptados a tus problemas de negocio específicos — desde predicción de demanda y churn hasta detección de anomalías y motores de recomendación. Sin cajas negras genéricas; cada modelo es explicado, testeado y construido para que tu equipo lo entienda.",
@@ -294,6 +300,8 @@
       },
       "data-auditing": {
         "title": "Auditoría de Datos",
+        "subtitleStatic": "Descubrimos",
+        "subtitleDynamic": "problemas de calidad de datos antes de que cuesten millones.",
         "shortDescription": "Aseguramiento de calidad y revisiones de cumplimiento para GDPR, HIPAA y SOC 2.",
         "summary": "Evaluamos la salud de tus datos — completitud, exactitud, linaje y cumplimiento — y te entregamos un plan de remediación.",
         "overview": "Datos malos cuestan a las empresas un promedio de $12.9M al año. Nuestro servicio de Auditoría de Datos identifica exactamente dónde están tus problemas de calidad de datos, qué tan serios son y qué hacer al respecto — antes de que impacten tus operaciones o cumplimiento.",
@@ -348,6 +356,8 @@
       },
       "digital-transformation": {
         "title": "Transformación Digital",
+        "subtitleStatic": "Modernizamos",
+        "subtitleDynamic": "tu stack tecnológico sin romper lo que funciona.",
         "shortDescription": "Migración de sistemas legacy a arquitecturas cloud-native y escalables.",
         "summary": "Moderniza tu stack sin romper lo que funciona. Planeamos y ejecutamos transformaciones pragmáticas y por fases.",
         "overview": "La transformación digital no se trata de reemplazar todo de golpe. Tomamos un enfoque por fases, pragmático, para modernizar tu stack tecnológico — empezando por los cambios de mayor impacto y construyendo hacia una operación completamente integrada y basada en datos.",
@@ -399,6 +409,8 @@
       },
       "process-automation": {
         "title": "Automatización de Procesos",
+        "subtitleStatic": "Reemplazamos",
+        "subtitleDynamic": "flujos manuales con automatización confiable y escalable.",
         "shortDescription": "Eliminamos tareas repetitivas con RPA robusto y workflows de API a medida.",
         "summary": "Identificamos los workflows manuales que drenan a tu equipo y los reemplazamos con automatización confiable.",
         "overview": "Identificamos, diseñamos e implementamos soluciones de automatización que reemplazan procesos manuales que consumen tiempo en tu negocio. Desde reportes automatizados y sincronización de datos hasta workflows inteligentes con triggers y aprobaciones, ayudamos a tu equipo a trabajar de forma más inteligente.",
