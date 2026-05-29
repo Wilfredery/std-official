@@ -4,7 +4,7 @@ import {
   screen,
   createMockTranslator,
 } from "@/lib/__tests__/test-utils";
-import { ProcessSection } from "@/components/home/Process/ProcessSection";
+import { ProcessSection } from "@/components/home/process/ProcessSection";
 import enMessages from "@/messages/en.json";
 
 vi.mock("next-intl/server", () => ({

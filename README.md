@@ -10,19 +10,19 @@ The official website for [ShineTechData](https://shinetechdata.com) — a data c
 
 ## Tech Stack
 
-| Technology | Version | Purpose |
-|---|---|---|
-| [Next.js](https://nextjs.org) | 16 | App Router, static export |
-| [React](https://react.dev) | 19.2 | UI framework |
-| [TypeScript](https://www.typescriptlang.org) | 5 | Type safety |
-| [Tailwind CSS](https://tailwindcss.com) | 4 | Utility-first styling |
-| [Base UI](https://base-ui.com) | 1.5 | Unstyled accessible primitives (shadcn/ui) |
-| [next-intl](https://next-intl.dev) | 4.12 | Internationalization |
-| [next-themes](https://github.com/pacocoursey/next-themes) | 0.4 | Light/dark/system theme |
-| [Lucide React](https://lucide.dev) | 1.16 | Icon library |
-| [Vitest](https://vitest.dev) | 4.1 | Test runner |
-| [React Testing Library](https://testing-library.com/react) | 16.3 | Component tests |
-| [pnpm](https://pnpm.io) | — | Package manager |
+| Technology                                                 | Version | Purpose                                    |
+| ---------------------------------------------------------- | ------- | ------------------------------------------ |
+| [Next.js](https://nextjs.org)                              | 16      | App Router, static export                  |
+| [React](https://react.dev)                                 | 19.2    | UI framework                               |
+| [TypeScript](https://www.typescriptlang.org)               | 5       | Type safety                                |
+| [Tailwind CSS](https://tailwindcss.com)                    | 4       | Utility-first styling                      |
+| [Base UI](https://base-ui.com)                             | 1.5     | Unstyled accessible primitives (shadcn/ui) |
+| [next-intl](https://next-intl.dev)                         | 4.12    | Internationalization                       |
+| [next-themes](https://github.com/pacocoursey/next-themes)  | 0.4     | Light/dark/system theme                    |
+| [Lucide React](https://lucide.dev)                         | 1.16    | Icon library                               |
+| [Vitest](https://vitest.dev)                               | 4.1     | Test runner                                |
+| [React Testing Library](https://testing-library.com/react) | 16.3    | Component tests                            |
+| [pnpm](https://pnpm.io)                                    | —       | Package manager                            |
 
 **Fonts**: [Libre Franklin](https://fonts.google.com/specimen/Libre+Franklin) (Google Fonts)
 
@@ -30,7 +30,7 @@ The official website for [ShineTechData](https://shinetechdata.com) — a data c
 
 - **Bilingual (EN/ES)** — locale-prefixed routing with automatic language detection
 - **Static export** — output as plain HTML/CSS/JS, deployable anywhere
-- **Dark/light theme** — system-aware with manual toggle and shortcut (Cmd/Ctrl + J)
+- **Dark/light theme** — system-aware with manual toggle and shortcut (keyboard "D")
 - **Animated hero** — typing-effect headline with smooth transitions
 - **Scroll animations** — content reveals on scroll via IntersectionObserver
 - **Service detail pages** — 6 services × 2 locales, statically generated at build time
@@ -41,13 +41,13 @@ The official website for [ShineTechData](https://shinetechdata.com) — a data c
 
 ## Pages
 
-| Route | Description |
-|---|---|
-| `/` | Home — hero, problem statement, services overview, process, CTA |
-| `/services` | Service listing with card grid and slider |
-| `/services/[slug]` | Individual service detail page |
-| `/contact` | Contact form and FAQ |
-| `/not-found` | Custom 404 with locale detection |
+| Route              | Description                                                     |
+| ------------------ | --------------------------------------------------------------- |
+| `/`                | Home — hero, problem statement, services overview, process, CTA |
+| `/services`        | Service listing with card grid and slider                       |
+| `/services/[slug]` | Individual service detail page                                  |
+| `/contact`         | Contact form and FAQ                                            |
+| `/not-found`       | Custom 404 with locale detection                                |
 
 ## Getting Started
 
@@ -74,13 +74,13 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. The dev ser
 
 ## Development Commands
 
-| Command | Description |
-|---|---|
-| `pnpm dev` | Start development server with Turbopack |
-| `pnpm build` | Build for production (static export to `/out`) |
-| `pnpm test` | Run tests in watch mode |
-| `pnpm test:run` | Run all tests once (CI-friendly) |
-| `pnpm lint` | Lint with ESLint |
+| Command         | Description                                    |
+| --------------- | ---------------------------------------------- |
+| `pnpm dev`      | Start development server with Turbopack        |
+| `pnpm build`    | Build for production (static export to `/out`) |
+| `pnpm test`     | Run tests in watch mode                        |
+| `pnpm test:run` | Run all tests once (CI-friendly)               |
+| `pnpm lint`     | Lint with ESLint                               |
 
 ## Project Structure
 

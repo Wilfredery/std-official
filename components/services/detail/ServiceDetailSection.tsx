@@ -77,17 +77,17 @@ export async function ServiceDetailSection({
 
   return (
     <>
-      <ScrollReveal direction="up" delay={0}>
-        <ServiceHero
-          title={serviceT("title")}
-          subtitleStatic={serviceT("subtitleStatic")}
-          subtitleDynamic={serviceT("subtitleDynamic")}
-        />
-      </ScrollReveal>
-
       <article className="max-w-4xl mx-auto px-4 sm:px-6 py-16 md:py-24">
         <ScrollReveal direction="scale" delay={0}>
           <ServiceBreadcrumb label={labels.breadcrumb} />
+        </ScrollReveal>
+
+        <ScrollReveal direction="up" delay={0}>
+          <ServiceHero
+            title={serviceT("title")}
+            subtitleStatic={serviceT("subtitleStatic")}
+            subtitleDynamic={serviceT("subtitleDynamic")}
+          />
         </ScrollReveal>
 
         <ScrollReveal direction="left" delay={100}>

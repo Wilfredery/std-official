@@ -3,7 +3,7 @@ import { HeroSection } from "@/components/home/hero/HeroSection";
 import { ProblemSection } from "@/components/home/problem/ProblemSection";
 import { SolutionSection } from "@/components/home/solution/SolutionSection";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { ProcessSection } from "@/components/home/Process/ProcessSection";
+import { ProcessSection } from "@/components/home/process/ProcessSection";
 import { CtaSection } from "@/components/home/cta/CtaSection";
 
 export default async function HomePage({

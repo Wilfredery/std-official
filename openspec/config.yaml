@@ -1,0 +1,31 @@
+project: std-official
+stack:
+  - nextjs-16
+  - react-19
+  - typescript-5
+  - tailwindcss-v4
+  - next-intl
+context: |
+  Next.js 16 App Router with [locale] i18n.
+  React 19 + TypeScript 5.
+  TailwindCSS v4 + shadcn/ui primitives.
+  No src/; flat app/ structure.
+strict_tdd: true
+testing:
+  runner: vitest
+  unit: true
+  integration: true
+  e2e: false
+  coverage: false
+  quality:
+    linter: eslint
+    type_checker: tsc
+    formatter: none
+phases:
+  propose: true
+  spec: true
+  design: true
+  tasks: true
+  apply: true
+  verify: true
+  archive: true
