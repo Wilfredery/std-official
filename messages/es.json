@@ -501,6 +501,9 @@
       "meetingValue": "Reuniones virtuales en todo el mundo",
       "whatsapp": "Chatear por WhatsApp",
       "whatsappAria": "Contactanos por WhatsApp",
+      "instagram": "Síguenos en Instagram",
+      "instagramAria": "Sigue a ShineTechData en Instagram",
+      "instagramValue": "@shinetechdata",
       "number": "18295849184",
       "message": "Hola, estoy interesado en sus servicios de ...",
       "email": "contact@shinetechdata.com",
@@ -541,7 +544,11 @@
       "privacy": "Privacidad",
       "terms": "Términos"
     },
-    "rights": "Todos los derechos reservados."
+    "rights": "Todos los derechos reservados.",
+    "dev": {
+      "text": "Dev: Wilfredery Ant. Dilone Cordero",
+      "linkedin": "https://www.linkedin.com/in/wilfredery-a-dilon%C3%A9-cordero-a23386279/?locale=es-ES"
+    }
   },
   "seo": {
     "home": {

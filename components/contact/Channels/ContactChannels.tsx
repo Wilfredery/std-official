@@ -36,12 +36,9 @@ export function ContactChannels() {
         >
           {t("title")} <span className="gradient-text">{t("titleAccent")}</span>
         </h2>
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="flex flex-col gap-12">
           {/*Image left*/}
-          <div
-            className="relative aspect-square max-w-md mx-auto lg:mx-0 overflow-hidden 
-        rounded-2xl"
-          >
+          {/* <div className="relative aspect-square max-w-2xl mx-auto w-full overflow-hidden rounded-2xl">
             {mounted ? (
               <Image
                 src={imgSrc}
@@ -53,9 +50,9 @@ export function ContactChannels() {
             ) : (
               <div className="w-full h-full bg-muted animate-pulse rounded-2xl" />
             )}
-          </div>
+          </div> */}
           {/*Card right*/}
-          <div className="grid gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/*WS card*/}
             <a
               href={wa}
@@ -78,6 +75,34 @@ export function ContactChannels() {
               <h3 className="font-bold text-lg mb-1">{t("email")}</h3>
               <p className="text-sm text-muted-foreground">{t("emailValue")}</p>
             </a>
+
+            {/* Instagram card */}
+            <a
+              href="https://www.instagram.com/shinetechdata/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("instagramAria")}
+              className="gradient-border-card p-6 text-center hover-glow transition-all duration-300"
+            >
+              <svg
+                className="size-8 mx-auto mb-3 text-pink-500"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+              <h3 className="font-bold text-lg mb-1">{t("instagram")}</h3>
+              <p className="text-sm text-muted-foreground">
+                {t("instagramValue")}
+              </p>
+            </a>
+
             {/*Hours + Remote card*/}
             <div className="gradient-border-card p-6 text-center">
               <Clock className="size-8 mx-auto mb-3 text-primary" />

@@ -12,9 +12,14 @@ vi.mock("@/hooks/useHydrated", () => ({
 }));
 
 vi.mock("next/image", () => ({
-  default: ({ src, alt, className, priority, fill, ...props }: any) => (
+  default: ({
+    src,
+    alt,
+    className,
+    ...props
+  }: Record<string, unknown>) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={src} alt={alt} className={className} {...props} />
+    <img src={src as string} alt={alt as string} className={className as string} {...props} />
   ),
 }));
 
