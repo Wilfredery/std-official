@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { services } from "@/lib/data/services";
-import { ServicesSlider } from "./ServicesSlider";
+import { ServiceCard } from "./ServiceCard";
 
 export async function ServicesSection({ locale }: { locale: string }) {
   const t = await getTranslations("home.services");
@@ -38,11 +38,21 @@ export async function ServicesSection({ locale }: { locale: string }) {
         </div>
       </div>
 
-      <ServicesSlider
-        titles={titles}
-        shortDescriptions={shortDescriptions}
-        learnMoreLabel={tCommon("learnMore")}
-      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <ServiceCard
+              key={service.slug}
+              slug={service.slug}
+              accent={service.accent}
+              title={titles[service.slug]}
+              shortDescription={shortDescriptions[service.slug]}
+              learnMoreLabel={tCommon("learnMore")}
+              index={index}
+            />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

@@ -13,8 +13,12 @@ vi.mock("next-intl/server", () => ({
   }),
 }));
 
-vi.mock("@/components/services/ServicesSlider", () => ({
-  ServicesSlider: () => <div data-testid="services-slider">Slider</div>,
+vi.mock("@/components/services/ServiceCard", () => ({
+  ServiceCard: (props: Record<string, unknown>) => (
+    <div data-testid="service-card" data-title={props.title as string}>
+      {props.title as string}
+    </div>
+  ),
 }));
 
 describe("ServicesSection", () => {
@@ -42,9 +46,10 @@ describe("ServicesSection", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the ServicesSlider mock", async () => {
+  it("renders all service cards in a grid", async () => {
     const jsx = await ServicesSection({ locale: "en" });
     render(jsx);
-    expect(screen.getByTestId("services-slider")).toBeInTheDocument();
+    const cards = screen.getAllByTestId("service-card");
+    expect(cards.length).toBeGreaterThan(0);
   });
 });
