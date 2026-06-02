@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Inicio",
+    "about": "Sobre nosotros",
     "services": "Servicios",
     "contact": "Contacto",
     "cta": "Consultoría Gratis",
@@ -572,5 +573,98 @@
     "title": "Página no encontrada",
     "description": "La página que buscas no existe o fue movida.",
     "backToHome": "Volver al inicio"
+  },
+  "about": {
+    "header": {
+      "eyebrow": "Sobre Nosotros",
+      "title": "Transformando datos en el motor de la ",
+      "titleAccent": "Innovación y Estrategia",
+      "subtitleStatic": "Actuamos como el puente entre el",
+      "subtitleDynamic": "volumen bruto de información empresarial y la toma de decisiones altamente estratégicas."
+    },
+    "story": {
+      "title": "Nuestra Historia",
+      "origin": "En la era digital, los datos se han convertido en el activo más valioso de cualquier organización. Sin embargo, su verdadero poder radica en la capacidad de interpretarlos y transformarlos. ShineTechData nació con el propósito de actuar como el puente entre el volumen bruto de información empresarial y la toma de decisiones altamente estratégicas.",
+      "philosophy": "Nos consolidamos como aliados estratégicos especializados en el ciclo de vida completo de los datos. Desde el diagnóstico inicial mediante análisis visuales hasta la automatización compleja y el despliegue de modelos predictivos, optimizamos cada proceso para impulsar la rentabilidad, garantizar el cumplimiento normativo y liderar la transformación digital."
+    },
+    "mission": {
+      "title": "Misión",
+      "description": "Guiar a las empresas en su evolución hacia una cultura guiada por datos (Data-Driven), implementando soluciones tecnológicas avanzadas en Business Intelligence, Machine Learning y automatización, asegurando la máxima eficiencia operativa, la seguridad jurídica de su información y retornos de inversión medibles."
+    },
+    "vision": {
+      "title": "Visión",
+      "description": "Ser el referente tecnológico líder en consultoría de datos y transformación digital, reconocidos por nuestra capacidad de simplificar la complejidad analítica y por convertir la innovación tecnológica en ventajas competitivas sostenibles para nuestros clientes."
+    },
+    "values": {
+      "eyebrow": "Nuestros Valores",
+      "title": "El ADN de ShineTechData",
+      "items": [
+        {
+          "title": "Precisión Estratégica",
+          "description": "Descubrimos patrones y tendencias claras para fundamentar decisiones empresariales acertadas y mitigar el riesgo."
+        },
+        {
+          "title": "Innovación Adaptativa",
+          "description": "Fomentamos activamente una cultura de modernización tecnológica e integración continua de procesos avanzados como Machine Learning."
+        },
+        {
+          "title": "Integridad y Cumplimiento",
+          "description": "Protegemos de forma irrestricta la privacidad de los activos de información de nuestros clientes mediante auditorías rigurosas y apego total a las normativas vigentes."
+        },
+        {
+          "title": "Eficiencia Sostenible",
+          "description": "Diseñamos flujos de trabajo automatizados para reducir errores operacionales, optimizar recursos y erradicar desperdicios financieros."
+        }
+      ]
+    },
+    "pillars": {
+      "eyebrow": "Pilares Institucionales",
+      "title": "El Ecosistema que Impulsa ",
+      "titleAccent": "Tu Crecimiento",
+      "subtitle": "Seis capacidades integradas que forman la columna vertebral tecnológica de nuestra práctica de consultoría.",
+      "titles": {
+        "data-analysis": "Análisis de Datos",
+        "business-intelligence": "Business Intelligence",
+        "machine-learning": "Machine Learning",
+        "data-auditing": "Auditoría de Datos",
+        "digital-transformation": "Transformación Digital",
+        "process-automation": "Automatización de Procesos"
+      },
+      "descriptions": {
+        "data-analysis": "Evaluación retrospectiva e interpretación visual de acontecimientos comerciales internos para identificar proactivamente patrones y tendencias futuras.",
+        "business-intelligence": "Desarrollo de cuadros de mando (dashboards) e informes interactivos y dinámicos en tiempo real para maximizar la productividad y reducir drásticamente costes.",
+        "machine-learning": "Construcción de algoritmos avanzados adaptados a problemáticas específicas de negocio, permitiendo predicción de resultados y automatización estratégica.",
+        "data-auditing": "Verificación fiscal y técnica del cumplimiento regulatorio y normativo de datos, asegurando mitigación legal integral y protección absoluta de la privacidad.",
+        "digital-transformation": "Adopción e implementación de infraestructura moderna para la interacción con clientes, aumentando la competitividad crítica y fomentando una cultura ágil.",
+        "process-automation": "Despliegue de software de automatización para tareas e informes repetitivos rutinarios, liberando capital humano para actividades estratégicas de alto valor."
+      }
+    },
+    "team": {
+      "title": "Nuestro Equipo",
+      "subtitle": "Roles funcionales que cubren el ciclo completo del dato.",
+      "items": [
+        {
+          "role": "Director de Estrategia Digital y BI (CDO / Product Owner)",
+          "description": "Responsable de alinear las soluciones de Business Intelligence e informes en tiempo real con las metas comerciales de los socios."
+        },
+        {
+          "role": "Ingeniero y Desarrollador Web Full-Stack (Lead)",
+          "description": "Encargado de la arquitectura de las plataformas e interfaces interactivas donde los clientes consumen la información, garantizando flujos ágiles y adaptabilidad tecnológica."
+        },
+        {
+          "role": "Científico de Datos / Especialista en Machine Learning",
+          "description": "Diseñador de los algoritmos predictivos y modelos estadísticos encargados de automatizar decisiones inteligentes."
+        },
+        {
+          "role": "Consultor de Gobierno y Auditoría de Datos",
+          "description": "Especialista legal y técnico encargado de asegurar que la ingesta, almacenamiento y uso de datos cumpla estrictamente con la privacidad y regulaciones vigentes."
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para transformar tu negocio con datos?",
+      "subtitle": "Construyamos juntos un roadmap que convierta tus datos en una ventaja competitiva sostenible.",
+      "button": "Agendar Consultoría Gratis"
+    }
   }
 }
