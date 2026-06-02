@@ -113,14 +113,14 @@ export async function ServiceDetailSection({
           />
         </ScrollReveal>
 
-        <ScrollReveal direction="up" delay={400}>
+        {/* <ScrollReveal direction="up" delay={400}>
           <ServiceTimeline
             title={labels.timeline}
             steps={data.timeline}
             accent={service.accent}
             slug={service.slug}
           />
-        </ScrollReveal>
+        </ScrollReveal> */}
 
         <ScrollReveal direction="down" delay={500}>
           <ServiceFaq title={labels.faq} items={data.faq} />
