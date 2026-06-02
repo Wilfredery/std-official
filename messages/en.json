@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Home",
+    "about": "About us",
     "services": "Services",
     "contact": "Contact",
     "cta": "Free Consultation",
@@ -569,5 +570,98 @@
     "title": "Page not found",
     "description": "The page you're looking for doesn't exist or has moved.",
     "backToHome": "Back to home"
+  },
+  "about": {
+    "header": {
+      "eyebrow": "About Us",
+      "title": "Transforming Data into the Engine of ",
+      "titleAccent": "Innovation & Strategy",
+      "subtitleStatic": "We bridge the gap between",
+      "subtitleDynamic": "raw business information and high-level strategic decisions."
+    },
+    "story": {
+      "title": "Our Story",
+      "origin": "In the digital age, data has become the most valuable asset of any organization. Yet its true power lies in the ability to interpret and transform it. ShineTechData was born to serve as the bridge between the sheer volume of business information and highly strategic decision-making.",
+      "philosophy": "We have established ourselves as strategic allies specializing in the complete data lifecycle. From initial diagnostics through visual analysis to complex automation and predictive model deployment, we optimize every process to drive profitability, ensure regulatory compliance, and lead digital transformation."
+    },
+    "mission": {
+      "title": "Mission",
+      "description": "Guide enterprises in their evolution toward a Data-Driven culture by implementing advanced technological solutions in Business Intelligence, Machine Learning, and automation — ensuring maximum operational efficiency, legal security of information, and measurable ROI."
+    },
+    "vision": {
+      "title": "Vision",
+      "description": "Become the leading technological reference in data consulting and digital transformation, recognized for our ability to simplify analytical complexity and convert technological innovation into sustainable competitive advantages for our clients."
+    },
+    "values": {
+      "eyebrow": "Our Values",
+      "title": "The DNA of ShineTechData",
+      "items": [
+        {
+          "title": "Strategic Precision",
+          "description": "We discover clear patterns and trends to underpin accurate business decisions and mitigate risk."
+        },
+        {
+          "title": "Adaptive Innovation",
+          "description": "We actively foster a culture of technological modernization and continuous integration of advanced processes like Machine Learning."
+        },
+        {
+          "title": "Integrity & Compliance",
+          "description": "We protect our clients' information assets without restriction through rigorous audits and strict adherence to current regulations."
+        },
+        {
+          "title": "Sustainable Efficiency",
+          "description": "We design automated workflows to reduce operational errors, optimize resources, and eliminate financial waste."
+        }
+      ]
+    },
+    "pillars": {
+      "eyebrow": "Institutional Pillars",
+      "title": "The Ecosystem That Powers ",
+      "titleAccent": "Your Growth",
+      "subtitle": "Six integrated capabilities that form the technological backbone of our consulting practice.",
+      "titles": {
+        "data-analysis": "Data Analysis",
+        "business-intelligence": "Business Intelligence",
+        "machine-learning": "Machine Learning",
+        "data-auditing": "Data Auditing",
+        "digital-transformation": "Digital Transformation",
+        "process-automation": "Process Automation"
+      },
+      "descriptions": {
+        "data-analysis": "Retrospective evaluation and visual interpretation of internal commercial events to proactively identify patterns and future trends.",
+        "business-intelligence": "Development of interactive, real-time dashboards and dynamic reports that maximize productivity and drastically reduce costs.",
+        "machine-learning": "Construction of advanced algorithms tailored to specific business challenges, enabling predictive outcomes and strategic automation.",
+        "data-auditing": "Fiscal and technical verification of regulatory compliance and data governance, ensuring full legal mitigation and absolute privacy protection.",
+        "digital-transformation": "Adoption and implementation of modern infrastructure for customer interaction, driving critical competitiveness and agile culture.",
+        "process-automation": "Deployment of automation software for repetitive tasks and routine reporting, freeing human capital for high-value strategic activities."
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "Functional roles covering the entire data lifecycle.",
+      "items": [
+        {
+          "role": "Chief Data Officer / Product Owner",
+          "description": "Aligns BI solutions and real-time reporting with the commercial goals of partners."
+        },
+        {
+          "role": "Lead Full-Stack Developer",
+          "description": "Architects the interactive platforms and interfaces where clients consume information, ensuring agile flows and technological adaptability."
+        },
+        {
+          "role": "Data Scientist / ML Specialist",
+          "description": "Designs predictive algorithms and statistical models that automate intelligent decision-making."
+        },
+        {
+          "role": "Data Governance & Auditing Consultant",
+          "description": "Legal and technical specialist ensuring strict compliance with privacy and current regulations in data ingestion, storage, and use."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Transform Your Business with Data?",
+      "subtitle": "Let's build a roadmap that turns your data into a sustainable competitive advantage.",
+      "button": "Schedule a Free Consultation"
+    }
   }
 }

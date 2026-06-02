@@ -1,20 +1,8 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { MessageCircle, Mail, Clock } from "lucide-react";
-import Image from "next/image";
-import { useHydrated } from "@/hooks/useHydrated";
-import { useTheme } from "next-themes";
 
-const IMG_LIGHT = "/images/logo/logo-vertical.webp";
-const IMG_DARK = "/images/decorations/composicion-visual-alt.webp";
-
-export function ContactChannels() {
-  const t = useTranslations("contact.channels");
-  const { resolvedTheme } = useTheme();
-  const mounted = useHydrated();
-
-  const imgSrc = mounted && resolvedTheme === "dark" ? IMG_DARK : IMG_LIGHT;
+export async function ContactChannels() {
+  const t = await getTranslations("contact.channels");
   {
     /*WhatsApp*/
   }
@@ -37,20 +25,6 @@ export function ContactChannels() {
           {t("title")} <span className="gradient-text">{t("titleAccent")}</span>
         </h2>
         <div className="flex flex-col gap-12">
-          {/*Image left*/}
-          {/* <div className="relative aspect-square max-w-2xl mx-auto w-full overflow-hidden rounded-2xl">
-            {mounted ? (
-              <Image
-                src={imgSrc}
-                alt="ShineTechData"
-                fill
-                className="object-contain"
-                priority
-              />
-            ) : (
-              <div className="w-full h-full bg-muted animate-pulse rounded-2xl" />
-            )}
-          </div> */}
           {/*Card right*/}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/*WS card*/}

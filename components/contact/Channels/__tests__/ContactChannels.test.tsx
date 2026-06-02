@@ -1,31 +1,22 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@/lib/__tests__/test-utils";
+import {
+  render,
+  screen,
+  createMockTranslator,
+} from "@/lib/__tests__/test-utils";
 import { ContactChannels } from "@/components/contact/Channels/ContactChannels";
 import enMessages from "@/messages/en.json";
 
-vi.mock("next-themes", () => ({
-  useTheme: () => ({ resolvedTheme: "light" }),
-}));
-
-vi.mock("@/hooks/useHydrated", () => ({
-  useHydrated: () => true,
-}));
-
-vi.mock("next/image", () => ({
-  default: ({
-    src,
-    alt,
-    className,
-    ...props
-  }: Record<string, unknown>) => (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img src={src as string} alt={alt as string} className={className as string} {...props} />
-  ),
+vi.mock("next-intl/server", () => ({
+  getTranslations: vi.fn((namespace: string) => {
+    return Promise.resolve(createMockTranslator(namespace));
+  }),
 }));
 
 describe("ContactChannels", () => {
-  it("renders the section title with gradient-text accent", () => {
-    render(<ContactChannels />);
+  it("renders the section title with gradient-text accent", async () => {
+    const jsx = await ContactChannels();
+    render(jsx);
     expect(
       screen.getByText(enMessages.contact.channels.title.trim()),
     ).toBeInTheDocument();
@@ -33,16 +24,22 @@ describe("ContactChannels", () => {
     expect(accent).toHaveClass("gradient-text");
   });
 
-  it("renders WhatsApp link", () => {
-    render(<ContactChannels />);
-    const link = screen.getByRole("link", { name: enMessages.contact.channels.whatsappAria });
+  it("renders WhatsApp link", async () => {
+    const jsx = await ContactChannels();
+    render(jsx);
+    const link = screen.getByRole("link", {
+      name: enMessages.contact.channels.whatsappAria,
+    });
     expect(link).toHaveAttribute("href", expect.stringContaining("wa.me"));
   });
 
-  it("renders email link", () => {
-    render(<ContactChannels />);
+  it("renders email link", async () => {
+    const jsx = await ContactChannels();
+    render(jsx);
     const links = screen.getAllByRole("link");
-    const emailLink = links.find((l) => l.getAttribute("href")?.startsWith("mailto:"));
+    const emailLink = links.find((l) =>
+      l.getAttribute("href")?.startsWith("mailto:"),
+    );
     expect(emailLink).toBeDefined();
     expect(emailLink).toHaveAttribute(
       "href",
@@ -50,9 +47,14 @@ describe("ContactChannels", () => {
     );
   });
 
-  it("renders hours section", () => {
-    render(<ContactChannels />);
-    expect(screen.getByText(enMessages.contact.channels.hours)).toBeInTheDocument();
-    expect(screen.getByText(enMessages.contact.channels.hoursValue)).toBeInTheDocument();
+  it("renders hours section", async () => {
+    const jsx = await ContactChannels();
+    render(jsx);
+    expect(
+      screen.getByText(enMessages.contact.channels.hours),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(enMessages.contact.channels.hoursValue),
+    ).toBeInTheDocument();
   });
 });
