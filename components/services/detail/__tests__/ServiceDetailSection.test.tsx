@@ -124,8 +124,7 @@ function parseProps(testId: string) {
 
 const mockService: ServiceBase = {
   slug: "data-analysis",
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  icon: (() => null) as any,
+  icon: (() => null) as unknown as ServiceBase["icon"],
   accent: "primary",
   href: "/services/data-analysis",
 };
@@ -234,11 +233,10 @@ describe("ServiceDetailSection", () => {
       }),
     );
 
-    // First ScrollReveal is the one wrapping Hero
-    const wrappers = screen.getAllByTestId("scroll-reveal");
-    const heroWrapper = wrappers[0];
-    expect(heroWrapper.getAttribute("data-direction")).toBe("up");
-    expect(heroWrapper.getAttribute("data-delay")).toBe("0");
+    const hero = screen.getByTestId("hero");
+    const heroWrapper = hero.closest('[data-testid="scroll-reveal"]');
+    expect(heroWrapper).toHaveAttribute("data-direction", "up");
+    expect(heroWrapper).toHaveAttribute("data-delay", "0");
   });
 
   // ── Breadcrumb ─────────────────────────────────────────────────
@@ -306,25 +304,6 @@ describe("ServiceDetailSection", () => {
     expect(props.items).toBe("service.raw.deliverables");
   });
 
-  // ── Timeline ───────────────────────────────────────────────────
-
-  it("renders ServiceTimeline with title, steps, accent and slug", async () => {
-    render(
-      await ServiceDetailSection({
-        service: mockService,
-        locale: defaultLocale,
-        slug: defaultSlug,
-      }),
-    );
-
-    const props = parseProps("timeline");
-    expect(props.title).toBe("labels.timeline");
-    expect(props.steps).toBe("service.raw.timeline");
-    // From mockService
-    expect(props.accent).toBe("primary");
-    expect(props.slug).toBe("data-analysis");
-  });
-
   // ── FAQ ────────────────────────────────────────────────────────
 
   it("renders ServiceFaq with title and items (raw faq)", async () => {
@@ -358,7 +337,7 @@ describe("ServiceDetailSection", () => {
 
   // ── Structure & ordering ───────────────────────────────────────
 
-  it("renders all 8 child sections", async () => {
+  it("renders all 7 child sections", async () => {
     render(
       await ServiceDetailSection({
         service: mockService,
@@ -372,7 +351,6 @@ describe("ServiceDetailSection", () => {
     expect(screen.getByTestId("overview")).toBeInTheDocument();
     expect(screen.getByTestId("audience")).toBeInTheDocument();
     expect(screen.getByTestId("deliverables")).toBeInTheDocument();
-    expect(screen.getByTestId("timeline")).toBeInTheDocument();
     expect(screen.getByTestId("faq")).toBeInTheDocument();
     expect(screen.getByTestId("cta-link")).toBeInTheDocument();
   });
@@ -387,23 +365,22 @@ describe("ServiceDetailSection", () => {
     );
 
     const wrappers = screen.getAllByTestId("scroll-reveal");
-    // 8 sections = 8 ScrollReveal wrappers
-    expect(wrappers).toHaveLength(8);
+    // 7 sections = 7 ScrollReveal wrappers
+    expect(wrappers).toHaveLength(7);
 
     const directions = wrappers.map((w) => w.getAttribute("data-direction"));
     const delays = wrappers.map((w) => Number(w.getAttribute("data-delay")));
 
     expect(directions).toEqual([
-      "up",
       "scale",
+      "up",
       "left",
       "down",
       "right",
-      "up",
       "down",
       "scale",
     ]);
-    expect(delays).toEqual([0, 0, 100, 200, 300, 400, 500, 600]);
+    expect(delays).toEqual([0, 0, 100, 200, 300, 500, 600]);
   });
 
   // ── Article element ────────────────────────────────────────────
@@ -425,23 +402,4 @@ describe("ServiceDetailSection", () => {
     expect(article?.className).toContain("md:py-24");
   });
 
-  // ── Edge: different service variants ────────────────────────────
-
-  it("passes accent=accent from service when set", async () => {
-    render(
-      await ServiceDetailSection({
-        service: {
-          slug: "data-auditing",
-          icon: (() => null) as any,
-          accent: "accent",
-          href: "/services/data-auditing",
-        },
-        locale: defaultLocale,
-        slug: "data-auditing",
-      }),
-    );
-
-    const props = parseProps("timeline");
-    expect(props.accent).toBe("accent");
-  });
 });

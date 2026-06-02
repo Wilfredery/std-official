@@ -3,7 +3,13 @@ import { render, screen } from "@/lib/__tests__/test-utils";
 import { ServiceHero } from "@/components/services/detail/hero/ServiceHero";
 
 vi.mock("@/components/home/hero/SubtitleTyping", () => ({
-  SubtitleTyping: ({ staticText, dynamicText }: any) => (
+  SubtitleTyping: ({
+    staticText,
+    dynamicText,
+  }: {
+    staticText: string;
+    dynamicText: string;
+  }) => (
     <span data-testid="subtitle">
       {staticText} {dynamicText}
     </span>

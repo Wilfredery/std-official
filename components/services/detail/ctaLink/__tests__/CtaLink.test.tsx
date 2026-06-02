@@ -3,7 +3,15 @@ import { render, screen } from "@/lib/__tests__/test-utils";
 import { CtaLink } from "@/components/services/detail/ctaLink/CtaLink";
 
 vi.mock("@/lib/i18n/navigation", () => ({
-  Link: ({ children, href, className }: any) => (
+  Link: ({
+    children,
+    href,
+    className,
+  }: {
+    children?: React.ReactNode;
+    href: string;
+    className?: string;
+  }) => (
     <a href={href} className={className}>
       {children}
     </a>

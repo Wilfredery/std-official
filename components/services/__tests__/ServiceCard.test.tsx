@@ -3,9 +3,9 @@ import { render, screen } from "@/lib/__tests__/test-utils";
 import { ServiceCard } from "@/components/services/ServiceCard";
 
 vi.mock("@/lib/i18n/navigation", () => ({
-  Link: ({ children, href, className, ...rest }: any) => (
-    <a href={href} className={className} {...rest}>
-      {children}
+  Link: ({ children, href, className, ...rest }: Record<string, unknown>) => (
+    <a href={href as string} className={className as string} {...rest}>
+      {children as React.ReactNode}
     </a>
   ),
 }));

@@ -3,7 +3,15 @@ import { render, screen } from "@/lib/__tests__/test-utils";
 import { ServiceBreadcrumb } from "@/components/services/detail/breadcrumb/ServiceBreadcrumb";
 
 vi.mock("@/lib/i18n/navigation", () => ({
-  Link: ({ children, href, className }: any) => (
+  Link: ({
+    children,
+    href,
+    className,
+  }: {
+    children?: React.ReactNode;
+    href: string;
+    className?: string;
+  }) => (
     <a href={href} className={className}>
       {children}
     </a>

@@ -8,7 +8,13 @@ import { HeroSection } from "@/components/home/hero/HeroSection";
 import enMessages from "@/messages/en.json";
 
 vi.mock("@/components/home/hero/SubtitleTyping", () => ({
-  SubtitleTyping: ({ staticText, dynamicText }: any) => (
+  SubtitleTyping: ({
+    staticText,
+    dynamicText,
+  }: {
+    staticText: string;
+    dynamicText: string;
+  }) => (
     <p data-testid="subtitle">
       {staticText} {dynamicText}
     </p>
