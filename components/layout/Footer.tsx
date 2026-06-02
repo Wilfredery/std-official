@@ -83,7 +83,7 @@ export function Footer() {
           {/* Services */}
           <div>
             <h3 className="font-semibold text-sm mb-4">{t("services")}</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link
@@ -101,7 +101,7 @@ export function Footer() {
           {/* Company */}
           <div>
             <h3 className="font-semibold text-sm mb-4">{t("company")}</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {footerLinks.map(({ href, labelKey }) => (
                 <li key={href}>
                   <Link
@@ -144,9 +144,15 @@ export function Footer() {
             © {year} ShineTechData. {t("rights")}
           </p>
 
-          <p className="text-xs text-muted-foreground">
-            Dev: Wilfredery Ant. Dilone Cordero
-          </p>
+          <a
+            href={t("dev.linkedin")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs gradient-text text-muted-foreground hover:text-primary hover:underline 
+            transition-colors flex items-center gap-1"
+          >
+            {t("dev.text")}
+          </a>
         </div>
       </div>
     </footer>

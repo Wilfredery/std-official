@@ -173,7 +173,7 @@ describe("Footer", () => {
   it("renders developer credit", () => {
     render(<Footer />);
     expect(
-      screen.getByText("Dev: Wilfredery Ant. Dilone Cordero"),
+      screen.getByText("dev.text"),
     ).toBeInTheDocument();
   });
 });
