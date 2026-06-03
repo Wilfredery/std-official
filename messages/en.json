@@ -564,6 +564,14 @@
     "serviceDetail": {
       "title": "Services — ShineTechData",
       "description": "Specialized data services for SMBs: analysis, BI, machine learning, and more."
+    },
+    "privacy": {
+      "title": "Privacy Policy — ShineTechData",
+      "description": "Learn how ShineTechData collects, uses, and protects your personal information."
+    },
+    "terms": {
+      "title": "Terms of Service — ShineTechData",
+      "description": "Read the website usage terms and service agreements of ShineTechData."
     }
   },
   "notFound": {
@@ -662,6 +670,82 @@
       "title": "Ready to Transform Your Business with Data?",
       "subtitle": "Let's build a roadmap that turns your data into a sustainable competitive advantage.",
       "button": "Schedule a Free Consultation"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "pageTitle": "Privacy Policy",
+      "lastUpdated": "Last updated: June 2026",
+      "tocTitle": "Contents",
+      "sections": [
+        {
+          "heading": "1. Information We Collect",
+          "items": [
+            "Direct contact data: full name, institutional email, phone, and company name, collected through contact, support, or quote request forms.",
+            "Project data and samples: descriptive documents, process flows, or test database files voluntarily provided by the client for the diagnostic phase.",
+            "Technical navigation data: technical cookies, IP addresses, and session metadata for corporate web interface performance audits."
+          ]
+        },
+        {
+          "heading": "2. Purpose of Data Processing",
+          "items": [
+            "Provide, maintain, and optimize the technical performance of our official website.",
+            "Structure, customize, and deploy dashboards (BI), interactive dynamic reports, and Machine Learning algorithms tailored to the client's strategic model.",
+            "Process support requests and maintain transparent communication channels regarding quotes.",
+            "Validate strict regulatory compliance through Data Auditing solutions, avoiding legal issues for the client's organization and ensuring absolute conformity with Law No. 172-13 of the Dominican Republic."
+          ]
+        },
+        {
+          "heading": "3. Security and Confidentiality",
+          "items": [
+            "We use modern technical infrastructure and encryption standards to safeguard information against unauthorized access, accidental loss, or alterations.",
+            "The data lifecycle is protected by explicit Confidentiality Agreements (NDA) from the first commercial contact."
+          ]
+        },
+        {
+          "heading": "4. User Rights (ARCO)",
+          "items": [
+            "Any user or allied company maintains the unrestricted right to access, rectify, cancel, or oppose the processing of their personal data collected through the ShineTechData web portal.",
+            "To exercise these rights, send a formal communication through our technical support channels."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "pageTitle": "Terms and Conditions of Use",
+      "lastUpdated": "Last updated: June 2026",
+      "tocTitle": "Contents",
+      "sections": [
+        {
+          "heading": "1. Intellectual and Industrial Property",
+          "items": [
+            "All content displayed on this site — including but not limited to source code, software architectures, institutional logos, interface designs, interactive graphics, and technical copy — belongs entirely to ShineTechData or has the respective third-party authorizations.",
+            "Copying, distribution, or reverse engineering is strictly prohibited without express written authorization."
+          ]
+        },
+        {
+          "heading": "2. Correct Use of the Platform and Information",
+          "items": [
+            "The information described on the website regarding data lifecycle processes is purely descriptive, informative, and illustrative.",
+            "The final characteristics of software architectures and contracted digital infrastructure will be detailed and formalized through private service provision contracts between ShineTechData and the client."
+          ]
+        },
+        {
+          "heading": "3. Limitation of Liability",
+          "items": [
+            "ShineTechData runs constant maintenance flows to ensure real-time report availability and interface content accuracy.",
+            "We are not responsible for temporary server outages beyond our control, loss of profit derived from misuse of the public platform, or strategic business decisions executed without formal customized consulting by our technical team."
+          ]
+        },
+        {
+          "heading": "4. Jurisdiction and Agreement Modifications",
+          "items": [
+            "We explicitly reserve the right to update, reform, or replace any section of these legal regulations in order to adapt to tax reforms, new data protection laws, or strategic changes within the organization.",
+            "For any legal dispute, these terms shall be governed and interpreted under the laws of the Dominican Republic, and the parties submit to the jurisdiction of the courts of Santo Domingo.",
+            "Modifications shall have immediate legal validity upon publication on the official web production environment."
+          ]
+        }
+      ]
     }
   }
 }
