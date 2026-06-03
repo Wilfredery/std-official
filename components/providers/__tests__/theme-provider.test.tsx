@@ -2,10 +2,16 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@/lib/__tests__/test-utils";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
-vi.mock("next-themes", () => ({
+vi.mock("@/lib/theme/ThemeContext", () => ({
   ThemeProvider: ({ children }: { children: React.ReactNode }) => (
-    <div data-testid="next-themes-provider">{children}</div>
+    <div data-testid="custom-theme-provider">{children}</div>
   ),
+  useTheme: () => ({
+    theme: "light" as const,
+    setTheme: vi.fn(),
+    resolvedTheme: "light" as const,
+    themes: ["light", "dark", "system"] as const,
+  }),
 }));
 
 describe("ThemeProvider", () => {
@@ -20,13 +26,13 @@ describe("ThemeProvider", () => {
     expect(screen.getByTestId("child")).toHaveTextContent("Hello World");
   });
 
-  it("wraps children in the next-themes ThemeProvider", () => {
+  it("wraps children in the custom ThemeProvider", () => {
     render(
       <ThemeProvider>
         <span>Content</span>
       </ThemeProvider>
     );
 
-    expect(screen.getByTestId("next-themes-provider")).toBeInTheDocument();
+    expect(screen.getByTestId("custom-theme-provider")).toBeInTheDocument();
   });
 });

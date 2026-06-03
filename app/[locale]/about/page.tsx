@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { SITE_URL, locales } from "@/lib/site";
+import { routing } from "@/lib/i18n/routing";
 import { AboutHeader } from "@/components/about/hero/AboutHeader";
 import { BrandStory } from "@/components/about/brandStory/AboutBrandStory";
 import { MissionVision } from "@/components/about/missionVission/AboutMissionVision";
@@ -9,6 +10,10 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { PillarsSection } from "@/components/about/pillars/AboutPillarsSection";
 import { AboutCtaLinks } from "@/components/about/cta/AboutCtaLinks";
 import { AboutTeam } from "@/components/about/team/AboutTeam";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,

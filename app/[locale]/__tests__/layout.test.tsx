@@ -32,10 +32,16 @@ vi.mock("next-intl", () => ({
   ),
 }));
 
-vi.mock("next-themes", () => ({
+vi.mock("@/lib/theme/ThemeContext", () => ({
   ThemeProvider: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="theme-provider">{children}</div>
   ),
+  useTheme: () => ({
+    theme: "light" as const,
+    setTheme: vi.fn(),
+    resolvedTheme: "light" as const,
+    themes: ["light", "dark", "system"] as const,
+  }),
 }));
 
 // Mock the franklin font import from root layout
@@ -87,7 +93,7 @@ describe("Locale Layout — <html lang> attribute (SEO-2)", () => {
       // <body> must be present with structural classes
       expect(html).toContain('<body class="min-h-full flex flex-col"');
       // Note: suppressHydrationWarning is a React-internal prop on <html>
-      // for next-themes compatibility. It does not render as a DOM attribute
+      // for theme class mismatch handling. It does not render as a DOM attribute
       // in React 19 renderToString — verified via code review.
     });
 

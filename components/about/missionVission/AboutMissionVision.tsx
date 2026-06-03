@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useHydrated } from "@/hooks/useHydrated";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme/ThemeContext";
 
 const IMG_LIGHT = "/images/logo/logo-vertical.webp";
 const IMG_DARK = "/images/decorations/composicion-visual-alt.webp";

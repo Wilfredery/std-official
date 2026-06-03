@@ -5,10 +5,12 @@ import { act } from "react";
 const mockSetTheme = vi.fn();
 let currentTheme = "light";
 
-vi.mock("next-themes", () => ({
+vi.mock("@/lib/theme/ThemeContext", () => ({
   useTheme: () => ({
     theme: currentTheme,
     setTheme: mockSetTheme,
+    resolvedTheme: currentTheme,
+    themes: ["light", "dark", "system"],
   }),
 }));
 

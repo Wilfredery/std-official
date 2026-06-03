@@ -13,7 +13,7 @@ const mockHydrated = vi.hoisted(() => vi.fn<() => boolean>());
 // Module mocks
 // ---------------------------------------------------------------------------
 
-vi.mock("next-themes", () => ({
+vi.mock("@/lib/theme/ThemeContext", () => ({
   useTheme: () => ({
     theme: "light",
     setTheme: vi.fn(),

@@ -1,12 +1,17 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { SITE_URL, locales } from "@/lib/site";
+import { routing } from "@/lib/i18n/routing";
 import { HeroSection } from "@/components/home/hero/HeroSection";
 import { ProblemSection } from "@/components/home/problem/ProblemSection";
 import { SolutionSection } from "@/components/home/solution/SolutionSection";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ProcessSection } from "@/components/home/process/ProcessSection";
 import { CtaSection } from "@/components/home/cta/CtaSection";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
