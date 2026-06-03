@@ -6,7 +6,7 @@ import { ServiceBreadcrumb } from "./breadcrumb/ServiceBreadcrumb";
 import { ServiceOverview } from "./overview/ServiceOverview";
 import { ServiceAudience } from "./audience/ServiceAudience";
 import { ServiceDeliverables } from "./deliverables/ServiceDeliverables";
-import { ServiceTimeline } from "./timeline/ServiceTimeline";
+// import { ServiceTimeline } from "./timeline/ServiceTimeline";
 import { ServiceFaq } from "./faq/ServiceFaq";
 import { CtaLink } from "./ctaLink/CtaLink";
 
@@ -39,7 +39,7 @@ interface ServiceDetailSectionProps {
 }
 
 export async function ServiceDetailSection({
-  service,
+  // service,
   locale,
   slug,
 }: ServiceDetailSectionProps) {
@@ -78,11 +78,11 @@ export async function ServiceDetailSection({
   return (
     <>
       <article className="max-w-4xl mx-auto px-4 sm:px-6 py-16 md:py-24">
-        <ScrollReveal direction="scale" delay={0}>
+        <ScrollReveal direction="scale">
           <ServiceBreadcrumb label={labels.breadcrumb} />
         </ScrollReveal>
 
-        <ScrollReveal direction="up" delay={0}>
+        <ScrollReveal direction="up">
           <ServiceHero
             title={serviceT("title")}
             subtitleStatic={serviceT("subtitleStatic")}
@@ -90,14 +90,14 @@ export async function ServiceDetailSection({
           />
         </ScrollReveal>
 
-        <ScrollReveal direction="left" delay={100}>
+        <ScrollReveal direction="left">
           <ServiceOverview
             label={labels.summaryLabel}
             overview={data.overview}
           />
         </ScrollReveal>
 
-        <ScrollReveal direction="down" delay={200}>
+        <ScrollReveal direction="down">
           <ServiceAudience
             forWhoLabel={labels.forWhoLabel}
             forWho={data.forWho}
@@ -106,7 +106,7 @@ export async function ServiceDetailSection({
           />
         </ScrollReveal>
 
-        <ScrollReveal direction="right" delay={300}>
+        <ScrollReveal direction="right">
           <ServiceDeliverables
             title={labels.deliverables}
             items={data.deliverables}
@@ -122,11 +122,11 @@ export async function ServiceDetailSection({
           />
         </ScrollReveal> */}
 
-        <ScrollReveal direction="down" delay={500}>
+        <ScrollReveal direction="down">
           <ServiceFaq title={labels.faq} items={data.faq} />
         </ScrollReveal>
 
-        <ScrollReveal direction="scale" delay={600}>
+        <ScrollReveal direction="scale">
           <CtaLink label={labels.back} />
         </ScrollReveal>
       </article>
