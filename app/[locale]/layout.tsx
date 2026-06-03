@@ -6,6 +6,11 @@ import "@/app/globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeShortcut } from "@/components/layout/ThemeShortcut";
+import { franklin } from "@/app/layout";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
+import { WebSiteJsonLd } from "@/components/seo/WebSiteJsonLd";
+import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -28,11 +33,35 @@ export default async function localeLayout({
   const messages = await getMessages();
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      <ThemeShortcut />
-      <Navbar />
-      <main className="flex-1 pt-16">{children}</main>
-      <Footer />
-    </NextIntlClientProvider>
+    <html
+      lang={locale}
+      className={`${franklin.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-full flex flex-col">
+        <OrganizationJsonLd
+          name="ShineTechData"
+          url={SITE_URL}
+          logo={`${SITE_URL}/logo.png`}
+          sameAs={[
+            "https://linkedin.com/company/shinetechdata",
+            "https://github.com/shinetechdata",
+          ]}
+        />
+        <WebSiteJsonLd
+          name="ShineTechData"
+          url={SITE_URL}
+          searchUrl={`${SITE_URL}/search?q={search_term_string}`}
+        />
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>
+            <ThemeShortcut />
+            <Navbar />
+            <main className="flex-1 pt-16">{children}</main>
+            <Footer />
+          </NextIntlClientProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

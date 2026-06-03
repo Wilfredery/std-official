@@ -34,12 +34,14 @@ vi.mock("next/image", () => ({
     fill,
     priority,
     className,
+    sizes,
   }: {
     src: string;
     alt: string;
     fill?: boolean;
     priority?: boolean;
     className?: string;
+    sizes?: string;
   }) => (
     <img
       src={src}
@@ -47,6 +49,7 @@ vi.mock("next/image", () => ({
       data-fill={fill ? "true" : "false"}
       data-priority={priority ? "true" : "false"}
       className={className}
+      sizes={sizes}
     />
   ),
 }));
@@ -90,6 +93,17 @@ describe("MissionVision", () => {
       expect(img).toHaveAttribute(
         "src",
         "/images/logo/logo-vertical.webp",
+      );
+    });
+
+    it("includes sizes attribute on the image for responsive loading", () => {
+      mockHydrated.mockReturnValue(true);
+      render(<MissionVision locale="en" />);
+
+      const img = screen.getByAltText("ShineTechData");
+      expect(img).toHaveAttribute(
+        "sizes",
+        "(max-width: 1024px) 100vw, 50vw",
       );
     });
 
