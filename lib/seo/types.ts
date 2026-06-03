@@ -9,6 +9,7 @@ export interface Organization {
   name: string;
   url: string;
   logo?: string;
+  sameAs?: string[];
 }
 
 export interface WebSite {

@@ -5,6 +5,7 @@ import { SITE_URL, locales } from "@/lib/site";
 import { getServiceBySlug, serviceSlugs } from "@/lib/data/services";
 import { ServiceDetailSection } from "@/components/services/detail/ServiceDetailSection";
 import { JsonLd } from "@/components/JsonLd";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import type { Service } from "@/lib/seo/types";
 
 // 1. Esto le dice a Next.js qué páginas existen
@@ -93,8 +94,22 @@ export default async function ServiceDetailPage({
   });
   const serviceData = t.raw(slug) as { title: string; summary: string };
 
+  // Build breadcrumb items with locale-aware labels and URLs
+  const homeLabel = locale === "es" ? "Inicio" : "Home";
+  const servicesLabel = locale === "es" ? "Servicios" : "Services";
+
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: homeLabel, url: `${SITE_URL}/${locale}/` },
+          { name: servicesLabel, url: `${SITE_URL}/${locale}/services/` },
+          {
+            name: serviceData.title,
+            url: `${SITE_URL}/${locale}/services/${slug}/`,
+          },
+        ]}
+      />
       <JsonLd<Service>
         data={{
           "@type": "Service",
