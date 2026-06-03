@@ -224,7 +224,7 @@ describe("ServiceDetailSection", () => {
     expect(props.subtitleDynamic).toBe("service.subtitleDynamic");
   });
 
-  it("wraps Hero in ScrollReveal with direction=up delay=0", async () => {
+  it("wraps Hero in ScrollReveal with direction=up", async () => {
     render(
       await ServiceDetailSection({
         service: mockService,
@@ -236,7 +236,7 @@ describe("ServiceDetailSection", () => {
     const hero = screen.getByTestId("hero");
     const heroWrapper = hero.closest('[data-testid="scroll-reveal"]');
     expect(heroWrapper).toHaveAttribute("data-direction", "up");
-    expect(heroWrapper).toHaveAttribute("data-delay", "0");
+    expect(heroWrapper).not.toHaveAttribute("data-delay");
   });
 
   // ── Breadcrumb ─────────────────────────────────────────────────
@@ -355,7 +355,7 @@ describe("ServiceDetailSection", () => {
     expect(screen.getByTestId("cta-link")).toBeInTheDocument();
   });
 
-  it("wraps each section in a ScrollReveal with distinct direction and delay", async () => {
+  it("wraps each section in a ScrollReveal with distinct direction", async () => {
     render(
       await ServiceDetailSection({
         service: mockService,
@@ -369,7 +369,6 @@ describe("ServiceDetailSection", () => {
     expect(wrappers).toHaveLength(7);
 
     const directions = wrappers.map((w) => w.getAttribute("data-direction"));
-    const delays = wrappers.map((w) => Number(w.getAttribute("data-delay")));
 
     expect(directions).toEqual([
       "scale",
@@ -380,7 +379,10 @@ describe("ServiceDetailSection", () => {
       "down",
       "scale",
     ]);
-    expect(delays).toEqual([0, 0, 100, 200, 300, 500, 600]);
+
+    // Verify no delay attribute is set (all delays removed)
+    const delays = wrappers.map((w) => w.getAttribute("data-delay"));
+    expect(delays.every((d) => d === null)).toBe(true);
   });
 
   // ── Article element ────────────────────────────────────────────
