@@ -1,10 +1,13 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { renderHook, act } from "@testing-library/react";
+import { renderHook, act, waitFor } from "@testing-library/react";
 import React from "react";
 
 // Will be imported after mock setup
 let useTheme: () => import("@/lib/theme/types").ThemeContextValue;
-let ThemeProvider: React.FC<{ children: React.ReactNode }>;
+let ThemeProvider: React.FC<{
+  children: React.ReactNode;
+  initialTheme?: import("@/lib/theme/types").Theme;
+}>;
 
 // ---------------------------------------------------------------------------
 // Mock localStorage
@@ -96,21 +99,21 @@ describe("useTheme — all states and transitions", () => {
   // =====================================================================
 
   describe("context values", () => {
-    it("returns light theme by default when localStorage is empty", () => {
+    it("returns system theme by default when localStorage is empty", () => {
       const { result } = renderHook(() => useTheme(), {
         wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
       });
 
-      expect(result.current.theme).toBe("light");
+      // After mount, reads localStorage (empty → system) and applies
+      expect(result.current.theme).toBe("system");
       expect(result.current.resolvedTheme).toBe("light");
       expect(result.current.themes).toEqual(["light", "dark", "system"]);
+      expect(result.current.mounted).toBe(true);
     });
 
-    it("reads theme from localStorage on mount", () => {
-      localStorageMock.setItem("theme", "dark");
-
+    it("initializes with dark theme via initialTheme prop", () => {
       const { result } = renderHook(() => useTheme(), {
-        wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
+        wrapper: ({ children }) => <ThemeProvider initialTheme="dark">{children}</ThemeProvider>,
       });
 
       expect(result.current.theme).toBe("dark");
@@ -238,11 +241,8 @@ describe("useTheme — all states and transitions", () => {
     });
 
     it("removes .dark class when theme is set to light", () => {
-      // Start with dark
-      localStorageMock.setItem("theme", "dark");
-
       const { result } = renderHook(() => useTheme(), {
-        wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
+        wrapper: ({ children }) => <ThemeProvider initialTheme="dark">{children}</ThemeProvider>,
       });
 
       expect(document.documentElement.classList.contains("dark")).toBe(true);
@@ -258,7 +258,7 @@ describe("useTheme — all states and transitions", () => {
       localStorageMock.setItem("theme", "dark");
 
       renderHook(() => useTheme(), {
-        wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
+        wrapper: ({ children }) => <ThemeProvider initialTheme="dark">{children}</ThemeProvider>,
       });
 
       expect(document.documentElement.classList.contains("dark")).toBe(true);
@@ -305,11 +305,10 @@ describe("useTheme — all states and transitions", () => {
     });
 
     it("does NOT react to matchMedia changes when theme is not system", () => {
-      localStorageMock.setItem("theme", "dark");
       matchMediaMock.mockReturnValue(createMatchMediaResponse(false));
 
       const { result } = renderHook(() => useTheme(), {
-        wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
+        wrapper: ({ children }) => <ThemeProvider initialTheme="dark">{children}</ThemeProvider>,
       });
 
       expect(result.current.resolvedTheme).toBe("dark");
@@ -359,7 +358,7 @@ describe("useTheme — all states and transitions", () => {
       consoleSpy.mockRestore();
     });
 
-    it("handles missing localStorage gracefully (falls back to light)", () => {
+    it("handles missing localStorage gracefully (falls back to system)", () => {
       // Simulate localStorage not accessible by making getItem throw
       localStorageMock.getItem.mockImplementationOnce(() => {
         throw new Error("Blocked");
@@ -369,8 +368,8 @@ describe("useTheme — all states and transitions", () => {
         wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
       });
 
-      // Should fall back to light
-      expect(result.current.theme).toBe("light");
+      // Should fall back to system (which resolves to light since mock says OS is light)
+      expect(result.current.theme).toBe("system");
       expect(result.current.resolvedTheme).toBe("light");
     });
 

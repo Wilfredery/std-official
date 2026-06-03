@@ -9,4 +9,5 @@ export interface ThemeContextValue {
   setTheme: (theme: Theme) => void;
   resolvedTheme: ResolvedTheme;
   themes: readonly Theme[];
+  mounted: boolean;
 }

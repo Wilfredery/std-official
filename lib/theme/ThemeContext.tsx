@@ -5,6 +5,7 @@ import {
   useContext,
   useState,
   useEffect,
+  useLayoutEffect,
   type ReactNode,
 } from "react";
 import type { Theme, ResolvedTheme, ThemeContextValue } from "@/lib/theme/types";
@@ -43,19 +44,32 @@ function readStoredTheme(): Theme {
   } catch {
     // localStorage blocked — fall through
   }
-  return "light";
+  return "system";
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(() => readStoredTheme());
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() =>
-    resolveTheme(theme),
+export function ThemeProvider({
+  children,
+  initialTheme,
+}: {
+  children: ReactNode;
+  initialTheme?: Theme;
+}) {
+  // Use a fixed initial value for SSR/hydration safety.
+  // LocalStorage is read inside useEffect to avoid hydration mismatch.
+  // Tests can pass initialTheme directly for deterministic behavior.
+  const [theme, setThemeState] = useState<Theme>(initialTheme ?? "system");
+  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(
+    initialTheme ? resolveTheme(initialTheme) : "light",
   );
+  const [mounted, setMounted] = useState(!!initialTheme);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
+    const resolved = resolveTheme(newTheme);
+    setResolvedTheme(resolved);
+    applyThemeClass(resolved);
     try {
       localStorage.setItem(STORAGE_KEY, newTheme);
     } catch {
@@ -63,12 +77,20 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // Resolve theme on mount and when theme changes
-  useEffect(() => {
-    const resolved = resolveTheme(theme);
+  // On mount: read stored preference and apply before first paint
+  useLayoutEffect(() => {
+    if (initialTheme) {
+      applyThemeClass(resolveTheme(initialTheme));
+      return;
+    }
+
+    const stored = readStoredTheme();
+    setThemeState(stored);
+    const resolved = resolveTheme(stored);
     setResolvedTheme(resolved);
     applyThemeClass(resolved);
-  }, [theme]);
+    setMounted(true);
+  }, [initialTheme]);
 
   // Subscribe to matchMedia when theme === "system"
   useEffect(() => {
@@ -87,15 +109,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       applyThemeClass(resolved);
     };
 
-    // Initialize on mount
     handler(mql);
-
     mql.addEventListener("change", handler);
     return () => mql.removeEventListener("change", handler);
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, resolvedTheme, themes: THEMES }}>
+    <ThemeContext.Provider
+      value={{ theme, setTheme, resolvedTheme, themes: THEMES, mounted }}
+    >
       {children}
     </ThemeContext.Provider>
   );
