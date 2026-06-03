@@ -27,7 +27,7 @@ vi.mock("@/hooks/useHydrated", () => ({
 }));
 
 const useThemeMock = vi.fn(() => ({ resolvedTheme: "light" }));
-vi.mock("next-themes", () => ({
+vi.mock("@/lib/theme/ThemeContext", () => ({
   useTheme: () => useThemeMock(),
 }));
 

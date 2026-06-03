@@ -32,10 +32,16 @@ vi.mock("next-intl", () => ({
   ),
 }));
 
-vi.mock("next-themes", () => ({
+vi.mock("@/lib/theme/ThemeContext", () => ({
   ThemeProvider: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="theme-provider">{children}</div>
   ),
+  useTheme: () => ({
+    theme: "light" as const,
+    setTheme: vi.fn(),
+    resolvedTheme: "light" as const,
+    themes: ["light", "dark", "system"] as const,
+  }),
 }));
 
 // Mock the franklin font import from root layout
