@@ -556,6 +556,10 @@
       "title": "ShineTechData — Convierte tus datos en decisiones inteligentes",
       "description": "ShineTechData ayuda a PyMEs a transformar datos crudos en insights claros, procesos automatizados y crecimiento real."
     },
+    "about": {
+      "title": "Sobre Nosotros | ShineTechData",
+      "description": "Conoce la misión, valores y equipo detrás de las soluciones tecnológicas de ShineTechData."
+    },
     "services": {
       "title": "Servicios — ShineTechData",
       "description": "Análisis de datos, Business Intelligence, Machine Learning, Auditoría, Transformación Digital y Automatización de Procesos."

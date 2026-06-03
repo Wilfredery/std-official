@@ -1,4 +1,4 @@
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { SITE_URL, locales } from "@/lib/site";
 import { AboutHeader } from "@/components/about/hero/AboutHeader";
@@ -10,30 +10,17 @@ import { PillarsSection } from "@/components/about/pillars/AboutPillarsSection";
 import { AboutCtaLinks } from "@/components/about/cta/AboutCtaLinks";
 import { AboutTeam } from "@/components/about/team/AboutTeam";
 
-// TODO (Batch 6): Replace hardcoded fallback values below with
-// getTranslations({ locale, namespace: "seo" }) → t("about.title"),
-// t("about.description") once seo.about keys are added to messages/*.json.
-
-const ABOUT_FALLBACK: Record<string, { title: string; description: string }> = {
-  en: {
-    title: "About Us — ShineTechData",
-    description:
-      "Learn about ShineTechData's mission, vision, values, and the expert team behind data-driven business transformation.",
-  },
-  es: {
-    title: "Sobre Nosotros — ShineTechData",
-    description:
-      "Conoce la misión, visión, valores y el equipo experto detrás de ShineTechData, impulsando la transformación digital basada en datos.",
-  },
-};
-
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const fallback = ABOUT_FALLBACK[locale] ?? ABOUT_FALLBACK.en;
+  const t = await getTranslations({ locale, namespace: "seo" });
+
+  const title = t("about.title");
+  const description = t("about.description");
+
   const canonical = `${SITE_URL}/${locale}/about/`;
   const ogImage = {
     url: `${SITE_URL}/opengraph-image.png`,
@@ -42,8 +29,8 @@ export async function generateMetadata({
   };
 
   return {
-    title: fallback.title,
-    description: fallback.description,
+    title,
+    description,
     alternates: {
       canonical,
       languages: Object.fromEntries(
@@ -51,8 +38,8 @@ export async function generateMetadata({
       ),
     },
     openGraph: {
-      title: fallback.title,
-      description: fallback.description,
+      title,
+      description,
       url: canonical,
       siteName: "ShineTechData",
       images: [ogImage],
@@ -61,8 +48,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: fallback.title,
-      description: fallback.description,
+      title,
+      description,
       images: [`${SITE_URL}/opengraph-image.png`],
     },
   };

@@ -29,31 +29,49 @@ vi.mock("@/components/about/team/AboutTeam", () => ({ AboutTeam: () => null }));
 import { generateMetadata } from "@/app/[locale]/about/page";
 
 describe("About Page — generateMetadata (SEO-1)", () => {
-  it("returns English fallback title since seo.about keys do not exist yet", async () => {
-    // The about page uses hardcoded fallback because seo.about namespace
-    // doesn't exist in messages/*.json. Make getTranslations return a dummy.
-    getTranslationsMock.mockResolvedValue((key: string) => key);
+  it("uses getTranslations with namespace=seo for English locale", async () => {
+    // Simulate getTranslations returning specific seo.about values
+    getTranslationsMock.mockResolvedValue((key: string) => {
+      const seo: Record<string, string> = {
+        "about.title": "About Us | ShineTechData",
+        "about.description": "Learn about ShineTechData's mission, values, and the team behind our tech solutions.",
+      };
+      return seo[key] ?? key;
+    });
 
     const metadata = await generateMetadata({
       params: Promise.resolve({ locale: "en" }),
     });
 
-    expect(metadata.title).toContain("About");
-    expect(metadata.title).toContain("ShineTechData");
-    expect(metadata.description).toBeTruthy();
-    expect(typeof metadata.description).toBe("string");
+    // Verify getTranslations was called with the correct namespace
+    expect(getTranslationsMock).toHaveBeenCalledWith({
+      locale: "en",
+      namespace: "seo",
+    });
+    expect(metadata.title).toBe("About Us | ShineTechData");
+    expect(metadata.description).toBe(
+      "Learn about ShineTechData's mission, values, and the team behind our tech solutions."
+    );
   });
 
-  it("returns Spanish fallback title for locale=es", async () => {
-    getTranslationsMock.mockResolvedValue((key: string) => key);
+  it("uses getTranslations with namespace=seo for Spanish locale", async () => {
+    getTranslationsMock.mockResolvedValue((key: string) => {
+      const seo: Record<string, string> = {
+        "about.title": "Sobre Nosotros | ShineTechData",
+        "about.description": "Conoce la misión, valores y equipo detrás de las soluciones tecnológicas de ShineTechData.",
+      };
+      return seo[key] ?? key;
+    });
 
     const metadata = await generateMetadata({
       params: Promise.resolve({ locale: "es" }),
     });
 
-    expect(metadata.title).toContain("ShineTechData");
-    expect(metadata.title).not.toBe("");
-    expect(metadata.description).toBeTruthy();
+    expect(getTranslationsMock).toHaveBeenCalledWith({
+      locale: "es",
+      namespace: "seo",
+    });
+    expect(metadata.title).toBe("Sobre Nosotros | ShineTechData");
   });
 
   it("includes openGraph metadata", async () => {
