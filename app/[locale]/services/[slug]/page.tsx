@@ -1,8 +1,11 @@
-import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { SITE_URL, locales } from "@/lib/site";
 import { getServiceBySlug, serviceSlugs } from "@/lib/data/services";
 import { ServiceDetailSection } from "@/components/services/detail/ServiceDetailSection";
+import { JsonLd } from "@/components/JsonLd";
+import type { Service } from "@/lib/seo/types";
 
 // 1. Esto le dice a Next.js qué páginas existen
 //    En modo desarrollo (next dev), Next puede crearlas on-demand
@@ -24,7 +27,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale, slug } = await params;
   const t = await getTranslations({
     locale,
@@ -32,9 +35,39 @@ export async function generateMetadata({
   });
   const serviceData = t.raw(slug) as { title: string; summary: string };
 
+  const title = `${serviceData.title} | ShineTechData`;
+  const description = serviceData.summary;
+  const canonical = `${SITE_URL}/${locale}/services/${slug}/`;
+  const ogImage = {
+    url: `${SITE_URL}/opengraph-image.png`,
+    width: 1200,
+    height: 630,
+  };
+
   return {
-    title: `${serviceData.title} | ShineTechData`,
-    description: serviceData.summary,
+    title,
+    description,
+    alternates: {
+      canonical,
+      languages: Object.fromEntries(
+        locales.map((l) => [l, `${SITE_URL}/${l}/services/${slug}/`])
+      ),
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: "ShineTechData",
+      images: [ogImage],
+      locale: locale === "es" ? "es_DO" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`${SITE_URL}/opengraph-image.png`],
+    },
   };
 }
 
@@ -53,7 +86,28 @@ export default async function ServiceDetailPage({
     notFound(); // Muestra tu 404 personalizado
   }
 
+  // Fetch translations for JSON-LD structured data
+  const t = await getTranslations({
+    locale,
+    namespace: "serviceDetail.services",
+  });
+  const serviceData = t.raw(slug) as { title: string; summary: string };
+
   return (
-    <ServiceDetailSection locale={locale} slug={slug} service={service} />
+    <>
+      <JsonLd<Service>
+        data={{
+          "@type": "Service",
+          name: serviceData.title,
+          description: serviceData.summary,
+          provider: {
+            "@type": "Organization",
+            name: "ShineTechData",
+            url: SITE_URL,
+          },
+        }}
+      />
+      <ServiceDetailSection locale={locale} slug={slug} service={service} />
+    </>
   );
 }
