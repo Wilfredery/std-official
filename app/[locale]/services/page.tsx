@@ -1,11 +1,16 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { SITE_URL, locales } from "@/lib/site";
+import { routing } from "@/lib/i18n/routing";
 import { ServicesHeader } from "@/components/services/ServicesHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ServicesSection } from "@/components/services/ServicesSection";
 import { BenefitsSection } from "@/components/services/benefits/BenefitsSection";
 import { CtaSection } from "@/components/services/cta/CtaSection";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
