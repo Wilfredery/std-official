@@ -18,7 +18,7 @@ The official website for [ShineTechData](https://shinetechdata.com) — a data c
 | [Tailwind CSS](https://tailwindcss.com)                    | 4       | Utility-first styling                      |
 | [Base UI](https://base-ui.com)                             | 1.5     | Unstyled accessible primitives (shadcn/ui) |
 | [next-intl](https://next-intl.dev)                         | 4.12    | Internationalization                       |
-| [next-themes](https://github.com/pacocoursey/next-themes)  | 0.4     | Light/dark/system theme                    |
+| Custom theme system                                        | —       | Light/dark/system theme (Context-based)    |
 | [Lucide React](https://lucide.dev)                         | 1.16    | Icon library                               |
 | [Vitest](https://vitest.dev)                               | 4.1     | Test runner                                |
 | [React Testing Library](https://testing-library.com/react) | 16.3    | Component tests                            |

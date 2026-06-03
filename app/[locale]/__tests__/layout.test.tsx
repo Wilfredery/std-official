@@ -93,7 +93,7 @@ describe("Locale Layout — <html lang> attribute (SEO-2)", () => {
       // <body> must be present with structural classes
       expect(html).toContain('<body class="min-h-full flex flex-col"');
       // Note: suppressHydrationWarning is a React-internal prop on <html>
-      // for next-themes compatibility. It does not render as a DOM attribute
+      // for theme class mismatch handling. It does not render as a DOM attribute
       // in React 19 renderToString — verified via code review.
     });
 

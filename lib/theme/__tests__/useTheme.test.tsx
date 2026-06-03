@@ -39,12 +39,10 @@ Object.defineProperty(window, "localStorage", {
 // ---------------------------------------------------------------------------
 const matchMediaListeners = new Set<(e: MediaQueryListEvent) => void>();
 
-const matchMediaMock = vi.fn((query: string) => {
-  let matches = false;
-
+function createMatchMediaResponse(matches = false) {
   return {
     matches,
-    media: query,
+    media: "(prefers-color-scheme: dark)",
     onchange: null,
     addListener: vi.fn(),
     removeListener: vi.fn(),
@@ -60,7 +58,9 @@ const matchMediaMock = vi.fn((query: string) => {
     }),
     dispatchEvent: vi.fn(),
   };
-});
+}
+
+const matchMediaMock = vi.fn((_query: string) => createMatchMediaResponse());
 
 Object.defineProperty(window, "matchMedia", {
   value: matchMediaMock,
@@ -190,10 +190,7 @@ describe("useTheme — all states and transitions", () => {
   describe("system preference resolution", () => {
     it("resolves system to dark when matchMedia says dark", () => {
       // Make matchMedia report dark
-      matchMediaMock.mockReturnValue({
-        ...matchMediaMock(),
-        matches: true,
-      });
+      matchMediaMock.mockReturnValue(createMatchMediaResponse(true));
 
       localStorageMock.setItem("theme", "system");
 
@@ -211,10 +208,7 @@ describe("useTheme — all states and transitions", () => {
     });
 
     it("resolves system to light when matchMedia says light", () => {
-      matchMediaMock.mockReturnValue({
-        ...matchMediaMock(),
-        matches: false,
-      });
+      matchMediaMock.mockReturnValue(createMatchMediaResponse(false));
 
       localStorageMock.setItem("theme", "system");
 
@@ -278,10 +272,7 @@ describe("useTheme — all states and transitions", () => {
   describe("matchMedia subscription", () => {
     it("updates resolvedTheme when OS switches to dark while theme is system", () => {
       localStorageMock.setItem("theme", "system");
-      matchMediaMock.mockReturnValue({
-        ...matchMediaMock(),
-        matches: false,
-      });
+      matchMediaMock.mockReturnValue(createMatchMediaResponse(false));
 
       const { result } = renderHook(() => useTheme(), {
         wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
@@ -298,10 +289,7 @@ describe("useTheme — all states and transitions", () => {
 
     it("updates resolvedTheme when OS switches to light while theme is system", () => {
       localStorageMock.setItem("theme", "system");
-      matchMediaMock.mockReturnValue({
-        ...matchMediaMock(),
-        matches: true,
-      });
+      matchMediaMock.mockReturnValue(createMatchMediaResponse(true));
 
       const { result } = renderHook(() => useTheme(), {
         wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
@@ -318,10 +306,7 @@ describe("useTheme — all states and transitions", () => {
 
     it("does NOT react to matchMedia changes when theme is not system", () => {
       localStorageMock.setItem("theme", "dark");
-      matchMediaMock.mockReturnValue({
-        ...matchMediaMock(),
-        matches: false,
-      });
+      matchMediaMock.mockReturnValue(createMatchMediaResponse(false));
 
       const { result } = renderHook(() => useTheme(), {
         wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
@@ -401,10 +386,7 @@ describe("useTheme — all states and transitions", () => {
     });
 
     it("setTheme with system resolves based on current matchMedia", () => {
-      matchMediaMock.mockReturnValue({
-        ...matchMediaMock(),
-        matches: true,
-      });
+      matchMediaMock.mockReturnValue(createMatchMediaResponse(true));
 
       const { result } = renderHook(() => useTheme(), {
         wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
