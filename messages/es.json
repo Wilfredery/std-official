@@ -567,6 +567,14 @@
     "serviceDetail": {
       "title": "Servicios — ShineTechData",
       "description": "Servicios especializados de datos para PyMEs: análisis, BI, machine learning y más."
+    },
+    "privacy": {
+      "title": "Política de Privacidad — ShineTechData",
+      "description": "Conoce cómo ShineTechData recopila, usa y protege tu información personal."
+    },
+    "terms": {
+      "title": "Términos y Condiciones — ShineTechData",
+      "description": "Lee los términos de uso del sitio y los acuerdos de servicio de ShineTechData."
     }
   },
   "notFound": {
@@ -665,6 +673,82 @@
       "title": "¿Listo para transformar tu negocio con datos?",
       "subtitle": "Construyamos juntos un roadmap que convierta tus datos en una ventaja competitiva sostenible.",
       "button": "Agendar Consultoría Gratis"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "pageTitle": "Política de Privacidad",
+      "lastUpdated": "Última actualización: Junio 2026",
+      "tocTitle": "Contenido",
+      "sections": [
+        {
+          "heading": "1. Información que Recopilamos",
+          "items": [
+            "Datos de contacto directo: nombre completo, correo electrónico institucional, teléfono y denominación de la empresa, recopilados a través de formularios de contacto, asistencia o solicitud de cotizaciones.",
+            "Datos de proyectos y muestras: documentos descriptivos, flujos de procesos o archivos de bases de datos de prueba provistos voluntariamente por el cliente para la fase de diagnóstico.",
+            "Datos de navegación técnica: cookies técnicas, direcciones IP y metadatos de sesión para auditorías de rendimiento de la interfaz web corporativa."
+          ]
+        },
+        {
+          "heading": "2. Finalidad del Tratamiento de Datos",
+          "items": [
+            "Suministrar, mantener y optimizar el rendimiento técnico de nuestro sitio web oficial.",
+            "Estructurar, personalizar y desplegar cuadros de mando (BI), reportes dinámicos interactivos y algoritmos de Machine Learning adaptados al modelo estratégico del cliente.",
+            "Procesar solicitudes de soporte y mantener canales de comunicación transparentes respecto a cotizaciones.",
+            "Validar el estricto apego regulatorio a través de soluciones de Auditoría de Datos, evitando problemas legales en la organización del cliente y asegurando conformidad absoluta con la Ley No. 172-13 de la República Dominicana."
+          ]
+        },
+        {
+          "heading": "3. Seguridad y Confidencialidad",
+          "items": [
+            "Utilizamos estándares modernos de infraestructura técnica y cifrado para salvaguardar la información contra accesos no autorizados, pérdidas accidentales o alteraciones.",
+            "El ciclo de vida de los datos está resguardado por Acuerdos de Confidencialidad (NDA) explícitos desde el primer contacto comercial."
+          ]
+        },
+        {
+          "heading": "4. Derechos del Usuario (ARCO)",
+          "items": [
+            "Cualquier usuario o empresa aliada mantiene el derecho irrestricto de acceder, rectificar, cancelar u oponerse al tratamiento de sus datos personales recolectados mediante el portal web de ShineTechData.",
+            "Para ejercer estos derechos, enviar un comunicado formal por nuestros canales de atención técnica."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "pageTitle": "Términos y Condiciones de Uso",
+      "lastUpdated": "Última actualización: Junio 2026",
+      "tocTitle": "Contenido",
+      "sections": [
+        {
+          "heading": "1. Propiedad Intelectual e Industrial",
+          "items": [
+            "La totalidad del contenido expuesto en este sitio — incluyendo códigos fuente, arquitecturas de software, logotipos institucionales, diseños de interfaces, gráficos interactivos y copys técnicos — pertenece en su totalidad a ShineTechData o cuenta con las respectivas autorizaciones de terceros.",
+            "Se prohíbe terminantemente su copia, distribución o ingeniería inversa sin autorización expresa y por escrito."
+          ]
+        },
+        {
+          "heading": "2. Uso Correcto de la Plataforma e Información",
+          "items": [
+            "La información descrita en la web referente a los procesos del ciclo de vida de los datos cumple un propósito puramente descriptivo, informativo e ilustrativo.",
+            "Las características finales de las arquitecturas de software e infraestructura digital contratadas se detallarán y formalizarán mediante contratos privados de prestación de servicios entre ShineTechData y el cliente."
+          ]
+        },
+        {
+          "heading": "3. Limitación de Responsabilidad",
+          "items": [
+            "ShineTechData ejecuta flujos de mantenimiento constantes para asegurar la disponibilidad de informes en tiempo real y la exactitud del contenido de la interfaz.",
+            "No nos responsabilizamos por caídas temporales del servidor ajenas a nuestro control, lucro cesante derivado del uso erróneo de la plataforma pública, ni decisiones comerciales estratégicas ejecutadas sin una consultoría personalizada formalizada por nuestro equipo técnico."
+          ]
+        },
+        {
+          "heading": "4. Jurisdicción y Modificaciones del Acuerdo",
+          "items": [
+            "Nos reservamos el derecho explícito de actualizar, reformar o sustituir cualquier sección de estas normativas legales con la finalidad de amoldarnos a reformas tributarias, nuevas leyes de protección de datos o cambios estratégicos dentro de la organización.",
+            "Para cualquier controversia legal, estos términos se regirán e interpretarán bajo las leyes de la República Dominicana, y las partes se someten a la jurisdicción de los tribunales de Santo Domingo.",
+            "Las modificaciones tendrán validez legal inmediata tras su publicación en el entorno de producción web oficial."
+          ]
+        }
+      ]
     }
   }
 }
