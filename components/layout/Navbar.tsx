@@ -10,7 +10,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { MobileMenu } from "./MobileMenu";
 import { useHydrated } from "@/hooks/useHydrated";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme/ThemeContext";
 
 const navLinks = [
   { href: "/", labelKey: "home" as const },

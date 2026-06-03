@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme/ThemeContext";
 
 export function useThemeShortcut() {
   const { theme, setTheme } = useTheme();

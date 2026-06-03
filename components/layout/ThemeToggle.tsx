@@ -1,8 +1,7 @@
 "use client";
 
 import { Sun, Moon, Monitor } from "lucide-react";
-import { useHydrated } from "@/hooks/useHydrated";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme/ThemeContext";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -13,15 +12,6 @@ import {
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
-  const mounted = useHydrated();
-
-  if (!mounted) {
-    return (
-      <Button variant="outline" size="icon-lg" aria-label="Toggle theme">
-        <Sun className="size-4" />
-      </Button>
-    );
-  }
 
   return (
     <DropdownMenu>

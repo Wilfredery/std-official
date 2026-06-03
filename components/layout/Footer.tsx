@@ -6,7 +6,7 @@ import { Phone, Mail } from "lucide-react";
 import { services } from "@/lib/data/services";
 import Image from "next/image";
 import { useHydrated } from "@/hooks/useHydrated";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme/ThemeContext";
 
 const footerLinks = [
   { href: "/", labelKey: "home" as const },
