@@ -1,3 +1,5 @@
+// NOTE: This component is currently inactive (commented out in ServiceDetailSection.tsx).
+// It is preserved for potential future use. Do not delete.
 import {
   ClipboardList,
   FileSearch,
