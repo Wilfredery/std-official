@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useHydrated } from "@/hooks/useHydrated";
 import { useTheme } from "@/lib/theme/ThemeContext";
 
-const IMG_LIGHT = "/images/logo/logo-vertical.webp";
-const IMG_DARK = "/images/decorations/composicion-visual-alt.webp";
+const IMG_LIGHT = "/images/about/about-light.webp";
+const IMG_DARK = "/images/about/about-dark.webp";
 
 export function MissionVision({ locale }: { locale: string }) {
   const t = useTranslations("about");
