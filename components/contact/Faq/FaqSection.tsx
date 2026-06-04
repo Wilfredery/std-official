@@ -4,7 +4,7 @@ export async function ContactFaq() {
   const t = await getTranslations("contact.faq");
 
   return (
-    <section className="pt-16 sm:pt-20 border-t border-border bg-secondary/30">
+    <section className="pt-16 sm:pt-20 border-t border-border">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-center mb-12">
           {t("title")}
@@ -21,9 +21,7 @@ export async function ContactFaq() {
                 focus-visible:outline-ring rounded-lg"
               >
                 {t(`items.${i}.q` as `items.${number}.q`)}
-                <span
-                  className="text-primary group-open:rotate-45 transition-transform text-xl leading-none"
-                >
+                <span className="text-primary group-open:rotate-45 transition-transform text-xl leading-none">
                   +
                 </span>
               </summary>

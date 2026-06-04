@@ -22,6 +22,9 @@ vi.mock("../hero/ServiceHero", () => ({
   ServiceHero: (props: Record<string, unknown>) => (
     <div data-testid="hero" data-props={JSON.stringify(props)}>
       {(props as { title?: string }).title}
+      <div data-testid="breadcrumb" data-props={JSON.stringify({ label: props.breadcrumbLabel })}>
+        Breadcrumb
+      </div>
     </div>
   ),
 }));
@@ -42,13 +45,7 @@ vi.mock("@/components/ui/ScrollReveal", () => ({
   ),
 }));
 
-vi.mock("../breadcrumb/ServiceBreadcrumb", () => ({
-  ServiceBreadcrumb: (props: Record<string, unknown>) => (
-    <div data-testid="breadcrumb" data-props={JSON.stringify(props)}>
-      Breadcrumb
-    </div>
-  ),
-}));
+
 
 vi.mock("../overview/ServiceOverview", () => ({
   ServiceOverview: (props: Record<string, unknown>) => (
@@ -241,7 +238,7 @@ describe("ServiceDetailSection", () => {
 
   // ── Breadcrumb ─────────────────────────────────────────────────
 
-  it("renders ServiceBreadcrumb with translated label", async () => {
+  it("renders ServiceBreadcrumb with translated label inside hero", async () => {
     render(
       await ServiceDetailSection({
         service: mockService,
@@ -337,7 +334,7 @@ describe("ServiceDetailSection", () => {
 
   // ── Structure & ordering ───────────────────────────────────────
 
-  it("renders all 7 child sections", async () => {
+  it("renders all 6 child sections", async () => {
     render(
       await ServiceDetailSection({
         service: mockService,
@@ -365,13 +362,12 @@ describe("ServiceDetailSection", () => {
     );
 
     const wrappers = screen.getAllByTestId("scroll-reveal");
-    // 7 sections = 7 ScrollReveal wrappers
-    expect(wrappers).toHaveLength(7);
+    // 6 sections = 6 ScrollReveal wrappers (hero includes breadcrumb)
+    expect(wrappers).toHaveLength(6);
 
     const directions = wrappers.map((w) => w.getAttribute("data-direction"));
 
     expect(directions).toEqual([
-      "scale",
       "up",
       "left",
       "down",
@@ -387,7 +383,7 @@ describe("ServiceDetailSection", () => {
 
   // ── Article element ────────────────────────────────────────────
 
-  it("wraps body sections in an article element with all 7 child sections", async () => {
+  it("wraps body sections in an article element with all 6 child sections", async () => {
     render(
       await ServiceDetailSection({
         service: mockService,
@@ -399,7 +395,7 @@ describe("ServiceDetailSection", () => {
     const article = document.querySelector("article");
     expect(article).toBeInTheDocument();
 
-    // Verify all 7 child sections are rendered inside the article
+    // Verify all 6 child sections are rendered inside the article (hero includes breadcrumb)
     expect(screen.getByTestId("hero")).toBeInTheDocument();
     expect(screen.getByTestId("breadcrumb")).toBeInTheDocument();
     expect(screen.getByTestId("overview")).toBeInTheDocument();

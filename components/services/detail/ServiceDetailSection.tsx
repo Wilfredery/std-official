@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 import { ServiceBase } from "@/lib/data/services";
 import { ServiceHero } from "./hero/ServiceHero";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { ServiceBreadcrumb } from "./breadcrumb/ServiceBreadcrumb";
 import { ServiceOverview } from "./overview/ServiceOverview";
 import { ServiceAudience } from "./audience/ServiceAudience";
 import { ServiceDeliverables } from "./deliverables/ServiceDeliverables";
@@ -78,15 +77,12 @@ export async function ServiceDetailSection({
   return (
     <>
       <article className="max-w-4xl mx-auto px-4 sm:px-6 py-16 md:py-24">
-        <ScrollReveal direction="scale">
-          <ServiceBreadcrumb label={labels.breadcrumb} />
-        </ScrollReveal>
-
         <ScrollReveal direction="up">
           <ServiceHero
             title={serviceT("title")}
             subtitleStatic={serviceT("subtitleStatic")}
             subtitleDynamic={serviceT("subtitleDynamic")}
+            breadcrumbLabel={labels.breadcrumb}
           />
         </ScrollReveal>
 
