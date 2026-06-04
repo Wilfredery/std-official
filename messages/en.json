@@ -6,17 +6,11 @@
     "contact": "Contact",
     "cta": "Free Consultation",
     "language": "Language",
-    "theme": "Toggle theme",
     "menuOpen": "Open menu",
     "loading": "Loading"
   },
   "common": {
-    "learnMore": "Learn More",
-    "viewDetails": "View Details",
-    "scheduleConsultation": "Schedule a Free Consultation",
-    "requestProposal": "Request Custom Proposal",
-    "bookCall": "Book a Free Consultation",
-    "backToServices": "Back to Services"
+    "learnMore": "Learn More"
   },
   "home": {
     "hero": {
@@ -101,27 +95,6 @@
       "subtitleStatic": "From quick wins to full transformations —",
       "subtitleDynamic": "we deliver what moves the needle."
     },
-    "whyUs": {
-      "title": "Why teams choose ShineTechData?",
-      "items": [
-        {
-          "title": "Business-first thinking",
-          "description": "We translate technical work into revenue, savings, and time back."
-        },
-        {
-          "title": "Fast implementation",
-          "description": "Weeks, not quarters. We ship working solutions early and iterate."
-        },
-        {
-          "title": "Measurable results",
-          "description": "Every engagement comes with clear KPIs and a tracking dashboard."
-        }
-      ]
-    },
-    "process": {
-      "title": "Our delivery process",
-      "subtitle": "Transparent, structured, and built around your team."
-    },
     "cta": {
       "title": "Need a tailored data strategy for your company?",
       "subtitle": "Let's build a roadmap that turns your data into your competitive advantage.",
@@ -137,7 +110,6 @@
     "outcomes": "Tangible Outcomes",
     "timeline": "How We Deliver",
     "faq": "Frequently Asked Questions",
-    "notFound": "Service not found",
     "back": "Back to all services",
     "services": {
       "data-analysis": {
@@ -468,24 +440,6 @@
       "subtitleStatic": "Let's partner up. Reach out to discuss your",
       "subtitleDynamic": "project, ask questions, or request a custom consultation."
     },
-    "form": {
-      "title": "Send us a message",
-      "name": "Full name",
-      "company": "Company name",
-      "email": "Business email",
-      "phone": "Phone (optional)",
-      "budget": "Project budget",
-      "budgetOptions": [
-        "Under $10k",
-        "$10k – $50k",
-        "$50k – $150k",
-        "$150k+",
-        "Not sure yet"
-      ],
-      "message": "Tell us about your project",
-      "submit": "Request Consultation",
-      "success": "Thanks — we'll be in touch within 1 business day."
-    },
     "channels": {
       "title": "Other ways to reach ",
       "titleAccent": "ShineTechData",
@@ -534,11 +488,7 @@
     "tagline": "Practical data and AI consulting for businesses ready to grow smarter.",
     "services": "Services",
     "company": "Company",
-    "legal": "Legal",
     "links": {
-      "home": "Home",
-      "services": "Services",
-      "contact": "Contact",
       "privacy": "Privacy",
       "terms": "Terms"
     },
