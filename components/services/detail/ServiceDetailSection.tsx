@@ -77,10 +77,12 @@ export async function ServiceDetailSection({
 
   return (
     <>
+      <ServiceBreadcrumb label={labels.breadcrumb} />
+
       <article className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="relative overflow-hidden pt-8 pb-6">
-          <div className="absolute inset-0 hero-glow -z-10" />
-          <ServiceBreadcrumb label={labels.breadcrumb} />
+          <div className="absolute inset-0 -z-10" />
+
           <ScrollReveal direction="up">
             <ServiceHero
               title={serviceT("title")}
