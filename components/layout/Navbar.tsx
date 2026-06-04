@@ -5,12 +5,17 @@ import { Link, usePathname } from "@/lib/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Menu } from "lucide-react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { MobileMenu } from "./MobileMenu";
 import { useHydrated } from "@/hooks/useHydrated";
 import { useTheme } from "@/lib/theme/ThemeContext";
+
+const MobileMenu = dynamic(
+  () => import("./MobileMenu").then((mod) => mod.MobileMenu),
+  { ssr: false },
+);
 
 const navLinks = [
   { href: "/", labelKey: "home" as const },
