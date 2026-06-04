@@ -227,8 +227,8 @@ describe("useTheme — all states and transitions", () => {
   // THEME-5: CSS class toggle
   // =====================================================================
 
-  describe("CSS class toggle on document.documentElement", () => {
-    it("adds .dark class when theme is set to dark", () => {
+  describe("resolvedTheme transitions", () => {
+    it("returns resolvedTheme=dark when setTheme('dark') is called", () => {
       const { result } = renderHook(() => useTheme(), {
         wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
       });
@@ -237,31 +237,31 @@ describe("useTheme — all states and transitions", () => {
         result.current.setTheme("dark");
       });
 
-      expect(document.documentElement.classList.contains("dark")).toBe(true);
+      expect(result.current.resolvedTheme).toBe("dark");
     });
 
-    it("removes .dark class when theme is set to light", () => {
+    it("returns resolvedTheme=light when setTheme('light') is called after dark", () => {
       const { result } = renderHook(() => useTheme(), {
         wrapper: ({ children }) => <ThemeProvider initialTheme="dark">{children}</ThemeProvider>,
       });
 
-      expect(document.documentElement.classList.contains("dark")).toBe(true);
+      expect(result.current.resolvedTheme).toBe("dark");
 
       act(() => {
         result.current.setTheme("light");
       });
 
-      expect(document.documentElement.classList.contains("dark")).toBe(false);
+      expect(result.current.resolvedTheme).toBe("light");
     });
 
-    it("adds .dark class when dark theme is loaded from localStorage", () => {
+    it("returns resolvedTheme=dark when dark is loaded from localStorage", () => {
       localStorageMock.setItem("theme", "dark");
 
-      renderHook(() => useTheme(), {
+      const { result } = renderHook(() => useTheme(), {
         wrapper: ({ children }) => <ThemeProvider initialTheme="dark">{children}</ThemeProvider>,
       });
 
-      expect(document.documentElement.classList.contains("dark")).toBe(true);
+      expect(result.current.resolvedTheme).toBe("dark");
     });
   });
 

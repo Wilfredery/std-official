@@ -90,7 +90,7 @@ describe("Navbar", () => {
 
   // ---- Active link detection ----
 
-  it("highlights active link when pathname matches", () => {
+  it("highlights active link with aria-current when pathname matches", () => {
     // Override pathname so "/services" matches the services nav link
     usePathnameMock.mockReturnValue("/services");
 
@@ -99,11 +99,10 @@ describe("Navbar", () => {
     const links = screen.getAllByRole("link");
     const servicesLink = links.find((l) => l.textContent === "services");
     expect(servicesLink).toBeDefined();
-    expect(servicesLink!.className).toContain("text-primary");
-    expect(servicesLink!.className).toContain("bg-primary/10");
+    expect(servicesLink!).toHaveAttribute("aria-current", "page");
   });
 
-  it("applies inactive styles to non-matching links", () => {
+  it("does not set aria-current on inactive links", () => {
     usePathnameMock.mockReturnValue("/services");
 
     render(<Navbar />);
@@ -111,7 +110,7 @@ describe("Navbar", () => {
     const links = screen.getAllByRole("link");
     const homeLink = links.find((l) => l.textContent === "home");
     expect(homeLink).toBeDefined();
-    expect(homeLink!.className).toContain("text-muted-foreground");
+    expect(homeLink!).not.toHaveAttribute("aria-current");
   });
 
   // ---- Child components ----
@@ -140,13 +139,13 @@ describe("Navbar", () => {
 
   // ---- Scroll behaviour ----
 
-  it("has transparent background when not scrolled", () => {
+  it("has navbar data-testid when not scrolled", () => {
     render(<Navbar />);
     const header = document.querySelector("header")!;
-    expect(header.className).toContain("bg-transparent");
+    expect(header).toHaveAttribute("data-testid", "navbar");
   });
 
-  it("applies scrolled background class after scroll past threshold", () => {
+  it("has navbar-scrolled data-testid after scroll past threshold", () => {
     render(<Navbar />);
 
     act(() => {
@@ -159,9 +158,7 @@ describe("Navbar", () => {
     });
 
     const header = document.querySelector("header")!;
-    expect(header.className).toContain("bg-background/90");
-    expect(header.className).toContain("backdrop-blur-md");
-    expect(header.className).toContain("shadow-sm");
+    expect(header).toHaveAttribute("data-testid", "navbar-scrolled");
   });
 
   // ---- Theme-aware logo ----
@@ -172,7 +169,7 @@ describe("Navbar", () => {
 
     const logo = screen.getByAltText("ShineTechData isotipo");
     expect(logo.getAttribute("src")).toContain(
-      "%2Fimages%2Fisotipo%2Fisotipo-light.webp",
+      "%2Fimages%2FnavbarFooter%2Flogo-light.webp",
     );
   });
 
@@ -182,7 +179,7 @@ describe("Navbar", () => {
 
     const logo = screen.getByAltText("ShineTechData isotipo");
     expect(logo.getAttribute("src")).toContain(
-      "%2Fimages%2Fdecorations%2Fcomposicion-visual.webp",
+      "%2Fimages%2FnavbarFooter%2Flogo-dark.webp",
     );
   });
 

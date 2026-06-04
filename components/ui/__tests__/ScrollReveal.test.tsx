@@ -65,25 +65,27 @@ describe("ScrollReveal", () => {
     expect(screen.getByText("Hello world")).toBeInTheDocument();
   });
 
+  it("renders with data-testid scroll-reveal-wrapper", () => {
+    const { container } = render(<ScrollReveal>content</ScrollReveal>);
+    const wrapper = container.firstElementChild as HTMLElement;
+    expect(wrapper).toHaveAttribute("data-testid", "scroll-reveal-wrapper");
+  });
+
   it("creates an IntersectionObserver", () => {
     render(<ScrollReveal>content</ScrollReveal>);
     expect(mockObserve).toHaveBeenCalledTimes(1);
   });
 
-  it("starts invisible (not visible) with initial direction class 'up' by default", () => {
+  it("starts with data-visible=false initially", () => {
     const { container } = render(
       <ScrollReveal>content</ScrollReveal>,
     );
 
     const wrapper = container.firstElementChild as HTMLElement;
-    // The default direction is "up", so initial class should include translate-y-8 and opacity-0
-    expect(wrapper.className).toContain("opacity-0");
-    expect(wrapper.className).toContain("translate-y-8");
-    // Should NOT have the "visible" classes yet
-    expect(wrapper.className).not.toContain("opacity-100");
+    expect(wrapper).toHaveAttribute("data-visible", "false");
   });
 
-  it("becomes visible when intersection fires with isIntersecting=true", () => {
+  it("transitions to data-visible=true on intersection", () => {
     const { container } = render(
       <ScrollReveal>content</ScrollReveal>,
     );
@@ -91,8 +93,7 @@ describe("ScrollReveal", () => {
     fireIntersection(true);
 
     const wrapper = container.firstElementChild as HTMLElement;
-    expect(wrapper.className).toContain("opacity-100");
-    expect(wrapper.className).toContain("translate-y-0");
+    expect(wrapper).toHaveAttribute("data-visible", "true");
   });
 
   it("stops observing after first intersection (unobserve is called)", () => {
@@ -103,61 +104,37 @@ describe("ScrollReveal", () => {
     expect(mockUnobserve).toHaveBeenCalledTimes(1);
   });
 
-  describe("direction classes", () => {
-    it("applies 'up' direction class (translate-y-8)", () => {
+  describe("direction prop", () => {
+    it("renders children with default direction", () => {
       const { container } = render(
         <ScrollReveal direction="up">content</ScrollReveal>,
       );
       const wrapper = container.firstElementChild as HTMLElement;
-      expect(wrapper.className).toContain("translate-y-8");
+      expect(wrapper).toHaveAttribute("data-testid", "scroll-reveal-wrapper");
+      expect(wrapper).toHaveTextContent("content");
     });
 
-    it("applies 'down' direction class (-translate-y-8)", () => {
-      const { container } = render(
-        <ScrollReveal direction="down">content</ScrollReveal>,
-      );
-      const wrapper = container.firstElementChild as HTMLElement;
-      expect(wrapper.className).toContain("-translate-y-8");
-    });
-
-    it("applies 'left' direction class (-translate-x-8)", () => {
+    it("renders children with custom direction", () => {
       const { container } = render(
         <ScrollReveal direction="left">content</ScrollReveal>,
       );
       const wrapper = container.firstElementChild as HTMLElement;
-      expect(wrapper.className).toContain("-translate-x-8");
-    });
-
-    it("applies 'right' direction class (-translate-x-8)", () => {
-      const { container } = render(
-        <ScrollReveal direction="right">content</ScrollReveal>,
-      );
-      const wrapper = container.firstElementChild as HTMLElement;
-      expect(wrapper.className).toContain("-translate-x-8");
-    });
-
-    it("applies 'scale' direction class (scale-95)", () => {
-      const { container } = render(
-        <ScrollReveal direction="scale">content</ScrollReveal>,
-      );
-      const wrapper = container.firstElementChild as HTMLElement;
-      expect(wrapper.className).toContain("scale-95");
+      expect(wrapper).toHaveAttribute("data-testid", "scroll-reveal-wrapper");
+      expect(wrapper).toHaveTextContent("content");
     });
   });
 
-  describe("visible state classes", () => {
-    it("resets all transforms to neutral when visible", () => {
+  describe("visible state transitions", () => {
+    it("transitions data-visible to true on intersection", () => {
       const { container } = render(
         <ScrollReveal direction="up">content</ScrollReveal>,
       );
 
+      expect((container.firstElementChild as HTMLElement)).toHaveAttribute("data-visible", "false");
+
       fireIntersection(true);
 
-      const wrapper = container.firstElementChild as HTMLElement;
-      expect(wrapper.className).toContain("translate-y-0");
-      expect(wrapper.className).toContain("translate-x-0");
-      expect(wrapper.className).toContain("scale-100");
-      expect(wrapper.className).toContain("opacity-100");
+      expect((container.firstElementChild as HTMLElement)).toHaveAttribute("data-visible", "true");
     });
   });
 

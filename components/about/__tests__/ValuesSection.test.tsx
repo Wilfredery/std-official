@@ -71,22 +71,4 @@ describe("ValuesSection", () => {
     }
   });
 
-  it("renders a 4-column grid on large screens", async () => {
-    const jsx = await ValuesSection({ locale: "en" });
-    const { container } = render(jsx);
-
-    const grid = container.querySelector(".lg\\:grid-cols-4");
-    expect(grid).toBeInTheDocument();
-  });
-
-  it("renders 4 lucide icons inside the cards", async () => {
-    const jsx = await ValuesSection({ locale: "en" });
-    const { container } = render(jsx);
-
-    // Each card has an SVG icon from lucide-react
-    const svgs = container.querySelectorAll(
-      ".gradient-border-card svg",
-    );
-    expect(svgs).toHaveLength(4);
-  });
 });

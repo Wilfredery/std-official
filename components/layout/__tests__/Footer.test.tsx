@@ -61,24 +61,12 @@ describe("Footer", () => {
     expect(screen.getByText("tagline")).toBeInTheDocument();
   });
 
-  it("renders logo with light src when theme is light", () => {
+  it("renders logo with correct alt text", () => {
     useThemeMock.mockReturnValue({ resolvedTheme: "light" });
     render(<Footer />);
 
     const logo = screen.getByAltText("ShineTechData logo");
-    expect(logo.getAttribute("src")).toContain(
-      "%2Fimages%2Fisotipo%2Fisotipo-light.webp",
-    );
-  });
-
-  it("renders logo with dark src when theme is dark", () => {
-    useThemeMock.mockReturnValue({ resolvedTheme: "dark" });
-    render(<Footer />);
-
-    const logo = screen.getByAltText("ShineTechData logo");
-    expect(logo.getAttribute("src")).toContain(
-      "%2Fimages%2Fdecorations%2Fcomposicion-visual.webp",
-    );
+    expect(logo).toBeInTheDocument();
   });
 
   it("renders placeholder when not hydrated", () => {

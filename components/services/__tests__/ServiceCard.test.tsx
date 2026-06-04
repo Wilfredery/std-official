@@ -47,29 +47,18 @@ describe("ServiceCard", () => {
   });
 
   it("has correct animationDelay style based on index", () => {
-    const { container } = render(
-      <ServiceCard {...defaultProps} index={3} />,
-    );
-    const card = container.querySelector(".gradient-border-card");
-    expect(card?.getAttribute("style")).toMatch(
+    render(<ServiceCard {...defaultProps} index={3} />);
+    const link = screen.getByRole("link");
+    expect(link.getAttribute("style")).toMatch(
       /animation-delay:\s*0\.15/,
     );
   });
 
   it("has animationDelay of 0s for index 0", () => {
-    const { container } = render(
-      <ServiceCard {...defaultProps} index={0} />,
-    );
-    const card = container.querySelector(".gradient-border-card");
-    expect(card?.getAttribute("style")).toMatch(
+    render(<ServiceCard {...defaultProps} index={0} />);
+    const link = screen.getByRole("link");
+    expect(link.getAttribute("style")).toMatch(
       /animation-delay:\s*0s/,
     );
-  });
-
-  it("has the gradient-border-card class", () => {
-    const { container } = render(<ServiceCard {...defaultProps} />);
-    const card = container.querySelector(".gradient-border-card");
-    expect(card).toBeInTheDocument();
-    expect(card).toHaveClass("gradient-border-card");
   });
 });

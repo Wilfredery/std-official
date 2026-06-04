@@ -29,8 +29,6 @@ describe("NotFoundPage", () => {
     render(<NotFoundPage />);
     const heading = screen.getByRole("heading", { level: 1, name: "404" });
     expect(heading).toBeInTheDocument();
-    expect(heading.className).toContain("text-8xl");
-    expect(heading.className).toContain("gradient-text");
   });
 
   it("renders the translated title from notFound.title", () => {

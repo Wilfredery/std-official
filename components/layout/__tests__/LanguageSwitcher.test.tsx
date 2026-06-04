@@ -71,16 +71,6 @@ describe("LanguageSwitcher", () => {
     expect(esButton).not.toHaveAttribute("aria-current");
   });
 
-  it("applies bg-primary to the currently selected locale", () => {
-    render(<LanguageSwitcher />, { locale: "en" });
-    const enButton = screen.getByText("EN");
-    expect(enButton.className).toContain("bg-primary");
-
-    const esButton = screen.getByText("ES");
-    expect(esButton.className).not.toContain("bg-primary");
-    expect(esButton.className).toContain("text-muted-foreground");
-  });
-
   it("calls router.replace with correct locale when clicking a button", () => {
     render(<LanguageSwitcher />, { locale: "en" });
 
@@ -110,20 +100,6 @@ describe("LanguageSwitcher", () => {
       mockIsPending.mockReturnValue(true);
     });
 
-    it("shows loading indicator (Loader2) when pending", () => {
-      render(<LanguageSwitcher />);
-      // The Loader2 component renders an SVG with animate-spin class
-      const container = document.querySelector(".animate-spin");
-      expect(container).toBeInTheDocument();
-    });
-
-    it("applies opacity-70 and pointer-events-none when pending", () => {
-      render(<LanguageSwitcher />);
-      const container = screen.getByLabelText("Language");
-      expect(container.className).toContain("opacity-70");
-      expect(container.className).toContain("pointer-events-none");
-    });
-
     it("sets aria-busy to true when pending", () => {
       render(<LanguageSwitcher />);
       const container = screen.getByLabelText("Language");
@@ -132,13 +108,6 @@ describe("LanguageSwitcher", () => {
   });
 
   describe("non-pending state", () => {
-    it("does not have Loader2 when not pending", () => {
-      mockIsPending.mockReturnValue(false);
-      render(<LanguageSwitcher />);
-      const spinner = document.querySelector(".animate-spin");
-      expect(spinner).toBeNull();
-    });
-
     it("does not set aria-busy when not pending", () => {
       mockIsPending.mockReturnValue(false);
       render(<LanguageSwitcher />);

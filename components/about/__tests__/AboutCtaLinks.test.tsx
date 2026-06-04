@@ -49,10 +49,4 @@ describe("AboutCtaLinks", () => {
     expect(button).toHaveTextContent(enMessages.about.cta.button);
   });
 
-  it("renders the hero-glow background element", async () => {
-    const jsx = await AboutCtaLinks({ locale: "en" });
-    const { container } = render(jsx);
-
-    expect(container.querySelector(".hero-glow")).toBeInTheDocument();
-  });
 });

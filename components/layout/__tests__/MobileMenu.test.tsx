@@ -12,13 +12,15 @@ vi.mock("@/lib/i18n/navigation", () => ({
     children,
     onClick,
     className,
+    ...props
   }: {
     href: string;
     children: React.ReactNode;
     onClick?: () => void;
     className?: string;
+    [key: string]: unknown;
   }) => (
-    <a href={href} onClick={onClick} className={className}>
+    <a href={href} onClick={onClick} className={className} {...props}>
       {children}
     </a>
   ),
@@ -137,31 +139,27 @@ describe("MobileMenu", () => {
       expect(mockOnOpenChange).toHaveBeenCalledWith(false);
     });
 
-    it("applies active class to current route link", async () => {
+    it("sets aria-current=page on the active route link", async () => {
       const { usePathname } = await import("@/lib/i18n/navigation");
       vi.mocked(usePathname).mockReturnValue("/services");
 
       renderOpenMenu();
 
       const servicesLink = screen.getByText("Services");
-      // active link gets text-primary and bg-primary/10
-      expect(servicesLink.className).toContain("text-primary");
-      expect(servicesLink.className).toContain("bg-primary/10");
+      expect(servicesLink).toHaveAttribute("aria-current", "page");
 
       const homeLink = screen.getByText("Home");
-      // inactive links should have text-muted-foreground
-      expect(homeLink.className).toContain("text-muted-foreground");
+      expect(homeLink).not.toHaveAttribute("aria-current");
     });
 
-    it("marks home as active only when pathname is exactly '/'", async () => {
+    it("marks home as inactive when pathname is not '/'", async () => {
       const { usePathname } = await import("@/lib/i18n/navigation");
       vi.mocked(usePathname).mockReturnValue("/services");
 
       renderOpenMenu();
 
       const homeLink = screen.getByText("Home");
-      expect(homeLink.className).not.toContain("bg-primary/10");
-      expect(homeLink.className).toContain("text-muted-foreground");
+      expect(homeLink).not.toHaveAttribute("aria-current");
     });
 
     it("marks /services as active for sub-paths starting with /services", async () => {
@@ -173,7 +171,7 @@ describe("MobileMenu", () => {
       renderOpenMenu();
 
       const servicesLink = screen.getByText("Services");
-      expect(servicesLink.className).toContain("text-primary");
+      expect(servicesLink).toHaveAttribute("aria-current", "page");
     });
   });
 });
