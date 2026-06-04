@@ -139,35 +139,27 @@ describe("MobileMenu", () => {
       expect(mockOnOpenChange).toHaveBeenCalledWith(false);
     });
 
-    it("applies active class and aria-current to current route link", async () => {
+    it("sets aria-current=page on the active route link", async () => {
       const { usePathname } = await import("@/lib/i18n/navigation");
       vi.mocked(usePathname).mockReturnValue("/services");
 
       renderOpenMenu();
 
       const servicesLink = screen.getByText("Services");
-      // Semantic: active link has aria-current
       expect(servicesLink).toHaveAttribute("aria-current", "page");
-      // CSS assertions kept as safety net — will be removed in semantic refactor phase
-      expect(servicesLink.className).toContain("text-primary");
-      expect(servicesLink.className).toContain("bg-primary/10");
 
       const homeLink = screen.getByText("Home");
-      // inactive links should NOT have aria-current
       expect(homeLink).not.toHaveAttribute("aria-current");
-      // CSS assertions kept as safety net
-      expect(homeLink.className).toContain("text-muted-foreground");
     });
 
-    it("marks home as active only when pathname is exactly '/'", async () => {
+    it("marks home as inactive when pathname is not '/'", async () => {
       const { usePathname } = await import("@/lib/i18n/navigation");
       vi.mocked(usePathname).mockReturnValue("/services");
 
       renderOpenMenu();
 
       const homeLink = screen.getByText("Home");
-      expect(homeLink.className).not.toContain("bg-primary/10");
-      expect(homeLink.className).toContain("text-muted-foreground");
+      expect(homeLink).not.toHaveAttribute("aria-current");
     });
 
     it("marks /services as active for sub-paths starting with /services", async () => {
@@ -179,7 +171,7 @@ describe("MobileMenu", () => {
       renderOpenMenu();
 
       const servicesLink = screen.getByText("Services");
-      expect(servicesLink.className).toContain("text-primary");
+      expect(servicesLink).toHaveAttribute("aria-current", "page");
     });
   });
 });

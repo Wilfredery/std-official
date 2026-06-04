@@ -100,9 +100,6 @@ describe("Navbar", () => {
     const servicesLink = links.find((l) => l.textContent === "services");
     expect(servicesLink).toBeDefined();
     expect(servicesLink!).toHaveAttribute("aria-current", "page");
-    // CSS assertions kept as safety net — will be removed in semantic refactor phase
-    expect(servicesLink!.className).toContain("text-primary");
-    expect(servicesLink!.className).toContain("bg-primary/10");
   });
 
   it("does not set aria-current on inactive links", () => {
@@ -114,8 +111,6 @@ describe("Navbar", () => {
     const homeLink = links.find((l) => l.textContent === "home");
     expect(homeLink).toBeDefined();
     expect(homeLink!).not.toHaveAttribute("aria-current");
-    // CSS assertions kept as safety net — will be removed in semantic refactor phase
-    expect(homeLink!.className).toContain("text-muted-foreground");
   });
 
   // ---- Child components ----
@@ -144,16 +139,13 @@ describe("Navbar", () => {
 
   // ---- Scroll behaviour ----
 
-  it("has transparent background when not scrolled", () => {
+  it("has navbar data-testid when not scrolled", () => {
     render(<Navbar />);
     const header = document.querySelector("header")!;
-    // Semantic: data-testid reflects scroll state
     expect(header).toHaveAttribute("data-testid", "navbar");
-    // CSS assertions kept as safety net
-    expect(header.className).toContain("bg-transparent");
   });
 
-  it("applies scrolled background class after scroll past threshold", () => {
+  it("has navbar-scrolled data-testid after scroll past threshold", () => {
     render(<Navbar />);
 
     act(() => {
@@ -166,12 +158,7 @@ describe("Navbar", () => {
     });
 
     const header = document.querySelector("header")!;
-    // Semantic: data-testid reflects scroll state
     expect(header).toHaveAttribute("data-testid", "navbar-scrolled");
-    // CSS assertions kept as safety net
-    expect(header.className).toContain("bg-background/90");
-    expect(header.className).toContain("backdrop-blur-md");
-    expect(header.className).toContain("shadow-sm");
   });
 
   // ---- Theme-aware logo ----
