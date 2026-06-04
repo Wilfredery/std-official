@@ -1,5 +1,3 @@
-"use client";
-
 import { Link } from "@/lib/i18n/navigation";
 import { CalendarDays, ArrowRight } from "lucide-react";
 
