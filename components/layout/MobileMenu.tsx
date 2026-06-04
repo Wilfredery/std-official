@@ -51,6 +51,7 @@ export function MobileMenu({
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent",
                 )}
+                aria-current={isActive ? "page" : undefined}
               >
                 {t(labelKey)}
               </Link>

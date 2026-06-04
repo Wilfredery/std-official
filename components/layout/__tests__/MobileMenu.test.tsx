@@ -12,13 +12,15 @@ vi.mock("@/lib/i18n/navigation", () => ({
     children,
     onClick,
     className,
+    ...props
   }: {
     href: string;
     children: React.ReactNode;
     onClick?: () => void;
     className?: string;
+    [key: string]: unknown;
   }) => (
-    <a href={href} onClick={onClick} className={className}>
+    <a href={href} onClick={onClick} className={className} {...props}>
       {children}
     </a>
   ),
@@ -137,19 +139,23 @@ describe("MobileMenu", () => {
       expect(mockOnOpenChange).toHaveBeenCalledWith(false);
     });
 
-    it("applies active class to current route link", async () => {
+    it("applies active class and aria-current to current route link", async () => {
       const { usePathname } = await import("@/lib/i18n/navigation");
       vi.mocked(usePathname).mockReturnValue("/services");
 
       renderOpenMenu();
 
       const servicesLink = screen.getByText("Services");
-      // active link gets text-primary and bg-primary/10
+      // Semantic: active link has aria-current
+      expect(servicesLink).toHaveAttribute("aria-current", "page");
+      // CSS assertions kept as safety net — will be removed in semantic refactor phase
       expect(servicesLink.className).toContain("text-primary");
       expect(servicesLink.className).toContain("bg-primary/10");
 
       const homeLink = screen.getByText("Home");
-      // inactive links should have text-muted-foreground
+      // inactive links should NOT have aria-current
+      expect(homeLink).not.toHaveAttribute("aria-current");
+      // CSS assertions kept as safety net
       expect(homeLink.className).toContain("text-muted-foreground");
     });
 

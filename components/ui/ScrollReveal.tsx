@@ -48,6 +48,8 @@ export function ScrollReveal({
   return (
     <div
       ref={ref}
+      data-testid="scroll-reveal-wrapper"
+      data-visible={isVisible ? "true" : "false"}
       className={`transition-all duration-700 ease-out ${
         isVisible
           ? "opacity-100 translate-y-0 translate-x-0 scale-100"

@@ -35,8 +35,8 @@ export function Navbar() {
 
   const logoSrc =
     mounted && resolvedTheme === "dark"
-      ? "/images/decorations/composicion-visual.webp"
-      : "/images/isotipo/isotipo-light.webp";
+      ? "/images/navbarFooter/logo-dark.webp"
+      : "/images/navbarFooter/logo-light.webp";
 
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (pathname !== prevPathname) {
@@ -46,6 +46,7 @@ export function Navbar() {
   return (
     <>
       <header
+        data-testid={scrolled ? "navbar-scrolled" : "navbar"}
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-300",
           scrolled
@@ -93,6 +94,7 @@ export function Navbar() {
                       ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-accent",
                   )}
+                  aria-current={isActive ? "page" : undefined}
                 >
                   {t(labelKey)}
                 </Link>

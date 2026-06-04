@@ -65,6 +65,12 @@ describe("ScrollReveal", () => {
     expect(screen.getByText("Hello world")).toBeInTheDocument();
   });
 
+  it("renders with data-testid scroll-reveal-wrapper", () => {
+    const { container } = render(<ScrollReveal>content</ScrollReveal>);
+    const wrapper = container.firstElementChild as HTMLElement;
+    expect(wrapper).toHaveAttribute("data-testid", "scroll-reveal-wrapper");
+  });
+
   it("creates an IntersectionObserver", () => {
     render(<ScrollReveal>content</ScrollReveal>);
     expect(mockObserve).toHaveBeenCalledTimes(1);
@@ -76,6 +82,8 @@ describe("ScrollReveal", () => {
     );
 
     const wrapper = container.firstElementChild as HTMLElement;
+    // Semantic: data-visible should be false initially
+    expect(wrapper).toHaveAttribute("data-visible", "false");
     // The default direction is "up", so initial class should include translate-y-8 and opacity-0
     expect(wrapper.className).toContain("opacity-0");
     expect(wrapper.className).toContain("translate-y-8");
@@ -91,6 +99,8 @@ describe("ScrollReveal", () => {
     fireIntersection(true);
 
     const wrapper = container.firstElementChild as HTMLElement;
+    // Semantic: data-visible should be true after intersection
+    expect(wrapper).toHaveAttribute("data-visible", "true");
     expect(wrapper.className).toContain("opacity-100");
     expect(wrapper.className).toContain("translate-y-0");
   });

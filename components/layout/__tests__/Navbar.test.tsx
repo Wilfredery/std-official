@@ -90,7 +90,7 @@ describe("Navbar", () => {
 
   // ---- Active link detection ----
 
-  it("highlights active link when pathname matches", () => {
+  it("highlights active link with aria-current when pathname matches", () => {
     // Override pathname so "/services" matches the services nav link
     usePathnameMock.mockReturnValue("/services");
 
@@ -99,11 +99,13 @@ describe("Navbar", () => {
     const links = screen.getAllByRole("link");
     const servicesLink = links.find((l) => l.textContent === "services");
     expect(servicesLink).toBeDefined();
+    expect(servicesLink!).toHaveAttribute("aria-current", "page");
+    // CSS assertions kept as safety net — will be removed in semantic refactor phase
     expect(servicesLink!.className).toContain("text-primary");
     expect(servicesLink!.className).toContain("bg-primary/10");
   });
 
-  it("applies inactive styles to non-matching links", () => {
+  it("does not set aria-current on inactive links", () => {
     usePathnameMock.mockReturnValue("/services");
 
     render(<Navbar />);
@@ -111,6 +113,8 @@ describe("Navbar", () => {
     const links = screen.getAllByRole("link");
     const homeLink = links.find((l) => l.textContent === "home");
     expect(homeLink).toBeDefined();
+    expect(homeLink!).not.toHaveAttribute("aria-current");
+    // CSS assertions kept as safety net — will be removed in semantic refactor phase
     expect(homeLink!.className).toContain("text-muted-foreground");
   });
 
@@ -143,6 +147,9 @@ describe("Navbar", () => {
   it("has transparent background when not scrolled", () => {
     render(<Navbar />);
     const header = document.querySelector("header")!;
+    // Semantic: data-testid reflects scroll state
+    expect(header).toHaveAttribute("data-testid", "navbar");
+    // CSS assertions kept as safety net
     expect(header.className).toContain("bg-transparent");
   });
 
@@ -159,6 +166,9 @@ describe("Navbar", () => {
     });
 
     const header = document.querySelector("header")!;
+    // Semantic: data-testid reflects scroll state
+    expect(header).toHaveAttribute("data-testid", "navbar-scrolled");
+    // CSS assertions kept as safety net
     expect(header.className).toContain("bg-background/90");
     expect(header.className).toContain("backdrop-blur-md");
     expect(header.className).toContain("shadow-sm");
@@ -172,7 +182,7 @@ describe("Navbar", () => {
 
     const logo = screen.getByAltText("ShineTechData isotipo");
     expect(logo.getAttribute("src")).toContain(
-      "%2Fimages%2Fisotipo%2Fisotipo-light.webp",
+      "%2Fimages%2FnavbarFooter%2Flogo-light.webp",
     );
   });
 
@@ -182,7 +192,7 @@ describe("Navbar", () => {
 
     const logo = screen.getByAltText("ShineTechData isotipo");
     expect(logo.getAttribute("src")).toContain(
-      "%2Fimages%2Fdecorations%2Fcomposicion-visual.webp",
+      "%2Fimages%2FnavbarFooter%2Flogo-dark.webp",
     );
   });
 
