@@ -7,11 +7,11 @@ interface ServiceBreadcrumbProps {
 
 export function ServiceBreadcrumb({ label }: ServiceBreadcrumbProps) {
   return (
-    <nav className="mb-8">
+    <nav className="mb-4">
       <Link
         href="/services"
         className="inline-flex items-center gap-2 text-sm text-muted-foreground
-            hover:text-foreground transition-colors"
+            hover:text-foreground transition-colors pl-10 md:pl-60 pt-2"
       >
         <ArrowLeft className="size-4" />
         {label}

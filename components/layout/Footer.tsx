@@ -83,7 +83,7 @@ export function Footer() {
           {/* Services */}
           <div>
             <h3 className="font-semibold text-sm mb-4">{t("services")}</h3>
-            <ul className="space-y-1">
+            <ul>
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link
@@ -101,7 +101,7 @@ export function Footer() {
           {/* Company */}
           <div>
             <h3 className="font-semibold text-sm mb-4">{t("company")}</h3>
-            <ul className="space-y-1">
+            <ul>
               {footerLinks.map(({ href, labelKey }) => (
                 <li key={href}>
                   <Link

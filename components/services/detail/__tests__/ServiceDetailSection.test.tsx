@@ -18,6 +18,14 @@ vi.mock("next-intl/server", () => ({
 // Mock child components to isolate the orchestrator
 // ---------------------------------------------------------------------------
 
+vi.mock("../breadcrumb/ServiceBreadcrumb", () => ({
+  ServiceBreadcrumb: (props: Record<string, unknown>) => (
+    <div data-testid="breadcrumb" data-props={JSON.stringify(props)}>
+      Breadcrumb
+    </div>
+  ),
+}));
+
 vi.mock("../hero/ServiceHero", () => ({
   ServiceHero: (props: Record<string, unknown>) => (
     <div data-testid="hero" data-props={JSON.stringify(props)}>
@@ -42,13 +50,7 @@ vi.mock("@/components/ui/ScrollReveal", () => ({
   ),
 }));
 
-vi.mock("../breadcrumb/ServiceBreadcrumb", () => ({
-  ServiceBreadcrumb: (props: Record<string, unknown>) => (
-    <div data-testid="breadcrumb" data-props={JSON.stringify(props)}>
-      Breadcrumb
-    </div>
-  ),
-}));
+
 
 vi.mock("../overview/ServiceOverview", () => ({
   ServiceOverview: (props: Record<string, unknown>) => (
@@ -250,6 +252,9 @@ describe("ServiceDetailSection", () => {
       }),
     );
 
+    const breadcrumb = screen.getByTestId("breadcrumb");
+    expect(breadcrumb).toBeInTheDocument();
+
     const props = parseProps("breadcrumb");
     expect(props.label).toBe("labels.breadcrumb");
   });
@@ -365,13 +370,12 @@ describe("ServiceDetailSection", () => {
     );
 
     const wrappers = screen.getAllByTestId("scroll-reveal");
-    // 7 sections = 7 ScrollReveal wrappers
-    expect(wrappers).toHaveLength(7);
+    // 6 ScrollReveal wrappers (breadcrumb is outside ScrollReveal, hero is inside)
+    expect(wrappers).toHaveLength(6);
 
     const directions = wrappers.map((w) => w.getAttribute("data-direction"));
 
     expect(directions).toEqual([
-      "scale",
       "up",
       "left",
       "down",

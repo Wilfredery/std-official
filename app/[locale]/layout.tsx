@@ -10,6 +10,7 @@ import { franklin } from "@/app/layout";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { WebSiteJsonLd } from "@/components/seo/WebSiteJsonLd";
+import WebVitals from "@/components/WebVitals";
 import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -59,6 +60,7 @@ export default async function localeLayout({
             <Navbar />
             <main className="flex-1 pt-16">{children}</main>
             <Footer />
+            <WebVitals />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
