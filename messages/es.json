@@ -6,17 +6,11 @@
     "contact": "Contacto",
     "cta": "Consultoría Gratis",
     "language": "Idioma",
-    "theme": "Cambiar tema",
     "menuOpen": "Abrir menú",
     "loading": "Cargando"
   },
   "common": {
-    "learnMore": "Conocer más",
-    "viewDetails": "Ver detalles",
-    "scheduleConsultation": "Agendar Consultoría Gratis",
-    "requestProposal": "Solicitar Propuesta",
-    "bookCall": "Reservar Consultoría Gratis",
-    "backToServices": "Volver a Servicios"
+    "learnMore": "Conocer más"
   },
   "home": {
     "hero": {
@@ -101,27 +95,6 @@
       "subtitleStatic": "Desde victorias rápidas hasta transformaciones completas —",
       "subtitleDynamic": "entregamos lo que mueve la aguja."
     },
-    "whyUs": {
-      "title": "¿Por qué los equipos eligen ShineTechData?",
-      "items": [
-        {
-          "title": "Visión de negocio primero",
-          "description": "Traducimos lo técnico en ingresos, ahorro y tiempo recuperado."
-        },
-        {
-          "title": "Implementación rápida",
-          "description": "Semanas, no trimestres. Entregamos soluciones funcionales temprano e iteramos."
-        },
-        {
-          "title": "Resultados medibles",
-          "description": "Cada proyecto incluye KPIs claros y un dashboard de seguimiento."
-        }
-      ]
-    },
-    "process": {
-      "title": "Nuestro proceso de entrega",
-      "subtitle": "Transparente, estructurado y centrado en tu equipo."
-    },
     "cta": {
       "title": "¿Necesitas una estrategia de datos a medida?",
       "subtitle": "Let's build a roadmap that turns your data into your competitive advantage.",
@@ -137,7 +110,6 @@
     "outcomes": "Resultados Tangibles",
     "timeline": "Cómo Entregamos",
     "faq": "Preguntas Frecuentes",
-    "notFound": "Servicio no encontrado",
     "back": "Volver a todos los servicios",
     "services": {
       "data-analysis": {
@@ -471,24 +443,6 @@
       "subtitleStatic": "Contactanos para hablar sobre tu",
       "subtitleDynamic": "proyecto, preguntas o solicitar una consulta personalizada."
     },
-    "form": {
-      "title": "Envíanos un mensaje",
-      "name": "Nombre completo",
-      "company": "Empresa",
-      "email": "Email corporativo",
-      "phone": "Teléfono (opcional)",
-      "budget": "Presupuesto del proyecto",
-      "budgetOptions": [
-        "Menos de $10k",
-        "$10k – $50k",
-        "$50k – $150k",
-        "$150k+",
-        "Aún no estoy seguro"
-      ],
-      "message": "Cuéntanos sobre tu proyecto",
-      "submit": "Solicitar Consultoría",
-      "success": "Gracias — te contactaremos en 1 día hábil."
-    },
     "channels": {
       "title": "Otras formas de contactar a ",
       "titleAccent": "ShineTechData",
@@ -537,11 +491,7 @@
     "tagline": "Consultoría práctica de datos y AI para empresas listas para crecer más inteligentes.",
     "services": "Servicios",
     "company": "Empresa",
-    "legal": "Legal",
     "links": {
-      "home": "Inicio",
-      "services": "Servicios",
-      "contact": "Contacto",
       "privacy": "Privacidad",
       "terms": "Términos"
     },
