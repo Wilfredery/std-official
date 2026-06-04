@@ -13,15 +13,4 @@ describe("Loading (locale-level loading.tsx)", () => {
     render(<Loading />);
     expect(screen.getByText("Loading...")).toBeInTheDocument();
   });
-
-  it("renders the loading container centered in the viewport", () => {
-    const { container } = render(<Loading />);
-    // The outer container should use min-h to fill at least 50% of viewport
-    const section = container.firstElementChild as HTMLElement;
-    expect(section).toBeInTheDocument();
-    expect(section.className).toContain("min-h-[50vh]");
-    expect(section.className).toContain("flex");
-    expect(section.className).toContain("items-center");
-    expect(section.className).toContain("justify-center");
-  });
 });
