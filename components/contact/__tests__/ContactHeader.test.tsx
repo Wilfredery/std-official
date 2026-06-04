@@ -41,12 +41,6 @@ describe("ContactHeader", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders hero-glow background", async () => {
-    const jsx = await ContactHeader({ locale: "en" });
-    const { container } = render(jsx);
-    expect(container.querySelector(".hero-glow")).toBeInTheDocument();
-  });
-
   it("SubtitleTyping receives correct props", async () => {
     const jsx = await ContactHeader({ locale: "en" });
     render(jsx);

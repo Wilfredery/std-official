@@ -56,12 +56,4 @@ describe("AboutHeader", () => {
     );
   });
 
-  it("has the eyebrow styled as a badge with primary color", async () => {
-    const jsx = await AboutHeader({ locale: "en" });
-    render(jsx);
-
-    const badge = screen.getByText(enMessages.about.header.eyebrow);
-    expect(badge.className).toContain("bg-primary/10");
-    expect(badge.className).toContain("text-primary");
-  });
 });

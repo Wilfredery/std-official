@@ -41,19 +41,15 @@ describe("BrandStory", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders a two-column grid layout", async () => {
+  it("renders two paragraph blocks (origin + philosophy)", async () => {
     const jsx = await BrandStory({ locale: "en" });
-    const { container } = render(jsx);
+    render(jsx);
 
-    const grid = container.querySelector(".md\\:grid-cols-2");
-    expect(grid).toBeInTheDocument();
-  });
-
-  it("renders two paragraph blocks (one per grid column)", async () => {
-    const jsx = await BrandStory({ locale: "en" });
-    const { container } = render(jsx);
-
-    const paragraphs = container.querySelectorAll("p");
-    expect(paragraphs.length).toBe(2);
+    expect(
+      screen.getByText(enMessages.about.story.origin),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(enMessages.about.story.philosophy),
+    ).toBeInTheDocument();
   });
 });

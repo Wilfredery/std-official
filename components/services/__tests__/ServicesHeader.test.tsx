@@ -37,18 +37,12 @@ describe("ServicesHeader", () => {
     expect(screen.getByText(enMessages.services.header.title)).toBeInTheDocument();
   });
 
-  it("renders titleAccent with gradient-text class", async () => {
+  it("renders titleAccent text", async () => {
     const jsx = await ServicesHeader({ locale: "en" });
-    const { container } = render(jsx);
-    const accent = container.querySelector(".gradient-text");
-    expect(accent).toBeInTheDocument();
-    expect(accent?.textContent).toBe(enMessages.services.header.titleAccent);
-  });
-
-  it("renders hero-glow background", async () => {
-    const jsx = await ServicesHeader({ locale: "en" });
-    const { container } = render(jsx);
-    expect(container.querySelector(".hero-glow")).toBeInTheDocument();
+    render(jsx);
+    expect(
+      screen.getByText(enMessages.services.header.titleAccent),
+    ).toBeInTheDocument();
   });
 
   it("renders SubtitleTyping with correct props", async () => {

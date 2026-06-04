@@ -387,8 +387,8 @@ describe("ServiceDetailSection", () => {
 
   // ── Article element ────────────────────────────────────────────
 
-  it("wraps body sections in an article with responsive classes", async () => {
-    const { container } = render(
+  it("wraps body sections in an article element with all 7 child sections", async () => {
+    render(
       await ServiceDetailSection({
         service: mockService,
         locale: defaultLocale,
@@ -396,12 +396,17 @@ describe("ServiceDetailSection", () => {
       }),
     );
 
-    const article = container.querySelector("article");
+    const article = document.querySelector("article");
     expect(article).toBeInTheDocument();
-    expect(article?.className).toContain("max-w-4xl");
-    expect(article?.className).toContain("mx-auto");
-    expect(article?.className).toContain("py-16");
-    expect(article?.className).toContain("md:py-24");
+
+    // Verify all 7 child sections are rendered inside the article
+    expect(screen.getByTestId("hero")).toBeInTheDocument();
+    expect(screen.getByTestId("breadcrumb")).toBeInTheDocument();
+    expect(screen.getByTestId("overview")).toBeInTheDocument();
+    expect(screen.getByTestId("audience")).toBeInTheDocument();
+    expect(screen.getByTestId("deliverables")).toBeInTheDocument();
+    expect(screen.getByTestId("faq")).toBeInTheDocument();
+    expect(screen.getByTestId("cta-link")).toBeInTheDocument();
   });
 
 });

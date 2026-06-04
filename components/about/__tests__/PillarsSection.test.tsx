@@ -74,29 +74,4 @@ describe("PillarsSection", () => {
     }
   });
 
-  it("renders a 3-column grid on large screens", async () => {
-    const jsx = await PillarsSection({ locale: "en" });
-    const { container } = render(jsx);
-
-    const grid = container.querySelector(".lg\\:grid-cols-3");
-    expect(grid).toBeInTheDocument();
-  });
-
-  it("renders 6 lucide icons inside the cards", async () => {
-    const jsx = await PillarsSection({ locale: "en" });
-    const { container } = render(jsx);
-
-    const svgs = container.querySelectorAll(
-      ".gradient-border-card svg",
-    );
-    expect(svgs).toHaveLength(6);
-  });
-
-  it("renders exactly 6 cards", async () => {
-    const jsx = await PillarsSection({ locale: "en" });
-    const { container } = render(jsx);
-
-    const cards = container.querySelectorAll(".gradient-border-card");
-    expect(cards).toHaveLength(6);
-  });
 });

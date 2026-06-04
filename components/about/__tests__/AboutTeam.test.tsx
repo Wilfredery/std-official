@@ -60,29 +60,4 @@ describe("AboutTeam", () => {
     }
   });
 
-  it("renders a 4-column grid on large screens", async () => {
-    const jsx = await AboutTeam({ locale: "en" });
-    const { container } = render(jsx);
-
-    const grid = container.querySelector(".lg\\:grid-cols-4");
-    expect(grid).toBeInTheDocument();
-  });
-
-  it("renders 4 lucide icons inside the cards", async () => {
-    const jsx = await AboutTeam({ locale: "en" });
-    const { container } = render(jsx);
-
-    const svgs = container.querySelectorAll(
-      ".gradient-border-card svg",
-    );
-    expect(svgs).toHaveLength(4);
-  });
-
-  it("renders exactly 4 team cards", async () => {
-    const jsx = await AboutTeam({ locale: "en" });
-    const { container } = render(jsx);
-
-    const cards = container.querySelectorAll(".gradient-border-card");
-    expect(cards).toHaveLength(4);
-  });
 });

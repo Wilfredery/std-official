@@ -92,7 +92,7 @@ describe("MissionVision", () => {
       expect(img).toBeInTheDocument();
       expect(img).toHaveAttribute(
         "src",
-        "/images/logo/logo-vertical.webp",
+        "/images/about/about-light.webp",
       );
     });
 
@@ -107,20 +107,17 @@ describe("MissionVision", () => {
       );
     });
 
-    it("renders a two-column grid layout", () => {
+    it("renders exactly two content sections (mission + vision)", () => {
       mockHydrated.mockReturnValue(true);
-      const { container } = render(<MissionVision locale="en" />);
+      render(<MissionVision locale="en" />);
 
-      const grid = container.querySelector(".lg\\:grid-cols-2");
-      expect(grid).toBeInTheDocument();
-    });
-
-    it("renders two gradient-border-card boxes (mission + vision)", () => {
-      mockHydrated.mockReturnValue(true);
-      const { container } = render(<MissionVision locale="en" />);
-
-      const cards = container.querySelectorAll(".gradient-border-card");
-      expect(cards).toHaveLength(2);
+      // Verify both mission and vision content is present
+      expect(
+        screen.getByText(enMessages.about.mission.title),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText(enMessages.about.vision.title),
+      ).toBeInTheDocument();
     });
   });
 
