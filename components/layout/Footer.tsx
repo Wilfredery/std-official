@@ -24,8 +24,8 @@ export function Footer() {
 
   const footerLogoSrc =
     mounted && resolvedTheme === "dark"
-      ? "/images/decorations/composicion-visual.webp"
-      : "/images/isotipo/isotipo-light.webp";
+      ? "/images/navbarFooter/logo-dark.webp"
+      : "/images/navbarFooter/logo-light.webp";
 
   return (
     <footer className="border-t border-border mt-24">
