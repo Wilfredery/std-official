@@ -1,7 +1,7 @@
 # ShineTechData Official Website
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org)
-[![Tests](https://img.shields.io/badge/tests-297%20passed-brightgreen)](https://github.com/WilfridoRT/std-official)
+[![Tests](https://img.shields.io/badge/tests-542%20passed-brightgreen)](https://github.com/WilfridoRT/std-official)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 The official website for [ShineTechData](https://shinetechdata.com) — a data consulting company. Built to showcase services, communicate value, and serve as the central brand presence online. Supports English and Spanish with full static generation for fast, host-anywhere deployment.
@@ -12,7 +12,7 @@ The official website for [ShineTechData](https://shinetechdata.com) — a data c
 
 | Technology                                                 | Version | Purpose                                    |
 | ---------------------------------------------------------- | ------- | ------------------------------------------ |
-| [Next.js](https://nextjs.org)                              | 16      | App Router, static export                  |
+| [Next.js](https://nextjs.org)                              | 16.2    | App Router, static export, Turbopack     |
 | [React](https://react.dev)                                 | 19.2    | UI framework                               |
 | [TypeScript](https://www.typescriptlang.org)               | 5       | Type safety                                |
 | [Tailwind CSS](https://tailwindcss.com)                    | 4       | Utility-first styling                      |
@@ -20,6 +20,7 @@ The official website for [ShineTechData](https://shinetechdata.com) — a data c
 | [next-intl](https://next-intl.dev)                         | 4.12    | Internationalization                       |
 | Custom theme system                                        | —       | Light/dark/system theme (Context-based)    |
 | [Lucide React](https://lucide.dev)                         | 1.16    | Icon library                               |
+| [web-vitals](https://github.com/GoogleChrome/web-vitals)   | 5.3     | Core Web Vitals monitoring                 |
 | [Vitest](https://vitest.dev)                               | 4.1     | Test runner                                |
 | [React Testing Library](https://testing-library.com/react) | 16.3    | Component tests                            |
 | [pnpm](https://pnpm.io)                                    | —       | Package manager                            |
@@ -34,10 +35,14 @@ The official website for [ShineTechData](https://shinetechdata.com) — a data c
 - **Animated hero** — typing-effect headline with smooth transitions
 - **Scroll animations** — content reveals on scroll via IntersectionObserver
 - **Service detail pages** — 6 services × 2 locales, statically generated at build time
+- **About page** — company story and mission
 - **Contact page** — inquiry section with FAQ accordion
+- **Legal pages** — Terms of Service and Privacy Policy
 - **Custom 404** — locale-aware not-found page
+- **Loading states** — skeleton UI with animated loading indicator
 - **Fully responsive** — mobile-first design across all breakpoints
 - **Accessible** — semantic HTML, `focus-visible` indicators, screen-reader-only text
+- **Performance optimized** — Server Components, lazy-loaded interactive islands, font preloading, Core Web Vitals monitoring
 
 ## Pages
 
@@ -46,8 +51,12 @@ The official website for [ShineTechData](https://shinetechdata.com) — a data c
 | `/`                | Home — hero, problem statement, services overview, process, CTA |
 | `/services`        | Service listing with card grid and slider                       |
 | `/services/[slug]` | Individual service detail page                                  |
+| `/about`           | Company story and mission                                       |
 | `/contact`         | Contact form and FAQ                                            |
+| `/terms`           | Terms of Service                                                |
+| `/privacy`         | Privacy Policy                                                  |
 | `/not-found`       | Custom 404 with locale detection                                |
+| `loading`          | Loading skeleton UI (async boundaries)                          |
 
 ## Getting Started
 
@@ -127,11 +136,11 @@ The locale is detected from the URL prefix (`/en`, `/es`). The middleware redire
 
 ## Testing
 
-**297 tests across 44 test files — all passing.**
+**542 tests across 78 test files — all passing.**
 
 - **Framework**: Vitest with `jsdom` environment
 - **Library**: React Testing Library + jest-dom matchers
-- **Coverage**: 100% of components tested
+- **Coverage**: 100% of components tested, plus metadata and SEO tests
 
 ```bash
 # Watch mode (re-runs on file changes)
@@ -141,7 +150,20 @@ pnpm test
 pnpm test:run
 ```
 
-Tests are colocated with their source files inside `__tests__/` directories. Each component has corresponding tests covering rendering, interactions, accessibility, and both locales where applicable.
+Tests are colocated with their source files inside `__tests__/` directories. Each component has corresponding tests covering rendering, interactions, accessibility, and both locales where applicable. Metadata tests verify SEO tags (Open Graph, Twitter, JSON-LD) per page.
+
+## Performance & Optimization
+
+Recent performance improvements (Fase 3):
+
+- **Server Components** — CTA and layout components render server-side, reducing client-side JavaScript
+- **Lazy loading** — Mobile menu and non-critical components loaded on-demand with `next/dynamic`
+- **Font preloading** — Google Fonts preloaded via `next/font` for faster initial render
+- **Core Web Vitals monitoring** — Real-user metrics tracked via `web-vitals` library
+- **Asset cleanup** — Removed unused SVGs and optimized image paths
+- **Cache headers** — Static assets served with optimal caching strategies (production hosts)
+
+**Current status**: Lighthouse performance 48–60% (improved from ~35%). Target: 70%+ with ongoing Server Component migration.
 
 ## Deployment
 
@@ -168,7 +190,7 @@ Trailing slashes are enforced (`trailingSlash: true`) for consistent static host
 
 Contributions are welcome. Before opening a PR:
 
-1. Run `pnpm test:run` — all 297 tests must pass
+1. Run `pnpm test:run` — all 542 tests must pass
 2. If your change affects UI, add or update tests
 3. If your change adds user-facing text, update both `en.json` and `es.json`
 4. Follow the existing project structure and TypeScript conventions
