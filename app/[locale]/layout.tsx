@@ -10,8 +10,9 @@ import { franklin } from "@/app/layout";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { WebSiteJsonLd } from "@/components/seo/WebSiteJsonLd";
-import WebVitals from "@/components/WebVitals";
+import { createWebVitalsScript } from "@/lib/web-vitals";
 import { SITE_URL } from "@/lib/site";
+import { filterMessages, SHARED_NAMESPACES } from "@/lib/i18n/namespaces";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -31,7 +32,8 @@ export default async function localeLayout({
   }
 
   setRequestLocale(locale);
-  const messages = await getMessages();
+  const allMessages = await getMessages();
+  const messages = filterMessages(allMessages, SHARED_NAMESPACES);
 
   return (
     <html
@@ -60,7 +62,12 @@ export default async function localeLayout({
             <Navbar />
             <main className="flex-1 pt-16">{children}</main>
             <Footer />
-            <WebVitals />
+            <script
+              type="module"
+              dangerouslySetInnerHTML={{
+                __html: createWebVitalsScript(),
+              }}
+            />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

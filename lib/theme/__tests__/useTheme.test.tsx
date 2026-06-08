@@ -108,7 +108,6 @@ describe("useTheme — all states and transitions", () => {
       expect(result.current.theme).toBe("system");
       expect(result.current.resolvedTheme).toBe("light");
       expect(result.current.themes).toEqual(["light", "dark", "system"]);
-      expect(result.current.mounted).toBe(true);
     });
 
     it("initializes with dark theme via initialTheme prop", () => {
@@ -339,6 +338,31 @@ describe("useTheme — all states and transitions", () => {
           expect.any(Function),
         );
       }
+    });
+  });
+
+  // =====================================================================
+  // Phase 4: Simplified context — no mounted field
+  // =====================================================================
+
+  describe("Phase 4: simplified context", () => {
+    it("does NOT expose mounted in context value", () => {
+      const { result } = renderHook(() => useTheme(), {
+        wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
+      });
+
+      expect(result.current).not.toHaveProperty("mounted");
+    });
+
+    it("uses useEffect so theme is available after first render tick", () => {
+      const { result, rerender } = renderHook(() => useTheme(), {
+        wrapper: ({ children }) => <ThemeProvider>{children}</ThemeProvider>,
+      });
+
+      // Theme should be resolved after mount effect runs
+      rerender();
+      expect(result.current.theme).toBe("system");
+      expect(result.current.resolvedTheme).toBeDefined();
     });
   });
 

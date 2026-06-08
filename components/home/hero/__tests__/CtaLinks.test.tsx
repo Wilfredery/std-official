@@ -7,12 +7,15 @@ vi.mock("@/lib/i18n/navigation", () => ({
     children,
     href,
     className,
+    "aria-label": ariaLabel,
+    ...rest
   }: {
     children: React.ReactNode;
     href: string;
     className?: string;
+    "aria-label"?: string;
   }) => (
-    <a href={href} className={className}>
+    <a href={href} className={className} aria-label={ariaLabel} {...rest}>
       {children}
     </a>
   ),
@@ -76,5 +79,47 @@ describe("CtaLinks", () => {
     const spans = screen.getAllByText(secondaryLabel);
     expect(spans[0]).toHaveClass("sm:max-w-0");
     expect(spans[0]).toHaveClass("sm:group-hover:max-w-xs");
+  });
+
+  // ---- S1-R3: focus-visible ring ----
+
+  it("primary link applies focus-visible outline ring classes", () => {
+    render(
+      <CtaLinks primaryLabel={primaryLabel} secondaryLabel={secondaryLabel} />,
+    );
+    const links = screen.getAllByRole("link");
+    expect(links[0]).toHaveClass("focus-visible:outline-2");
+    expect(links[0]).toHaveClass("focus-visible:outline-offset-2");
+    expect(links[0]).toHaveClass("focus-visible:outline-ring");
+  });
+
+  it("secondary link applies focus-visible outline ring classes", () => {
+    render(
+      <CtaLinks primaryLabel={primaryLabel} secondaryLabel={secondaryLabel} />,
+    );
+    const links = screen.getAllByRole("link");
+    expect(links[1]).toHaveClass("focus-visible:outline-2");
+  });
+
+  // ---- S1-R3: keyboard activation (links natively respond to Enter) ----
+  // Keyboard activation for <a> links is native browser behavior — no test needed.
+
+  // ---- S1-R3: ARIA labels ----
+
+  it("primary link has an accessible label", () => {
+    render(
+      <CtaLinks primaryLabel={primaryLabel} secondaryLabel={secondaryLabel} />,
+    );
+    const links = screen.getAllByRole("link");
+    // The link should have a discernible text for screen readers
+    expect(links[0]).toHaveAttribute("aria-label", primaryLabel);
+  });
+
+  it("secondary link has an accessible label", () => {
+    render(
+      <CtaLinks primaryLabel={primaryLabel} secondaryLabel={secondaryLabel} />,
+    );
+    const links = screen.getAllByRole("link");
+    expect(links[1]).toHaveAttribute("aria-label", secondaryLabel);
   });
 });

@@ -44,6 +44,7 @@ export function MobileMenu({
               <Link
                 key={href}
                 href={href}
+                prefetch={false}
                 onClick={() => onOpenChange(false)}
                 className={cn(
                   "px-4 py-3 rounded-md text-sm font-medium transition-colors",
@@ -67,6 +68,7 @@ export function MobileMenu({
         <div className="mt-4 px-2">
           <Link
             href="/contact"
+            prefetch={false}
             onClick={() => onOpenChange(false)}
             className="block text-center text-sm font-semibold bg-primary text-primary-foreground px-4
             py-3 rounded-full hover:bg-primary/90 transition-colors"

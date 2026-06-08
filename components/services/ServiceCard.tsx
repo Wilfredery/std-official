@@ -35,6 +35,7 @@ export function ServiceCard({
   return (
     <Link
       href={`/services/${slug}` as `/services/${string}`}
+      prefetch={false}
       className={`group gradient-border-card hover-glow flex flex-col p-6 rounded-2xl transition-all
         duration-300 animate-[fadeInUp_0.6s_ease-out_forwards] ${fixedHeight ? "h-60" : ""}`}
       style={{ animationDelay: `${index * 0.05}s` }}

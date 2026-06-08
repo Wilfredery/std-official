@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState, type ReactNode } from "react";
+import { observeElement, unobserveElement } from "@/lib/observer";
 
 type Direction = "up" | "down" | "left" | "right" | "scale";
 
@@ -32,17 +33,11 @@ export function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.15 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
+    observeElement(el, () => setIsVisible(true));
+
+    return () => {
+      unobserveElement(el);
+    };
   }, []);
 
   return (

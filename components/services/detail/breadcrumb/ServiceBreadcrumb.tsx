@@ -10,6 +10,7 @@ export function ServiceBreadcrumb({ label }: ServiceBreadcrumbProps) {
     <nav className="mb-4">
       <Link
         href="/services"
+        prefetch={false}
         className="inline-flex items-center gap-2 text-sm text-muted-foreground
             hover:text-foreground transition-colors pl-10 md:pl-60 pt-2"
       >

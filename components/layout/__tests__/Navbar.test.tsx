@@ -183,6 +183,35 @@ describe("Navbar", () => {
     );
   });
 
+  // ---- LCP / image optimization (Phase 6) ----
+
+  it("logo Image has fetchpriority='high' for LCP priority", () => {
+    render(<Navbar />);
+    const logo = screen.getByAltText("ShineTechData isotipo");
+    expect(logo.getAttribute("fetchpriority")).toBe("high");
+  });
+
+  it("logo Image uses eager loading (browser default, not lazy)", () => {
+    render(<Navbar />);
+    const logo = screen.getByAltText("ShineTechData isotipo");
+    // When priority is set, loading must NOT be lazy.
+    // Browser default "eager" may render as no loading attribute at all.
+    expect(logo.getAttribute("loading")).not.toBe("lazy");
+  });
+
+  it("logo Image does NOT have loading='lazy' (above-the-fold)", () => {
+    render(<Navbar />);
+    const logo = screen.getByAltText("ShineTechData isotipo");
+    expect(logo.getAttribute("loading")).not.toBe("lazy");
+  });
+
+  it("logo Image retains explicit width and height for CLS prevention", () => {
+    render(<Navbar />);
+    const logo = screen.getByAltText("ShineTechData isotipo");
+    expect(logo.getAttribute("width")).toBe("36");
+    expect(logo.getAttribute("height")).toBe("36");
+  });
+
   // ---- Edge case: not mounted yet ----
 
   it("renders placeholder div when not hydrated", () => {

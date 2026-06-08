@@ -61,7 +61,10 @@ export function Navbar() {
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
+            <Link
+              href="/"
+              prefetch={false}
+              className="flex items-center gap-2 group">
             {mounted ? (
               <Image
                 src={logoSrc}
@@ -69,6 +72,8 @@ export function Navbar() {
                 width={36}
                 height={36}
                 className="size-9 transition-transform group-hover:scale-110"
+                priority
+                fetchPriority="high"
               />
             ) : (
               <div className="size-9 rounded-lg bg-primary flex items-center justify-center">
@@ -93,6 +98,7 @@ export function Navbar() {
                 <Link
                   key={href}
                   href={href}
+                  prefetch={false}
                   className={cn(
                     "px-4 py-2 rounded-md text-sm font-medium transition-colors",
                     isActive
@@ -114,6 +120,7 @@ export function Navbar() {
 
             <Link
               href="/contact"
+              prefetch={false}
               className="text-sm font-semibold bg-foreground text-background px-4 py-2 rounded-full 
             hover:bg-primary hover:text-primary-foreground transition-all focus-visible:outline-2
             focus-visible:outline-offset-2 focus-visible:outline-ring"

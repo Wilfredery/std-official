@@ -28,6 +28,7 @@ export function MissionVision({ locale }: { locale: string }) {
                 className="object-contain"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
+                fetchPriority="high"
               />
             ) : (
               <div className="w-full h-full bg-muted animate-pulse rounded-2xl" />

@@ -9,6 +9,8 @@ export function CtaButton({ label }: CtaButtonProps) {
   return (
     <Link
       href="/contact"
+      prefetch={false}
+      aria-label={label}
       className="group inline-flex items-center gap-2 bg-primary
         text-primary-foreground px-8 py-3 rounded-full font-semibold hover:bg-primary/90
         transition-all hover-glow focus-visible:outline-2 focus-visible:outline-offset-2

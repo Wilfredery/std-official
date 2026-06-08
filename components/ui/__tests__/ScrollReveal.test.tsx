@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, act } from "@/lib/__tests__/test-utils";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { __resetObserverForTest } from "@/lib/observer";
 
 // ---------------------------------------------------------------------------
 // IntersectionObserver mock
@@ -10,25 +11,42 @@ const mockObserve = vi.fn();
 const mockDisconnect = vi.fn();
 const mockUnobserve = vi.fn();
 
+// Track how many IntersectionObserver instances are created
+let observerInstantiationCount = 0;
 // Capture the IntersectionObserver callback so we can fire it in tests
 let intersectionCallback: ((entries: Partial<IntersectionObserverEntry>[]) => void) | null = null;
+// Track observed elements so we can map targets in fireIntersection
+const observedElements = new Set<Element>();
 
 class MockIntersectionObserver {
-  observe = mockObserve;
-  disconnect = mockDisconnect;
-  unobserve = mockUnobserve;
+  observe = vi.fn((el: Element) => {
+    mockObserve(el);
+    observedElements.add(el);
+  });
+  unobserve = vi.fn((el: Element) => {
+    mockUnobserve(el);
+    observedElements.delete(el);
+  });
+  disconnect = vi.fn(() => {
+    mockDisconnect();
+    observedElements.clear();
+  });
   constructor(callback: IntersectionObserverCallback) {
     intersectionCallback = callback;
+    observerInstantiationCount++;
   }
 }
 
 // Needed because ScrollReveal checks for IntersectionObserver on `window`
 beforeEach(() => {
+  __resetObserverForTest();
   vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
   mockObserve.mockClear();
   mockDisconnect.mockClear();
   mockUnobserve.mockClear();
   intersectionCallback = null;
+  observerInstantiationCount = 0;
+  observedElements.clear();
 });
 
 afterEach(() => {
@@ -39,15 +57,27 @@ afterEach(() => {
 // Helpers
 // ---------------------------------------------------------------------------
 
-function fireIntersection(isIntersecting: boolean) {
+/**
+ * Fire the IntersectionObserver callback for a specific target element.
+ * When target is omitted, fires for the first observed element (backwards compat).
+ */
+function fireIntersection(isIntersecting: boolean, target?: Element) {
   if (!intersectionCallback) {
     throw new Error("IntersectionObserver callback not captured yet");
   }
+  const t = target ?? (observedElements.size > 0 ? [...observedElements][0] : undefined);
   act(() => {
     intersectionCallback!([
-      { isIntersecting } as IntersectionObserverEntry,
+      { isIntersecting, target: t } as IntersectionObserverEntry,
     ]);
   });
+}
+
+/**
+ * Return the latest wrapper element from a render container.
+ */
+function getWrapper(container: HTMLElement): HTMLElement {
+  return container.firstElementChild as HTMLElement;
 }
 
 // ---------------------------------------------------------------------------
@@ -167,10 +197,59 @@ describe("ScrollReveal", () => {
   });
 
   describe("cleanup", () => {
-    it("disconnects observer on unmount", () => {
+    it("unobserves element on unmount (singleton observer stays alive)", () => {
       const { unmount } = render(<ScrollReveal>content</ScrollReveal>);
       unmount();
-      expect(mockDisconnect).toHaveBeenCalled();
+      // Each instance calls unobserve on its own element; disconnect is NOT called
+      // because the observer is shared across instances.
+      expect(mockUnobserve).toHaveBeenCalled();
+    });
+  });
+
+  describe("shared IntersectionObserver", () => {
+    it("creates exactly ONE IntersectionObserver regardless of instance count", () => {
+      render(<ScrollReveal>Content 1</ScrollReveal>);
+      render(<ScrollReveal>Content 2</ScrollReveal>);
+      render(<ScrollReveal>Content 3</ScrollReveal>);
+      render(<ScrollReveal>Content 4</ScrollReveal>);
+      render(<ScrollReveal>Content 5</ScrollReveal>);
+
+      // The singleton guarantees only one IntersectionObserver is ever created
+      expect(observerInstantiationCount).toBe(1);
+      // But observe is called once per instance
+      expect(mockObserve).toHaveBeenCalledTimes(5);
+    });
+
+    it("each instance becomes visible independently via the shared observer", () => {
+      const { container: c1 } = render(<ScrollReveal>One</ScrollReveal>);
+      const { container: c2 } = render(<ScrollReveal>Two</ScrollReveal>);
+
+      const w1 = getWrapper(c1);
+      const w2 = getWrapper(c2);
+
+      expect(w1).toHaveAttribute("data-visible", "false");
+      expect(w2).toHaveAttribute("data-visible", "false");
+
+      // Fire intersection only for element 1
+      fireIntersection(true, w1);
+
+      // Element 1 becomes visible, element 2 stays hidden
+      expect(w1).toHaveAttribute("data-visible", "true");
+      expect(w2).toHaveAttribute("data-visible", "false");
+
+      // Now fire for element 2
+      fireIntersection(true, w2);
+
+      expect(w2).toHaveAttribute("data-visible", "true");
+    });
+
+    it("preserves existing behavior: unobserve called after first intersection", () => {
+      render(<ScrollReveal>content</ScrollReveal>);
+
+      fireIntersection(true);
+
+      // Still stops observing after the element enters viewport
+      expect(mockUnobserve).toHaveBeenCalledTimes(1);
     });
   });
 });
