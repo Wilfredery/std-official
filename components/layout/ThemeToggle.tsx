@@ -2,6 +2,7 @@
 
 import { Sun, Moon, Monitor } from "lucide-react";
 import { useTheme } from "@/lib/theme/ThemeContext";
+import { useHydrated } from "@/hooks/useHydrated";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,13 +12,18 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme, mounted } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const mounted = useHydrated();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <Button variant="outline" size="icon-lg" aria-label="Toggle theme">
+          <Button
+            variant="outline"
+            size="icon-lg"
+            aria-label="Toggle theme"
+          >
             {mounted && resolvedTheme === "dark" ? (
               <Moon className="size-4" />
             ) : (

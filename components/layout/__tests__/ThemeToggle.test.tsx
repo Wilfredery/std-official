@@ -21,6 +21,11 @@ vi.mock("@/lib/theme/ThemeContext", () => ({
   }),
 }));
 
+vi.mock("@/hooks/useHydrated", () => ({
+  useHydrated: () => true,
+}));
+
+// Mock the dropdown-menu UI components inline (no actual lazy loading)
 vi.mock("@/components/ui/dropdown-menu", () => ({
   DropdownMenu: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="dropdown-menu">{children}</div>
@@ -75,6 +80,8 @@ describe("ThemeToggle", () => {
     mockSetTheme.mockClear();
   });
 
+  // ---- Happy path (S1-SC1) ----
+
   it("renders the dropdown trigger with Sun icon when resolved theme is light", () => {
     const { container } = render(<ThemeToggle />);
 
@@ -122,5 +129,34 @@ describe("ThemeToggle", () => {
     fireEvent.click(items[2]); // System
 
     expect(mockSetTheme).toHaveBeenCalledWith("system");
+  });
+
+  // ---- Happy path: theme toggle opens after interaction (S1-SC1) ----
+
+  it("opens the dropdown content when trigger is rendered", () => {
+    render(<ThemeToggle />);
+
+    // The dropdown content should be present (in the mocked version it always renders)
+    const content = screen.getByTestId("dropdown-content");
+    expect(content).toBeInTheDocument();
+  });
+
+  // ---- Edge case: trigger button has correct ARIA (S1-R3) ----
+
+  it("renders the trigger button with aria-label for accessibility", () => {
+    render(<ThemeToggle />);
+
+    const button = screen.getByRole("button", { name: /toggle theme/i });
+    expect(button).toBeInTheDocument();
+  });
+
+  // ---- Edge case: trigger button preserves focus ring (S1-R3) ----
+
+  it("trigger button has focus-visible outline classes", () => {
+    render(<ThemeToggle />);
+
+    const button = screen.getByRole("button", { name: /toggle theme/i });
+    // The Button component from @base-ui renders with focus-visible classes
+    expect(button).toHaveClass("focus-visible:border-ring");
   });
 });

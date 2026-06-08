@@ -5,7 +5,6 @@ import {
   useContext,
   useState,
   useEffect,
-  useLayoutEffect,
   type ReactNode,
 } from "react";
 import type { Theme, ResolvedTheme, ThemeContextValue } from "@/lib/theme/types";
@@ -63,7 +62,6 @@ export function ThemeProvider({
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(
     initialTheme ? resolveTheme(initialTheme) : "light",
   );
-  const [mounted, setMounted] = useState(!!initialTheme);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
@@ -77,8 +75,9 @@ export function ThemeProvider({
     }
   };
 
-  // On mount: read stored preference and apply before first paint
-  useLayoutEffect(() => {
+  // On mount: read stored preference and apply (useEffect instead of
+  // useLayoutEffect — does not block paint; minimal flash is acceptable).
+  useEffect(() => {
     if (initialTheme) {
       applyThemeClass(resolveTheme(initialTheme));
       return;
@@ -89,7 +88,6 @@ export function ThemeProvider({
     const resolved = resolveTheme(stored);
     setResolvedTheme(resolved);
     applyThemeClass(resolved);
-    setMounted(true);
   }, [initialTheme]);
 
   // Subscribe to matchMedia when theme === "system"
@@ -116,7 +114,7 @@ export function ThemeProvider({
 
   return (
     <ThemeContext.Provider
-      value={{ theme, setTheme, resolvedTheme, themes: THEMES, mounted }}
+      value={{ theme, setTheme, resolvedTheme, themes: THEMES }}
     >
       {children}
     </ThemeContext.Provider>
