@@ -33,7 +33,7 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="sm:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            <Link href="/" prefetch={false} className="flex items-center gap-2 mb-4">
               {mounted ? (
                 <Image
                   src={footerLogoSrc}
@@ -88,6 +88,7 @@ export function Footer() {
                 <li key={s.slug}>
                   <Link
                     href={`/services/${s.slug}`}
+                    prefetch={false}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors
                         min-h-11 flex items-center"
                   >
@@ -106,6 +107,7 @@ export function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
+                    prefetch={false}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors
                         min-h-11 flex items-center"
                   >
@@ -117,6 +119,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/privacy"
+                  prefetch={false}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors
                     min-h-11 flex items-center"
                 >
@@ -127,6 +130,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/terms"
+                  prefetch={false}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors 
                     min-h-11 flex items-center"
                 >
