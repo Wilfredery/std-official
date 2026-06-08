@@ -75,6 +75,27 @@ describe("Footer", () => {
     expect(screen.getByText("STD")).toBeInTheDocument();
   });
 
+  // ---- LCP / image optimization (Phase 6) ----
+
+  it("footer logo has loading='lazy' (below-the-fold)", () => {
+    render(<Footer />);
+    const logo = screen.getByAltText("ShineTechData logo");
+    expect(logo.getAttribute("loading")).toBe("lazy");
+  });
+
+  it("footer logo does NOT have fetchpriority='high' (not LCP)", () => {
+    render(<Footer />);
+    const logo = screen.getByAltText("ShineTechData logo");
+    expect(logo.getAttribute("fetchpriority")).not.toBe("high");
+  });
+
+  it("footer logo retains explicit width and height for CLS prevention", () => {
+    render(<Footer />);
+    const logo = screen.getByAltText("ShineTechData logo");
+    expect(logo.getAttribute("width")).toBe("120");
+    expect(logo.getAttribute("height")).toBe("40");
+  });
+
   // ---- Contact info ----
 
   it("renders phone link with correct href", () => {

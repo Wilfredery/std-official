@@ -33,6 +33,7 @@ vi.mock("next/image", () => ({
     alt,
     fill,
     priority,
+    fetchPriority,
     className,
     sizes,
   }: {
@@ -40,6 +41,7 @@ vi.mock("next/image", () => ({
     alt: string;
     fill?: boolean;
     priority?: boolean;
+    fetchPriority?: string;
     className?: string;
     sizes?: string;
   }) => (
@@ -48,6 +50,7 @@ vi.mock("next/image", () => ({
       alt={alt}
       data-fill={fill ? "true" : "false"}
       data-priority={priority ? "true" : "false"}
+      fetchPriority={fetchPriority}
       className={className}
       sizes={sizes}
     />
@@ -118,6 +121,20 @@ describe("MissionVision", () => {
       expect(
         screen.getByText(enMessages.about.vision.title),
       ).toBeInTheDocument();
+    });
+
+    it("about image has fetchpriority='high' for LCP priority", () => {
+      mockHydrated.mockReturnValue(true);
+      render(<MissionVision locale="en" />);
+      const img = screen.getByAltText("ShineTechData");
+      expect(img.getAttribute("fetchpriority")).toBe("high");
+    });
+
+    it("about image retains priority marker for preload scanning", () => {
+      mockHydrated.mockReturnValue(true);
+      render(<MissionVision locale="en" />);
+      const img = screen.getByAltText("ShineTechData");
+      expect(img.getAttribute("data-priority")).toBe("true");
     });
   });
 

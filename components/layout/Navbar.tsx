@@ -72,6 +72,8 @@ export function Navbar() {
                 width={36}
                 height={36}
                 className="size-9 transition-transform group-hover:scale-110"
+                priority
+                fetchPriority="high"
               />
             ) : (
               <div className="size-9 rounded-lg bg-primary flex items-center justify-center">

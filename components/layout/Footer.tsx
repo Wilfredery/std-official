@@ -41,6 +41,7 @@ export function Footer() {
                   width={120}
                   height={40}
                   className="h-10 w-auto"
+                  loading="lazy"
                 />
               ) : (
                 <div className="size-10 rounded-lg bg-primary flex items-center justify-center">
