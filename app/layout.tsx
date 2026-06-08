@@ -6,6 +6,8 @@ import { SITE_URL } from "@/lib/site";
 export const franklin = Libre_Franklin({
   variable: "--font-libre-franklin",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
