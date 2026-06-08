@@ -1,5 +1,3 @@
-"use client";
-
 import { Link } from "@/lib/i18n/navigation";
 import { ChevronRight } from "lucide-react";
 import { services } from "@/lib/data/services";

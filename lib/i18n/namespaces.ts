@@ -76,7 +76,7 @@ export function getRequiredNamespaces(pagePath: string): string[] {
 }
 
 // ---------------------------------------------------------------------------
-// Load and filter page-specific messages for the MergingIntlProvider.
+// Load and filter page-specific messages for per-page namespace optimization.
 // Uses the `fullMessages` object from the caller (e.g. returned by getMessages
 // in the layout/page) to avoid additional bundle imports.
 // Returns an empty object if the page has no extra namespaces.
