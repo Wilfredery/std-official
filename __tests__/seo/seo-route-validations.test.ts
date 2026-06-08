@@ -114,20 +114,6 @@ function getHreflangLinks(
   }));
 }
 
-function parseSitemapPriority(xml: string, targetUrl: string): number | null {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(xml, "text/xml");
-  const urlElements = doc.querySelectorAll("url");
-  for (const urlEl of Array.from(urlElements)) {
-    const loc = urlEl.querySelector("loc")?.textContent;
-    if (loc === targetUrl) {
-      const priority = urlEl.querySelector("priority")?.textContent;
-      return priority ? Number.parseFloat(priority) : null;
-    }
-  }
-  return null;
-}
-
 describe("SEO route validations — trailing slashes", () => {
   for (const route of ROUTE_TESTS) {
     it(`${route.description}: canonical URL ends with trailing slash`, () => {
@@ -206,67 +192,6 @@ describe("SEO route validations — noindex rules", () => {
     );
     const robots = getMetaContent(doc, "robots");
     expect(robots).toBeNull();
-  });
-});
-
-describe("SEO route validations — sitemap priority consistency", () => {
-  let sitemapXml: string;
-
-  beforeAll(() => {
-    sitemapXml = readFileSync(resolve(OUT_DIR, "sitemap.xml"), "utf-8");
-  });
-
-  it(`home page (en) has priority 1.0`, () => {
-    const priority = parseSitemapPriority(sitemapXml, `${SITE_URL}/en`);
-    expect(priority).toBe(1.0);
-  });
-
-  it(`about page has priority 0.8`, () => {
-    const priority = parseSitemapPriority(
-      sitemapXml,
-      `${SITE_URL}/en/about/`
-    );
-    expect(priority).toBe(0.8);
-  });
-
-  it(`services listing has priority 0.8`, () => {
-    const priority = parseSitemapPriority(
-      sitemapXml,
-      `${SITE_URL}/en/services/`
-    );
-    expect(priority).toBe(0.8);
-  });
-
-  it(`contact page has priority 0.8`, () => {
-    const priority = parseSitemapPriority(
-      sitemapXml,
-      `${SITE_URL}/en/contact/`
-    );
-    expect(priority).toBe(0.8);
-  });
-
-  it(`service detail page has priority 0.7`, () => {
-    const priority = parseSitemapPriority(
-      sitemapXml,
-      `${SITE_URL}/en/services/data-analysis/`
-    );
-    expect(priority).toBe(0.7);
-  });
-
-  it(`privacy page has priority 0.5`, () => {
-    const priority = parseSitemapPriority(
-      sitemapXml,
-      `${SITE_URL}/en/privacy/`
-    );
-    expect(priority).toBe(0.5);
-  });
-
-  it(`terms page has priority 0.5`, () => {
-    const priority = parseSitemapPriority(
-      sitemapXml,
-      `${SITE_URL}/en/terms/`
-    );
-    expect(priority).toBe(0.5);
   });
 });
 

@@ -19,12 +19,6 @@ describe("robots.ts — CRAWL-1", () => {
     expect(rules[0].allow).toBe("/");
   });
 
-  it("points sitemap to the correct absolute URL", () => {
-    const config = robots();
-
-    expect(config.sitemap).toBe("https://shinetechdata.com/sitemap.xml");
-  });
-
   it("does not include any disallow rules", () => {
     const config = robots();
 

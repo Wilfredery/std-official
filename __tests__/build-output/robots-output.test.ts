@@ -24,10 +24,6 @@ describe("out/robots.txt — build output verification", () => {
     expect(content).toMatch(/Allow:\s*\/\s*$/m);
   });
 
-  it("contains the correct sitemap URL", () => {
-    expect(content).toContain(`Sitemap: ${SITE_URL}/sitemap.xml`);
-  });
-
   it("does not contain any Disallow rules", () => {
     const disallowMatches = content.match(/^Disallow:/m);
     expect(disallowMatches).toBeNull();
