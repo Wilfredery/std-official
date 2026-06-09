@@ -7,10 +7,6 @@ import { ContactHeader } from "@/components/contact/ContactHeader";
 import { ContactChannels } from "@/components/contact/Channels/ContactChannels";
 import { ContactFaq } from "@/components/contact/Faq/FaqSection";
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
 export async function generateMetadata({
   params,
 }: {

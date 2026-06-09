@@ -4,10 +4,6 @@ import { SITE_URL, locales } from "@/lib/site";
 import { routing } from "@/lib/i18n/routing";
 import { LegalPage } from "@/components/legal/LegalPage";
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
 export async function generateMetadata({
   params,
 }: {

@@ -11,10 +11,6 @@ import { PillarsSection } from "@/components/about/pillars/AboutPillarsSection";
 import { AboutCtaLinks } from "@/components/about/cta/AboutCtaLinks";
 import { AboutTeam } from "@/components/about/team/AboutTeam";
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
 export async function generateMetadata({
   params,
 }: {

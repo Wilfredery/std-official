@@ -9,10 +9,6 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ProcessSection } from "@/components/home/process/ProcessSection";
 import { CtaSection } from "@/components/home/cta/CtaSection";
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
 export async function generateMetadata({
   params,
 }: {

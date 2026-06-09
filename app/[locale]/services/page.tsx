@@ -8,10 +8,6 @@ import { ServicesSection } from "@/components/services/ServicesSection";
 import { BenefitsSection } from "@/components/services/benefits/BenefitsSection";
 import { CtaSection } from "@/components/services/cta/CtaSection";
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
 export async function generateMetadata({
   params,
 }: {
