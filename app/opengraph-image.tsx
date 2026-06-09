@@ -7,7 +7,16 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default function OpenGraphImage() {
+export default async function OpenGraphImage() {
+  const interSemiBold = await fetch(
+    "https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
+  ).then(async (res) => {
+    const css = await res.text();
+    const fontUrl = css.match(/src: url\((.+?)\) format\('woff2'\)/)?.[1];
+    if (!fontUrl) throw new Error("Font URL not found");
+    return fetch(fontUrl).then((r) => r.arrayBuffer());
+  });
+
   return new ImageResponse(
     (
       <div
@@ -25,15 +34,16 @@ export default function OpenGraphImage() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            gap: 24,
           }}
         >
           <div
             style={{
               fontSize: 96,
-              fontWeight: 700,
+              fontWeight: 600,
               color: "#ffffff",
               letterSpacing: "-2px",
-              marginBottom: 24,
+              fontFamily: "Inter, sans-serif",
             }}
           >
             ShineTechData
@@ -42,7 +52,8 @@ export default function OpenGraphImage() {
             style={{
               fontSize: 36,
               color: "#818cf8",
-              fontWeight: 400,
+              fontWeight: 600,
+              fontFamily: "Inter, sans-serif",
             }}
           >
             Tech solutions for your company
@@ -52,6 +63,14 @@ export default function OpenGraphImage() {
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: "Inter",
+          data: interSemiBold,
+          weight: 600,
+          style: "normal",
+        },
+      ],
     }
   );
 }
