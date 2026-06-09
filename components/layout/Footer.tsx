@@ -33,7 +33,11 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="sm:col-span-2">
-            <Link href="/" prefetch={false} className="flex items-center gap-2 mb-4">
+            <Link
+              href="/"
+              prefetch={false}
+              className="flex items-center gap-2 mb-4"
+            >
               {mounted ? (
                 <Image
                   src={footerLogoSrc}
@@ -154,8 +158,8 @@ export function Footer() {
             href={t("dev.linkedin")}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs gradient-text text-muted-foreground hover:text-primary hover:underline 
-            transition-colors flex items-center gap-1"
+            className="text-ms gradient-text text-muted-foreground hover:text-primary hover:underline 
+            transition-colors flex items-center gap-1 sm:ml-4"
           >
             {t("dev.text")}
           </a>
