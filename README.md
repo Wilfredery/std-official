@@ -7,7 +7,7 @@
 [![Tests](https://img.shields.io/badge/tests-542%20passed-brightgreen)](https://github.com/Wilfredery/std-official)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-> **Live Site**: [std-official-kx74.vercel.app](https://std-official-kx74.vercel.app) (Vercel)
+> **Live Site**: [shinetechdata.com](https://www.shinetechdata.com/en/) (Vercel)
 
 The official website for **ShineTechData** — a data consulting company specializing in business intelligence, data analysis, and machine learning solutions. Built with modern web technologies, optimized for performance, and accessible to all users.
 
@@ -19,18 +19,18 @@ The official website for **ShineTechData** — a data consulting company special
 
 ## Tech Stack
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| [Next.js](https://nextjs.org) | 16.2 | App Router, SSR, SSG, Turbopack |
-| [React](https://react.dev) | 19.2 | UI framework |
-| [TypeScript](https://www.typescriptlang.org) | 5 | Type safety |
-| [Tailwind CSS](https://tailwindcss.com) | 4 | Utility-first styling |
-| [Base UI](https://base-ui.com) | 1.5 | Accessible primitives |
-| [next-intl](https://next-intl.dev) | 4.12 | Internationalization |
-| [Vitest](https://vitest.dev) | 4.1 | Test runner |
-| [React Testing Library](https://testing-library.com/react) | 16.3 | Component testing |
-| [Lucide React](https://lucide.dev) | 1.16 | Icon library |
-| [web-vitals](https://github.com/GoogleChrome/web-vitals) | 5.3 | Core Web Vitals monitoring |
+| Technology                                                 | Version | Purpose                         |
+| ---------------------------------------------------------- | ------- | ------------------------------- |
+| [Next.js](https://nextjs.org)                              | 16.2    | App Router, SSR, SSG, Turbopack |
+| [React](https://react.dev)                                 | 19.2    | UI framework                    |
+| [TypeScript](https://www.typescriptlang.org)               | 5       | Type safety                     |
+| [Tailwind CSS](https://tailwindcss.com)                    | 4       | Utility-first styling           |
+| [Base UI](https://base-ui.com)                             | 1.5     | Accessible primitives           |
+| [next-intl](https://next-intl.dev)                         | 4.12    | Internationalization            |
+| [Vitest](https://vitest.dev)                               | 4.1     | Test runner                     |
+| [React Testing Library](https://testing-library.com/react) | 16.3    | Component testing               |
+| [Lucide React](https://lucide.dev)                         | 1.16    | Icon library                    |
+| [web-vitals](https://github.com/GoogleChrome/web-vitals)   | 5.3     | Core Web Vitals monitoring      |
 
 **Package Manager**: [pnpm](https://pnpm.io)
 
@@ -41,12 +41,14 @@ The official website for **ShineTechData** — a data consulting company special
 ## Features
 
 ### Core
+
 - **Bilingual (EN/ES)** — Locale-prefixed routing with automatic language detection
 - **Dark/Light Theme** — System-aware with manual toggle and keyboard shortcut ("D")
 - **Fully Responsive** — Mobile-first design across all breakpoints
 - **Accessible** — Semantic HTML, `focus-visible`, screen-reader support, WCAG-compliant
 
 ### Content
+
 - **Animated Hero** — Typing-effect headline with smooth transitions
 - **Scroll Animations** — Content reveals on scroll via IntersectionObserver
 - **Service Detail Pages** — 6 services × 2 locales, statically generated at build time
@@ -56,6 +58,7 @@ The official website for **ShineTechData** — a data consulting company special
 - **Custom 404** — Locale-aware not-found page
 
 ### Performance & SEO
+
 - **Server Components** — Reduced client-side JavaScript with React Server Components
 - **Lazy Loading** — Interactive components loaded on-demand with `next/dynamic`
 - **Font Preloading** — Google Fonts preloaded via `next/font`
@@ -67,15 +70,15 @@ The official website for **ShineTechData** — a data consulting company special
 
 ## Pages
 
-| Route | Description |
-|-------|-------------|
-| `/` | Home — hero, problem statement, services overview, process, CTA |
-| `/services` | Service listing with card grid and slider |
-| `/services/[slug]` | Individual service detail page (6 services) |
-| `/about` | Company story, mission, vision, and values |
-| `/contact` | Contact form and FAQ |
-| `/terms` | Terms of Service |
-| `/privacy` | Privacy Policy |
+| Route              | Description                                                     |
+| ------------------ | --------------------------------------------------------------- |
+| `/`                | Home — hero, problem statement, services overview, process, CTA |
+| `/services`        | Service listing with card grid and slider                       |
+| `/services/[slug]` | Individual service detail page (6 services)                     |
+| `/about`           | Company story, mission, vision, and values                      |
+| `/contact`         | Contact form and FAQ                                            |
+| `/terms`           | Terms of Service                                                |
+| `/privacy`         | Privacy Policy                                                  |
 
 ---
 
@@ -106,13 +109,13 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Development Commands
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start development server with Turbopack |
-| `pnpm build` | Build for production |
-| `pnpm test` | Run tests in watch mode |
-| `pnpm test:run` | Run all tests once (CI-friendly) |
-| `pnpm lint` | Lint with ESLint |
+| Command         | Description                             |
+| --------------- | --------------------------------------- |
+| `pnpm dev`      | Start development server with Turbopack |
+| `pnpm build`    | Build for production                    |
+| `pnpm test`     | Run tests in watch mode                 |
+| `pnpm test:run` | Run all tests once (CI-friendly)        |
+| `pnpm lint`     | Lint with ESLint                        |
 
 ---
 
@@ -205,6 +208,7 @@ pnpm start
 ```
 
 **Vercel Dashboard**:
+
 1. Import repository from GitHub
 2. Framework preset: Next.js
 3. Build command: `next build`
