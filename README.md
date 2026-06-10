@@ -13,7 +13,7 @@ The official website for **ShineTechData** — a data consulting company special
 
 **Bilingual**: English & Spanish with automatic locale detection.
 
-**Performance**: 92/100 on Google PageSpeed Insights (Mobile).
+**Performance**: 92/100(Mobile) 99-100(desktop) on Google PageSpeed Insights .
 
 
 ---
