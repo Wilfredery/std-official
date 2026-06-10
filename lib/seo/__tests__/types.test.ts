@@ -13,20 +13,20 @@ describe("SEO JSON-LD types", () => {
       const org: Organization = {
         "@type": "Organization",
         name: "ShineTechData",
-        url: "https://shinetechdata.com",
-        logo: "https://shinetechdata.com/logo.png",
+        url: "https://www.shinetechdata.com",
+        logo: "https://www.shinetechdata.com/logo.png",
       };
       expect(org["@type"]).toBe("Organization");
       expect(org.name).toBe("ShineTechData");
-      expect(org.url).toBe("https://shinetechdata.com");
-      expect(org.logo).toBe("https://shinetechdata.com/logo.png");
+      expect(org.url).toBe("https://www.shinetechdata.com");
+      expect(org.logo).toBe("https://www.shinetechdata.com/logo.png");
     });
 
     it("accepts Organization without optional logo", () => {
       const org: Organization = {
         "@type": "Organization",
         name: "ShineTechData",
-        url: "https://shinetechdata.com",
+        url: "https://www.shinetechdata.com",
       };
       expect(org["@type"]).toBe("Organization");
       expect(org.logo).toBeUndefined();
@@ -38,10 +38,10 @@ describe("SEO JSON-LD types", () => {
       const site: WebSite = {
         "@type": "WebSite",
         name: "ShineTechData",
-        url: "https://shinetechdata.com",
+        url: "https://www.shinetechdata.com",
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://shinetechdata.com/search?q={search_term_string}",
+          target: "https://www.shinetechdata.com/search?q={search_term_string}",
           "query-input": "required name=search_term_string",
         },
       };
@@ -54,7 +54,7 @@ describe("SEO JSON-LD types", () => {
       const site: WebSite = {
         "@type": "WebSite",
         name: "ShineTechData",
-        url: "https://shinetechdata.com",
+        url: "https://www.shinetechdata.com",
       };
       expect(site["@type"]).toBe("WebSite");
       expect(site.potentialAction).toBeUndefined();
@@ -70,13 +70,13 @@ describe("SEO JSON-LD types", () => {
             "@type": "ListItem",
             position: 1,
             name: "Services",
-            item: "https://shinetechdata.com/services/",
+            item: "https://www.shinetechdata.com/services/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Data Analysis",
-            item: "https://shinetechdata.com/services/data-analysis/",
+            item: "https://www.shinetechdata.com/services/data-analysis/",
           },
         ],
       };
@@ -97,7 +97,7 @@ describe("SEO JSON-LD types", () => {
         provider: {
           "@type": "Organization",
           name: "ShineTechData",
-          url: "https://shinetechdata.com",
+          url: "https://www.shinetechdata.com",
         },
       };
       expect(svc["@type"]).toBe("Service");

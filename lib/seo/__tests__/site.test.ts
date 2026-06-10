@@ -10,7 +10,7 @@ describe("site config", () => {
     it("falls back to default when NEXT_PUBLIC_SITE_URL is not set", async () => {
       vi.stubEnv("NEXT_PUBLIC_SITE_URL", undefined);
       const { SITE_URL } = await import("@/lib/site");
-      expect(SITE_URL).toBe("https://shinetechdata.com");
+      expect(SITE_URL).toBe("https://www.shinetechdata.com");
     });
 
     it("uses the env var when NEXT_PUBLIC_SITE_URL is set", async () => {

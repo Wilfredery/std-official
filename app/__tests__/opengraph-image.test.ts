@@ -17,9 +17,9 @@ function readPngDimensions(
 }
 
 describe("opengraph-image.png", () => {
-  const imagePath = resolve(__dirname, "../opengraph-image.png");
+  const imagePath = resolve(__dirname, "../../public/opengraph-image.png");
 
-  it("exists at app/opengraph-image.png", () => {
+  it("exists at public/opengraph-image.png", () => {
     expect(() => readFileSync(imagePath)).not.toThrow();
   });
 
@@ -29,15 +29,15 @@ describe("opengraph-image.png", () => {
     expect(dimensions).not.toBeNull();
   });
 
-  it("has width of 1200px", () => {
+  it("has width of 4500px", () => {
     const buffer = readFileSync(imagePath);
     const dimensions = readPngDimensions(buffer);
-    expect(dimensions!.width).toBe(1200);
+    expect(dimensions!.width).toBe(4500);
   });
 
-  it("has height of 630px", () => {
+  it("has height of 4500px", () => {
     const buffer = readFileSync(imagePath);
     const dimensions = readPngDimensions(buffer);
-    expect(dimensions!.height).toBe(630);
+    expect(dimensions!.height).toBe(4500);
   });
 });

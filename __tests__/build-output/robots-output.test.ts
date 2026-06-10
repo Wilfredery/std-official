@@ -3,7 +3,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 
 const ROBOTS_PATH = resolve(process.cwd(), "out", "robots.txt");
-const SITE_URL = "https://shinetechdata.com";
+const SITE_URL = "https://www.shinetechdata.com";
 
 describe("out/robots.txt — build output verification", () => {
   let content: string;

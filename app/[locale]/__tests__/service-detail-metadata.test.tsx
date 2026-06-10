@@ -128,7 +128,7 @@ describe("Service Detail Page — generateMetadata (SEO-1, SEO-4)", () => {
       });
 
       expect(metadata.alternates!.canonical).toBe(
-        "https://shinetechdata.com/en/services/data-analysis/"
+        "https://www.shinetechdata.com/en/services/data-analysis/"
       );
     });
   });

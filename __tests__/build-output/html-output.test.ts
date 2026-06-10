@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import { JSDOM } from "jsdom";
 
 const OUT_DIR = resolve(process.cwd(), "out");
-const SITE_URL = "https://shinetechdata.com";
+const SITE_URL = "https://www.shinetechdata.com";
 
 interface PageSample {
   path: string;

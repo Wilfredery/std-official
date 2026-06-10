@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import { JSDOM } from "jsdom";
 
 const OUT_DIR = resolve(process.cwd(), "out");
-const SITE_URL = "https://shinetechdata.com";
+const SITE_URL = "https://www.shinetechdata.com";
 
 interface RouteTestCase {
   path: string;
@@ -146,10 +146,10 @@ describe("SEO route validations — hreflang", () => {
 
       // URLs should be absolute
       for (const link of enLinks) {
-        expect(link.href).toMatch(/^https:\/\/shinetechdata\.com\/en/);
+        expect(link.href).toMatch(/^https:\/\/www\.shinetechdata\.com\/en/);
       }
       for (const link of esLinks) {
-        expect(link.href).toMatch(/^https:\/\/shinetechdata\.com\/es/);
+        expect(link.href).toMatch(/^https:\/\/www\.shinetechdata\.com\/es/);
       }
     });
   }

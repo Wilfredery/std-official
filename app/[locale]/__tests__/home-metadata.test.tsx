@@ -120,7 +120,7 @@ describe("Home Page — generateMetadata (SEO-1)", () => {
 
     expect(metadata.alternates).toBeDefined();
     expect(metadata.alternates!.canonical).toBe(
-      "https://shinetechdata.com/en"
+      "https://www.shinetechdata.com/en"
     );
   });
 
@@ -170,7 +170,7 @@ describe("Home Page — generateMetadata (SEO-1)", () => {
       });
 
       expect(metadata.openGraph!.images![0].url).toBe(
-        "https://shinetechdata.com/opengraph-image.png"
+        "https://www.shinetechdata.com/opengraph-image.png"
       );
     });
 
@@ -180,7 +180,7 @@ describe("Home Page — generateMetadata (SEO-1)", () => {
       });
 
       expect(metadata.twitter!.images![0]).toBe(
-        "https://shinetechdata.com/opengraph-image.png"
+        "https://www.shinetechdata.com/opengraph-image.png"
       );
     });
   });

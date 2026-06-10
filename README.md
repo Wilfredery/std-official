@@ -4,7 +4,7 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-06B6D4?logo=tailwindcss)](https://tailwindcss.com)
-[![Tests](https://img.shields.io/badge/tests-542%20passed-brightgreen)](https://github.com/Wilfredery/std-official)
+[![Tests](https://img.shields.io/badge/tests-555%20passed-brightgreen)](https://github.com/Wilfredery/std-official)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 > **Live Site**: [shinetechdata.com](https://www.shinetechdata.com/en/) (Vercel)
@@ -167,7 +167,7 @@ The locale is detected from the URL prefix (`/en`, `/es`). The root path (`/`) r
 
 ## Testing
 
-**542 tests across 78 test files — all passing.**
+**555 tests across 76 test files — all passing.**
 
 - **Framework**: Vitest with `jsdom` environment
 - **Library**: React Testing Library + jest-dom matchers
@@ -220,7 +220,7 @@ Each push to `master` triggers automatic deployment.
 
 ## Contributing
 
-1. Run `pnpm test:run` — all 542 tests must pass
+1. Run `pnpm test:run` — all 555 tests must pass
 2. If your change affects UI, add or update tests
 3. If your change adds user-facing text, update both `en.json` and `es.json`
 4. Follow existing project structure and TypeScript conventions
