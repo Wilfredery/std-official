@@ -13,7 +13,7 @@ export function CtaLinks({ primaryLabel, secondaryLabel }: CtaLinksProps) {
         href="/contact"
         prefetch={false}
         aria-label={primaryLabel}
-        className="group flex items-center gap-2 rounded-md bg-primary px-4 py-3 text-sm
+        className="group flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-3 text-sm
             font-semibold text-primary-foreground shadow-sm hover:bgprimary/90 transition-all
             focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       >
@@ -30,7 +30,7 @@ export function CtaLinks({ primaryLabel, secondaryLabel }: CtaLinksProps) {
         href="/services"
         prefetch={false}
         aria-label={secondaryLabel}
-        className="group flex items-center gap-2 text-sm font-semibold leading-6 text-foreground
+        className="group flex items-center justify-center gap-2 text-sm font-semibold leading-6 text-foreground
       hover:text-primary transition-colors
       focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       >
