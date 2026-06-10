@@ -14,7 +14,6 @@ The official website for **ShineTechData** — a data consulting company special
 **Bilingual**: English & Spanish with automatic locale detection.
 
 **Performance**: 92/100 on Google PageSpeed Insights (Mobile).
-<img width="300" height="300" alt="mobile-performance" src="https://github.com/user-attachments/assets/7651f5f1-c1c1-4984-91dd-157b0f48d4ed" /> <img width="300" height="300" alt="Desktop-perf" src="https://github.com/user-attachments/assets/f7ac4a63-6e8a-43ec-8d87-6f57abf1b808" />
 
 
 ---
@@ -190,9 +189,11 @@ Tests are colocated with source files inside `__tests__/` directories. Each comp
 ### PageSpeed Insights
 
 <p align="center">
-  <img width="280" alt="mobile-performance" src="https://github.com/user-attachments/assets/7651f5f1-c1c1-4984-91dd-157b0f48d4ed" />
-  <img width="280" alt="Desktop-perf" src="https://github.com/user-attachments/assets/f7ac4a63-6e8a-43ec-8d87-6f57abf1b808" />
+  <img width="320" alt="PageSpeed Mobile — 92/100" src="https://github.com/user-attachments/assets/7651f5f1-c1c1-4984-91dd-157b0f48d4ed" />
+  <img width="320" alt="PageSpeed Desktop" src="https://github.com/user-attachments/assets/f7ac4a63-6e8a-43ec-8d87-6f57abf1b808" />
 </p>
+
+*Left: Mobile score • Right: Desktop score*
 
 ---
 
