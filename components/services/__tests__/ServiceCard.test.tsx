@@ -15,7 +15,7 @@ describe("ServiceCard", () => {
     title: "Data Analysis",
     shortDescription:
       "Deep-dive diagnostics to uncover hidden operational efficiencies.",
-    learnMoreLabel: "Learn More",
+    learnMoreLabel: "View service details",
     index: 0,
     slug: "data-analysis",
     accent: "primary" as const,
@@ -37,7 +37,7 @@ describe("ServiceCard", () => {
 
   it("renders the learn more label", () => {
     render(<ServiceCard {...defaultProps} />);
-    expect(screen.getByText("Learn More")).toBeInTheDocument();
+    expect(screen.getByText("View service details")).toBeInTheDocument();
   });
 
   it("link href points to /services/{slug}", () => {
