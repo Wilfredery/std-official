@@ -44,7 +44,7 @@ The official website for **ShineTechData** — a data consulting company special
 ### Core
 
 - **Bilingual (EN/ES)** — Locale-prefixed routing with automatic language detection
-- **Dark/Light Theme** — System-aware with manual toggle and keyboard shortcut ("D")
+- **Dark/Light Theme** — System-aware with manual toggle and keyboard shortcut ("D"). Anti-flash script runs before hydration to prevent theme flicker on reload.
 - **Fully Responsive** — Mobile-first design across all breakpoints
 - **Accessible** — Semantic HTML, `focus-visible`, screen-reader support, WCAG-compliant
 
@@ -139,6 +139,8 @@ std-official/
 │   ├── contact/            # Contact form & FAQ
 │   ├── layout/             # Header, footer, nav
 │   ├── seo/                # SEO & JSON-LD components
+│   ├── web-vitals/         # Web vitals script injection
+│   ├── errors/             # Error suppression components
 │   └── ui/                 # UI primitives (shadcn/ui)
 ├── lib/                    # Business logic & utilities
 │   ├── data/               # Static data & service definitions
@@ -147,10 +149,20 @@ std-official/
 │   ├── en.json             # English
 │   └── es.json             # Spanish
 ├── public/                 # Static assets
+│   └── theme-anti-flash.js # Pre-hydration theme script
 └── __tests__/              # Colocated tests
 ```
 
 ---
+
+## Theme System Architecture
+
+The custom theme system replaces `next-themes` with a lightweight Context-based solution:
+
+- **Anti-Flash Script**: `public/theme-anti-flash.js` runs synchronously before React hydration to apply the correct theme class based on `localStorage` preference
+- **Context Provider**: `lib/theme/ThemeContext.tsx` manages state, localStorage persistence, and `matchMedia` subscription for system theme changes
+- **Error Suppression**: `components/errors/SuppressScriptError.tsx` filters the React 19 false-positive warning about `<script>` in Server Components (Next.js 16 + Turbopack)
+- **Web Vitals**: `components/web-vitals/WebVitalsScript.tsx` injects the `web-vitals` library on first user interaction or 5-second idle timeout
 
 ## Internationalization
 
