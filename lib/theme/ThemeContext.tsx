@@ -107,7 +107,6 @@ export function ThemeProvider({
       applyThemeClass(resolved);
     };
 
-    handler(mql);
     mql.addEventListener("change", handler);
     return () => mql.removeEventListener("change", handler);
   }, [theme]);
