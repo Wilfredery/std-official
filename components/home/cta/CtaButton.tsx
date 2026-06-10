@@ -18,7 +18,7 @@ export function CtaButton({ label }: CtaButtonProps) {
     >
       <ArrowRight className="size-4 shrink-0" />
       <span
-        className="sm:max-w-0 sm:overflow-hidden sm:whitespace-nowrap
+        className="sm:inline-block sm:max-w-0 sm:overflow-hidden sm:whitespace-nowrap
       sm:group-hover:max-w-xs transition-all duration-300"
       >
         {label}

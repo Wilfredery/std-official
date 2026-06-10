@@ -19,7 +19,7 @@ export function CtaLinks({ primaryLabel, secondaryLabel }: CtaLinksProps) {
       >
         <CalendarDays className="h-4 w-4 shrink-0" />
         <span
-          className="sm:max-w-0 sm:overflow-hidden sm:whitespace-nowrap sm:group-hover:max-w-xs transition-all
+          className="sm:inline-block sm:max-w-0 sm:overflow-hidden sm:whitespace-nowrap sm:group-hover:max-w-xs transition-all
                 duration-300"
         >
           {primaryLabel}
@@ -36,7 +36,7 @@ export function CtaLinks({ primaryLabel, secondaryLabel }: CtaLinksProps) {
       >
         <ArrowRight className="h-4 w-4 shrink-0" />
         <span
-          className="sm:max-w-0 sm:overflow-hidden sm:whitespace-nowrap sm:group-hover:max-w-xs transition-all
+          className="sm:inline-block sm:max-w-0 sm:overflow-hidden sm:whitespace-nowrap sm:group-hover:max-w-xs transition-all
         duration-300"
         >
           {secondaryLabel}
