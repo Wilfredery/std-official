@@ -16,7 +16,7 @@ The official website for **ShineTechData** — a data consulting company special
 ### Quick Preview
 
 <video width="100%" autoplay loop muted playsinline>
-  <source src="./assets/gif.mp4" type="video/mp4">
+  <source src="https://github.com/user-attachments/assets/e72cb623-dc72-4179-a2ab-2e70d6ec7ba5" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
