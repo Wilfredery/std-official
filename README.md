@@ -17,10 +17,7 @@ The official website for **ShineTechData** — a data consulting company special
 
 ![Site Preview](assets/gifSTD.gif)
 
-> The site preview above loops automatically.
-
 **Performance**: 92/100(Mobile) 99/100(desktop) on Google PageSpeed Insights .
-
 
 ---
 
@@ -211,7 +208,7 @@ Tests are colocated with source files inside `__tests__/` directories. Each comp
   <img width="320" alt="PageSpeed Desktop" src="https://github.com/user-attachments/assets/f7ac4a63-6e8a-43ec-8d87-6f57abf1b808" />
 </p>
 
-*Left: Mobile score • Right: Desktop score*
+_Left: Mobile score • Right: Desktop score_
 
 ---
 
