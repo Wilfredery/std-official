@@ -22,7 +22,7 @@ The official website for **ShineTechData** — a data consulting company special
 
 > The site preview above plays automatically (muted) on a loop.
 
-**Performance**: 92/100(Mobile) 99-100(desktop) on Google PageSpeed Insights .
+**Performance**: 92/100(Mobile) 99/100(desktop) on Google PageSpeed Insights .
 
 
 ---
