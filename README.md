@@ -15,12 +15,9 @@ The official website for **ShineTechData** — a data consulting company special
 
 ### Quick Preview
 
-<video width="100%" autoplay loop muted playsinline>
-  <source src="https://i.imgur.com/Q7tUMr0.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![Site Preview](assets/gifSTD.gif)
 
-> The site preview above plays automatically (muted) on a loop.
+> The site preview above loops automatically.
 
 **Performance**: 92/100(Mobile) 99/100(desktop) on Google PageSpeed Insights .
 
