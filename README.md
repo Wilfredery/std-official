@@ -13,6 +13,15 @@ The official website for **ShineTechData** — a data consulting company special
 
 **Bilingual**: English & Spanish with automatic locale detection.
 
+### Quick Preview
+
+<video width="100%" autoplay loop muted playsinline>
+  <source src="./assets/gif.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+> The site preview above plays automatically (muted) on a loop.
+
 **Performance**: 92/100(Mobile) 99-100(desktop) on Google PageSpeed Insights .
 
 
