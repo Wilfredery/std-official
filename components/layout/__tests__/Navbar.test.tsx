@@ -91,8 +91,8 @@ describe("Navbar", () => {
   // ---- Active link detection ----
 
   it("highlights active link with aria-current when pathname matches", () => {
-    // Override pathname so "/services" matches the services nav link
-    usePathnameMock.mockReturnValue("/services");
+    // Override pathname so "/services/" matches the services nav link
+    usePathnameMock.mockReturnValue("/services/");
 
     render(<Navbar />);
 

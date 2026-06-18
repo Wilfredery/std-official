@@ -141,7 +141,7 @@ describe("MobileMenu", () => {
 
     it("sets aria-current=page on the active route link", async () => {
       const { usePathname } = await import("@/lib/i18n/navigation");
-      vi.mocked(usePathname).mockReturnValue("/services");
+      vi.mocked(usePathname).mockReturnValue("/services/");
 
       renderOpenMenu();
 

@@ -151,7 +151,7 @@ describe("Footer", () => {
       (el) => el.tagName === "A",
     ) as HTMLAnchorElement;
     expect(servicesLink).toBeDefined();
-    expect(servicesLink).toHaveAttribute("href", "/services");
+    expect(servicesLink).toHaveAttribute("href", "/services/");
     expect(screen.getByText("contact")).toBeInTheDocument();
   });
 
