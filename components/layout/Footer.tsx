@@ -10,8 +10,9 @@ import { useTheme } from "@/lib/theme/ThemeContext";
 
 const footerLinks = [
   { href: "/", labelKey: "home" as const },
-  { href: "/services", labelKey: "services" as const },
-  { href: "/contact", labelKey: "contact" as const },
+  { href: "/about/", labelKey: "about" as const },
+  { href: "/services/", labelKey: "services" as const },
+  { href: "/contact/", labelKey: "contact" as const },
 ];
 
 export function Footer() {

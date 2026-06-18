@@ -30,4 +30,12 @@ describe("robots.ts — CRAWL-1", () => {
       expect(rule.disallow).toBeUndefined();
     }
   });
+
+  it("includes sitemap field pointing to sitemap.xml (REQ-7)", () => {
+    const config = robots();
+
+    expect(config.sitemap).toBe(
+      "https://www.shinetechdata.com/sitemap.xml"
+    );
+  });
 });
