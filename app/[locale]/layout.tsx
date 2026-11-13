@@ -57,17 +57,14 @@ export default async function localeLayout({
         <OrganizationJsonLd
           name="ShineTechData"
           url={SITE_URL}
-          logo={`${SITE_URL}/logo.png`}
+          logo={`${SITE_URL}/images/navbarFooter/logo-light.webp`}
           sameAs={[
             "https://linkedin.com/company/shinetechdata",
             "https://github.com/shinetechdata",
+            "https://www.instagram.com/shinetechdata/",
           ]}
         />
-        <WebSiteJsonLd
-          name="ShineTechData"
-          url={SITE_URL}
-          searchUrl={`${SITE_URL}/search?q={search_term_string}`}
-        />
+        <WebSiteJsonLd name="ShineTechData" url={SITE_URL} />
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <ThemeShortcut />

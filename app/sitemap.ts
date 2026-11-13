@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { serviceSlugs } from "@/lib/data/services";
 import { locales, SITE_URL } from "@/lib/site";
+import { languageAlternates } from "@/lib/seo/alternates";
 
 export const dynamic = "force-static";
 
@@ -71,11 +72,7 @@ function generateStaticEntries(lastmod: Date): MetadataRoute.Sitemap {
   for (const route of routes) {
     for (const locale of locales) {
       const url = buildLocaleUrl(locale, route.path);
-      const localeVersions: Record<string, string> = {};
-      for (const l of locales) {
-        localeVersions[l] = buildLocaleUrl(l, route.path);
-      }
-      entries.push(buildEntry(url, localeVersions, route.type, lastmod));
+      entries.push(buildEntry(url, languageAlternates(route.path), route.type, lastmod));
     }
   }
 
@@ -89,11 +86,7 @@ function generateServiceEntries(lastmod: Date): MetadataRoute.Sitemap {
     for (const locale of locales) {
       const path = `/services/${slug}/`;
       const url = buildLocaleUrl(locale, path);
-      const localeVersions: Record<string, string> = {};
-      for (const l of locales) {
-        localeVersions[l] = buildLocaleUrl(l, path);
-      }
-      entries.push(buildEntry(url, localeVersions, "service", lastmod));
+      entries.push(buildEntry(url, languageAlternates(path), "service", lastmod));
     }
   }
 

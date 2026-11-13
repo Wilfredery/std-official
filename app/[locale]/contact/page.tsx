@@ -1,7 +1,8 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import { SITE_URL, locales } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
+import { languageAlternates } from "@/lib/seo/alternates";
 import { routing } from "@/lib/i18n/routing";
 import { ContactHeader } from "@/components/contact/ContactHeader";
 import { ContactChannels } from "@/components/contact/Channels/ContactChannels";
@@ -26,9 +27,7 @@ export async function generateMetadata({
     description: t("contact.description"),
     alternates: {
       canonical,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${SITE_URL}/${l}/contact/`])
-      ),
+      languages: languageAlternates("/contact/"),
     },
     openGraph: {
       title: t("contact.title"),

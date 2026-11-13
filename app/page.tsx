@@ -1,5 +1,8 @@
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { routing } from "@/lib/i18n/routing";
-export default function RootPage() {
-  redirect(`/${routing.defaultLocale}/`);
+import { negotiateLocale } from "@/lib/i18n/negotiate";
+
+export default async function RootPage() {
+  const requestHeaders = await headers();
+  redirect(`/${negotiateLocale(requestHeaders.get("accept-language"))}/`);
 }

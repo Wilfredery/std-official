@@ -27,7 +27,7 @@ describe("sitemap.ts", () => {
     }
   });
 
-  it("every entry has exactly 2 hreflang alternates: en + es (REQ-3)", () => {
+  it("every entry has hreflang alternates: en + es + x-default (REQ-3)", () => {
     const entries = sitemap();
 
     expect(entries.length).toBeGreaterThan(0);
@@ -35,9 +35,10 @@ describe("sitemap.ts", () => {
       const langs = entry.alternates?.languages;
       expect(langs).toBeDefined();
       const keys = Object.keys(langs!);
-      expect(keys).toHaveLength(2);
+      expect(keys).toHaveLength(3);
       expect(keys).toContain("en");
       expect(keys).toContain("es");
+      expect(langs!["x-default"]).toBe(langs!["en"]);
     }
   });
 

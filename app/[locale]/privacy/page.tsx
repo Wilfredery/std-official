@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import { SITE_URL, locales } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
+import { languageAlternates } from "@/lib/seo/alternates";
 import { routing } from "@/lib/i18n/routing";
 import { LegalPage } from "@/components/legal/LegalPage";
 
@@ -25,9 +26,7 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${SITE_URL}/${l}/privacy/`])
-      ),
+      languages: languageAlternates("/privacy/"),
     },
     openGraph: {
       title,
