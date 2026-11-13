@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import { SITE_URL, locales } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
+import { languageAlternates } from "@/lib/seo/alternates";
 import { routing } from "@/lib/i18n/routing";
 import { HeroSection } from "@/components/home/hero/HeroSection";
 import { ProblemSection } from "@/components/home/problem/ProblemSection";
@@ -24,7 +25,7 @@ export async function generateMetadata({
     description: t("home.description"),
     alternates: {
       canonical,
-      languages: Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}`])),
+      languages: languageAlternates("/"),
     },
     openGraph: {
       title: t("home.title"),
