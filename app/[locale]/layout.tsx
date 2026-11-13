@@ -59,6 +59,24 @@ export default async function localeLayout({
           name="ShineTechData"
           url={SITE_URL}
           logo={`${SITE_URL}/images/navbarFooter/logo-light.webp`}
+          email="contact@shinetechdata.com"
+          telephone="+1-829-584-9184"
+          address={{ "@type": "PostalAddress", addressCountry: "DO" }}
+          contactPoint={[
+            {
+              "@type": "ContactPoint",
+              contactType: "customer service",
+              telephone: "+1-829-584-9184",
+              email: "contact@shinetechdata.com",
+              availableLanguage: ["Spanish", "English"],
+              hoursAvailable: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "09:00",
+                closes: "18:00",
+              },
+            },
+          ]}
           sameAs={[
             "https://linkedin.com/company/shinetechdata",
             "https://github.com/shinetechdata",
