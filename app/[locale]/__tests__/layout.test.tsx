@@ -44,6 +44,11 @@ vi.mock("@/lib/theme/ThemeContext", () => ({
   }),
 }));
 
+// Mock Vercel Analytics with a marker element
+vi.mock("@vercel/analytics/next", () => ({
+  Analytics: () => <div data-testid="vercel-analytics" />,
+}));
+
 // Mock the franklin font import from root layout
 vi.mock("@/app/layout", () => ({
   franklin: { variable: "--font-libre-franklin" },
@@ -54,6 +59,18 @@ vi.mock("@/app/layout", () => ({
 // ============================================================
 import localeLayout from "@/app/[locale]/layout";
 import { renderToString } from "react-dom/server";
+
+describe("Locale Layout — Vercel Analytics", () => {
+  it("mounts the Analytics component", async () => {
+    const jsx = await localeLayout({
+      children: <div>Content</div>,
+      params: Promise.resolve({ locale: "es" }),
+    });
+    const html = renderToString(jsx);
+
+    expect(html).toContain('data-testid="vercel-analytics"');
+  });
+});
 
 describe("Locale Layout — <html lang> attribute (SEO-2)", () => {
   // jsdom cannot render <html> inside a <div>, so we use renderToString
