@@ -5,6 +5,23 @@ import type { Organization, Service, BreadcrumbList } from "@/lib/seo/types";
 import { SITE_URL } from "@/lib/site";
 
 describe("JsonLd — Structured Data Component (SEO-5)", () => {
+  describe("schema.org context", () => {
+    it("adds @context https://schema.org to every schema", () => {
+      const org: Organization = { "@type": "Organization", name: "X", url: SITE_URL };
+      render(<JsonLd data={org} />);
+      const parsed = JSON.parse(screen.getByTestId("json-ld").textContent ?? "");
+      expect(parsed["@context"]).toBe("https://schema.org");
+    });
+
+    it("escapes < so values cannot close the script tag", () => {
+      const org: Organization = { "@type": "Organization", name: "</script><b>", url: SITE_URL };
+      render(<JsonLd data={org} />);
+      const script = screen.getByTestId("json-ld");
+      expect(script.innerHTML).not.toContain("</script>");
+      expect(JSON.parse(script.textContent ?? "").name).toBe("</script><b>");
+    });
+  });
+
   describe("Organization schema", () => {
     it("renders a script tag with application/ld+json type", () => {
       const org: Organization = {

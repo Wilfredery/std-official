@@ -4,6 +4,38 @@ import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { SITE_URL } from "@/lib/site";
 
 describe("OrganizationJsonLd (SEO-5)", () => {
+  it("includes contact details when provided", () => {
+    render(
+      <OrganizationJsonLd
+        name="ShineTechData"
+        url={SITE_URL}
+        email="contact@shinetechdata.com"
+        telephone="+1-829-584-9184"
+        address={{ "@type": "PostalAddress", addressCountry: "DO" }}
+        contactPoint={[
+          {
+            "@type": "ContactPoint",
+            contactType: "customer service",
+            telephone: "+1-829-584-9184",
+          },
+        ]}
+      />
+    );
+
+    const parsed = JSON.parse(screen.getByTestId("json-ld").textContent ?? "");
+    expect(parsed.email).toBe("contact@shinetechdata.com");
+    expect(parsed.telephone).toBe("+1-829-584-9184");
+    expect(parsed.address.addressCountry).toBe("DO");
+    expect(parsed.contactPoint[0].contactType).toBe("customer service");
+  });
+
+  it("omits contact fields when not provided", () => {
+    render(<OrganizationJsonLd name="ShineTechData" url={SITE_URL} />);
+    const parsed = JSON.parse(screen.getByTestId("json-ld").textContent ?? "");
+    expect(parsed).not.toHaveProperty("telephone");
+    expect(parsed).not.toHaveProperty("contactPoint");
+  });
+
   it("renders a script tag with application/ld+json type", () => {
     render(<OrganizationJsonLd name="ShineTechData" url={SITE_URL} />);
 
