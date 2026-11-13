@@ -7,6 +7,7 @@ vi.hoisted(() => vi.setSystemTime(new Date("2026-06-17")));
 
 // This import WILL fail because app/sitemap.ts does not exist yet — that IS the RED.
 import sitemap from "@/app/sitemap";
+import { SITE_URL } from "@/lib/site";
 
 describe("sitemap.ts", () => {
   it("generates exactly 24 <url> entries (REQ-2)", () => {
@@ -38,7 +39,8 @@ describe("sitemap.ts", () => {
       expect(keys).toHaveLength(3);
       expect(keys).toContain("en");
       expect(keys).toContain("es");
-      expect(langs!["x-default"]).toBe(langs!["en"]);
+      const isHome = /\/(en|es)\/$/.test(entry.url);
+      expect(langs!["x-default"]).toBe(isHome ? `${SITE_URL}/` : langs!["en"]);
     }
   });
 

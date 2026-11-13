@@ -11,10 +11,10 @@ describe("languageAlternates", () => {
     });
   });
 
-  it("handles the home path with trailing slash", () => {
+  it("points home x-default at the language-negotiating root", () => {
     const alt = languageAlternates("/");
     expect(alt.en).toBe(`${SITE_URL}/en/`);
     expect(alt.es).toBe(`${SITE_URL}/es/`);
-    expect(alt["x-default"]).toBe(`${SITE_URL}/en/`);
+    expect(alt["x-default"]).toBe(`${SITE_URL}/`);
   });
 });
