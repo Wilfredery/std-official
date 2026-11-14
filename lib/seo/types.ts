@@ -65,4 +65,23 @@ export interface Service {
   provider: Organization;
 }
 
-export type JsonLdSchema = Organization | WebSite | BreadcrumbList | Service;
+export interface BlogPosting {
+  "@type": "BlogPosting";
+  headline: string;
+  description: string;
+  datePublished: string;
+  dateModified?: string;
+  inLanguage: string;
+  url: string;
+  image?: string;
+  mainEntityOfPage: string;
+  author: Organization;
+  publisher: Organization;
+}
+
+export type JsonLdSchema =
+  | Organization
+  | WebSite
+  | BreadcrumbList
+  | Service
+  | BlogPosting;

@@ -24,6 +24,8 @@ export const PAGE_NAMESPACES: Record<string, string[]> = {
   "/about": ["about"],
   "/services": [],
   "/services/*": [], // service detail slug pages
+  "/blog": [],
+  "/blog/*": [], // blog post slug pages
   "/contact": [],
   "/privacy": ["legal"],
   "/terms": ["legal"],

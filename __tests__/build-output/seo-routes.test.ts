@@ -10,6 +10,7 @@ const STATIC_ROUTES = [
   "",
   "about",
   "services",
+  "blog",
   "contact",
   "privacy",
   "terms",
@@ -23,6 +24,8 @@ const SERVICE_SLUGS = [
   "digital-transformation",
   "process-automation",
 ] as const;
+
+const BLOG_SLUGS = ["ai-governance-data-policy"] as const;
 
 describe("out/ SEO route existence — build output verification", () => {
   it("has en home page", () => {
@@ -68,13 +71,14 @@ describe("out/ SEO route existence — build output verification", () => {
     ).toBe(false);
   });
 
-  it("does NOT have unexpected routes (e.g., /en/blog/)", () => {
-    const blogPath = resolve(OUT_DIR, "en", "blog", "index.html");
-    expect(
-      existsSync(blogPath),
-      `Unexpected route exists: ${blogPath}`
-    ).toBe(false);
-  });
+  for (const locale of EXPECTED_LOCALES) {
+    for (const slug of BLOG_SLUGS) {
+      it(`has ${locale}/blog/${slug} page`, () => {
+        const path = resolve(OUT_DIR, locale, "blog", slug, "index.html");
+        expect(existsSync(path), `Missing: ${path}`).toBe(true);
+      });
+    }
+  }
 });
 
 // Graceful skip if build output missing
