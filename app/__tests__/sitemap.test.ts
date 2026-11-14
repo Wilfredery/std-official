@@ -8,15 +8,16 @@ vi.hoisted(() => vi.setSystemTime(new Date("2026-06-17")));
 // This import WILL fail because app/sitemap.ts does not exist yet — that IS the RED.
 import sitemap from "@/app/sitemap";
 import { SITE_URL } from "@/lib/site";
+import { blogPosts } from "@/lib/data/blog";
 
 describe("sitemap.ts", () => {
-  it("generates exactly 24 <url> entries (REQ-2)", () => {
+  it("generates exactly 26 + blog post <url> entries (REQ-2)", () => {
     const entries = sitemap();
 
-    // 6 static routes × 2 locales = 12
+    // 7 static routes (incl. /blog/) × 2 locales = 14
     // 6 service slugs × 2 locales = 12
-    // Total: 24
-    expect(entries).toHaveLength(24);
+    // N blog posts × 2 locales
+    expect(entries).toHaveLength(26 + blogPosts.length * 2);
   });
 
   it("every URL ends with a trailing slash (REQ-2.3)", () => {

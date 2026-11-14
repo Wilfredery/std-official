@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { serviceSlugs } from "@/lib/data/services";
+import { blogPosts } from "@/lib/data/blog";
 import { locales, SITE_URL } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
 
@@ -7,12 +8,22 @@ export const dynamic = "force-static";
 
 // ── Type & Lookup Tables ────────────────────────────────────────────
 
-type PageType = "home" | "services" | "service" | "about" | "contact" | "legal";
+type PageType =
+  | "home"
+  | "services"
+  | "service"
+  | "blog"
+  | "post"
+  | "about"
+  | "contact"
+  | "legal";
 
 const PRIORITY: Record<PageType, number> = {
   home: 1.0,
   services: 0.9,
   service: 0.8,
+  blog: 0.8,
+  post: 0.7,
   about: 0.8,
   contact: 0.7,
   legal: 0.5,
@@ -22,6 +33,8 @@ const CHANGEFREQ: Record<PageType, "weekly" | "monthly" | "yearly"> = {
   home: "weekly",
   services: "weekly",
   service: "monthly",
+  blog: "weekly",
+  post: "monthly",
   about: "monthly",
   contact: "monthly",
   legal: "yearly",
@@ -63,6 +76,7 @@ function generateStaticEntries(lastmod: Date): MetadataRoute.Sitemap {
   const routes: StaticRoute[] = [
     { path: "/", type: "home" },
     { path: "/services/", type: "services" },
+    { path: "/blog/", type: "blog" },
     { path: "/about/", type: "about" },
     { path: "/contact/", type: "contact" },
     { path: "/terms/", type: "legal" },
@@ -93,9 +107,27 @@ function generateServiceEntries(lastmod: Date): MetadataRoute.Sitemap {
   return entries;
 }
 
+function generateBlogEntries(lastmod: Date): MetadataRoute.Sitemap {
+  const entries: MetadataRoute.Sitemap = [];
+
+  for (const post of blogPosts) {
+    for (const locale of locales) {
+      const path = `/blog/${post.slug}/`;
+      const url = buildLocaleUrl(locale, path);
+      entries.push(buildEntry(url, languageAlternates(path), "post", lastmod));
+    }
+  }
+
+  return entries;
+}
+
 // ── Default Export ──────────────────────────────────────────────────
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastmod = new Date();
-  return [...generateStaticEntries(lastmod), ...generateServiceEntries(lastmod)];
+  return [
+    ...generateStaticEntries(lastmod),
+    ...generateServiceEntries(lastmod),
+    ...generateBlogEntries(lastmod),
+  ];
 }
