@@ -633,7 +633,7 @@
   "legal": {
     "privacy": {
       "pageTitle": "Política de Privacidad",
-      "lastUpdated": "Última actualización: Junio 2026",
+      "lastUpdated": "Última actualización: Noviembre 2026",
       "tocTitle": "Contenido",
       "sections": [
         {
@@ -641,7 +641,7 @@
           "items": [
             "Datos de contacto directo: nombre completo, correo electrónico institucional, teléfono y denominación de la empresa, recopilados a través de formularios de contacto, asistencia o solicitud de cotizaciones.",
             "Datos de proyectos y muestras: documentos descriptivos, flujos de procesos o archivos de bases de datos de prueba provistos voluntariamente por el cliente para la fase de diagnóstico.",
-            "Datos de navegación técnica: cookies técnicas, direcciones IP y metadatos de sesión para auditorías de rendimiento de la interfaz web corporativa."
+            "Datos de navegación técnica: cookies técnicas, direcciones IP y metadatos de sesión para auditorías de rendimiento de la interfaz web corporativa. Usamos Vercel Analytics y PostHog (cookies analíticas, páginas vistas, clics y grabaciones de sesión anonimizadas con los campos de formulario ocultos) para entender cómo se usa el sitio y mejorarlo."
           ]
         },
         {

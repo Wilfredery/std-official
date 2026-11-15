@@ -630,7 +630,7 @@
   "legal": {
     "privacy": {
       "pageTitle": "Privacy Policy",
-      "lastUpdated": "Last updated: June 2026",
+      "lastUpdated": "Last updated: November 2026",
       "tocTitle": "Contents",
       "sections": [
         {
@@ -638,7 +638,7 @@
           "items": [
             "Direct contact data: full name, institutional email, phone, and company name, collected through contact, support, or quote request forms.",
             "Project data and samples: descriptive documents, process flows, or test database files voluntarily provided by the client for the diagnostic phase.",
-            "Technical navigation data: technical cookies, IP addresses, and session metadata for corporate web interface performance audits."
+            "Technical navigation data: technical cookies, IP addresses, and session metadata for corporate web interface performance audits. We use Vercel Analytics and PostHog (analytics cookies, page views, clicks, and anonymized session recordings with form inputs masked) to understand how visitors use the site and improve it."
           ]
         },
         {
