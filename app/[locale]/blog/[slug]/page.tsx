@@ -9,6 +9,7 @@ import {
   blogSlugs,
   blogUi,
   getPostBySlug,
+  otherPosts,
   readingMinutes,
   toBlogLocale,
 } from "@/lib/data/blog";
@@ -173,6 +174,40 @@ export default async function BlogPostPage({
           <p className="mt-3 mb-8 text-muted-foreground">{content.cta.text}</p>
           <CtaButton label={content.cta.button} />
         </aside>
+
+        <nav aria-label={ui.alsoRelated} className="mt-12">
+          <h2 className="text-lg font-bold">{ui.alsoRelated}</h2>
+          <ul className="mt-3 flex flex-wrap gap-3">
+            {post.alsoRelated.map((s) => (
+              <li key={s}>
+                <Link
+                  href={`/services/${s}/`}
+                  prefetch={false}
+                  className="inline-flex rounded-full border border-border px-4 py-2 text-sm hover:border-primary hover:text-primary transition-colors"
+                >
+                  {tService(`${s}.title`)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-label={ui.moreArticles} className="mt-12">
+          <h2 className="text-lg font-bold">{ui.moreArticles}</h2>
+          <ul className="mt-3 grid gap-4 sm:grid-cols-2">
+            {otherPosts(slug).map((p) => (
+              <li key={p.slug}>
+                <Link
+                  href={`/blog/${p.slug}/`}
+                  prefetch={false}
+                  className="block h-full gradient-border-card p-5 hover-glow transition-all"
+                >
+                  <span className="font-semibold leading-snug">{p.content[lang].title}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </article>
     </>
   );

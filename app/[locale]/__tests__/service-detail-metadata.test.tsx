@@ -25,6 +25,10 @@ vi.mock("@/components/services/detail/ServiceDetailSection", () => ({
   ServiceDetailSection: () => null,
 }));
 
+vi.mock("@/components/services/detail/RelatedArticles", () => ({
+  RelatedArticles: () => null,
+}));
+
 // ============================================================
 // Import after mocks
 // ============================================================

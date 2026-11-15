@@ -26,7 +26,10 @@ export interface BlogPost {
   publishedAt: string;
   /** ISO date (YYYY-MM-DD) of the last meaningful edit. Falls back to `publishedAt`. */
   updatedAt?: string;
+  /** Primary service hub this post supports (CTA target). */
   relatedService: ServiceSlug;
+  /** Secondary services the post also links to. */
+  alsoRelated: ServiceSlug[];
   content: Record<BlogLocale, BlogPostContent>;
 }
 
@@ -44,6 +47,9 @@ export const blogUi: Record<
     minRead: string;
     backToBlog: string;
     relatedService: string;
+    alsoRelated: string;
+    moreArticles: string;
+    relatedArticles: string;
     home: string;
   }
 > = {
@@ -60,6 +66,9 @@ export const blogUi: Record<
     minRead: "min de lectura",
     backToBlog: "Volver al blog",
     relatedService: "Servicio relacionado",
+    alsoRelated: "También te puede servir",
+    moreArticles: "Más artículos",
+    relatedArticles: "Artículos relacionados",
     home: "Inicio",
   },
   en: {
@@ -75,6 +84,9 @@ export const blogUi: Record<
     minRead: "min read",
     backToBlog: "Back to blog",
     relatedService: "Related service",
+    alsoRelated: "You may also need",
+    moreArticles: "More articles",
+    relatedArticles: "Related articles",
     home: "Home",
   },
 };
@@ -84,6 +96,7 @@ export const blogPosts: BlogPost[] = [
     slug: "ai-governance-data-policy",
     publishedAt: "2026-11-14",
     relatedService: "data-auditing",
+    alsoRelated: ["digital-transformation", "machine-learning"],
     content: {
       es: {
         title:
@@ -215,6 +228,7 @@ export const blogPosts: BlogPost[] = [
     slug: "ai-agents-account-access-risks",
     publishedAt: "2026-11-15",
     relatedService: "process-automation",
+    alsoRelated: ["data-auditing", "digital-transformation"],
     content: {
       es: {
         title:
@@ -362,7 +376,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "generative-ai-small-business-roi",
     publishedAt: "2026-11-15",
-    relatedService: "business-intelligence",
+    relatedService: "digital-transformation",
+    alsoRelated: ["process-automation", "business-intelligence"],
     content: {
       es: {
         title:
@@ -529,4 +544,20 @@ export function readingMinutes(content: BlogPostContent): number {
 
 export function toBlogLocale(locale: string): BlogLocale {
   return locale === "es" ? "es" : "en";
+}
+
+/** Posts that link to a service, primary hub first. */
+export function postsForService(slug: ServiceSlug): BlogPost[] {
+  return [
+    ...blogPosts.filter((p) => p.relatedService === slug),
+    ...blogPosts.filter((p) => p.alsoRelated.includes(slug)),
+  ];
+}
+
+/** Other posts to cross-link from a post (newest first). */
+export function otherPosts(slug: string, limit = 2): BlogPost[] {
+  return blogPosts
+    .filter((p) => p.slug !== slug)
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+    .slice(0, limit);
 }

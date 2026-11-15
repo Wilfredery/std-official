@@ -84,8 +84,8 @@
     },
     "cta": {
       "title": "¿Listo para desbloquear el potencial de tus datos?",
-      "subtitle": "Únete a equipos que ya transformaron su toma de decisiones con ShineTechData.",
-      "button": "Comienza tu Auditoría Gratis"
+      "subtitle": "Agenda una llamada gratis de 30 minutos y sal con un plan claro y práctico para tus datos.",
+      "button": "Agendar Consultoría Gratis"
     }
   },
   "services": {
@@ -452,6 +452,9 @@
     },
     "channels": {
       "title": "Otras formas de contactar a ",
+      "booking": "Agenda una llamada gratis de 30 min",
+      "bookingValue": "Elige el horario que te convenga en Calendly",
+      "bookingAria": "Agenda una llamada gratis de 30 minutos en Calendly (se abre en una pestaña nueva)",
       "titleAccent": "ShineTechData",
       "emailAddress": "Email",
       "emailValue": "contact@shinetechdata.com",

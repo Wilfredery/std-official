@@ -84,8 +84,8 @@
     },
     "cta": {
       "title": "Ready to unlock your data's potential?",
-      "subtitle": "Join growing teams who've transformed their decision-making with ShineTechData.",
-      "button": "Start Your Free Audit"
+      "subtitle": "Book a free 30-minute call and leave with a clear, practical plan for your data.",
+      "button": "Schedule a Free Consultation"
     }
   },
   "services": {
@@ -449,6 +449,9 @@
     },
     "channels": {
       "title": "Other ways to reach ",
+      "booking": "Book a free 30-min call",
+      "bookingValue": "Pick a time that works for you on Calendly",
+      "bookingAria": "Book a free 30-minute call on Calendly (opens in a new tab)",
       "titleAccent": "ShineTechData",
       "emailAddress": "Email",
       "emailValue": "contact@shinetechdata.com",

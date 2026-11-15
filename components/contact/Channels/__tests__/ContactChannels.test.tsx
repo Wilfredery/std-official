@@ -24,6 +24,17 @@ describe("ContactChannels", () => {
     expect(accent).toHaveClass("gradient-text");
   });
 
+  it("renders the Calendly booking link in a new tab", async () => {
+    const jsx = await ContactChannels();
+    render(jsx);
+    const link = screen.getByRole("link", {
+      name: enMessages.contact.channels.bookingAria,
+    });
+    expect(link).toHaveAttribute("href", "https://calendly.com/cacasicaxxxx/30min");
+    expect(link).toHaveAttribute("target", "_blank");
+    expect(link).toHaveAttribute("rel", expect.stringContaining("noopener"));
+  });
+
   it("renders WhatsApp link", async () => {
     const jsx = await ContactChannels();
     render(jsx);

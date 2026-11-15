@@ -8,6 +8,8 @@ import { ServiceDetailSection } from "@/components/services/detail/ServiceDetail
 import { JsonLd } from "@/components/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import type { Service } from "@/lib/seo/types";
+import { RelatedArticles } from "@/components/services/detail/RelatedArticles";
+import type { ServiceSlug } from "@/lib/data/services";
 
 // Unknown slugs must 404 instead of rendering an empty 200 page.
 export const dynamicParams = false;
@@ -129,6 +131,7 @@ export default async function ServiceDetailPage({
         }}
       />
       <ServiceDetailSection locale={locale} slug={slug} service={service} />
+      <RelatedArticles locale={locale} slug={slug as ServiceSlug} />
     </>
   );
 }
