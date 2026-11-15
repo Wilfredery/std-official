@@ -65,9 +65,8 @@ export default async function AboutPage({
 
   return (
     <>
-      <ScrollReveal direction="up">
-        <AboutHeader locale={locale} />
-      </ScrollReveal>
+      {/* Above the fold: no ScrollReveal, so the LCP paints without waiting for hydration. */}
+      <AboutHeader locale={locale} />
 
       <ScrollReveal direction="left">
         <BrandStory locale={locale} />

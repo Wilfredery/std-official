@@ -57,9 +57,8 @@ export default async function ServicesPage({
   setRequestLocale(locale);
   return (
     <>
-      <ScrollReveal direction="up">
-        <ServicesHeader locale={locale} />
-      </ScrollReveal>
+      {/* Above the fold: no ScrollReveal, so the LCP paints without waiting for hydration. */}
+      <ServicesHeader locale={locale} />
 
       <ScrollReveal direction="down">
         <ServicesSection locale={locale} />
