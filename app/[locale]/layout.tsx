@@ -14,7 +14,7 @@ import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { WebSiteJsonLd } from "@/components/seo/WebSiteJsonLd";
 import { WebVitalsScript } from "@/components/web-vitals/WebVitalsScript";
 import { SuppressScriptError } from "@/components/errors/SuppressScriptError";
-import { SITE_URL } from "@/lib/site";
+import { AREA_SERVED, ORG_ID, SITE_URL, WEBSITE_ID } from "@/lib/site";
 import { filterMessages, SHARED_NAMESPACES } from "@/lib/i18n/namespaces";
 
 export function generateStaticParams() {
@@ -56,12 +56,23 @@ export default async function localeLayout({
           strategy="beforeInteractive"
         />
         <OrganizationJsonLd
+          type="ProfessionalService"
+          id={ORG_ID}
           name="ShineTechData"
           url={SITE_URL}
+          description="Data analysis, business intelligence, machine learning and process automation consulting for small and mid-sized businesses, based in San Pedro de Macorís, Dominican Republic."
           logo={`${SITE_URL}/images/navbarFooter/logo-light.webp`}
           email="contact@shinetechdata.com"
           telephone="+1-829-584-9184"
-          address={{ "@type": "PostalAddress", addressCountry: "DO" }}
+          address={{
+            "@type": "PostalAddress",
+            addressLocality: "San Pedro de Macorís",
+            addressRegion: "San Pedro de Macorís",
+            postalCode: "21000",
+            addressCountry: "DO",
+          }}
+          areaServed={AREA_SERVED}
+          knowsLanguage={["es", "en"]}
           contactPoint={[
             {
               "@type": "ContactPoint",
@@ -79,11 +90,18 @@ export default async function localeLayout({
           ]}
           sameAs={[
             "https://www.linkedin.com/company/shine-tech-data/",
+            "https://clutch.co/profile/shinetechdata",
             "https://github.com/shinetechdata",
             "https://www.instagram.com/shinetechdata/",
           ]}
         />
-        <WebSiteJsonLd name="ShineTechData" url={SITE_URL} />
+        <WebSiteJsonLd
+          id={WEBSITE_ID}
+          name="ShineTechData"
+          url={SITE_URL}
+          inLanguage={["en-US", "es-DO"]}
+          publisherId={ORG_ID}
+        />
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <ThemeShortcut />

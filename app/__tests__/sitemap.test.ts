@@ -7,7 +7,7 @@ vi.hoisted(() => vi.setSystemTime(new Date("2026-06-17")));
 
 // This import WILL fail because app/sitemap.ts does not exist yet — that IS the RED.
 import sitemap from "@/app/sitemap";
-import { SITE_URL } from "@/lib/site";
+import { PAGES_UPDATED_AT, SITE_URL } from "@/lib/site";
 import { blogPosts } from "@/lib/data/blog";
 
 describe("sitemap.ts", () => {
@@ -103,20 +103,35 @@ describe("sitemap.ts", () => {
     }
   });
 
-  it("all entries have lastModified set to the mocked build date", () => {
+  it("lastModified never uses the build time", () => {
     const entries = sitemap();
 
     expect(entries.length).toBeGreaterThan(0);
-    const expectedDate = new Date("2026-06-17");
     for (const entry of entries) {
       expect(entry.lastModified).toBeDefined();
-      // lastModified may be Date or string — normalize
-      const asDate = entry.lastModified instanceof Date
-        ? entry.lastModified
-        : new Date(entry.lastModified as string);
-      expect(asDate.toISOString().slice(0, 10)).toBe(
-        expectedDate.toISOString().slice(0, 10)
-      );
+      expect(String(entry.lastModified)).not.toBe("2026-06-17");
+    }
+  });
+
+  it("blog posts use their own updatedAt/publishedAt as lastModified", () => {
+    const entries = sitemap();
+
+    for (const post of blogPosts) {
+      const postEntries = entries.filter((e) => e.url.includes(`/blog/${post.slug}/`));
+      expect(postEntries).toHaveLength(2);
+      for (const entry of postEntries) {
+        expect(entry.lastModified).toBe(post.updatedAt ?? post.publishedAt);
+      }
+    }
+  });
+
+  it("static and service pages use PAGES_UPDATED_AT as lastModified", () => {
+    const entries = sitemap();
+
+    const pageEntries = entries.filter((e) => !/\/blog\/[^/]+\/$/.test(e.url));
+    expect(pageEntries.length).toBe(26);
+    for (const entry of pageEntries) {
+      expect(entry.lastModified).toBe(PAGES_UPDATED_AT);
     }
   });
 

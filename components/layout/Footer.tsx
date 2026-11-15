@@ -2,7 +2,7 @@
 
 import { Link } from "@/lib/i18n/navigation";
 import { useTranslations } from "next-intl";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { services } from "@/lib/data/services";
 import Image from "next/image";
 import { useHydrated } from "@/hooks/useHydrated";
@@ -63,6 +63,10 @@ export function Footer() {
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
               {t("tagline")}
+            </p>
+            <p className="flex items-center gap-1.5 mt-3 text-sm text-muted-foreground">
+              <MapPin className="size-4 shrink-0" aria-hidden="true" />
+              {t("location")}
             </p>
 
             <div className="flex items-center gap-4 mt-4">

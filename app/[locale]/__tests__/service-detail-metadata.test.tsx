@@ -32,7 +32,9 @@ import { getTranslations } from "next-intl/server";
 import { generateMetadata } from "@/app/[locale]/services/[slug]/page";
 
 // Helper: create a t-like function with .raw() support
-function makeRawT(rawData: Record<string, { title: string; summary: string }>) {
+function makeRawT(
+  rawData: Record<string, { title: string; seoTitle?: string; summary: string }>,
+) {
   const fn = vi.fn((key: string) => key);
   return Object.assign(fn, { raw: vi.fn((key: string) => rawData[key]) });
 }
@@ -59,6 +61,25 @@ describe("Service Detail Page — generateMetadata (SEO-1, SEO-4)", () => {
 
       expect(metadata.title).toBe("Data Analysis | ShineTechData");
       expect(metadata.description).toBe("Deep-dive diagnostics.");
+    });
+
+    it("prefers the localized seoTitle when present", async () => {
+      vi.mocked(getTranslations).mockResolvedValue(
+        makeRawT({
+          "data-analysis": {
+            title: "Análisis de Datos",
+            seoTitle: "Análisis de datos para empresas en RD | ShineTechData",
+            summary: "Diagnóstico profundo.",
+          },
+        })
+      );
+
+      const metadata = await generateMetadata({
+        params: Promise.resolve({ locale: "es", slug: "data-analysis" }),
+      });
+
+      expect(metadata.title).toBe("Análisis de datos para empresas en RD | ShineTechData");
+      expect(metadata.openGraph!.title).toBe(metadata.title);
     });
   });
 

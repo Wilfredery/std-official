@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@/lib/i18n/navigation";
-import { SITE_URL, locales } from "@/lib/site";
+import { ORG_ID, SITE_URL, locales } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
 import {
   blogSlugs,
@@ -17,6 +17,9 @@ import { CtaButton } from "@/components/home/cta/CtaButton";
 import { JsonLd } from "@/components/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import type { BlogPosting, Organization } from "@/lib/seo/types";
+
+// Unknown slugs must 404 instead of rendering an empty 200 page.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -34,7 +37,8 @@ export async function generateMetadata({
   if (!post) return {};
 
   const content = post.content[toBlogLocale(locale)];
-  const title = `${content.title} | ShineTechData`;
+  const title = content.seoTitle ?? `${content.title} | ShineTechData`;
+  const description = content.seoDescription ?? content.description;
   const canonical = `${SITE_URL}/${locale}/blog/${slug}/`;
   const ogImage = {
     url: `${SITE_URL}/opengraph-image.png`,
@@ -44,25 +48,26 @@ export async function generateMetadata({
 
   return {
     title,
-    description: content.description,
+    description,
     alternates: {
       canonical,
       languages: languageAlternates(`/blog/${slug}/`),
     },
     openGraph: {
       title,
-      description: content.description,
+      description,
       url: canonical,
       siteName: "ShineTechData",
       images: [ogImage],
       locale: locale === "es" ? "es_DO" : "en_US",
       type: "article",
       publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt ?? post.publishedAt,
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description: content.description,
+      description,
       images: [`${SITE_URL}/opengraph-image.png`],
     },
   };
@@ -91,6 +96,7 @@ export default async function BlogPostPage({
 
   const org: Organization = {
     "@type": "Organization",
+    "@id": ORG_ID,
     name: "ShineTechData",
     url: SITE_URL,
     logo: `${SITE_URL}/images/navbarFooter/logo-light.webp`,
@@ -111,12 +117,13 @@ export default async function BlogPostPage({
           headline: content.title,
           description: content.description,
           datePublished: post.publishedAt,
+          dateModified: post.updatedAt ?? post.publishedAt,
           inLanguage: locale === "es" ? "es-DO" : "en-US",
           url,
           image: `${SITE_URL}/opengraph-image.png`,
           mainEntityOfPage: url,
           author: org,
-          publisher: org,
+          publisher: { "@id": ORG_ID },
         }}
       />
 

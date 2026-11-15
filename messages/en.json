@@ -28,7 +28,7 @@
       "title": "Drowning in data, starving for insight",
       "items": [
         "Siloed departments produce inconsistent KPIs and conflicting reports.",
-        "Manual reporting drains 40% of your team's productive time.",
+        "Manual reporting eats up hours of your team's week, every week.",
         "Decisions made on gut feel instead of hard numbers."
       ]
     },
@@ -115,6 +115,7 @@
     "services": {
       "data-analysis": {
         "title": "Data Analysis",
+        "seoTitle": "Data Analysis Services for Small Businesses | ShineTechData",
         "subtitleStatic": "We deliver",
         "subtitleDynamic": "deep-dive diagnostics that uncover hidden opportunities.",
         "shortDescription": "Deep-dive diagnostics to uncover hidden operational efficiencies and market trends.",
@@ -168,6 +169,7 @@
       },
       "business-intelligence": {
         "title": "Business Intelligence",
+        "seoTitle": "Business Intelligence Consulting for SMBs | ShineTechData",
         "subtitleStatic": "We design",
         "subtitleDynamic": "real-time dashboards your team will actually use.",
         "shortDescription": "Custom real-time dashboards that put key metrics in the hands of decision makers.",
@@ -221,6 +223,7 @@
       },
       "machine-learning": {
         "title": "Machine Learning",
+        "seoTitle": "Machine Learning Consulting for SMBs | ShineTechData",
         "subtitleStatic": "We build",
         "subtitleDynamic": "predictive models that move real business metrics.",
         "shortDescription": "Predictive modeling and custom AI integrations to automate complex reasoning.",
@@ -274,11 +277,12 @@
       },
       "data-auditing": {
         "title": "Data Auditing",
+        "seoTitle": "Data Quality Audit Services | ShineTechData",
         "subtitleStatic": "We uncover",
         "subtitleDynamic": "data quality issues before they cost you millions.",
         "shortDescription": "Quality assurance and compliance reviews for GDPR, HIPAA, and SOC 2.",
         "summary": "We assess the health of your data — completeness, accuracy, lineage, and compliance — and give you a remediation plan.",
-        "overview": "Bad data costs businesses an average of $12.9M per year. Our Data Auditing service identifies exactly where your data quality issues are, how serious they are, and what to do about them — before they impact your operations or compliance.",
+        "overview": "According to Gartner, poor data quality costs organizations an average of $12.9M per year. Our Data Auditing service identifies exactly where your data quality issues are, how serious they are, and what to do about them — before they impact your operations or compliance.",
         "forWho": "Companies preparing for compliance, M&A, or a major data project.",
         "problem": "Duplicate records, missing fields, inconsistent formats, and stale data silently corrupt every report and decision built on top of them.",
         "deliverables": [
@@ -327,6 +331,7 @@
       },
       "digital-transformation": {
         "title": "Digital Transformation",
+        "seoTitle": "Digital Transformation Consulting | ShineTechData",
         "subtitleStatic": "We modernize",
         "subtitleDynamic": "your tech stack without breaking what's working.",
         "shortDescription": "Legacy system migration to cloud-native, scalable microservices architectures.",
@@ -380,6 +385,7 @@
       },
       "process-automation": {
         "title": "Process Automation",
+        "seoTitle": "Process Automation Consulting | ShineTechData",
         "subtitleStatic": "We replace",
         "subtitleDynamic": "manual workflows with reliable, scalable automation.",
         "shortDescription": "Eliminating repetitive tasks with robust RPA and custom API workflows.",
@@ -450,7 +456,7 @@
       "phoneValue": "+1829-584-9184",
       "hours": "Support hours",
       "hoursValue": "Mon–Fri · 9am – 6pm (UTC-4)",
-      "meeting": "Remote-friendly",
+      "meeting": "Based in San Pedro de Macorís, Dominican Republic",
       "meetingValue": "Virtual meetings worldwide",
       "whatsapp": "Chat on WhatsApp",
       "whatsappAria": "Contact us on WhatsApp",
@@ -480,13 +486,14 @@
         },
         {
           "q": "Where is your team located?",
-          "a": "Distributed across the Americas with timezone overlap for USA & EU clients."
+          "a": "We're based in San Pedro de Macorís, Dominican Republic, and work remotely across the Americas with timezone overlap for US and EU clients."
         }
       ]
     }
   },
   "footer": {
     "tagline": "Practical data and AI consulting for businesses ready to grow smarter.",
+    "location": "San Pedro de Macorís, Dominican Republic",
     "services": "Services",
     "company": "Company",
     "links": {

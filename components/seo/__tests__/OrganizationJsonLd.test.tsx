@@ -54,6 +54,30 @@ describe("OrganizationJsonLd (SEO-5)", () => {
     expect(parsed.url).toBe(SITE_URL);
   });
 
+  it("renders a ProfessionalService with @id, locality and areaServed", () => {
+    render(
+      <OrganizationJsonLd
+        type="ProfessionalService"
+        id={`${SITE_URL}/#organization`}
+        name="ShineTechData"
+        url={SITE_URL}
+        address={{
+          "@type": "PostalAddress",
+          addressLocality: "San Pedro de Macorís",
+          postalCode: "21000",
+          addressCountry: "DO",
+        }}
+        areaServed={["Dominican Republic", "United States"]}
+      />
+    );
+
+    const parsed = JSON.parse(screen.getByTestId("json-ld").textContent ?? "");
+    expect(parsed["@type"]).toBe("ProfessionalService");
+    expect(parsed["@id"]).toBe(`${SITE_URL}/#organization`);
+    expect(parsed.address.addressLocality).toBe("San Pedro de Macorís");
+    expect(parsed.areaServed).toEqual(["Dominican Republic", "United States"]);
+  });
+
   it("includes logo when provided", () => {
     render(
       <OrganizationJsonLd
