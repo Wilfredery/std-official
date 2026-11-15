@@ -3,8 +3,6 @@
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/lib/i18n/navigation";
 import { routing } from "@/lib/i18n/routing";
-import { Loader2 } from "lucide-react";
-import { useTransition } from "react";
 import { cn } from "@/lib/utils";
 
 const localeLabels: Record<string, string> = {
@@ -17,29 +15,16 @@ export function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const [isPending, startTransition] = useTransition();
 
   function handleSwitch(newLocale: string) {
-    startTransition(() => {
-      router.replace(pathname, { locale: newLocale });
-    });
+    router.replace(pathname, { locale: newLocale });
   }
 
   return (
     <div
-      className={cn(
-        "flex items-center rounded-full border border-border p-0.5 text-[10px] font-mono relative",
-        isPending && "opacity-70 pointer-events-none",
-      )}
+      className="flex items-center rounded-full border border-border p-0.5 text-[10px] font-mono"
       aria-label={t("language")}
-      aria-busy={isPending}
     >
-      {isPending && (
-        <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[9px] text-muted-foreground flex items-center gap-0.5">
-          <Loader2 className="size-2.5 animate-spin" />
-          <span className="sr-only">{t("loading")}</span>
-        </span>
-      )}
       {routing.locales.map((l) => (
         <button
           key={l}

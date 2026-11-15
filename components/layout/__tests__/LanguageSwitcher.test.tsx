@@ -7,10 +7,6 @@ import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 // ---------------------------------------------------------------------------
 
 const mockReplace = vi.fn();
-const mockIsPending = vi.hoisted(() => vi.fn<() => boolean>());
-const mockStartTransition = vi.hoisted(() =>
-  vi.fn((cb: () => void) => cb()),
-);
 
 // ---------------------------------------------------------------------------
 // Module mocks
@@ -32,14 +28,6 @@ vi.mock("@/lib/i18n/routing", () => ({
   routing: { locales: ["es", "en"] },
 }));
 
-vi.mock("react", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("react")>();
-  return {
-    ...actual,
-    useTransition: () => [mockIsPending(), mockStartTransition],
-  };
-});
-
 // ---------------------------------------------------------------------------
 // Tests
 // ---------------------------------------------------------------------------
@@ -47,7 +35,6 @@ vi.mock("react", async (importOriginal) => {
 describe("LanguageSwitcher", () => {
   beforeEach(() => {
     mockReplace.mockClear();
-    mockIsPending.mockReturnValue(false);
   });
 
   it("renders EN and ES language buttons", () => {
@@ -95,24 +82,14 @@ describe("LanguageSwitcher", () => {
     expect(mockReplace).toHaveBeenCalledWith("/en", { locale: "en" });
   });
 
-  describe("pending state", () => {
-    beforeEach(() => {
-      mockIsPending.mockReturnValue(true);
-    });
+  it("never shows a loading indicator while switching locale", () => {
+    render(<LanguageSwitcher />, { locale: "en" });
 
-    it("sets aria-busy to true when pending", () => {
-      render(<LanguageSwitcher />);
-      const container = screen.getByLabelText("Language");
-      expect(container).toHaveAttribute("aria-busy", "true");
-    });
-  });
+    fireEvent.click(screen.getByText("ES"));
 
-  describe("non-pending state", () => {
-    it("does not set aria-busy when not pending", () => {
-      mockIsPending.mockReturnValue(false);
-      render(<LanguageSwitcher />);
-      const container = screen.getByLabelText("Language");
-      expect(container).not.toHaveAttribute("aria-busy", "true");
-    });
+    const container = screen.getByLabelText("Language");
+    expect(container).not.toHaveAttribute("aria-busy");
+    expect(screen.queryByText("Loading")).not.toBeInTheDocument();
+    expect(container.querySelector(".animate-spin")).toBeNull();
   });
 });
