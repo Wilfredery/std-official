@@ -84,8 +84,8 @@
     },
     "cta": {
       "title": "Ready to unlock your data's potential?",
-      "subtitle": "Join growing teams who've transformed their decision-making with ShineTechData.",
-      "button": "Start Your Free Audit"
+      "subtitle": "Book a free 30-minute call and leave with a clear, practical plan for your data.",
+      "button": "Schedule a Free Consultation"
     }
   },
   "services": {
@@ -108,7 +108,6 @@
     "forWhoLabel": "Who it's for",
     "problemLabel": "The problem",
     "deliverables": "Key Deliverables",
-    "outcomes": "Tangible Outcomes",
     "timeline": "How We Deliver",
     "faq": "Frequently Asked Questions",
     "back": "Back to all services",
@@ -129,11 +128,6 @@
           "Key insights deck for leadership",
           "Recommended next steps and quick wins"
         ],
-        "outcomes": [
-          { "metric": "30%", "label": "More productive analyst time" },
-          { "metric": "5x", "label": "Faster time to insight" },
-          { "metric": "100%", "label": "Documented data lineage" }
-        ],
         "timeline": [
           {
             "step": "Week 1",
@@ -151,11 +145,6 @@
             "description": "Analysis, visualization, and handoff."
           }
         ],
-        "testimonial": {
-          "quote": "In three weeks we knew more about our customers than we'd learned in three years.",
-          "author": "Helena Park",
-          "role": "VP Marketing, NorthLine"
-        },
         "faq": [
           {
             "question": "Do you need access to production data?",
@@ -183,11 +172,6 @@
           "Role-based access and embedded analytics",
           "Team training and documentation"
         ],
-        "outcomes": [
-          { "metric": "10x", "label": "Faster reporting cycles" },
-          { "metric": "90%", "label": "Reduction in ad-hoc requests" },
-          { "metric": "24/7", "label": "Real-time visibility" }
-        ],
         "timeline": [
           {
             "step": "Week 1",
@@ -205,11 +189,6 @@
             "description": "Rollout, training, and iteration."
           }
         ],
-        "testimonial": {
-          "quote": "Our weekly board meeting went from a chore to a five-minute review.",
-          "author": "Diego Ruiz",
-          "role": "CEO, Trama Studios"
-        },
         "faq": [
           {
             "question": "Which BI tool do you recommend?",
@@ -237,11 +216,6 @@
           "API or batch integration with your stack",
           "Performance evaluation report"
         ],
-        "outcomes": [
-          { "metric": "25%", "label": "Average lift in target KPI" },
-          { "metric": "<200ms", "label": "Inference latency" },
-          { "metric": "MLOps", "label": "Built-in monitoring" }
-        ],
         "timeline": [
           {
             "step": "Week 1-2",
@@ -259,11 +233,6 @@
             "description": "Production deploy with monitoring."
           }
         ],
-        "testimonial": {
-          "quote": "Their churn model paid for the entire engagement in the first month.",
-          "author": "Priya Shah",
-          "role": "Head of Growth, Loop"
-        },
         "faq": [
           {
             "question": "Do you build LLM features?",
@@ -291,11 +260,6 @@
           "Prioritized remediation roadmap",
           "Executive summary deck"
         ],
-        "outcomes": [
-          { "metric": "100%", "label": "Audit-ready documentation" },
-          { "metric": "60%", "label": "Faster compliance prep" },
-          { "metric": "Zero", "label": "Surprise findings later" }
-        ],
         "timeline": [
           {
             "step": "Week 1",
@@ -313,11 +277,6 @@
             "description": "Deliver findings with a prioritized roadmap."
           }
         ],
-        "testimonial": {
-          "quote": "We sailed through SOC 2 thanks to the prep work ShineTechData did.",
-          "author": "Aaron Wells",
-          "role": "CISO, Finmark"
-        },
         "faq": [
           {
             "question": "Do you audit our cloud configuration too?",
@@ -345,11 +304,6 @@
           "Integration layer between old and new systems",
           "Change management and training"
         ],
-        "outcomes": [
-          { "metric": "50%", "label": "Reduction in operating costs" },
-          { "metric": "3x", "label": "Faster deployment cycles" },
-          { "metric": "Zero", "label": "Downtime during migration" }
-        ],
         "timeline": [
           {
             "step": "Week 1",
@@ -367,11 +321,6 @@
             "description": "Phased rollout with parallel running."
           }
         ],
-        "testimonial": {
-          "quote": "We replaced eight tools with one platform and cut costs by 60%.",
-          "author": "Sofía Mendez",
-          "role": "COO, RetailPlus"
-        },
         "faq": [
           {
             "question": "How do you avoid disruption?",
@@ -399,11 +348,6 @@
           "Monitoring and error alerting",
           "Team handoff and documentation"
         ],
-        "outcomes": [
-          { "metric": "20+", "label": "Hours saved per week" },
-          { "metric": "99%", "label": "Reduction in manual errors" },
-          { "metric": "<8wk", "label": "Payback period" }
-        ],
         "timeline": [
           {
             "step": "Week 1",
@@ -421,11 +365,6 @@
             "description": "Deploy, monitor, and iterate."
           }
         ],
-        "testimonial": {
-          "quote": "Our finance team got 30 hours a week back. Game changer.",
-          "author": "James O'Brien",
-          "role": "CFO, Tradepoint"
-        },
         "faq": [
           {
             "question": "Which automation platforms do you use?",
@@ -449,6 +388,9 @@
     },
     "channels": {
       "title": "Other ways to reach ",
+      "booking": "Book a free 30-min call",
+      "bookingValue": "Pick a time that works for you on Calendly",
+      "bookingAria": "Book a free 30-minute call on Calendly (opens in a new tab)",
       "titleAccent": "ShineTechData",
       "emailAddress": "Email",
       "emailValue": "contact@shinetechdata.com",

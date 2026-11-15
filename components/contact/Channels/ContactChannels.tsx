@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { MessageCircle, Mail, Clock } from "lucide-react";
+import { MessageCircle, Mail, Clock, CalendarDays } from "lucide-react";
+import { BOOKING_URL } from "@/lib/site";
 
 export async function ContactChannels() {
   const t = await getTranslations("contact.channels");
@@ -27,6 +28,19 @@ export async function ContactChannels() {
         <div className="flex flex-col gap-12">
           {/*Card right*/}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/*Booking card*/}
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("bookingAria")}
+              className="sm:col-span-2 gradient-border-card p-6 text-center hover-glow transition-all duration-300"
+            >
+              <CalendarDays className="size-8 mx-auto mb-3 text-primary" />
+              <h3 className="font-bold text-lg mb-1">{t("booking")}</h3>
+              <p className="text-sm text-muted-foreground">{t("bookingValue")}</p>
+            </a>
+
             {/*WS card*/}
             <a
               href={wa}

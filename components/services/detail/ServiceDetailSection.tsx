@@ -15,7 +15,6 @@ interface ServiceDetailData {
   forWho: string;
   problem: string;
   deliverables: string[];
-  outcomes: { metric: string; label: string }[];
   timeline: { step: string; title: string; description: string }[];
   faq: { question: string; answer: string }[];
 }
@@ -26,7 +25,6 @@ interface ServiceDetailLabels {
   forWhoLabel: string;
   problemLabel: string;
   deliverables: string;
-  outcomes: string;
   timeline: string;
   faq: string;
   back: string;
@@ -55,7 +53,6 @@ export async function ServiceDetailSection({
     forWhoLabel: labelsT("forWhoLabel"),
     problemLabel: labelsT("problemLabel"),
     deliverables: labelsT("deliverables"),
-    outcomes: labelsT("outcomes"),
     timeline: labelsT("timeline"),
     faq: labelsT("faq"),
     back: labelsT("back"),
@@ -66,7 +63,6 @@ export async function ServiceDetailSection({
     forWho: serviceT("forWho"),
     problem: serviceT("problem"),
     deliverables: serviceT.raw("deliverables") as string[],
-    outcomes: serviceT.raw("outcomes") as { metric: string; label: string }[],
     timeline: serviceT.raw("timeline") as {
       step: string;
       title: string;
