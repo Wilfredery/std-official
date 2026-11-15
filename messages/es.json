@@ -108,7 +108,6 @@
     "forWhoLabel": "Para quién",
     "problemLabel": "El problema",
     "deliverables": "Entregables Clave",
-    "outcomes": "Resultados Tangibles",
     "timeline": "Cómo Entregamos",
     "faq": "Preguntas Frecuentes",
     "back": "Volver a todos los servicios",
@@ -129,11 +128,6 @@
           "Presentación de insights para liderazgo",
           "Próximos pasos recomendados y victorias rápidas"
         ],
-        "outcomes": [
-          { "metric": "30%", "label": "Más tiempo productivo de analistas" },
-          { "metric": "5x", "label": "Tiempo al insight más rápido" },
-          { "metric": "100%", "label": "Linaje de datos documentado" }
-        ],
         "timeline": [
           {
             "step": "Semana 1",
@@ -151,11 +145,6 @@
             "description": "Análisis, visualización y entrega."
           }
         ],
-        "testimonial": {
-          "quote": "En tres semanas supimos más de nuestros clientes que en tres años.",
-          "author": "Helena Park",
-          "role": "VP Marketing, NorthLine"
-        },
         "faq": [
           {
             "question": "¿Necesitan acceso a datos de producción?",
@@ -183,11 +172,6 @@
           "Accesos por rol y analítica embebida",
           "Capacitación y documentación del equipo"
         ],
-        "outcomes": [
-          { "metric": "10x", "label": "Ciclos de reporte más rápidos" },
-          { "metric": "90%", "label": "Menos pedidos ad-hoc" },
-          { "metric": "24/7", "label": "Visibilidad en tiempo real" }
-        ],
         "timeline": [
           {
             "step": "Semana 1",
@@ -205,11 +189,6 @@
             "description": "Rollout, capacitación e iteración."
           }
         ],
-        "testimonial": {
-          "quote": "Nuestra reunión semanal de directorio pasó de pesada a una revisión de cinco minutos.",
-          "author": "Diego Ruiz",
-          "role": "CEO, Trama Studios"
-        },
         "faq": [
           {
             "question": "¿Qué herramienta de BI recomiendan?",
@@ -237,11 +216,6 @@
           "Integración por API o batch con tu stack",
           "Reporte de evaluación de performance"
         ],
-        "outcomes": [
-          { "metric": "25%", "label": "Mejora promedio en KPI objetivo" },
-          { "metric": "<200ms", "label": "Latencia de inferencia" },
-          { "metric": "MLOps", "label": "Monitoreo incluido" }
-        ],
         "timeline": [
           {
             "step": "Semana 1-2",
@@ -259,11 +233,6 @@
             "description": "Despliegue a producción con monitoreo."
           }
         ],
-        "testimonial": {
-          "quote": "Su modelo de churn pagó todo el proyecto en el primer mes.",
-          "author": "Priya Shah",
-          "role": "Head of Growth, Loop"
-        },
         "faq": [
           {
             "question": "¿Construyen features con LLMs?",
@@ -291,14 +260,6 @@
           "Roadmap de remediación priorizado",
           "Resumen ejecutivo"
         ],
-        "outcomes": [
-          { "metric": "100%", "label": "Documentación lista para auditoría" },
-          {
-            "metric": "60%",
-            "label": "Preparación de cumplimiento más rápida"
-          },
-          { "metric": "Cero", "label": "Hallazgos sorpresa después" }
-        ],
         "timeline": [
           {
             "step": "Semana 1",
@@ -316,11 +277,6 @@
             "description": "Entregar hallazgos y roadmap priorizado."
           }
         ],
-        "testimonial": {
-          "quote": "Pasamos SOC 2 sin problemas gracias al trabajo previo de ShineTechData.",
-          "author": "Aaron Wells",
-          "role": "CISO, Finmark"
-        },
         "faq": [
           {
             "question": "¿Auditan también la configuración cloud?",
@@ -348,11 +304,6 @@
           "Capa de integración entre sistemas viejos y nuevos",
           "Gestión del cambio y capacitación"
         ],
-        "outcomes": [
-          { "metric": "50%", "label": "Reducción en costos operativos" },
-          { "metric": "3x", "label": "Ciclos de despliegue más rápidos" },
-          { "metric": "Cero", "label": "Downtime durante la migración" }
-        ],
         "timeline": [
           {
             "step": "Semana 1",
@@ -370,11 +321,6 @@
             "description": "Rollout por fases con ejecución paralela."
           }
         ],
-        "testimonial": {
-          "quote": "Reemplazamos ocho herramientas por una plataforma y bajamos costos 60%.",
-          "author": "Sofía Mendez",
-          "role": "COO, RetailPlus"
-        },
         "faq": [
           {
             "question": "¿Cómo evitan disrupciones?",
@@ -402,11 +348,6 @@
           "Monitoreo y alertas de error",
           "Entrega al equipo y documentación"
         ],
-        "outcomes": [
-          { "metric": "20+", "label": "Horas ahorradas por semana" },
-          { "metric": "99%", "label": "Reducción de errores manuales" },
-          { "metric": "<8sem", "label": "Período de payback" }
-        ],
         "timeline": [
           {
             "step": "Semana 1",
@@ -424,11 +365,6 @@
             "description": "Desplegar, monitorear e iterar."
           }
         ],
-        "testimonial": {
-          "quote": "Nuestro equipo de finanzas recuperó 30 horas por semana. Cambió el juego.",
-          "author": "James O'Brien",
-          "role": "CFO, Tradepoint"
-        },
         "faq": [
           {
             "question": "¿Qué plataformas de automatización usan?",
