@@ -70,7 +70,7 @@ describe("OrganizationJsonLd (SEO-5)", () => {
 
   it("includes sameAs when provided", () => {
     const socials = [
-      "https://linkedin.com/company/shinetechdata",
+      "https://www.linkedin.com/company/shine-tech-data/",
       "https://github.com/shinetechdata",
     ];
 
