@@ -78,7 +78,7 @@ export default async function localeLayout({
             },
           ]}
           sameAs={[
-            "https://linkedin.com/company/shinetechdata",
+            "https://www.linkedin.com/company/shine-tech-data/",
             "https://github.com/shinetechdata",
             "https://www.instagram.com/shinetechdata/",
           ]}

@@ -17,7 +17,7 @@ describe("JSON-LD Composition — Page-level injection (SEO-5)", () => {
             url={SITE_URL}
             logo={`${SITE_URL}/logo.png`}
             sameAs={[
-              "https://linkedin.com/company/shinetechdata",
+              "https://www.linkedin.com/company/shine-tech-data/",
               "https://github.com/shinetechdata",
             ]}
           />
