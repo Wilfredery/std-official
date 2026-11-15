@@ -2,10 +2,6 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, act } from "@/lib/__tests__/test-utils";
 import { SubtitleTyping } from "@/components/home/hero/SubtitleTyping";
 
-vi.mock("@/hooks/useHydrated", () => ({
-  useHydrated: () => true,
-}));
-
 describe("SubtitleTyping", () => {
   const staticText = "We build";
   const dynamicText = "modern web apps";
@@ -23,6 +19,24 @@ describe("SubtitleTyping", () => {
       <SubtitleTyping staticText={staticText} dynamicText={dynamicText} />,
     );
     expect(screen.getByText(staticText, { exact: false })).toBeInTheDocument();
+  });
+
+  it("reserves the space of the not-yet-typed text to avoid layout shift", () => {
+    const { container } = render(
+      <SubtitleTyping staticText={staticText} dynamicText={dynamicText} />,
+    );
+    // First frame (also the server HTML): nothing typed, full text reserved.
+    expect(container.querySelector(".invisible")).toHaveTextContent(dynamicText);
+
+    act(() => {
+      vi.advanceTimersByTime(30 * 6); // "modern"
+    });
+    expect(container.querySelector(".invisible")!.textContent).toBe(" web apps");
+
+    act(() => {
+      vi.runAllTimers();
+    });
+    expect(container.querySelector(".invisible")).toBeNull();
   });
 
   it("renders cursor with animate-pulse class initially", () => {

@@ -55,9 +55,8 @@ export default async function HomePage({
 
   return (
     <>
-      <ScrollReveal direction="up">
-        <HeroSection locale={locale} />
-      </ScrollReveal>
+      {/* Above the fold: no ScrollReveal, so the LCP paints without waiting for hydration. */}
+      <HeroSection locale={locale} />
 
       <ScrollReveal direction="left">
         <ProblemSection locale={locale} />

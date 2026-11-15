@@ -57,9 +57,8 @@ export default async function HomePage({
 
   return (
     <>
-      <ScrollReveal direction="up">
-        <ContactHeader locale={locale} />
-      </ScrollReveal>
+      {/* Above the fold: no ScrollReveal, so the LCP paints without waiting for hydration. */}
+      <ContactHeader locale={locale} />
 
       <ScrollReveal direction="scale">
         <ContactChannels />
