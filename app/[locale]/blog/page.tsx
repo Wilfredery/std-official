@@ -61,9 +61,10 @@ export default async function BlogPage({
   setRequestLocale(locale);
   const lang = toBlogLocale(locale);
   const ui = blogUi[lang];
-  const posts = [...blogPosts].sort((a, b) =>
-    b.publishedAt.localeCompare(a.publishedAt),
-  );
+  // Newest first; reverse before the (stable) sort so posts added later win same-day ties.
+  const posts = [...blogPosts]
+    .reverse()
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 
   return (
     <>
