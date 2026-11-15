@@ -28,7 +28,7 @@
       "title": "Drowning in data, starving for insight",
       "items": [
         "Siloed departments produce inconsistent KPIs and conflicting reports.",
-        "Manual reporting drains 40% of your team's productive time.",
+        "Manual reporting eats up hours of your team's week, every week.",
         "Decisions made on gut feel instead of hard numbers."
       ]
     },
@@ -84,8 +84,8 @@
     },
     "cta": {
       "title": "Ready to unlock your data's potential?",
-      "subtitle": "Join growing teams who've transformed their decision-making with ShineTechData.",
-      "button": "Start Your Free Audit"
+      "subtitle": "Book a free 30-minute call and leave with a clear, practical plan for your data.",
+      "button": "Schedule a Free Consultation"
     }
   },
   "services": {
@@ -108,13 +108,13 @@
     "forWhoLabel": "Who it's for",
     "problemLabel": "The problem",
     "deliverables": "Key Deliverables",
-    "outcomes": "Tangible Outcomes",
     "timeline": "How We Deliver",
     "faq": "Frequently Asked Questions",
     "back": "Back to all services",
     "services": {
       "data-analysis": {
         "title": "Data Analysis",
+        "seoTitle": "Data Analysis Services for Small Businesses | ShineTechData",
         "subtitleStatic": "We deliver",
         "subtitleDynamic": "deep-dive diagnostics that uncover hidden opportunities.",
         "shortDescription": "Deep-dive diagnostics to uncover hidden operational efficiencies and market trends.",
@@ -127,11 +127,6 @@
           "Cleaned, documented dataset ready for BI",
           "Key insights deck for leadership",
           "Recommended next steps and quick wins"
-        ],
-        "outcomes": [
-          { "metric": "30%", "label": "More productive analyst time" },
-          { "metric": "5x", "label": "Faster time to insight" },
-          { "metric": "100%", "label": "Documented data lineage" }
         ],
         "timeline": [
           {
@@ -150,11 +145,6 @@
             "description": "Analysis, visualization, and handoff."
           }
         ],
-        "testimonial": {
-          "quote": "In three weeks we knew more about our customers than we'd learned in three years.",
-          "author": "Helena Park",
-          "role": "VP Marketing, NorthLine"
-        },
         "faq": [
           {
             "question": "Do you need access to production data?",
@@ -168,6 +158,7 @@
       },
       "business-intelligence": {
         "title": "Business Intelligence",
+        "seoTitle": "Business Intelligence Consulting for SMBs | ShineTechData",
         "subtitleStatic": "We design",
         "subtitleDynamic": "real-time dashboards your team will actually use.",
         "shortDescription": "Custom real-time dashboards that put key metrics in the hands of decision makers.",
@@ -180,11 +171,6 @@
           "Modeled metrics layer with shared definitions",
           "Role-based access and embedded analytics",
           "Team training and documentation"
-        ],
-        "outcomes": [
-          { "metric": "10x", "label": "Faster reporting cycles" },
-          { "metric": "90%", "label": "Reduction in ad-hoc requests" },
-          { "metric": "24/7", "label": "Real-time visibility" }
         ],
         "timeline": [
           {
@@ -203,11 +189,6 @@
             "description": "Rollout, training, and iteration."
           }
         ],
-        "testimonial": {
-          "quote": "Our weekly board meeting went from a chore to a five-minute review.",
-          "author": "Diego Ruiz",
-          "role": "CEO, Trama Studios"
-        },
         "faq": [
           {
             "question": "Which BI tool do you recommend?",
@@ -221,6 +202,7 @@
       },
       "machine-learning": {
         "title": "Machine Learning",
+        "seoTitle": "Machine Learning Consulting for SMBs | ShineTechData",
         "subtitleStatic": "We build",
         "subtitleDynamic": "predictive models that move real business metrics.",
         "shortDescription": "Predictive modeling and custom AI integrations to automate complex reasoning.",
@@ -233,11 +215,6 @@
           "Monitoring and retraining pipeline",
           "API or batch integration with your stack",
           "Performance evaluation report"
-        ],
-        "outcomes": [
-          { "metric": "25%", "label": "Average lift in target KPI" },
-          { "metric": "<200ms", "label": "Inference latency" },
-          { "metric": "MLOps", "label": "Built-in monitoring" }
         ],
         "timeline": [
           {
@@ -256,11 +233,6 @@
             "description": "Production deploy with monitoring."
           }
         ],
-        "testimonial": {
-          "quote": "Their churn model paid for the entire engagement in the first month.",
-          "author": "Priya Shah",
-          "role": "Head of Growth, Loop"
-        },
         "faq": [
           {
             "question": "Do you build LLM features?",
@@ -274,11 +246,12 @@
       },
       "data-auditing": {
         "title": "Data Auditing",
+        "seoTitle": "Data Quality Audit Services | ShineTechData",
         "subtitleStatic": "We uncover",
         "subtitleDynamic": "data quality issues before they cost you millions.",
         "shortDescription": "Quality assurance and compliance reviews for GDPR, HIPAA, and SOC 2.",
         "summary": "We assess the health of your data — completeness, accuracy, lineage, and compliance — and give you a remediation plan.",
-        "overview": "Bad data costs businesses an average of $12.9M per year. Our Data Auditing service identifies exactly where your data quality issues are, how serious they are, and what to do about them — before they impact your operations or compliance.",
+        "overview": "According to Gartner, poor data quality costs organizations an average of $12.9M per year. Our Data Auditing service identifies exactly where your data quality issues are, how serious they are, and what to do about them — before they impact your operations or compliance.",
         "forWho": "Companies preparing for compliance, M&A, or a major data project.",
         "problem": "Duplicate records, missing fields, inconsistent formats, and stale data silently corrupt every report and decision built on top of them.",
         "deliverables": [
@@ -286,11 +259,6 @@
           "Compliance gap analysis",
           "Prioritized remediation roadmap",
           "Executive summary deck"
-        ],
-        "outcomes": [
-          { "metric": "100%", "label": "Audit-ready documentation" },
-          { "metric": "60%", "label": "Faster compliance prep" },
-          { "metric": "Zero", "label": "Surprise findings later" }
         ],
         "timeline": [
           {
@@ -309,11 +277,6 @@
             "description": "Deliver findings with a prioritized roadmap."
           }
         ],
-        "testimonial": {
-          "quote": "We sailed through SOC 2 thanks to the prep work ShineTechData did.",
-          "author": "Aaron Wells",
-          "role": "CISO, Finmark"
-        },
         "faq": [
           {
             "question": "Do you audit our cloud configuration too?",
@@ -327,6 +290,7 @@
       },
       "digital-transformation": {
         "title": "Digital Transformation",
+        "seoTitle": "Digital Transformation Consulting | ShineTechData",
         "subtitleStatic": "We modernize",
         "subtitleDynamic": "your tech stack without breaking what's working.",
         "shortDescription": "Legacy system migration to cloud-native, scalable microservices architectures.",
@@ -339,11 +303,6 @@
           "Cloud architecture and data warehouse setup",
           "Integration layer between old and new systems",
           "Change management and training"
-        ],
-        "outcomes": [
-          { "metric": "50%", "label": "Reduction in operating costs" },
-          { "metric": "3x", "label": "Faster deployment cycles" },
-          { "metric": "Zero", "label": "Downtime during migration" }
         ],
         "timeline": [
           {
@@ -362,11 +321,6 @@
             "description": "Phased rollout with parallel running."
           }
         ],
-        "testimonial": {
-          "quote": "We replaced eight tools with one platform and cut costs by 60%.",
-          "author": "Sofía Mendez",
-          "role": "COO, RetailPlus"
-        },
         "faq": [
           {
             "question": "How do you avoid disruption?",
@@ -380,6 +334,7 @@
       },
       "process-automation": {
         "title": "Process Automation",
+        "seoTitle": "Process Automation Consulting | ShineTechData",
         "subtitleStatic": "We replace",
         "subtitleDynamic": "manual workflows with reliable, scalable automation.",
         "shortDescription": "Eliminating repetitive tasks with robust RPA and custom API workflows.",
@@ -392,11 +347,6 @@
           "Built and deployed automations (n8n, Zapier, Make, or custom)",
           "Monitoring and error alerting",
           "Team handoff and documentation"
-        ],
-        "outcomes": [
-          { "metric": "20+", "label": "Hours saved per week" },
-          { "metric": "99%", "label": "Reduction in manual errors" },
-          { "metric": "<8wk", "label": "Payback period" }
         ],
         "timeline": [
           {
@@ -415,11 +365,6 @@
             "description": "Deploy, monitor, and iterate."
           }
         ],
-        "testimonial": {
-          "quote": "Our finance team got 30 hours a week back. Game changer.",
-          "author": "James O'Brien",
-          "role": "CFO, Tradepoint"
-        },
         "faq": [
           {
             "question": "Which automation platforms do you use?",
@@ -443,6 +388,9 @@
     },
     "channels": {
       "title": "Other ways to reach ",
+      "booking": "Book a free 30-min call",
+      "bookingValue": "Pick a time that works for you on Calendly",
+      "bookingAria": "Book a free 30-minute call on Calendly (opens in a new tab)",
       "titleAccent": "ShineTechData",
       "emailAddress": "Email",
       "emailValue": "contact@shinetechdata.com",
@@ -450,7 +398,7 @@
       "phoneValue": "+1829-584-9184",
       "hours": "Support hours",
       "hoursValue": "Mon–Fri · 9am – 6pm (UTC-4)",
-      "meeting": "Remote-friendly",
+      "meeting": "Based in San Pedro de Macorís, Dominican Republic",
       "meetingValue": "Virtual meetings worldwide",
       "whatsapp": "Chat on WhatsApp",
       "whatsappAria": "Contact us on WhatsApp",
@@ -480,13 +428,14 @@
         },
         {
           "q": "Where is your team located?",
-          "a": "Distributed across the Americas with timezone overlap for USA & EU clients."
+          "a": "We're based in San Pedro de Macorís, Dominican Republic, and work remotely across the Americas with timezone overlap for US and EU clients."
         }
       ]
     }
   },
   "footer": {
     "tagline": "Practical data and AI consulting for businesses ready to grow smarter.",
+    "location": "San Pedro de Macorís, Dominican Republic",
     "services": "Services",
     "company": "Company",
     "links": {

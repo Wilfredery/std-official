@@ -103,8 +103,9 @@ describe("SEO JSON-LD types", () => {
       expect(svc["@type"]).toBe("Service");
       expect(svc.name).toBe("Data Analysis");
       expect(svc.description).toContain("data analysis");
-      expect(svc.provider["@type"]).toBe("Organization");
-      expect(svc.provider.name).toBe("ShineTechData");
+      const provider = svc.provider as Organization;
+      expect(provider["@type"]).toBe("Organization");
+      expect(provider.name).toBe("ShineTechData");
     });
   });
 

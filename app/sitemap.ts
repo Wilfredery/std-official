@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { serviceSlugs } from "@/lib/data/services";
 import { blogPosts } from "@/lib/data/blog";
-import { locales, SITE_URL } from "@/lib/site";
+import { locales, PAGES_UPDATED_AT, SITE_URL } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
 
 export const dynamic = "force-static";
@@ -40,6 +40,7 @@ const CHANGEFREQ: Record<PageType, "weekly" | "monthly" | "yearly"> = {
   legal: "yearly",
 };
 
+
 // ── Helpers ─────────────────────────────────────────────────────────
 
 /** Build a full absolute URL for a given locale + path (always trailing `/`). */
@@ -52,7 +53,7 @@ function buildEntry(
   url: string,
   localeVersions: Record<string, string>,
   pageType: PageType,
-  lastmod: Date,
+  lastmod: string,
 ): MetadataRoute.Sitemap[number] {
   return {
     url,
@@ -70,7 +71,7 @@ interface StaticRoute {
   type: PageType;
 }
 
-function generateStaticEntries(lastmod: Date): MetadataRoute.Sitemap {
+function generateStaticEntries(lastmod: string): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   const routes: StaticRoute[] = [
@@ -93,7 +94,7 @@ function generateStaticEntries(lastmod: Date): MetadataRoute.Sitemap {
   return entries;
 }
 
-function generateServiceEntries(lastmod: Date): MetadataRoute.Sitemap {
+function generateServiceEntries(lastmod: string): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const slug of serviceSlugs) {
@@ -107,14 +108,16 @@ function generateServiceEntries(lastmod: Date): MetadataRoute.Sitemap {
   return entries;
 }
 
-function generateBlogEntries(lastmod: Date): MetadataRoute.Sitemap {
+function generateBlogEntries(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const post of blogPosts) {
     for (const locale of locales) {
       const path = `/blog/${post.slug}/`;
       const url = buildLocaleUrl(locale, path);
-      entries.push(buildEntry(url, languageAlternates(path), "post", lastmod));
+      entries.push(
+        buildEntry(url, languageAlternates(path), "post", post.updatedAt ?? post.publishedAt),
+      );
     }
   }
 
@@ -124,10 +127,9 @@ function generateBlogEntries(lastmod: Date): MetadataRoute.Sitemap {
 // ── Default Export ──────────────────────────────────────────────────
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastmod = new Date();
   return [
-    ...generateStaticEntries(lastmod),
-    ...generateServiceEntries(lastmod),
-    ...generateBlogEntries(lastmod),
+    ...generateStaticEntries(PAGES_UPDATED_AT),
+    ...generateServiceEntries(PAGES_UPDATED_AT),
+    ...generateBlogEntries(),
   ];
 }

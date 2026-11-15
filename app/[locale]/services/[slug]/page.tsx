@@ -1,13 +1,18 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SITE_URL } from "@/lib/site";
+import { AREA_SERVED, ORG_ID, SITE_URL } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
 import { getServiceBySlug, serviceSlugs } from "@/lib/data/services";
 import { ServiceDetailSection } from "@/components/services/detail/ServiceDetailSection";
 import { JsonLd } from "@/components/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import type { Service } from "@/lib/seo/types";
+import { RelatedArticles } from "@/components/services/detail/RelatedArticles";
+import type { ServiceSlug } from "@/lib/data/services";
+
+// Unknown slugs must 404 instead of rendering an empty 200 page.
+export const dynamicParams = false;
 
 // 1. Esto le dice a Next.js qué páginas existen
 //    En modo desarrollo (next dev), Next puede crearlas on-demand
@@ -35,9 +40,13 @@ export async function generateMetadata({
     locale,
     namespace: "serviceDetail.services",
   });
-  const serviceData = t.raw(slug) as { title: string; summary: string };
+  const serviceData = t.raw(slug) as {
+    title: string;
+    seoTitle?: string;
+    summary: string;
+  };
 
-  const title = `${serviceData.title} | ShineTechData`;
+  const title = serviceData.seoTitle ?? `${serviceData.title} | ShineTechData`;
   const description = serviceData.summary;
   const canonical = `${SITE_URL}/${locale}/services/${slug}/`;
   const ogImage = {
@@ -114,14 +123,15 @@ export default async function ServiceDetailPage({
           "@type": "Service",
           name: serviceData.title,
           description: serviceData.summary,
-          provider: {
-            "@type": "Organization",
-            name: "ShineTechData",
-            url: SITE_URL,
-          },
+          url: `${SITE_URL}/${locale}/services/${slug}/`,
+          serviceType: serviceData.title,
+          areaServed: AREA_SERVED,
+          inLanguage: locale === "es" ? "es-DO" : "en-US",
+          provider: { "@id": ORG_ID },
         }}
       />
       <ServiceDetailSection locale={locale} slug={slug} service={service} />
+      <RelatedArticles locale={locale} slug={slug as ServiceSlug} />
     </>
   );
 }

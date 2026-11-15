@@ -11,6 +11,10 @@ export type BlogBlock =
 export interface BlogPostContent {
   title: string;
   description: string;
+  /** Full <title> (≤60 chars). Falls back to `${title} | ShineTechData`. */
+  seoTitle?: string;
+  /** Meta description (≤160 chars). Falls back to `description`. */
+  seoDescription?: string;
   blocks: BlogBlock[];
   cta: { title: string; text: string; button: string };
 }
@@ -20,7 +24,12 @@ export interface BlogPost {
   slug: string;
   /** ISO date (YYYY-MM-DD). */
   publishedAt: string;
+  /** ISO date (YYYY-MM-DD) of the last meaningful edit. Falls back to `publishedAt`. */
+  updatedAt?: string;
+  /** Primary service hub this post supports (CTA target). */
   relatedService: ServiceSlug;
+  /** Secondary services the post also links to. */
+  alsoRelated: ServiceSlug[];
   content: Record<BlogLocale, BlogPostContent>;
 }
 
@@ -38,6 +47,9 @@ export const blogUi: Record<
     minRead: string;
     backToBlog: string;
     relatedService: string;
+    alsoRelated: string;
+    moreArticles: string;
+    relatedArticles: string;
     home: string;
   }
 > = {
@@ -54,6 +66,9 @@ export const blogUi: Record<
     minRead: "min de lectura",
     backToBlog: "Volver al blog",
     relatedService: "Servicio relacionado",
+    alsoRelated: "También te puede servir",
+    moreArticles: "Más artículos",
+    relatedArticles: "Artículos relacionados",
     home: "Inicio",
   },
   en: {
@@ -69,6 +84,9 @@ export const blogUi: Record<
     minRead: "min read",
     backToBlog: "Back to blog",
     relatedService: "Related service",
+    alsoRelated: "You may also need",
+    moreArticles: "More articles",
+    relatedArticles: "Related articles",
     home: "Home",
   },
 };
@@ -78,10 +96,12 @@ export const blogPosts: BlogPost[] = [
     slug: "ai-governance-data-policy",
     publishedAt: "2026-11-14",
     relatedService: "data-auditing",
+    alsoRelated: ["digital-transformation", "machine-learning"],
     content: {
       es: {
         title:
           "Ética y gobernanza de la IA: protege los datos de tu empresa antes de usar ChatGPT",
+        seoTitle: "Gobernanza de IA: protege tus datos antes de usar ChatGPT",
         description:
           "Tu equipo ya usa ChatGPT y Gemini. Te explicamos qué riesgos corren tus datos y cómo armar una política de IA sencilla en 5 pasos, aunque seas una pyme.",
         blocks: [
@@ -143,6 +163,7 @@ export const blogPosts: BlogPost[] = [
       en: {
         title:
           "AI Governance for Small Teams: Write a Data Policy Before You Deploy AI",
+        seoTitle: "AI Governance for Small Teams: Write a Data Policy",
         description:
           "Your team is already using ChatGPT, Gemini and AI agents. Here are the real data risks and a simple 5-step AI policy any small business can put in place.",
         blocks: [
@@ -207,10 +228,13 @@ export const blogPosts: BlogPost[] = [
     slug: "ai-agents-account-access-risks",
     publishedAt: "2026-11-15",
     relatedService: "process-automation",
+    alsoRelated: ["data-auditing", "digital-transformation"],
     content: {
       es: {
         title:
           "Agentes de IA: qué son y qué riesgos tiene darles acceso a tus cuentas",
+        seoTitle: "Agentes de IA: riesgos de darles acceso a tus cuentas",
+        seoDescription: "Qué son los agentes de IA, en qué se diferencian de un chatbot y cómo darles acceso a tus cuentas sin poner en riesgo tu empresa.",
         description:
           "Los agentes de IA ya pueden leer tu correo, mover archivos y preparar pagos. Te explicamos qué son, en qué se diferencian de un chatbot y cómo darles acceso sin poner en riesgo tu empresa.",
         blocks: [
@@ -281,6 +305,8 @@ export const blogPosts: BlogPost[] = [
       en: {
         title:
           "AI Agents: What They Are and the Risks of Giving Them Access to Your Accounts",
+        seoTitle: "AI Agents: Risks of Giving Them Account Access",
+        seoDescription: "What AI agents are, how they differ from chatbots, and how to give them access to your accounts without putting your business at risk.",
         description:
           "AI agents can now read your email, move files and prepare payments. Here's what they are, how they differ from chatbots, and how to grant access without putting your business at risk.",
         blocks: [
@@ -350,11 +376,14 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "generative-ai-small-business-roi",
     publishedAt: "2026-11-15",
-    relatedService: "business-intelligence",
+    relatedService: "digital-transformation",
+    alsoRelated: ["process-automation", "business-intelligence"],
     content: {
       es: {
         title:
           "IA generativa para pequeñas empresas: qué es, dónde rinde y cómo medir el retorno",
+        seoTitle: "IA generativa para pymes: cómo medir el retorno",
+        seoDescription: "Qué hace realmente la IA generativa, dónde deja ganancias en una pyme y cómo medir el retorno antes de invertir.",
         description:
           "Muchas empresas en Estados Unidos están recortando su presupuesto de IA después de proyectos que nunca dieron resultados. Te explicamos qué hace realmente la IA generativa, dónde sí deja ganancias y cómo medir el retorno antes de invertir.",
         blocks: [
@@ -425,6 +454,8 @@ export const blogPosts: BlogPost[] = [
       en: {
         title:
           "Generative AI for Small Business: What It Is, Where It Pays Off and How to Measure ROI",
+        seoTitle: "Generative AI for Small Business: How to Measure ROI",
+        seoDescription: "What generative AI actually does, where it pays off for small businesses, and a simple way to measure ROI before you spend.",
         description:
           "Many U.S. companies are cutting AI budgets after projects that never paid off. Here's what generative AI actually does, the use cases with real returns for small businesses, and a simple way to measure ROI before you spend.",
         blocks: [
@@ -513,4 +544,20 @@ export function readingMinutes(content: BlogPostContent): number {
 
 export function toBlogLocale(locale: string): BlogLocale {
   return locale === "es" ? "es" : "en";
+}
+
+/** Posts that link to a service, primary hub first. */
+export function postsForService(slug: ServiceSlug): BlogPost[] {
+  return [
+    ...blogPosts.filter((p) => p.relatedService === slug),
+    ...blogPosts.filter((p) => p.alsoRelated.includes(slug)),
+  ];
+}
+
+/** Other posts to cross-link from a post (newest first). */
+export function otherPosts(slug: string, limit = 2): BlogPost[] {
+  return blogPosts
+    .filter((p) => p.slug !== slug)
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+    .slice(0, limit);
 }

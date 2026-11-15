@@ -25,24 +25,39 @@ export interface PostalAddress {
   "@type": "PostalAddress";
   addressCountry: string;
   addressLocality?: string;
+  addressRegion?: string;
+  postalCode?: string;
+}
+
+/** Reference to an entity declared elsewhere on the page/site by `@id`. */
+export interface EntityRef {
+  "@id": string;
 }
 
 export interface Organization {
-  "@type": "Organization";
+  /** ProfessionalService is a schema.org Organization subtype (via LocalBusiness). */
+  "@type": "Organization" | "ProfessionalService";
+  "@id"?: string;
   name: string;
+  description?: string;
   url: string;
   logo?: string;
   email?: string;
   telephone?: string;
   address?: PostalAddress;
   contactPoint?: ContactPoint[];
+  areaServed?: string[];
+  knowsLanguage?: string[];
   sameAs?: string[];
 }
 
 export interface WebSite {
   "@type": "WebSite";
+  "@id"?: string;
   name: string;
   url: string;
+  inLanguage?: string[];
+  publisher?: EntityRef;
   potentialAction?: SearchAction;
 }
 
@@ -62,7 +77,11 @@ export interface Service {
   "@type": "Service";
   name: string;
   description: string;
-  provider: Organization;
+  url?: string;
+  serviceType?: string;
+  areaServed?: string[];
+  inLanguage?: string;
+  provider: Organization | EntityRef;
 }
 
 export interface BlogPosting {
@@ -75,8 +94,8 @@ export interface BlogPosting {
   url: string;
   image?: string;
   mainEntityOfPage: string;
-  author: Organization;
-  publisher: Organization;
+  author: Organization | EntityRef;
+  publisher: Organization | EntityRef;
 }
 
 export type JsonLdSchema =
