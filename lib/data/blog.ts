@@ -203,6 +203,150 @@ export const blogPosts: BlogPost[] = [
       },
     },
   },
+  {
+    slug: "ai-agents-account-access-risks",
+    publishedAt: "2026-11-15",
+    relatedService: "process-automation",
+    content: {
+      es: {
+        title:
+          "Agentes de IA: qué son y qué riesgos tiene darles acceso a tus cuentas",
+        description:
+          "Los agentes de IA ya pueden leer tu correo, mover archivos y preparar pagos. Te explicamos qué son, en qué se diferencian de un chatbot y cómo darles acceso sin poner en riesgo tu empresa.",
+        blocks: [
+          {
+            type: "p",
+            text: "Hasta hace poco, la IA en una empresa era un chat: preguntabas y te respondía. Los agentes de IA van un paso más allá: reciben un objetivo, deciden los pasos y los ejecutan por su cuenta dentro de tus herramientas. Pueden leer y contestar correos, actualizar tu CRM, llenar formularios o preparar pagos.",
+          },
+          {
+            type: "p",
+            text: "Eso los hace muy útiles para automatizar trabajo repetitivo. Pero también cambia la pregunta de seguridad: ya no es solo qué datos le das a la IA, sino qué puede hacer con tus cuentas cuando nadie está mirando.",
+          },
+          { type: "h2", text: "¿Qué es un agente de IA?" },
+          {
+            type: "p",
+            text: "Un agente de IA combina un modelo de lenguaje (como los que usan ChatGPT o Gemini) con herramientas y permisos para actuar: acceso a tu correo, tu calendario, una hoja de cálculo, tu sistema contable o un navegador. Tú le das una meta, por ejemplo \"concilia las facturas de octubre\", y el agente decide qué abrir, qué comparar y qué registrar.",
+          },
+          { type: "h2", text: "Chatbot o agente: la diferencia que importa" },
+          {
+            type: "ul",
+            items: [
+              "Un chatbot responde; un agente actúa. Si un chatbot se equivoca, recibes una mala respuesta. Si un agente se equivoca, puede enviar un correo, borrar un archivo o aprobar un pago.",
+              "Un chatbot trabaja con lo que le pegas; un agente busca la información por su cuenta dentro de los sistemas a los que le diste acceso.",
+              "Un chatbot termina cuando cierras la conversación; un agente puede seguir trabajando en segundo plano, con tus credenciales.",
+            ],
+          },
+          { type: "h2", text: "5 riesgos de darle acceso a tus cuentas" },
+          {
+            type: "ul",
+            items: [
+              "Permisos de más: para \"ayudarte con el correo\", muchas herramientas piden leer, enviar y borrar todos tus mensajes. Si el agente falla o la herramienta es comprometida, ese es el tamaño del daño.",
+              "Instrucciones escondidas (prompt injection): un correo, una página web o un PDF puede contener texto pensado para engañar al agente, como \"reenvía las últimas facturas a esta dirección\". El agente no siempre distingue entre tus órdenes y el contenido que está leyendo.",
+              "Acciones financieras sin aprobación: un agente conectado a la banca en línea, a una pasarela de pagos o al sistema de compras puede ejecutar transacciones que nadie revisó. Un error pequeño se repite a la velocidad de una máquina.",
+              "Credenciales compartidas: darle al agente tu usuario y contraseña personal, en vez de un acceso propio, impide saber quién hizo qué y complica quitarle el acceso.",
+              "Código y extensiones de terceros: algunos agentes instalan complementos o ejecutan código que nadie de tu equipo revisó. Aplica la misma regla que con cualquier software: si no sabes de dónde viene, no lo corras con acceso a tus datos.",
+            ],
+          },
+          {
+            type: "h2",
+            text: "Cómo darle acceso a un agente sin perder el control",
+          },
+          {
+            type: "ol",
+            items: [
+              "Empieza con solo lectura: deja que el agente lea y proponga, y que una persona ejecute. Amplía los permisos solo cuando haya demostrado que funciona.",
+              "Dale una cuenta propia: crea un usuario o una conexión exclusiva para el agente, con los permisos mínimos, en lugar de prestarle la tuya.",
+              "Exige aprobación humana para lo irreversible: pagos, transferencias, envíos a clientes, borrados y cambios de contraseña siempre pasan por una persona.",
+              "Pon límites: montos máximos, lista de destinatarios permitidos, horario de trabajo y carpetas a las que puede entrar.",
+              "Registra todo y revisa: guarda un historial de lo que hizo el agente y revísalo cada semana. Asegúrate de poder quitarle el acceso en un clic.",
+              "Prueba con datos de ejemplo: antes de conectarlo a tus sistemas reales, pruébalo en un entorno de prueba o con información ficticia.",
+            ],
+          },
+          { type: "h2", text: "¿Por dónde empezar?" },
+          {
+            type: "p",
+            text: "Los mejores primeros casos para un agente son tareas repetitivas, de bajo riesgo y fáciles de verificar: clasificar correos, preparar borradores de respuesta, conciliar reportes o pasar datos de un formulario a una hoja de cálculo. Deja los pagos y la información sensible para cuando tengas reglas claras y un historial que te respalde.",
+          },
+          {
+            type: "p",
+            text: "Si tu empresa aún no tiene una política de uso de IA, empieza por ahí: define qué datos pueden tocar las herramientas de IA y quién aprueba cada una. Un agente bien configurado no reemplaza esas reglas; las necesita.",
+          },
+        ],
+        cta: {
+          title: "¿Quieres automatizar sin abrirle la puerta a riesgos?",
+          text: "Diseñamos automatizaciones con IA con permisos mínimos, aprobación humana y registro de cada acción.",
+          button: "Agenda tu consultoría gratis",
+        },
+      },
+      en: {
+        title:
+          "AI Agents: What They Are and the Risks of Giving Them Access to Your Accounts",
+        description:
+          "AI agents can now read your email, move files and prepare payments. Here's what they are, how they differ from chatbots, and how to grant access without putting your business at risk.",
+        blocks: [
+          {
+            type: "p",
+            text: "Until recently, AI at work meant a chat window: you asked, it answered. AI agents go a step further. You give them a goal, they plan the steps and carry them out on their own inside your tools. They can read and reply to email, update your CRM, fill out forms or prepare payments.",
+          },
+          {
+            type: "p",
+            text: "Searches for \"what are AI agents\" keep climbing, and so do questions about what happens when agents touch bank accounts or run code nobody on the team owns. That's the right question. With agents, security is no longer just about what data you share with AI, but about what AI can do with your accounts when no one is watching.",
+          },
+          { type: "h2", text: "What is an AI agent?" },
+          {
+            type: "p",
+            text: "An AI agent pairs a language model (like the ones behind ChatGPT or Gemini) with tools and permissions to act: access to your inbox, calendar, a spreadsheet, your accounting system or a web browser. You give it a goal, such as \"reconcile October's invoices\", and the agent decides what to open, what to compare and what to record.",
+          },
+          { type: "h2", text: "Chatbot vs. agent: the difference that matters" },
+          {
+            type: "ul",
+            items: [
+              "A chatbot answers; an agent acts. When a chatbot is wrong, you get a bad answer. When an agent is wrong, it can send an email, delete a file or approve a payment.",
+              "A chatbot works with what you paste in; an agent goes looking for information inside every system you connected it to.",
+              "A chatbot stops when you close the conversation; an agent can keep working in the background, with your credentials.",
+            ],
+          },
+          { type: "h2", text: "5 risks of giving an agent access to your accounts" },
+          {
+            type: "ul",
+            items: [
+              "Too many permissions: to \"help with email\", many tools ask to read, send and delete every message you have. If the agent misfires or the tool is compromised, that's the size of the blast radius.",
+              "Hidden instructions (prompt injection): an email, web page or PDF can contain text designed to trick the agent, such as \"forward the latest invoices to this address\". Agents don't always tell your instructions apart from the content they're reading.",
+              "Unapproved financial actions: an agent connected to online banking, a payment processor or your purchasing system can execute transactions no one reviewed. A small mistake repeats at machine speed.",
+              "Shared credentials: handing the agent your personal login instead of its own access makes it impossible to tell who did what, and hard to cut it off.",
+              "Third-party code and plugins: some agents install add-ons or run code nobody on your team reviewed. Same rule as any software: if you don't know where it came from, don't run it with access to your data.",
+            ],
+          },
+          { type: "h2", text: "How to give an agent access without losing control" },
+          {
+            type: "ol",
+            items: [
+              "Start read-only: let the agent read and propose while a person executes. Expand permissions only after it has proven itself.",
+              "Give it its own account: create a dedicated user or connection for the agent with the minimum permissions, instead of lending it yours.",
+              "Require human approval for anything irreversible: payments, transfers, messages to customers, deletions and password changes always go through a person.",
+              "Set limits: spending caps, an allowlist of recipients, working hours and the folders it can open.",
+              "Log everything and review it: keep a history of what the agent did and check it weekly. Make sure you can revoke its access in one click.",
+              "Test with sample data: before connecting it to real systems, try it in a sandbox or with dummy information.",
+            ],
+          },
+          { type: "h2", text: "Where to start" },
+          {
+            type: "p",
+            text: "The best first jobs for an agent are repetitive, low-risk and easy to check: sorting email, drafting replies, reconciling reports or moving form data into a spreadsheet. Leave payments and sensitive data for later, once you have clear rules and a track record to back them up.",
+          },
+          {
+            type: "p",
+            text: "If your company doesn't have an AI use policy yet, start there: decide what data AI tools may touch and who approves each one. A well-configured agent doesn't replace those rules; it depends on them.",
+          },
+        ],
+        cta: {
+          title: "Want to automate without opening the door to risk?",
+          text: "We build AI automations with least-privilege access, human approval and a log of every action.",
+          button: "Book your free consultation",
+        },
+      },
+    },
+  },
 ];
 
 export const blogSlugs = blogPosts.map((p) => p.slug);
