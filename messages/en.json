@@ -8,7 +8,12 @@
     "cta": "Free Consultation",
     "language": "Language",
     "menuOpen": "Open menu",
-    "loading": "Loading"
+    "loading": "Loading",
+    "themeToggle": "Change theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System",
+    "menuClose": "Close menu"
   },
   "common": {
     "learnMore": "View service details"
@@ -446,7 +451,9 @@
     "dev": {
       "text": "Dev: Wilfredery Ant. Dilone Cordero",
       "linkedin": "https://www.linkedin.com/in/wilfredery-a-dilon%C3%A9-cordero-a23386279/?locale=en"
-    }
+    },
+    "callAria": "Call 829-584-9184",
+    "emailAria": "Email contact@shinetechdata.com"
   },
   "seo": {
     "home": {
@@ -574,7 +581,8 @@
       "title": "Ready to Transform Your Business with Data?",
       "subtitle": "Let's build a roadmap that turns your data into a sustainable competitive advantage.",
       "button": "Schedule a Free Consultation"
-    }
+    },
+    "imageAlt": "ShineTechData team illustration"
   },
   "legal": {
     "privacy": {

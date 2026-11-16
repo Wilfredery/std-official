@@ -50,36 +50,18 @@ describe("getRequiredNamespaces", () => {
     }
   });
 
-  it("includes page-specific namespaces for /about", () => {
-    const result = getRequiredNamespaces("/about");
-    expect(result).toContain("about");
-    expect(result).toContain("nav");
-    expect(result).toContain("common");
-    expect(result).toContain("footer");
-    expect(result).toContain("serviceDetail");
+  it("keeps server-only namespaces out of the client payload", () => {
+    for (const page of ["/", "/about", "/services/*", "/privacy", "/terms"]) {
+      const result = getRequiredNamespaces(page);
+      for (const ns of ["serviceDetail", "about", "legal", "footer", "home", "seo"]) {
+        expect(result).not.toContain(ns);
+      }
+    }
   });
 
   it("returns only shared for /", () => {
     const result = getRequiredNamespaces("/");
-    expect(result).toEqual([
-      "nav",
-      "common",
-      "footer",
-      "serviceDetail",
-      "about",
-      "legal",
-      "notFound",
-    ]);
-  });
-
-  it("returns legal for /privacy", () => {
-    const result = getRequiredNamespaces("/privacy");
-    expect(result).toContain("legal");
-  });
-
-  it("returns legal for /terms", () => {
-    const result = getRequiredNamespaces("/terms");
-    expect(result).toContain("legal");
+    expect(result).toEqual(["nav", "common", "notFound"]);
   });
 
   it("returns notFound for /404", () => {
@@ -146,26 +128,25 @@ describe("Namespace Declaration Guard", () => {
     // Client: nav, common, footer, serviceDetail (shared) + home? NO - home is server-only
     expect(PAGE_NAMESPACES["/"]).toEqual([]);
 
-    // About: nav, common, about, footer, seo
-    // Client needs: about (MissionVision uses useTranslations)
-    expect(PAGE_NAMESPACES["/about"]).toEqual(["about"]);
+    // About: all sections are Server Components
+    expect(PAGE_NAMESPACES["/about"]).toEqual([]);
 
     // Services: nav, common, services, footer, seo
     // Client needs: nothing extra (all server components)
     expect(PAGE_NAMESPACES["/services"]).toEqual([]);
 
     // Service detail: nav, common, services, serviceDetail, footer, seo
-    // serviceDetail already in shared
+    // all Server Components
     expect(PAGE_NAMESPACES["/services/*"]).toEqual([]);
 
     // Contact: nav, common, contact, footer, seo
     expect(PAGE_NAMESPACES["/contact"]).toEqual([]);
 
-    // Privacy/terms: nav, common, legal, footer, seo
-    expect(PAGE_NAMESPACES["/privacy"]).toEqual(["legal"]);
-    expect(PAGE_NAMESPACES["/terms"]).toEqual(["legal"]);
+    // Privacy/terms: LegalPage is a Server Component
+    expect(PAGE_NAMESPACES["/privacy"]).toEqual([]);
+    expect(PAGE_NAMESPACES["/terms"]).toEqual([]);
 
-    // 404: nav, common, notFound, footer, seo
-    expect(PAGE_NAMESPACES["/404"]).toEqual(["notFound"]);
+    // 404: notFound is already shared
+    expect(PAGE_NAMESPACES["/404"]).toEqual([]);
   });
 });

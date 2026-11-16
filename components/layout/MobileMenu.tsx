@@ -32,7 +32,11 @@ export function MobileMenu({
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent side="right" className="w-[300px] sm:max-w-sm">
+      <SheetContent
+        side="right"
+        className="w-[300px] sm:max-w-sm"
+        closeLabel={t("menuClose")}
+      >
         <SheetHeader>
           <SheetTitle className="text-left">ShineTechData</SheetTitle>
         </SheetHeader>

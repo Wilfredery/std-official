@@ -61,12 +61,25 @@ describe("Footer", () => {
     expect(screen.getByText("tagline")).toBeInTheDocument();
   });
 
-  it("renders logo with correct alt text", () => {
+  it("renders the logo as decorative (link text carries the name)", () => {
     useThemeMock.mockReturnValue({ resolvedTheme: "light" });
     render(<Footer />);
 
-    const logo = screen.getByAltText("ShineTechData logo");
+    const logo = document.querySelector("footer img")!;
     expect(logo).toBeInTheDocument();
+    expect(logo).toHaveAttribute("alt", "");
+  });
+
+  it("localizes the phone and email link labels", () => {
+    render(<Footer />);
+    expect(screen.getByLabelText("callAria")).toHaveAttribute(
+      "href",
+      "tel:+18295849184",
+    );
+    expect(screen.getByLabelText("emailAria")).toHaveAttribute(
+      "href",
+      "mailto:contact@shinetechdata.com",
+    );
   });
 
   it("renders placeholder when not hydrated", () => {
@@ -79,19 +92,19 @@ describe("Footer", () => {
 
   it("footer logo has loading='lazy' (below-the-fold)", () => {
     render(<Footer />);
-    const logo = screen.getByAltText("ShineTechData logo");
+    const logo = document.querySelector("footer img")!;
     expect(logo.getAttribute("loading")).toBe("lazy");
   });
 
   it("footer logo does NOT have fetchpriority='high' (not LCP)", () => {
     render(<Footer />);
-    const logo = screen.getByAltText("ShineTechData logo");
+    const logo = document.querySelector("footer img")!;
     expect(logo.getAttribute("fetchpriority")).not.toBe("high");
   });
 
   it("footer logo retains explicit width and height for CLS prevention", () => {
     render(<Footer />);
-    const logo = screen.getByAltText("ShineTechData logo");
+    const logo = document.querySelector("footer img")!;
     expect(logo.getAttribute("width")).toBe("120");
     expect(logo.getAttribute("height")).toBe("40");
   });

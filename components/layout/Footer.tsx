@@ -1,12 +1,8 @@
-"use client";
-
 import { Link } from "@/lib/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { services } from "@/lib/data/services";
-import Image from "next/image";
-import { useHydrated } from "@/hooks/useHydrated";
-import { useTheme } from "@/lib/theme/ThemeContext";
+import { FooterLogo } from "./FooterLogo";
 
 const footerLinks = [
   { href: "/", labelKey: "home" as const },
@@ -21,13 +17,6 @@ export function Footer() {
   const navT = useTranslations("nav");
   const detailT = useTranslations("serviceDetail");
   const year = new Date().getFullYear();
-  const { resolvedTheme } = useTheme();
-  const mounted = useHydrated();
-
-  const footerLogoSrc =
-    mounted && resolvedTheme === "dark"
-      ? "/images/navbarFooter/logo-dark.webp"
-      : "/images/navbarFooter/logo-light.webp";
 
   return (
     <footer className="border-t border-border mt-24">
@@ -40,22 +29,7 @@ export function Footer() {
               prefetch={false}
               className="flex items-center gap-2 mb-4"
             >
-              {mounted ? (
-                <Image
-                  src={footerLogoSrc}
-                  alt="ShineTechData logo"
-                  width={120}
-                  height={40}
-                  className="h-10 w-auto"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="size-10 rounded-lg bg-primary flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-xs">
-                    STD
-                  </span>
-                </div>
-              )}
+              <FooterLogo />
               <span className="font-bold text-lg tracking-tight">
                 <span className="gradient-text">Shine</span>
                 TechData
@@ -74,7 +48,7 @@ export function Footer() {
                 href="tel:+18295849184"
                 className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary
                 transition-colors min-h-11"
-                aria-label="Llamar al 829-584-9184"
+                aria-label={t("callAria")}
               >
                 <Phone className="size-4" /> 829-584-9184
               </a>
@@ -83,7 +57,7 @@ export function Footer() {
                 href="mailto:contact@shinetechdata.com"
                 className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary
                 transition-colors min-h-11"
-                aria-label="Enviar correo a contact@shinetechdata.com"
+                aria-label={t("emailAria")}
               >
                 <Mail className="size-4" />
                 contact@shinetechdata.com

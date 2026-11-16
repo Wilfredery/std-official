@@ -34,7 +34,6 @@ The official website for **ShineTechData** — a data consulting company special
 | [Vitest](https://vitest.dev)                               | 4.1     | Test runner                     |
 | [React Testing Library](https://testing-library.com/react) | 16.3    | Component testing               |
 | [Lucide React](https://lucide.dev)                         | 1.16    | Icon library                    |
-| [web-vitals](https://github.com/GoogleChrome/web-vitals)   | 5.3     | Core Web Vitals monitoring      |
 
 **Package Manager**: [pnpm](https://pnpm.io)
 
@@ -66,7 +65,6 @@ The official website for **ShineTechData** — a data consulting company special
 - **Server Components** — Reduced client-side JavaScript with React Server Components
 - **Lazy Loading** — Interactive components loaded on-demand with `next/dynamic`
 - **Font Preloading** — Google Fonts preloaded via `next/font`
-- **Core Web Vitals Monitoring** — Real-user metrics via `web-vitals` library
 - **Structured Data** — JSON-LD for Organization, WebSite, Services, Breadcrumbs
 - **SEO Optimized** — Dynamic metadata, Open Graph, Twitter Cards, canonical URLs
 
@@ -142,7 +140,6 @@ std-official/
 │   ├── contact/            # Contact form & FAQ
 │   ├── layout/             # Header, footer, nav
 │   ├── seo/                # SEO & JSON-LD components
-│   ├── web-vitals/         # Web vitals script injection
 │   ├── errors/             # Error suppression components
 │   └── ui/                 # UI primitives (shadcn/ui)
 ├── lib/                    # Business logic & utilities
@@ -165,7 +162,6 @@ The custom theme system replaces `next-themes` with a lightweight Context-based 
 - **Anti-Flash Script**: `public/theme-anti-flash.js` runs synchronously before React hydration to apply the correct theme class based on `localStorage` preference
 - **Context Provider**: `lib/theme/ThemeContext.tsx` manages state, localStorage persistence, and `matchMedia` subscription for system theme changes
 - **Error Suppression**: `components/errors/SuppressScriptError.tsx` filters the React 19 false-positive warning about `<script>` in Server Components (Next.js 16 + Turbopack)
-- **Web Vitals**: `components/web-vitals/WebVitalsScript.tsx` injects the `web-vitals` library on first user interaction or 5-second idle timeout
 
 ## Internationalization
 
@@ -199,7 +195,7 @@ Tests are colocated with source files inside `__tests__/` directories. Each comp
 - **Architecture**: Server Components + lazy-loaded interactive islands
 - **Font Optimization**: Preloaded via `next/font`
 - **Asset Optimization**: Static assets with optimal cache headers
-- **Core Web Vitals**: Monitored in production via `web-vitals`
+- **Core Web Vitals**: Checked with PageSpeed Insights (see below)
 
 ### PageSpeed Insights
 

@@ -1,5 +1,3 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 
 interface LegalPageProps {
@@ -35,7 +33,7 @@ export function LegalPage({ namespace }: LegalPageProps) {
 
       {/* Table of Contents */}
       <nav
-        aria-label="Índice de secciones"
+        aria-label={t("tocTitle")}
         className="mb-12 p-4 sm:p-6 rounded-lg border border-border bg-card"
       >
         <p className="text-sm font-semibold mb-3 text-foreground">

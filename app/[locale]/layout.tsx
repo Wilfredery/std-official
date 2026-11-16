@@ -12,7 +12,6 @@ import { franklin } from "@/app/layout";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { WebSiteJsonLd } from "@/components/seo/WebSiteJsonLd";
-import { WebVitalsScript } from "@/components/web-vitals/WebVitalsScript";
 import { SuppressScriptError } from "@/components/errors/SuppressScriptError";
 import { AREA_SERVED, ORG_ID, SITE_URL, WEBSITE_ID } from "@/lib/site";
 import { filterMessages, SHARED_NAMESPACES } from "@/lib/i18n/namespaces";
@@ -108,7 +107,6 @@ export default async function localeLayout({
             <Navbar />
             <main className="flex-1 pt-16">{children}</main>
             <Footer />
-            <WebVitalsScript />
             <Analytics />
           </NextIntlClientProvider>
         </ThemeProvider>
