@@ -10,6 +10,12 @@ const localeLabels: Record<string, string> = {
   en: "EN",
 };
 
+// Each language named in itself, so it reads correctly whatever the page locale.
+const localeNames: Record<string, string> = {
+  es: "Español",
+  en: "English",
+};
+
 export function LanguageSwitcher() {
   const t = useTranslations("nav");
   const locale = useLocale();
@@ -22,12 +28,16 @@ export function LanguageSwitcher() {
 
   return (
     <div
+      role="group"
       className="flex items-center rounded-full border border-border p-0.5 text-[10px] font-mono"
       aria-label={t("language")}
     >
       {routing.locales.map((l) => (
         <button
           key={l}
+          type="button"
+          lang={l}
+          aria-label={localeNames[l]}
           onClick={() => handleSwitch(l)}
           className={cn(
             "px-3 py-1.5 rounded-full uppercase tracking-widest transition-colors",

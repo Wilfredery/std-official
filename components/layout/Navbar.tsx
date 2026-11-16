@@ -69,7 +69,7 @@ export function Navbar() {
             {mounted ? (
               <Image
                 src={logoSrc}
-                alt="ShineTechData isotipo"
+                alt=""
                 width={36}
                 height={36}
                 className="size-9 transition-transform group-hover:scale-110"

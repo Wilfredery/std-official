@@ -49,6 +49,12 @@ describe("LanguageSwitcher", () => {
     expect(container).toBeInTheDocument();
   });
 
+  it("names each language button in its own language", () => {
+    render(<LanguageSwitcher />, { locale: "en" });
+    expect(screen.getByRole("button", { name: "Español" })).toHaveAttribute("lang", "es");
+    expect(screen.getByRole("button", { name: "English" })).toHaveAttribute("lang", "en");
+  });
+
   it("marks the current locale button with aria-current", () => {
     render(<LanguageSwitcher />, { locale: "en" });
     const enButton = screen.getByText("EN");

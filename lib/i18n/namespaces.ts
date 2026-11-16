@@ -1,16 +1,10 @@
 // ---------------------------------------------------------------------------
-// Shared namespaces loaded by the root layout for ALL pages.
-// These cover Navbar, MobileMenu, Footer, and the always-included `common`.
+// Namespaces the root layout sends to the browser on ALL pages: only what
+// Client Components read (Navbar, MobileMenu, ThemeToggle, LanguageSwitcher,
+// 404). Server Components (Footer, about, legal, service pages) resolve their
+// text at build time, so it never reaches the client payload.
 // ---------------------------------------------------------------------------
-export const SHARED_NAMESPACES = [
-  "nav",
-  "common",
-  "footer",
-  "serviceDetail",
-  "about",
-  "legal",
-  "notFound",
-] as const;
+export const SHARED_NAMESPACES = ["nav", "common", "notFound"] as const;
 
 export type SharedNamespace = (typeof SHARED_NAMESPACES)[number];
 
@@ -21,15 +15,15 @@ export type SharedNamespace = (typeof SHARED_NAMESPACES)[number];
 // ---------------------------------------------------------------------------
 export const PAGE_NAMESPACES: Record<string, string[]> = {
   "/": [],
-  "/about": ["about"],
+  "/about": [], // about sections are Server Components
   "/services": [],
   "/services/*": [], // service detail slug pages
   "/blog": [],
   "/blog/*": [], // blog post slug pages
   "/contact": [],
-  "/privacy": ["legal"],
-  "/terms": ["legal"],
-  "/404": ["notFound"],
+  "/privacy": [], // LegalPage is a Server Component
+  "/terms": [],
+  "/404": [], // notFound is shared (also used by the root 404)
 };
 
 // ---------------------------------------------------------------------------

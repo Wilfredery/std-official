@@ -1,18 +1,8 @@
-"use client";
-
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import { useHydrated } from "@/hooks/useHydrated";
-import { useTheme } from "@/lib/theme/ThemeContext";
-
-const IMG_LIGHT = "/images/about/about-light.webp";
-const IMG_DARK = "/images/about/about-dark.webp";
+import { AboutThemedImage } from "./AboutThemedImage";
 
 export function MissionVision({ locale }: { locale: string }) {
   const t = useTranslations("about");
-  const { resolvedTheme } = useTheme();
-  const mounted = useHydrated();
-  const imgSrc = mounted && resolvedTheme === "dark" ? IMG_DARK : IMG_LIGHT;
 
   return (
     <section className="py-16 border-y border-border">
@@ -20,19 +10,7 @@ export function MissionVision({ locale }: { locale: string }) {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
           {/*Image left*/}
           <div className="relative aspect-square max-w-md lg:mx-0 overflow-hidden rounded-2xl">
-            {mounted ? (
-              <Image
-                src={imgSrc}
-                alt="ShineTechData"
-                fill
-                className="object-contain"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-                fetchPriority="high"
-              />
-            ) : (
-              <div className="w-full h-full bg-muted animate-pulse rounded-2xl" />
-            )}
+            <AboutThemedImage alt={t("imageAlt")} />
           </div>
 
           <div className="grid gap-6">

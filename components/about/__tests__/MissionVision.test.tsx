@@ -91,7 +91,7 @@ describe("MissionVision", () => {
       mockHydrated.mockReturnValue(true);
       render(<MissionVision locale="en" />);
 
-      const img = screen.getByAltText("ShineTechData");
+      const img = screen.getByAltText(enMessages.about.imageAlt);
       expect(img).toBeInTheDocument();
       expect(img).toHaveAttribute(
         "src",
@@ -103,7 +103,7 @@ describe("MissionVision", () => {
       mockHydrated.mockReturnValue(true);
       render(<MissionVision locale="en" />);
 
-      const img = screen.getByAltText("ShineTechData");
+      const img = screen.getByAltText(enMessages.about.imageAlt);
       expect(img).toHaveAttribute(
         "sizes",
         "(max-width: 1024px) 100vw, 50vw",
@@ -126,14 +126,14 @@ describe("MissionVision", () => {
     it("about image has fetchpriority='high' for LCP priority", () => {
       mockHydrated.mockReturnValue(true);
       render(<MissionVision locale="en" />);
-      const img = screen.getByAltText("ShineTechData");
+      const img = screen.getByAltText(enMessages.about.imageAlt);
       expect(img.getAttribute("fetchpriority")).toBe("high");
     });
 
     it("about image retains priority marker for preload scanning", () => {
       mockHydrated.mockReturnValue(true);
       render(<MissionVision locale="en" />);
-      const img = screen.getByAltText("ShineTechData");
+      const img = screen.getByAltText(enMessages.about.imageAlt);
       expect(img.getAttribute("data-priority")).toBe("true");
     });
   });

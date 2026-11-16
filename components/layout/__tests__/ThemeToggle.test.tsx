@@ -25,32 +25,18 @@ vi.mock("@/hooks/useHydrated", () => ({
   useHydrated: () => true,
 }));
 
-// Mock the dropdown-menu UI components inline (no actual lazy loading)
+// Inline stand-ins for the dropdown primitives (the real menu is lazy-loaded
+// by ThemeToggle on first click; these keep the assertions synchronous once
+// the lazy chunk resolves).
 vi.mock("@/components/ui/dropdown-menu", () => ({
   DropdownMenu: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="dropdown-menu">{children}</div>
   ),
-  DropdownMenuTrigger: ({
-    render,
-  }: {
-    render: React.ReactNode;
-  }) => <div data-testid="dropdown-trigger">{render}</div>,
-  DropdownMenuContent: ({
-    children,
-    align,
-    sideOffset,
-  }: {
-    children: React.ReactNode;
-    align?: string;
-    sideOffset?: number;
-  }) => (
-    <div
-      data-testid="dropdown-content"
-      data-align={align}
-      data-side-offset={sideOffset}
-    >
-      {children}
-    </div>
+  DropdownMenuTrigger: ({ render }: { render: React.ReactNode }) => (
+    <div data-testid="dropdown-trigger">{render}</div>
+  ),
+  DropdownMenuContent: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="dropdown-content">{children}</div>
   ),
   DropdownMenuItem: ({
     children,
@@ -61,15 +47,18 @@ vi.mock("@/components/ui/dropdown-menu", () => ({
     onClick?: () => void;
     className?: string;
   }) => (
-    <button
-      data-testid="dropdown-item"
-      onClick={onClick}
-      className={className}
-    >
+    <button data-testid="dropdown-item" onClick={onClick} className={className}>
       {children}
     </button>
   ),
 }));
+
+async function openMenu(locale: "en" | "es" = "en") {
+  const utils = render(<ThemeToggle />, { locale });
+  fireEvent.click(screen.getByRole("button"));
+  await screen.findByTestId("dropdown-content");
+  return utils;
+}
 
 // ---------------------------------------------------------------------------
 // Tests
@@ -80,83 +69,54 @@ describe("ThemeToggle", () => {
     mockSetTheme.mockClear();
   });
 
-  // ---- Happy path (S1-SC1) ----
-
-  it("renders the dropdown trigger with Sun icon when resolved theme is light", () => {
+  it("renders a plain button with the Sun icon before any interaction", () => {
     const { container } = render(<ThemeToggle />);
 
-    const trigger = screen.getByTestId("dropdown-trigger");
-    expect(trigger).toBeInTheDocument();
-
-    const sunIcon = container.querySelector("svg");
-    expect(sunIcon).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Change theme" })).toBeInTheDocument();
+    expect(container.querySelector("svg")).toBeInTheDocument();
+    // The dropdown stays out of the initial render (and bundle)
+    expect(screen.queryByTestId("dropdown-menu")).not.toBeInTheDocument();
   });
 
-  it("renders three theme options: Light, Dark, System", () => {
-    render(<ThemeToggle />);
+  it("loads and opens the menu on click", async () => {
+    await openMenu();
+    expect(screen.getByTestId("dropdown-trigger")).toBeInTheDocument();
+  });
+
+  it("renders three theme options: Light, Dark, System", async () => {
+    await openMenu();
 
     const items = screen.getAllByTestId("dropdown-item");
     expect(items).toHaveLength(3);
-
     expect(items[0]).toHaveTextContent("Light");
     expect(items[1]).toHaveTextContent("Dark");
     expect(items[2]).toHaveTextContent("System");
   });
 
-  it("calls setTheme with 'light' when Light is clicked", () => {
-    render(<ThemeToggle />);
+  it("localizes the label and options in Spanish", async () => {
+    await openMenu("es");
 
+    expect(screen.getByRole("button", { name: "Cambiar tema" })).toBeInTheDocument();
     const items = screen.getAllByTestId("dropdown-item");
-    fireEvent.click(items[0]); // Light
+    expect(items.map((i) => i.textContent)).toEqual(["Claro", "Oscuro", "Sistema"]);
+  });
 
-    expect(mockSetTheme).toHaveBeenCalledWith("light");
+  it.each([
+    [0, "light"],
+    [1, "dark"],
+    [2, "system"],
+  ])("calls setTheme for option %i (%s)", async (index, value) => {
+    await openMenu();
+
+    fireEvent.click(screen.getAllByTestId("dropdown-item")[index]);
+    expect(mockSetTheme).toHaveBeenCalledWith(value);
     expect(mockSetTheme).toHaveBeenCalledTimes(1);
   });
 
-  it("calls setTheme with 'dark' when Dark is clicked", () => {
-    render(<ThemeToggle />);
-
-    const items = screen.getAllByTestId("dropdown-item");
-    fireEvent.click(items[1]); // Dark
-
-    expect(mockSetTheme).toHaveBeenCalledWith("dark");
-  });
-
-  it("calls setTheme with 'system' when System is clicked", () => {
-    render(<ThemeToggle />);
-
-    const items = screen.getAllByTestId("dropdown-item");
-    fireEvent.click(items[2]); // System
-
-    expect(mockSetTheme).toHaveBeenCalledWith("system");
-  });
-
-  // ---- Happy path: theme toggle opens after interaction (S1-SC1) ----
-
-  it("opens the dropdown content when trigger is rendered", () => {
-    render(<ThemeToggle />);
-
-    // The dropdown content should be present (in the mocked version it always renders)
-    const content = screen.getByTestId("dropdown-content");
-    expect(content).toBeInTheDocument();
-  });
-
-  // ---- Edge case: trigger button has correct ARIA (S1-R3) ----
-
-  it("renders the trigger button with aria-label for accessibility", () => {
-    render(<ThemeToggle />);
-
-    const button = screen.getByRole("button", { name: /toggle theme/i });
-    expect(button).toBeInTheDocument();
-  });
-
-  // ---- Edge case: trigger button preserves focus ring (S1-R3) ----
-
   it("trigger button has focus-visible outline classes", () => {
     render(<ThemeToggle />);
-
-    const button = screen.getByRole("button", { name: /toggle theme/i });
-    // The Button component from @base-ui renders with focus-visible classes
-    expect(button).toHaveClass("focus-visible:border-ring");
+    expect(screen.getByRole("button", { name: "Change theme" })).toHaveClass(
+      "focus-visible:border-ring",
+    );
   });
 });

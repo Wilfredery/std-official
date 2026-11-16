@@ -1,63 +1,55 @@
 "use client";
 
-import { Sun, Moon, Monitor } from "lucide-react";
+import { cloneElement, lazy, Suspense, useState } from "react";
+import { Sun, Moon } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useTheme } from "@/lib/theme/ThemeContext";
 import { useHydrated } from "@/hooks/useHydrated";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
+const loadThemeMenu = () => import("./ThemeMenu");
+const ThemeMenu = lazy(() =>
+  loadThemeMenu().then((mod) => ({ default: mod.ThemeMenu })),
+);
 
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const t = useTranslations("nav");
+  const { resolvedTheme } = useTheme();
   const mounted = useHydrated();
+  const [menuRequested, setMenuRequested] = useState(false);
+
+  const icon =
+    mounted && resolvedTheme === "dark" ? (
+      <Moon className="size-4" />
+    ) : (
+      <Sun className="size-4" />
+    );
+
+  const button = (
+    <Button
+      variant="outline"
+      size="icon-lg"
+      aria-label={t("themeToggle")}
+      aria-haspopup="menu"
+    >
+      {icon}
+    </Button>
+  );
+
+  // Until the visitor reaches for it, render a plain button and keep the
+  // dropdown out of the initial bundle. Hover/focus prefetches the chunk so
+  // the menu opens without a visible delay on click.
+  if (!menuRequested) {
+    return cloneElement(button, {
+      onPointerEnter: () => void loadThemeMenu(),
+      onFocus: () => void loadThemeMenu(),
+      onClick: () => setMenuRequested(true),
+    });
+  }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger
-        render={
-          <Button
-            variant="outline"
-            size="icon-lg"
-            aria-label="Toggle theme"
-          >
-            {mounted && resolvedTheme === "dark" ? (
-              <Moon className="size-4" />
-            ) : (
-              <Sun className="size-4" />
-            )}
-          </Button>
-        }
-      />
-
-      <DropdownMenuContent align="end" sideOffset={4}>
-        <DropdownMenuItem
-          className={theme === "light" ? "bg-accent" : ""}
-          onClick={() => setTheme("light")}
-        >
-          <Sun className="size-4 mr-2" />
-          Light
-        </DropdownMenuItem>
-
-        <DropdownMenuItem
-          className={theme === "dark" ? "bg-accent" : ""}
-          onClick={() => setTheme("dark")}
-        >
-          <Moon className="size-4 mr-2" />
-          Dark
-        </DropdownMenuItem>
-
-        <DropdownMenuItem
-          className={theme === "system" ? "bg-accent" : ""}
-          onClick={() => setTheme("system")}
-        >
-          <Monitor className="size-4 mr-2" />
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Suspense fallback={button}>
+      <ThemeMenu trigger={button} />
+    </Suspense>
   );
 }
