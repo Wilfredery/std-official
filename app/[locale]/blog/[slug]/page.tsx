@@ -158,7 +158,7 @@ export default async function BlogPostPage({
           </p>
         </header>
 
-        <BlogPostBody blocks={content.blocks} />
+        <BlogPostBody html={content.html} />
         <BlogSources
           sources={content.sources}
           heading={ui.sources}

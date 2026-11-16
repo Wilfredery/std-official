@@ -39,12 +39,8 @@ describe("blog internal linking", () => {
 
 const LOCALES: BlogLocale[] = ["en", "es"];
 
-function wordCount(blocks: (typeof blogPosts)[number]["content"]["en"]["blocks"]) {
-  return blocks
-    .map((b) => ("text" in b ? b.text : b.items.join(" ")))
-    .join(" ")
-    .split(/\s+/)
-    .filter(Boolean).length;
+function wordCount(text: string) {
+  return text.split(/\s+/).filter(Boolean).length;
 }
 
 describe("blog citations", () => {
@@ -73,9 +69,7 @@ describe("blog citations", () => {
   it.each(entries)(
     "$post.slug [$locale] attributes statistics inside the text",
     ({ content }) => {
-      const text = content.blocks
-        .map((b) => ("text" in b ? b.text : b.items.join(" ")))
-        .join(" ");
+      const text = content.text;
       // At least two numeric figures (percentages, counts, dollar amounts)
       const figures = text.match(/\b\d{2,}[\d.,]*/g) ?? [];
       expect(figures.length).toBeGreaterThanOrEqual(2);
@@ -118,7 +112,7 @@ describe("business-intelligence-small-business post", () => {
   });
 
   it.each(LOCALES)("[%s] is 1200-1600 words", (locale) => {
-    const words = wordCount(post!.content[locale].blocks);
+    const words = wordCount(post!.content[locale].text);
     expect(words).toBeGreaterThanOrEqual(1200);
     expect(words).toBeLessThanOrEqual(1600);
   });

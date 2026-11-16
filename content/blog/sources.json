@@ -1,0 +1,68 @@
+{
+  "mckinsey2025": {
+    "title": "The state of AI in 2025: Agents, innovation, and transformation",
+    "publisher": "McKinsey & Company",
+    "year": 2025,
+    "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2025"
+  },
+  "ibm2025": {
+    "title": "IBM Report: 13% of Organizations Reported Breaches of AI Models or Applications, 97% of Which Reported Lacking Proper AI Access Controls",
+    "publisher": "IBM Newsroom (Cost of a Data Breach Report 2025)",
+    "year": 2025,
+    "url": "https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls"
+  },
+  "workTrendIndex2024": {
+    "title": "AI at Work Is Here. Now Comes the Hard Part",
+    "publisher": "Microsoft and LinkedIn (Work Trend Index)",
+    "year": 2024,
+    "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part"
+  },
+  "gartnerAgentic2025": {
+    "title": "Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027",
+    "publisher": "Gartner",
+    "year": 2025,
+    "url": "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027"
+  },
+  "gartnerGenAI2024": {
+    "title": "Gartner Predicts 30% of Generative AI Projects Will Be Abandoned After Proof of Concept By End of 2025",
+    "publisher": "Gartner",
+    "year": 2024,
+    "url": "https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025"
+  },
+  "owaspLlm2025": {
+    "title": "OWASP Top 10 for LLM Applications 2025",
+    "publisher": "OWASP GenAI Security Project",
+    "year": 2025,
+    "url": "https://genai.owasp.org/llm-top-10/"
+  },
+  "census2026": {
+    "title": "Large Firms With at Least 20 Employees Biggest AI Users",
+    "publisher": "U.S. Census Bureau",
+    "year": 2026,
+    "url": "https://census.gov/library/stories/2026/05/ai-use-businesses.html"
+  },
+  "sba2026": {
+    "title": "Frequently Asked Questions About Small Business 2026",
+    "publisher": "U.S. Small Business Administration, Office of Advocacy",
+    "year": 2026,
+    "url": "https://advocacy.sba.gov/2026/02/03/frequently-asked-questions-about-small-business-2026/"
+  },
+  "cepalPymes": {
+    "title": "Acerca de Microempresas y Pymes",
+    "publisher": "CEPAL (Naciones Unidas)",
+    "year": 2026,
+    "url": "https://www.cepal.org/es/temas/micro-pequenas-medianas-empresas-mipyme/acerca-microempresas-pymes"
+  },
+  "powerBiPricing": {
+    "title": "Power BI pricing",
+    "publisher": "Microsoft",
+    "year": 2026,
+    "url": "https://www.microsoft.com/en-us/power-platform/products/power-bi/pricing"
+  },
+  "dataStudio": {
+    "title": "Data Studio (formerly Looker Studio)",
+    "publisher": "Google Cloud",
+    "year": 2026,
+    "url": "https://cloud.google.com/data-studio"
+  }
+}
