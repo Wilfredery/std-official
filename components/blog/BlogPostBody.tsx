@@ -1,44 +1,18 @@
-import type { BlogBlock } from "@/lib/data/blog";
+// Styles mirror the old block renderer, applied to the HTML that marked emits.
+const BODY_CLASSES = [
+  "space-y-6 text-base sm:text-lg leading-relaxed text-foreground/90",
+  "[&_h2]:pt-6 [&_h2]:text-2xl sm:[&_h2]:text-3xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-foreground",
+  "[&_h3]:pt-4 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-foreground",
+  "[&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-3 [&_ul]:marker:text-primary",
+  "[&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-3 [&_ol]:marker:font-semibold [&_ol]:marker:text-primary",
+  "[&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary/80",
+  "[&_strong]:font-semibold [&_strong]:text-foreground",
+  "[&_blockquote]:border-l-4 [&_blockquote]:border-primary/40 [&_blockquote]:pl-4 [&_blockquote]:italic",
+].join(" ");
 
-export function BlogPostBody({ blocks }: { blocks: BlogBlock[] }) {
-  return (
-    <div className="space-y-6 text-base sm:text-lg leading-relaxed text-foreground/90">
-      {blocks.map((block, i) => {
-        switch (block.type) {
-          case "h2":
-            return (
-              <h2
-                key={i}
-                className="pt-6 text-2xl sm:text-3xl font-bold tracking-tight text-foreground"
-              >
-                {block.text}
-              </h2>
-            );
-          case "ul":
-            return (
-              <ul key={i} className="list-disc pl-6 space-y-3 marker:text-primary">
-                {block.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            );
-          case "ol":
-            return (
-              <ol
-                key={i}
-                className="list-decimal pl-6 space-y-3 marker:font-semibold marker:text-primary"
-              >
-                {block.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ol>
-            );
-          default:
-            return <p key={i}>{block.text}</p>;
-        }
-      })}
-    </div>
-  );
+/** Renders a post body. `html` comes from the repo's own Markdown (lib/data/blog.ts). */
+export function BlogPostBody({ html }: { html: string }) {
+  return <div className={BODY_CLASSES} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
 export function formatPostDate(iso: string, locale: string): string {
