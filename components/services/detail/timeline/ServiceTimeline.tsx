@@ -1,5 +1,3 @@
-// NOTE: This component is currently inactive (commented out in ServiceDetailSection.tsx).
-// It is preserved for potential future use. Do not delete.
 import {
   ClipboardList,
   FileSearch,
@@ -8,7 +6,6 @@ import {
   LayoutDashboard,
   Rocket,
   Brain,
-  Cpu,
   Database,
   ShieldCheck,
   ClipboardCheck,
@@ -33,13 +30,20 @@ interface ServiceTimelineProps {
   slug: string;
 }
 
+// One icon per step (up to 5). Steps beyond the list fall back to the step label.
 const timelineIcons: Record<string, LucideIcon[]> = {
-  "data-analysis": [ClipboardList, FileSearch, BarChart3],
-  "business-intelligence": [Search, LayoutDashboard, Rocket],
-  "machine-learning": [Brain, Cpu, Rocket],
-  "data-auditing": [Database, ShieldCheck, ClipboardCheck],
-  "digital-transformation": [Search, PenTool, Cloud],
-  "process-automation": [Workflow, Wrench, Zap],
+  "data-analysis": [ClipboardList, Database, Wrench, BarChart3, Rocket],
+  "business-intelligence": [
+    Search,
+    Database,
+    LayoutDashboard,
+    ShieldCheck,
+    Rocket,
+  ],
+  "machine-learning": [ClipboardList, Database, Brain, Rocket, BarChart3],
+  "data-auditing": [Database, FileSearch, Search, ShieldCheck, ClipboardCheck],
+  "digital-transformation": [Search, PenTool, Wrench, Cloud, Rocket],
+  "process-automation": [Workflow, PenTool, Wrench, Zap, Rocket],
 };
 
 export function ServiceTimeline({
@@ -54,60 +58,53 @@ export function ServiceTimeline({
   const icons = timelineIcons[slug];
 
   return (
-    <section className="py-16 sm:py-20 border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-balance">
-            {title}
-          </h2>
-        </div>
+    <section className="mb-16">
+      <h2 className="text-2xl font-bold mb-8">{title}</h2>
 
-        <div className="flex flex-col items-center sm:flex-row gap-8 max-w-4xl mx-auto relative">
-          {/* Connecting line (desktop only) */}
-          {steps.length > 1 && (
-            <div
-              className="hidden sm:block absolute top-10 h-px bg-border"
-              style={{
-                left: `${100 / (steps.length * 2)}%`,
-                right: `${100 / (steps.length * 2)}%`,
-              }}
-            />
-          )}
+      <ol className="flex flex-col">
+        {steps.map((step, i) => {
+          const StepIcon = icons?.[i];
+          const isLast = i === steps.length - 1;
 
-          {steps.map((step, i) => {
-            const StepIcon = icons?.[i];
+          return (
+            <li key={i} className="relative pl-20 pb-10 last:pb-0">
+              {/* Connecting line between markers */}
+              {!isLast && (
+                <span
+                  aria-hidden="true"
+                  className="absolute left-7 top-14 bottom-0 w-px bg-border"
+                />
+              )}
 
-            return (
               <div
-                key={i}
-                className="flex flex-col items-center text-center relative flex-1"
+                data-testid="timeline-marker"
+                className={`absolute left-0 top-0 size-14 rounded-full ${accentBg} grid place-items-center border-4 border-background`}
               >
-                <div
-                  className={`size-20 rounded-full ${accentBg} grid place-items-center mb-4 relative z-10 border-4 border-background`}
-                >
-                  {StepIcon ? (
-                    <StepIcon className={`size-8 ${accentText}`} />
-                  ) : (
-                    <span className={`text-xs font-mono ${accentText}`}>
-                      {step.step}
-                    </span>
-                  )}
-                </div>
-
-                {/* Step label / number */}
-                <span className="text-xs font-mono text-muted-foreground mb-2">
-                  {String(i + 1).padStart(2, "0")} — {step.step}
-                </span>
-
-                <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-                  {step.description}
-                </p>
+                {StepIcon ? (
+                  <StepIcon
+                    className={`size-6 ${accentText}`}
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <span className={`text-xs font-mono ${accentText}`}>
+                    {step.step}
+                  </span>
+                )}
               </div>
-            );
-          })}
-        </div>
-      </div>
+
+              {/* Step label / number */}
+              <span className="block text-xs font-mono text-muted-foreground mb-1">
+                {String(i + 1).padStart(2, "0")} — {step.step}
+              </span>
+
+              <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {step.description}
+              </p>
+            </li>
+          );
+        })}
+      </ol>
     </section>
   );
 }

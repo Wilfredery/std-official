@@ -6,15 +6,18 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ServiceOverview } from "./overview/ServiceOverview";
 import { ServiceAudience } from "./audience/ServiceAudience";
 import { ServiceDeliverables } from "./deliverables/ServiceDeliverables";
-// import { ServiceTimeline } from "./timeline/ServiceTimeline";
+import { ServiceTools } from "./tools/ServiceTools";
+import { ServiceTimeline } from "./timeline/ServiceTimeline";
 import { ServiceFaq } from "./faq/ServiceFaq";
 import { CtaLink } from "./ctaLink/CtaLink";
 
 interface ServiceDetailData {
   overview: string;
+  details: string[];
   forWho: string;
   problem: string;
   deliverables: string[];
+  tools: { name: string; description: string }[];
   timeline: { step: string; title: string; description: string }[];
   faq: { question: string; answer: string }[];
 }
@@ -25,6 +28,7 @@ interface ServiceDetailLabels {
   forWhoLabel: string;
   problemLabel: string;
   deliverables: string;
+  toolsLabel: string;
   timeline: string;
   faq: string;
   back: string;
@@ -37,7 +41,7 @@ interface ServiceDetailSectionProps {
 }
 
 export async function ServiceDetailSection({
-  // service,
+  service,
   locale,
   slug,
 }: ServiceDetailSectionProps) {
@@ -53,6 +57,7 @@ export async function ServiceDetailSection({
     forWhoLabel: labelsT("forWhoLabel"),
     problemLabel: labelsT("problemLabel"),
     deliverables: labelsT("deliverables"),
+    toolsLabel: labelsT("toolsLabel"),
     timeline: labelsT("timeline"),
     faq: labelsT("faq"),
     back: labelsT("back"),
@@ -60,9 +65,11 @@ export async function ServiceDetailSection({
 
   const data: ServiceDetailData = {
     overview: serviceT("overview"),
+    details: serviceT.raw("details") as string[],
     forWho: serviceT("forWho"),
     problem: serviceT("problem"),
     deliverables: serviceT.raw("deliverables") as string[],
+    tools: serviceT.raw("tools") as { name: string; description: string }[],
     timeline: serviceT.raw("timeline") as {
       step: string;
       title: string;
@@ -92,6 +99,7 @@ export async function ServiceDetailSection({
           <ServiceOverview
             label={labels.summaryLabel}
             overview={data.overview}
+            details={data.details}
           />
         </ScrollReveal>
 
@@ -111,14 +119,18 @@ export async function ServiceDetailSection({
           />
         </ScrollReveal>
 
-        {/* <ScrollReveal direction="up" delay={400}>
+        <ScrollReveal direction="left">
+          <ServiceTools title={labels.toolsLabel} items={data.tools} />
+        </ScrollReveal>
+
+        <ScrollReveal direction="up">
           <ServiceTimeline
             title={labels.timeline}
             steps={data.timeline}
             accent={service.accent}
             slug={service.slug}
           />
-        </ScrollReveal> */}
+        </ScrollReveal>
 
         <ScrollReveal direction="down">
           <ServiceFaq title={labels.faq} items={data.faq} />

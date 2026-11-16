@@ -14,10 +14,15 @@ import {
   toBlogLocale,
 } from "@/lib/data/blog";
 import { BlogPostBody, formatPostDate } from "@/components/blog/BlogPostBody";
+import { BlogSources } from "@/components/blog/BlogSources";
 import { CtaButton } from "@/components/home/cta/CtaButton";
 import { JsonLd } from "@/components/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import type { BlogPosting, Organization } from "@/lib/seo/types";
+
+// The share image comes from the colocated opengraph-image.tsx / twitter-image.tsx
+// file conventions (file-based metadata overrides `images` in generateMetadata),
+// so no `images` are set below: that keeps exactly one og:image / twitter:image.
 
 // Unknown slugs must 404 instead of rendering an empty 200 page.
 export const dynamicParams = false;
@@ -41,11 +46,6 @@ export async function generateMetadata({
   const title = content.seoTitle ?? `${content.title} | ShineTechData`;
   const description = content.seoDescription ?? content.description;
   const canonical = `${SITE_URL}/${locale}/blog/${slug}/`;
-  const ogImage = {
-    url: `${SITE_URL}/opengraph-image.png`,
-    width: 1200,
-    height: 630,
-  };
 
   return {
     title,
@@ -59,7 +59,6 @@ export async function generateMetadata({
       description,
       url: canonical,
       siteName: "ShineTechData",
-      images: [ogImage],
       locale: locale === "es" ? "es_DO" : "en_US",
       type: "article",
       publishedTime: post.publishedAt,
@@ -69,7 +68,6 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [`${SITE_URL}/opengraph-image.png`],
     },
   };
 }
@@ -125,6 +123,12 @@ export default async function BlogPostPage({
           mainEntityOfPage: url,
           author: org,
           publisher: { "@id": ORG_ID },
+          citation: content.sources.map((source) => ({
+            "@type": "CreativeWork",
+            name: source.title,
+            url: source.url,
+            publisher: { "@type": "Organization", name: source.publisher },
+          })),
         }}
       />
 
@@ -155,6 +159,11 @@ export default async function BlogPostPage({
         </header>
 
         <BlogPostBody blocks={content.blocks} />
+        <BlogSources
+          sources={content.sources}
+          heading={ui.sources}
+          newTabLabel={ui.opensInNewTab}
+        />
 
         <aside className="relative mt-16 rounded-2xl overflow-hidden gradient-border-card p-8 sm:p-10 text-center">
           <div className="absolute inset-0 hero-glow -z-[1] opacity-50" />

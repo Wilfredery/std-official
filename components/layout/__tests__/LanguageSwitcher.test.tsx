@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@/lib/__tests__/test-utils";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { usePathname } from "@/lib/i18n/navigation";
 
 // ---------------------------------------------------------------------------
 // Shared mutable references for mock hooks (set per test)
@@ -35,6 +36,7 @@ vi.mock("@/lib/i18n/routing", () => ({
 describe("LanguageSwitcher", () => {
   beforeEach(() => {
     mockReplace.mockClear();
+    vi.mocked(usePathname).mockReturnValue("/en");
   });
 
   it("renders EN and ES language buttons", () => {
@@ -86,6 +88,39 @@ describe("LanguageSwitcher", () => {
 
     fireEvent.click(screen.getByText("EN"));
     expect(mockReplace).toHaveBeenCalledWith("/en", { locale: "en" });
+  });
+
+  describe("Spanish-only landings", () => {
+    it.each([
+      ["/consultoria-de-datos-republica-dominicana/", "/services/data-analysis/"],
+      ["/consultor-power-bi-republica-dominicana/", "/services/business-intelligence/"],
+      ["/consultor-power-bi-republica-dominicana", "/services/business-intelligence/"],
+    ])("switching %s to EN lands on %s instead of a 404", (from, to) => {
+      vi.mocked(usePathname).mockReturnValue(from);
+      render(<LanguageSwitcher />, { locale: "es" });
+
+      fireEvent.click(screen.getByText("EN"));
+      expect(mockReplace).toHaveBeenCalledWith(to, { locale: "en" });
+    });
+
+    it("keeps the same path when switching a landing to ES", () => {
+      vi.mocked(usePathname).mockReturnValue("/consultor-power-bi-republica-dominicana/");
+      render(<LanguageSwitcher />, { locale: "es" });
+
+      fireEvent.click(screen.getByText("ES"));
+      expect(mockReplace).toHaveBeenCalledWith(
+        "/consultor-power-bi-republica-dominicana/",
+        { locale: "es" },
+      );
+    });
+
+    it("does not remap other pages when switching to EN", () => {
+      vi.mocked(usePathname).mockReturnValue("/services/data-analysis/");
+      render(<LanguageSwitcher />, { locale: "es" });
+
+      fireEvent.click(screen.getByText("EN"));
+      expect(mockReplace).toHaveBeenCalledWith("/services/data-analysis/", { locale: "en" });
+    });
   });
 
   it("never shows a loading indicator while switching locale", () => {

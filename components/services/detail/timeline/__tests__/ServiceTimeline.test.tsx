@@ -60,7 +60,7 @@ describe("ServiceTimeline", () => {
   it("renders icons when slug is known (data-analysis)", () => {
     const { container } = render(<ServiceTimeline {...defaultProps} />);
     // Known slugs render lucide icons (SVGs inside the circles)
-    const circles = container.querySelectorAll(".size-20");
+    const circles = container.querySelectorAll('[data-testid="timeline-marker"]');
     expect(circles).toHaveLength(3);
 
     circles.forEach((circle) => {
@@ -79,16 +79,49 @@ describe("ServiceTimeline", () => {
       />,
     );
     // Unknown slug should show step label text instead of icons
-    const circles = container.querySelectorAll(".size-20");
+    const circles = container.querySelectorAll('[data-testid="timeline-marker"]');
     expect(circles).toHaveLength(3);
 
     // The first circle should show "Discover" instead of an icon
     expect(circles[0].textContent).toContain("Discover");
   });
 
+  it("renders the steps as an ordered list", () => {
+    const { container } = render(<ServiceTimeline {...defaultProps} />);
+    const list = container.querySelector("ol");
+    expect(list).toBeInTheDocument();
+    expect(list?.querySelectorAll(":scope > li")).toHaveLength(3);
+  });
+
+  it("renders the title as an h2 and each step title as an h3", () => {
+    render(<ServiceTimeline {...defaultProps} />);
+    expect(
+      screen.getByRole("heading", { level: 2, name: "Our Process" }),
+    ).toBeInTheDocument();
+    expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(3);
+  });
+
+  it("supports five-step timelines without errors", () => {
+    const fiveSteps = [
+      ...defaultSteps,
+      { step: "Run", title: "Run Phase", description: "We monitor." },
+      { step: "Grow", title: "Grow Phase", description: "We iterate." },
+    ];
+    const { container } = render(
+      <ServiceTimeline {...defaultProps} steps={fiveSteps} />,
+    );
+    const markers = container.querySelectorAll(
+      '[data-testid="timeline-marker"]',
+    );
+    expect(markers).toHaveLength(5);
+    markers.forEach((marker) => {
+      expect(marker.querySelector("svg")).toBeInTheDocument();
+    });
+  });
+
   it("applies accent styling to circles", () => {
     const { container } = render(<ServiceTimeline {...defaultProps} />);
-    const circles = container.querySelectorAll(".size-20");
+    const circles = container.querySelectorAll('[data-testid="timeline-marker"]');
     expect(circles[0]).toHaveClass("bg-primary/10");
   });
 

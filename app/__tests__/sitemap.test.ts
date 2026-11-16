@@ -9,15 +9,20 @@ vi.hoisted(() => vi.setSystemTime(new Date("2026-06-17")));
 import sitemap from "@/app/sitemap";
 import { PAGES_UPDATED_AT, SITE_URL } from "@/lib/site";
 import { blogPosts } from "@/lib/data/blog";
+import { landings, LANDINGS_UPDATED_AT } from "@/lib/data/landings";
+
+const isLanding = (url: string) =>
+  landings.some((l) => url.endsWith(`/es/${l.slug}/`));
 
 describe("sitemap.ts", () => {
-  it("generates exactly 26 + blog post <url> entries (REQ-2)", () => {
+  it("generates exactly 26 + blog post + landing <url> entries (REQ-2)", () => {
     const entries = sitemap();
 
     // 7 static routes (incl. /blog/) × 2 locales = 14
     // 6 service slugs × 2 locales = 12
     // N blog posts × 2 locales
-    expect(entries).toHaveLength(26 + blogPosts.length * 2);
+    // M Spanish-only landings × 1 locale
+    expect(entries).toHaveLength(26 + blogPosts.length * 2 + landings.length);
   });
 
   it("every URL ends with a trailing slash (REQ-2.3)", () => {
@@ -29,8 +34,8 @@ describe("sitemap.ts", () => {
     }
   });
 
-  it("every entry has hreflang alternates: en + es + x-default (REQ-3)", () => {
-    const entries = sitemap();
+  it("every bilingual entry has hreflang alternates: en + es + x-default (REQ-3)", () => {
+    const entries = sitemap().filter((e) => !isLanding(e.url));
 
     expect(entries.length).toBeGreaterThan(0);
     for (const entry of entries) {
@@ -128,7 +133,9 @@ describe("sitemap.ts", () => {
   it("static and service pages use PAGES_UPDATED_AT as lastModified", () => {
     const entries = sitemap();
 
-    const pageEntries = entries.filter((e) => !/\/blog\/[^/]+\/$/.test(e.url));
+    const pageEntries = entries.filter(
+      (e) => !/\/blog\/[^/]+\/$/.test(e.url) && !isLanding(e.url),
+    );
     expect(pageEntries.length).toBe(26);
     for (const entry of pageEntries) {
       expect(entry.lastModified).toBe(PAGES_UPDATED_AT);
@@ -219,5 +226,42 @@ describe("sitemap.ts", () => {
     for (const entry of serviceDetailEntries) {
       expect(entry.changeFrequency).toBe("monthly");
     }
+  });
+
+  describe("Spanish-only landings", () => {
+    it("lists exactly one es URL per landing", () => {
+      const entries = sitemap();
+
+      for (const landing of landings) {
+        const matching = entries.filter((e) => e.url.includes(landing.slug));
+        expect(matching).toHaveLength(1);
+        expect(matching[0].url).toBe(`${SITE_URL}/es/${landing.slug}/`);
+      }
+      expect(landings.map((l) => l.slug)).toEqual([
+        "consultoria-de-datos-republica-dominicana",
+        "consultor-power-bi-republica-dominicana",
+      ]);
+    });
+
+    it("has only a self-referencing es alternate (no en, no x-default)", () => {
+      const entries = sitemap().filter((e) => isLanding(e.url));
+
+      expect(entries).toHaveLength(landings.length);
+      for (const entry of entries) {
+        expect(entry.alternates?.languages).toEqual({ es: entry.url });
+      }
+    });
+
+    it("uses priority 0.8, monthly and the landings lastmod", () => {
+      const entries = sitemap().filter((e) => isLanding(e.url));
+
+      expect(LANDINGS_UPDATED_AT).toBe("2026-11-16");
+      for (const entry of entries) {
+        expect(entry.priority).toBe(0.8);
+        expect(entry.changeFrequency).toBe("monthly");
+        expect(entry.lastModified).toBe("2026-11-16");
+        expect(entry.url).toMatch(/\/$/);
+      }
+    });
   });
 });
