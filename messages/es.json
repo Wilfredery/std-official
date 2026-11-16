@@ -113,6 +113,7 @@
     "forWhoLabel": "Para quién",
     "problemLabel": "El problema",
     "deliverables": "Entregables Clave",
+    "toolsLabel": "Herramientas para pymes",
     "timeline": "Cómo Entregamos",
     "faq": "Preguntas Frecuentes",
     "back": "Volver a todos los servicios",
@@ -125,6 +126,12 @@
         "shortDescription": "Diagnósticos profundos para descubrir eficiencias ocultas y tendencias de mercado.",
         "summary": "Auditoría, parsing y análisis exploratorio prácticos que revelan los patrones que tu negocio ha estado perdiendo.",
         "overview": "Nuestro servicio de Análisis de Datos va más allá del reporting superficial. Nos sumergimos en tus datos crudos para descubrir patrones ocultos, anomalías y oportunidades que tu equipo podría estar perdiendo. Ya sea que tengas bases de datos estructuradas, hojas de cálculo o fuentes de datos diversas, las convertimos en una historia coherente respaldada por rigor estadístico.",
+        "details": [
+          "El análisis de datos para pymes empieza con una idea sencilla: antes de comprar software nuevo o contratar un equipo de datos, descubre qué dicen los datos que ya tienes. La mayoría de las empresas guarda años de ventas, inventario, clientes y pagos repartidos entre un punto de venta, un sistema contable, un CRM y varias hojas de Excel. Cada fuente cuenta una parte de la historia. Nosotros las unimos, revisamos qué tan confiables son y las analizamos para responder las preguntas que de verdad te importan.",
+          "El valor para el negocio es claridad. Una tienda puede descubrir qué productos parecen exitosos pero pierden dinero después de devoluciones y descuentos. Una distribuidora puede detectar clientes cuya frecuencia de pedidos va cayendo meses antes de que se vayan. Una clínica puede ver en qué días, con qué doctores o con qué aseguradoras se concentran las citas perdidas. Una firma de servicios puede comparar horas cotizadas contra horas reales por tipo de proyecto.",
+          "Trabajamos de forma práctica. Partimos de tus preguntas, perfilamos los datos para ver qué falta o qué está inconsistente, limpiamos lo que se pueda limpiar y documentamos cada supuesto para que los números se puedan reproducir después. Usamos métodos estadísticos cuando ayudan, como comparar segmentos, comprobar si un cambio es real o encontrar valores atípicos, y los dejamos fuera cuando una tabla dinámica es suficiente. Recibes hallazgos en lenguaje claro, no una pared de gráficos.",
+          "Al terminar, tu equipo tiene un conjunto de datos limpio y documentado, una lista clara de lo que los datos sí respaldan y lo que no, y un grupo corto de acciones ordenadas por esfuerzo e impacto esperado. Algunos equipos conectan después esos datos a un dashboard, que es donde entra nuestro trabajo de inteligencia de negocios. Otros se quedan con el libro de análisis y lo actualizan por su cuenta, porque lo escribimos para que una persona sin formación técnica pueda seguirlo."
+        ],
         "forWho": "Equipos con datos en los que no confían — o que aún no saben cómo usar.",
         "problem": "La mayoría de las PyMEs tienen datos dispersos entre CRMs, ERPs, hojas de cálculo y herramientas cloud — sin forma de ver el panorama completo.",
         "deliverables": [
@@ -133,31 +140,83 @@
           "Presentación de insights para liderazgo",
           "Próximos pasos recomendados y victorias rápidas"
         ],
+        "tools": [
+          {
+            "name": "Excel con Power Query",
+            "description": "Ya está en casi todas las oficinas. Power Query importa, limpia y combina archivos de forma repetible, así que actualizar cada mes no significa rehacer el trabajo a mano."
+          },
+          {
+            "name": "Google Sheets",
+            "description": "Útil para equipos que ya trabajan en Google Workspace. Lo usamos para copias de trabajo compartidas y análisis livianos que tu equipo puede abrir y revisar sin instalar nada."
+          },
+          {
+            "name": "Python y pandas",
+            "description": "Herramientas gratuitas y de código abierto para archivos grandes, datos desordenados y pruebas estadísticas que las hojas de cálculo manejan mal. Entregamos cuadernos comentados para poder repetir el análisis."
+          },
+          {
+            "name": "SQL con PostgreSQL o BigQuery",
+            "description": "Cuando los datos superan a las hojas de cálculo, una base de datos pequeña o un almacén en la nube los mantiene en un solo lugar. PostgreSQL es de código abierto; BigQuery cobra según el uso y tiene un nivel gratuito mensual."
+          },
+          {
+            "name": "Metabase o Data Studio",
+            "description": "Formas gratuitas o de bajo costo de convertir las tablas finales en gráficos que tu equipo puede filtrar. Metabase es de código abierto; Data Studio es la herramienta gratuita de dashboards de Google."
+          }
+        ],
         "timeline": [
           {
             "step": "Semana 1",
-            "title": "Alcance",
-            "description": "Entrevistas e inventario de datos."
+            "title": "Definir las preguntas",
+            "description": "Nos reunimos con quienes toman decisiones y acordamos entre tres y cinco preguntas concretas, como por qué bajó el margen o qué clientes están en riesgo. También listamos cada sistema que guarda datos relevantes y quién es su responsable, para que el alcance quede claro antes de abrir un solo archivo."
           },
           {
-            "step": "Semana 2",
-            "title": "Auditoría",
-            "description": "Controles de calidad, profiling y limpieza."
+            "step": "Semanas 1–2",
+            "title": "Reunir e inventariar",
+            "description": "Recopilamos exportaciones o accesos de solo lectura de cada fuente, registramos cómo se define cada campo y anotamos rangos de fechas, vacíos y duplicados. El resultado es un inventario breve que te muestra qué datos tienes realmente y qué tan completos están."
           },
           {
-            "step": "Semana 3",
-            "title": "Insight",
-            "description": "Análisis, visualización y entrega."
+            "step": "Semanas 2–3",
+            "title": "Limpiar y preparar",
+            "description": "Estandarizamos formatos, unificamos clientes y productos duplicados, tratamos los valores faltantes de forma transparente y unimos las fuentes por claves comunes. Cada regla queda escrita para que veas qué cambió y por qué, y para repetir la misma limpieza el mes próximo."
+          },
+          {
+            "step": "Semanas 3–4",
+            "title": "Analizar",
+            "description": "Exploramos los datos, probamos hipótesis, segmentamos clientes o productos y buscamos tendencias, estacionalidad y anomalías. Cuando un hallazgo sorprende, lo verificamos contra la fuente antes de llevarlo a una presentación, para que no tomes decisiones sobre un error de datos."
+          },
+          {
+            "step": "Semana 4",
+            "title": "Entregar y traspasar",
+            "description": "Presentamos los hallazgos a tu equipo en lenguaje claro y entregamos el informe, el dataset limpio y la documentación. Acordamos los próximos pasos: tú decides qué mejoras rápidas aplicar y si el análisis debe convertirse en un reporte recurrente."
           }
         ],
         "faq": [
           {
-            "question": "¿Necesitan acceso a datos de producción?",
-            "answer": "Normalmente trabajamos con muestras anonimizadas o entornos de staging primero."
+            "question": "¿Cuánto cuesta un proyecto de análisis de datos?",
+            "answer": "No publicamos precios fijos porque el alcance varía mucho: no es lo mismo una fuente limpia que seis desordenadas. Después de una llamada gratuita de 30 minutos te enviamos una propuesta escrita de precio fijo con alcance, entregables y plazos, para que sepas el costo antes de empezar. Si el alcance cambia, lo acordamos contigo por escrito primero."
+          },
+          {
+            "question": "¿Cuánto tiempo toma?",
+            "answer": "Los análisis pequeños y enfocados suelen tomar entre dos y cuatro semanas. Lo que más influye es qué tan listos estén los datos: si las exportaciones son fáciles de obtener y están razonablemente limpias, avanzamos rápido; si hay que perseguir accesos o desenredar años de hojas de cálculo, toma más."
+          },
+          {
+            "question": "¿Necesitan acceso a nuestros sistemas de producción?",
+            "answer": "Normalmente no. Preferimos exportaciones, muestras anonimizadas o acceso de solo lectura a una copia de los datos, lo que reduce el riesgo para tu operación diaria. Con gusto firmamos un acuerdo de confidencialidad antes de ver cualquier dato, y tú sigues siendo dueño de todo."
           },
           {
             "question": "¿Qué herramientas usan?",
-            "answer": "Python, SQL y dbt para análisis; Looker / Metabase / Power BI para reportes."
+            "answer": "Elegimos según lo que tu equipo pueda mantener: Excel con Power Query o Google Sheets para trabajos sencillos, Python y SQL para análisis más pesados, y Metabase, Data Studio o Power BI para reportes. Te explicamos por qué elegimos cada herramienta."
+          },
+          {
+            "question": "¿Qué necesitamos aportar?",
+            "answer": "Una persona que conozca las preguntas del negocio, acceso a exportaciones o conexiones de solo lectura y unas pocas horas para entrevistas y comentarios. No necesitas un equipo de datos ni personal técnico. Quien sabe cómo se generan los registros de ventas u operaciones es la persona más útil en la mesa, así que inclúyela desde el principio."
+          },
+          {
+            "question": "¿Pueden trabajar de forma remota con nuestro equipo?",
+            "answer": "Sí. Trabajamos de forma remota con equipos en República Dominicana, Estados Unidos y el resto de Latinoamérica, con videollamadas, documentos compartidos y actualizaciones escritas en español o inglés. Los husos horarios de la región se traslapan bien, así que las dudas suelen resolverse el mismo día."
+          },
+          {
+            "question": "¿Qué pasa después de la entrega?",
+            "answer": "Te quedas con el informe, el dataset limpio, la documentación y el código o libro de trabajo. Hacemos un recorrido con tu equipo y respondemos preguntas durante un breve periodo de traspaso. Si quieres que el análisis se actualice cada mes o se convierta en un dashboard, lo cotizamos como un paso aparte con precio claro."
           }
         ]
       },
@@ -169,6 +228,12 @@
         "shortDescription": "Dashboards en tiempo real a medida que ponen las métricas clave en manos de quien decide.",
         "summary": "Diseñamos y entregamos dashboards interactivos que tu equipo realmente usará todos los días.",
         "overview": "Diseñamos y construimos soluciones de BI que convierten tu data warehouse en un motor de toma de decisiones. Desde dashboards de KPIs ejecutivos hasta reportes operativos departamentales, creamos visualizaciones intuitivas que tu equipo realmente usará cada día.",
+        "details": [
+          "La consultoría de inteligencia de negocios para pymes consiste en poner los números correctos frente a las personas correctas sin que alguien tenga que reconstruir una hoja de Excel cada lunes. Una solución de BI conecta tus sistemas de ventas, finanzas, inventario u operaciones, define cada métrica una sola vez y la muestra en dashboards que se actualizan solos. Así, el dueño y los gerentes responden en segundos preguntas del día a día, como cómo vamos frente al mes pasado, en lugar de esperar un reporte.",
+          "El obstáculo común no es la herramienta de gráficos, sino el desacuerdo sobre las definiciones. Ventas dice que los ingresos incluyen los pedidos pendientes, finanzas dice que no, y el dashboard se vuelve un número más en el que nadie confía. Empezamos escribiendo tus métricas clave en lenguaje sencillo, como ingresos, margen, clientes activos y días de cobro, y acordando quién es responsable de cada una. Solo después construimos los gráficos, para que todos lean las mismas cifras.",
+          "Los ejemplos muestran qué cambia. Una tienda en línea sigue pedidos, gasto en publicidad y devoluciones juntos, en lugar de en tres pestañas. Una distribuidora vigila el inventario frente a los puntos de reorden y las facturas vencidas por cliente. Una clínica sigue citas, cancelaciones e ingresos por doctor. Una firma de servicios observa la utilización de horas facturables y el margen por proyecto. Cada dashboard se diseña alrededor de las decisiones de un rol, para que sea corto y fácil de leer y no una pantalla con todos los gráficos posibles.",
+          "También construimos pensando en el mantenimiento. Los dashboards usan fuentes de datos documentadas, los nombres son consistentes y el acceso se define por rol, de modo que cada persona ve lo que necesita y nada más. Capacitamos a tu equipo para editar filtros, agregar un gráfico y leer los datos, y dejamos documentación. Cuando el negocio cambie, alguien de tu lado podrá ajustar el dashboard sin empezar de cero ni llamarnos para cada retoque."
+        ],
         "forWho": "Líderes cansados de esperar hojas de cálculo para tomar decisiones.",
         "problem": "Archivos Excel y PDFs estáticos no escalan. Tu equipo necesita dashboards en vivo, interactivos y que se actualicen automáticamente.",
         "deliverables": [
@@ -177,31 +242,83 @@
           "Accesos por rol y analítica embebida",
           "Capacitación y documentación del equipo"
         ],
+        "tools": [
+          {
+            "name": "Power BI",
+            "description": "La herramienta de BI de Microsoft. Power BI Desktop es gratuito para crear reportes; compartirlos con tu equipo requiere licencias de pago por usuario. Encaja bien si ya usas Microsoft 365 y Excel."
+          },
+          {
+            "name": "Data Studio (antes Looker Studio)",
+            "description": "La herramienta gratuita de dashboards de Google, muy buena con Google Sheets, BigQuery, Google Analytics y Google Ads."
+          },
+          {
+            "name": "Metabase",
+            "description": "Una herramienta de BI de código abierto que puedes alojar tú mismo o contratar como servicio de pago en la nube. El personal no técnico puede hacerle preguntas a los datos sin escribir SQL, lo que le va bien a equipos pequeños."
+          },
+          {
+            "name": "Excel y Power Query",
+            "description": "Muchas veces es el mejor primer paso. Podemos hacer que tus reportes de Excel actuales se actualicen solos desde fuentes limpias, en lugar de rehacerlos a mano cada periodo."
+          },
+          {
+            "name": "BigQuery o PostgreSQL",
+            "description": "Un almacén o base de datos que guarda los datos limpios detrás de tus dashboards. BigQuery cobra según el uso y tiene un nivel gratuito mensual; PostgreSQL es de código abierto y económico de operar."
+          }
+        ],
         "timeline": [
           {
             "step": "Semana 1",
-            "title": "Descubrimiento",
-            "description": "Workshop de KPIs y definición de métricas."
+            "title": "Taller de métricas",
+            "description": "Nos reunimos con dueños y líderes de equipo para listar las decisiones que toman cada semana y los números detrás de ellas. Acordamos una lista corta de KPIs, escribimos una definición para cada uno y anotamos qué sistemas aportan los datos. Eso se convierte en el plano del proyecto."
           },
           {
-            "step": "Semana 2",
-            "title": "Construcción",
-            "description": "Modelado, diseño de dashboards y QA."
+            "step": "Semanas 1–2",
+            "title": "Conectar y preparar los datos",
+            "description": "Conectamos tus fuentes, como contabilidad, punto de venta, CRM y hojas de cálculo, y construimos tablas limpias para reportes. Los duplicados y los nombres inconsistentes se corrigen en un solo lugar para que la misma lógica alimente todos los gráficos, y la actualización corre en un horario fijo."
           },
           {
-            "step": "Semana 3",
-            "title": "Lanzamiento",
-            "description": "Rollout, capacitación e iteración."
+            "step": "Semanas 2–3",
+            "title": "Diseñar y construir dashboards",
+            "description": "Bosquejamos cada dashboard junto a sus usuarios y lo construimos en la herramienta elegida. Mantenemos diseños enfocados: pocas cifras principales, tendencias y un detalle por capas, en vez de una pared de gráficos. Revisas versiones funcionales temprano y pides los cambios que necesites."
+          },
+          {
+            "step": "Semanas 3–4",
+            "title": "Probar y configurar accesos",
+            "description": "Conciliamos los totales de los dashboards con tu contabilidad y tus registros operativos, corregimos diferencias y definimos accesos por rol. Probar con usuarios reales detecta etiquetas confusas y filtros lentos antes del lanzamiento y no después."
+          },
+          {
+            "step": "Semana 4 en adelante",
+            "title": "Lanzar y capacitar",
+            "description": "Ponemos los dashboards en marcha, damos una sesión de capacitación y dejamos documentación breve con fuentes, definiciones y cómo editar. Tras el lanzamiento recogemos comentarios y ajustamos, para que los dashboards evolucionen según cómo los usa tu equipo."
           }
         ],
         "faq": [
           {
-            "question": "¿Qué herramienta de BI recomiendan?",
-            "answer": "Somos agnósticos — elegimos lo que mejor encaja con tu equipo y presupuesto."
+            "question": "¿Cuánto cuesta un proyecto de BI?",
+            "answer": "Depende del número de fuentes de datos, dashboards y usuarios. En lugar de cotizar a ciegas, hacemos una llamada gratuita de 30 minutos, revisamos lo que tienes y enviamos una propuesta de precio fijo con dashboards, fuentes, capacitación y plazos. Las licencias de herramientas, si las hay, van aparte y te mostramos las opciones y costos antes de que te comprometas."
           },
           {
-            "question": "¿Integran con nuestro warehouse?",
-            "answer": "Sí — Snowflake, BigQuery, Redshift o Postgres."
+            "question": "¿Qué herramienta de BI deberíamos usar?",
+            "answer": "Somos agnósticos y elegimos según los hábitos de tu equipo, tu presupuesto y dónde viven tus datos. Power BI le va bien a quienes usan Microsoft, Data Studio a quienes usan Google con presupuesto ajustado y Metabase a quienes prefieren código abierto. Te explicamos las ventajas y desventajas, incluyendo el costo de licencias, para que la decisión sea tuya."
+          },
+          {
+            "question": "¿Necesitamos un data warehouse?",
+            "answer": "No siempre. Una pyme con una o dos fuentes muchas veces puede conectar el dashboard directo a sus sistemas o a hojas de cálculo. Cuando las fuentes se multiplican o los datos se vuelven lentos y desordenados, un almacén pequeño como BigQuery o PostgreSQL ayuda."
+          },
+          {
+            "question": "¿Cómo protegen nuestros datos?",
+            "answer": "Pedimos acceso de solo lectura siempre que se puede, usamos cuentas a tu nombre en vez de contraseñas compartidas y limitamos el acceso a lo que el proyecto necesita. Los dashboards usan permisos por rol para que cada persona vea solo su área. Tú sigues siendo dueño de todas las cuentas y puedes retirar nuestro acceso cuando quieras. Con gusto firmamos un acuerdo de confidencialidad antes."
+          },
+          {
+            "question": "¿Cuánto tiempo toma?",
+            "answer": "Un primer conjunto de dashboards para un departamento suele tomar entre tres y cinco semanas, según cuántas fuentes haya que conectar y qué tan limpias estén. Damos un estimado en la propuesta y te actualizamos cada semana."
+          },
+          {
+            "question": "¿Qué necesitan de nuestro equipo?",
+            "answer": "Un responsable que pueda decidir cuáles son las métricas clave, acceso a los sistemas donde viven los datos y algunas sesiones cortas de revisión. Las personas que usarán los dashboards deberían asistir al menos a una revisión de diseño, porque sus comentarios influyen más en el resultado final que cualquier decisión técnica."
+          },
+          {
+            "question": "¿Quién mantiene los dashboards después?",
+            "answer": "Tú, con nuestra ayuda si la quieres. Documentamos las fuentes de datos y las definiciones de las métricas y capacitamos a tu personal para editar y ampliar los dashboards. Algunos equipos prefieren un acuerdo mensual ligero para nuevos reportes y arreglos; lo cotizamos aparte, para que no pagues nada que no necesites."
           }
         ]
       },
@@ -213,6 +330,12 @@
         "shortDescription": "Modelos predictivos e integraciones de AI a medida para automatizar razonamiento complejo.",
         "summary": "Desde predicción de churn hasta forecast de demanda, entregamos modelos que mueven métricas de negocio.",
         "overview": "Construimos modelos de ML a medida, adaptados a tus problemas de negocio específicos — desde predicción de demanda y churn hasta detección de anomalías y motores de recomendación. Sin cajas negras genéricas; cada modelo es explicado, testeado y construido para que tu equipo lo entienda.",
+        "details": [
+          "La consultoría de machine learning para pymes debería empezar con una pregunta honesta: ¿de verdad necesitas aprendizaje automático? Muchos problemas se resuelven mejor con un reporte limpio, una regla o una fórmula en una hoja de cálculo. El machine learning sirve cuando hay una decisión que se repite, suficiente historial y un patrón demasiado complejo para reglas simples, como pronosticar la demanda, estimar qué clientes podrían dejar de comprar o marcar transacciones inusuales.",
+          "Ejemplos concretos para una pyme: pronosticar la demanda semanal de una distribuidora para que las compras se ajusten a las ventas reales, predecir qué clientes de una tienda en línea volverán a comprar, puntuar las facturas que suelen pagarse tarde, estimar las ausencias a citas en una clínica y marcar gastos inusuales. En cada caso el resultado es algo que tu equipo puede usar, como una cantidad de compra, una lista de llamadas o una cola de revisión, no una puntuación que nadie sabe cómo aprovechar.",
+          "Somos claros con los límites. Los modelos necesitan suficiente historial y datos razonablemente consistentes; unos cientos de filas rara vez bastan para una predicción confiable. En la primera fase revisamos si tus datos pueden respaldar el objetivo y comparamos el modelo con una referencia simple, como las cifras del mes pasado. Si la referencia es casi igual de buena, te lo decimos y te ahorramos el costo de un sistema complejo.",
+          "Un modelo solo sirve si encaja en el trabajo diario. Explicamos qué factores impulsan las predicciones, documentamos cómo se entrenó y se probó, y preparamos la entrega de una forma que tu equipo pueda usar: una hoja semanal, una columna en un dashboard o una API sencilla. También planificamos el monitoreo, porque los datos y el comportamiento de los clientes cambian y un modelo que acertaba el año pasado puede perder precisión."
+        ],
         "forWho": "Equipos listos para pasar de lo descriptivo a lo predictivo.",
         "problem": "La toma de decisiones reactiva basada en reportes históricos deja dinero sobre la mesa. Los modelos predictivos te permiten actuar antes de que los problemas ocurran.",
         "deliverables": [
@@ -221,31 +344,83 @@
           "Integración por API o batch con tu stack",
           "Reporte de evaluación de performance"
         ],
+        "tools": [
+          {
+            "name": "Python con pandas",
+            "description": "El conjunto de herramientas gratuito estándar para preparar y explorar datos. Maneja archivos demasiado grandes o desordenados para una hoja de cálculo y deja cada transformación en código legible y repetible."
+          },
+          {
+            "name": "scikit-learn",
+            "description": "Una biblioteca de Python de código abierto con algoritmos muy probados para pronóstico, clasificación y agrupamiento. Cubre la mayoría de los problemas de una pyme sin hardware especial y mantiene los modelos fáciles de explicar."
+          },
+          {
+            "name": "XGBoost o LightGBM",
+            "description": "Bibliotecas de código abierto de gradient boosting que suelen rendir muy bien con datos de negocio en forma de tabla, como pedidos, clientes y facturas, y se entrenan en minutos en una laptop común o un servidor pequeño."
+          },
+          {
+            "name": "MLflow",
+            "description": "Una herramienta de código abierto para registrar experimentos, parámetros y versiones de modelos, de modo que después puedas ver cómo se construyó un modelo y reproducirlo o revertirlo."
+          },
+          {
+            "name": "Power BI o Data Studio",
+            "description": "Donde las predicciones se encuentran con las decisiones. Mostrar los pronósticos junto a los datos reales en un dashboard que tu equipo ya abre hace que el modelo sea más fácil de creer y de usar."
+          }
+        ],
         "timeline": [
           {
-            "step": "Semana 1-2",
-            "title": "Definir",
-            "description": "Plantear el problema de negocio como tarea de ML."
+            "step": "Semanas 1–2",
+            "title": "Definir el problema",
+            "description": "Convertimos un objetivo de negocio en una predicción que se pueda probar: qué se predice, con cuánta anticipación y cómo se usará el resultado. Definimos el éxito en términos de negocio, acordamos una referencia que superar y verificamos que tus datos puedan respaldar la tarea de forma realista."
           },
           {
-            "step": "Semana 3",
-            "title": "Construir",
-            "description": "Feature engineering, entrenamiento, validación."
+            "step": "Semanas 2–3",
+            "title": "Preparar los datos",
+            "description": "Reunimos los registros históricos, corregimos errores y creamos variables como estacionalidad, frecuencia de compra o días desde el último pedido. Vigilamos las fugas de información, cuando datos del futuro se cuelan, porque hacen que el modelo luzca mejor en las pruebas que en el uso real."
           },
           {
-            "step": "Semana 4",
-            "title": "Desplegar",
-            "description": "Despliegue a producción con monitoreo."
+            "step": "Semanas 3–5",
+            "title": "Entrenar y validar",
+            "description": "Entrenamos varios enfoques, desde referencias simples hasta gradient boosting, y los probamos con datos que el modelo no ha visto. Comparamos los resultados con tu referencia, revisamos los errores contigo y elegimos el modelo más simple que rinda lo suficientemente bien."
+          },
+          {
+            "step": "Semanas 5–6",
+            "title": "Desplegar e integrar",
+            "description": "Entregamos el modelo en una forma que puedas usar: predicciones por lotes programadas en una hoja de cálculo o base de datos, un dashboard o una API pequeña. Documentamos entradas, salidas y cómo reentrenar, y probamos la conexión con tus herramientas actuales."
+          },
+          {
+            "step": "Continuo",
+            "title": "Monitorear y mejorar",
+            "description": "Configuramos controles que comparan las predicciones con los resultados reales y te alertan cuando baja la precisión. Acordamos una rutina de reentrenamiento y, tras la entrega, resolvemos dudas mientras tu equipo se acostumbra a apoyarse en las predicciones."
           }
         ],
         "faq": [
           {
-            "question": "¿Construyen features con LLMs?",
-            "answer": "Sí — incluyendo RAG, fine-tuning y pipelines de evaluación."
+            "question": "¿De verdad necesitamos machine learning?",
+            "answer": "Muchas veces la respuesta honesta es que todavía no. Al definir el alcance comparamos tu objetivo con opciones más simples, como mejores reportes, reglas o un modelo en hoja de cálculo. Si eso resuelve el problema, lo recomendamos. Solo sugerimos machine learning cuando una decisión repetida, suficiente historial y un patrón demasiado complejo para reglas apuntan en esa dirección."
           },
           {
             "question": "¿Cuántos datos necesitamos?",
-            "answer": "Depende del problema — te lo decimos honestamente al definir alcance."
+            "answer": "Depende del problema. Pronosticar ventas semanales suele requerir al menos un par de años de historial para captar la estacionalidad, mientras que una tarea de clasificación necesita suficientes ejemplos de cada resultado. Evaluamos tus datos en la primera fase y te decimos con claridad si no alcanzan y qué conviene empezar a registrar."
+          },
+          {
+            "question": "¿Cuánto cuesta?",
+            "answer": "No publicamos precios porque los proyectos varían mucho. Tras una llamada gratuita de 30 minutos hacemos una evaluación corta y enviamos una propuesta de precio fijo para la fase que recomendamos, a menudo empezando con un pequeño estudio de viabilidad. Así puedes ver si la idea funciona antes de comprometerte con una construcción completa."
+          },
+          {
+            "question": "¿Construyen funciones con modelos de lenguaje (LLM)?",
+            "answer": "Sí, cuando encajan: clasificar mensajes de soporte, extraer campos de documentos o buscar en tu propia base de conocimiento. Evaluamos los resultados con ejemplos reales y señalamos los límites de costo, privacidad y precisión. Para muchas tareas un modelo clásico es más barato y predecible, y te lo decimos."
+          },
+          {
+            "question": "¿Cómo manejan la privacidad de nuestros datos?",
+            "answer": "Preferimos extractos anonimizados, quitamos identificadores personales cuando se puede y trabajamos con acceso de solo lectura. Los modelos y el código quedan bajo tu propiedad. Si hay datos personales o de salud, conversamos primero qué es apropiado antes de tocarlos, y con gusto firmamos un acuerdo de confidencialidad antes."
+          },
+          {
+            "question": "¿Qué tan preciso será el modelo?",
+            "answer": "No podemos prometer una cifra antes de ver tus datos. Lo que sí hacemos es medir la precisión con honestidad sobre datos reservados, compararla con una referencia simple y explicar cómo se ven los errores en términos de negocio. Tú ves la evidencia y decides si el rendimiento basta para usarlo."
+          },
+          {
+            "question": "¿Qué pasa después de entregar el modelo?",
+            "answer": "Recibes el código, la documentación y los controles de monitoreo, además de un recorrido con tu equipo. Los modelos se desactualizan cuando cambia el comportamiento, así que recomendamos una revisión y un reentrenamiento periódicos. Podemos apoyarlos de forma acotada o capacitar a tu equipo para que lo haga por su cuenta."
           }
         ]
       },
@@ -257,6 +432,12 @@
         "shortDescription": "Aseguramiento de calidad y revisiones de cumplimiento para GDPR, HIPAA y SOC 2.",
         "summary": "Evaluamos la salud de tus datos — completitud, exactitud, linaje y cumplimiento — y te entregamos un plan de remediación.",
         "overview": "Según Gartner, la mala calidad de los datos le cuesta a las organizaciones un promedio de $12.9M al año. Nuestro servicio de Auditoría de Datos identifica exactamente dónde están tus problemas de calidad de datos, qué tan serios son y qué hacer al respecto — antes de que impacten tus operaciones o cumplimiento.",
+        "details": [
+          "Una auditoría de datos para una pyme responde una sola pregunta: ¿puedes confiar en los números con los que diriges la empresa? Clientes duplicados, productos con varios códigos, facturas sin fecha, conteos de inventario que no cuadran con la contabilidad. Rara vez son problemas dramáticos por sí solos, pero distorsionan en silencio cada reporte, pronóstico y trámite de cumplimiento construidos encima. Una auditoría de calidad de datos los encuentra de forma sistemática y muestra qué tan serios son.",
+          "Revisamos las dimensiones que importan en la práctica: completitud (¿están llenos los campos obligatorios?), exactitud (¿los valores coinciden con la realidad o con otra fuente?), consistencia (¿lo mismo se registra igual en todas partes?), vigencia y unicidad. También trazamos el linaje, es decir, de dónde sale cada cifra importante y quién la toca en el camino, porque muchos errores entran al reescribir datos a mano o al exportar archivos y no dentro del sistema principal.",
+          "Situaciones típicas: una tienda que prepara el paso a un nuevo ERP, una distribuidora que une listas de clientes tras una adquisición, una clínica que debe demostrar cómo se guardan y consultan los expedientes de sus pacientes, o una empresa en crecimiento que va a invertir en dashboards y quiere confirmar que la base es sólida. En cumplimiento, evaluamos tus prácticas de datos frente a requisitos como GDPR, HIPAA o controles SOC 2 e identificamos brechas. No somos un bufete de abogados ni un auditor certificado, y no emitimos certificaciones.",
+          "El resultado es un scorecard, una hoja de ruta de remediación priorizada y un resumen ejecutivo escrito para lectores no técnicos. Cada hallazgo incluye ejemplos, esfuerzo estimado y un responsable sugerido, de modo que la lista se convierte en un plan de trabajo y no en un informe que se queda en un cajón. Puedes corregir los problemas por tu cuenta, pedirnos ayuda o entregar la hoja de ruta a tu asesor de cumplimiento."
+        ],
         "forWho": "Empresas preparando cumplimiento, M&A o un proyecto grande de datos.",
         "problem": "Registros duplicados, campos vacíos, formatos inconsistentes y datos obsoletos corrompen silenciosamente cada reporte y decisión construida sobre ellos.",
         "deliverables": [
@@ -265,31 +446,83 @@
           "Roadmap de remediación priorizado",
           "Resumen ejecutivo"
         ],
+        "tools": [
+          {
+            "name": "Great Expectations",
+            "description": "Un marco de código abierto en Python para escribir controles de datos, como «ninguna factura sin fecha» o «los IDs de cliente son únicos», y generar reportes legibles. Los controles se pueden repetir después de cada limpieza."
+          },
+          {
+            "name": "Python y pandas",
+            "description": "Gratuitos y flexibles para perfilar archivos grandes, encontrar duplicados y emparejar registros entre sistemas que no comparten un identificador."
+          },
+          {
+            "name": "SQL en PostgreSQL o en tu base de datos actual",
+            "description": "Muchos controles de calidad son simples consultas sobre una copia de los datos, lo que mantiene la auditoría rápida y la lógica transparente."
+          },
+          {
+            "name": "Excel y Power Query",
+            "description": "Útiles para conjuntos pequeños y para compartir hallazgos; quien revisa puede abrir la evidencia de cada problema sin software especial."
+          },
+          {
+            "name": "Google Sheets",
+            "description": "Un tablero compartido para la hoja de ruta de remediación, con responsable, estado y fecha para cada hallazgo, de modo que el avance sea visible para todo el equipo."
+          }
+        ],
         "timeline": [
           {
             "step": "Semana 1",
-            "title": "Inventario",
-            "description": "Catalogar todas las fuentes y flujos de datos."
+            "title": "Alcance e inventario",
+            "description": "Acordamos qué sistemas, procesos e informes entran en el alcance y por qué, ya sea por cumplimiento, una migración o la salud general de los datos. Luego catalogamos fuentes, responsables, flujos entre sistemas y dónde vive la información sensible."
           },
           {
-            "step": "Semana 2",
-            "title": "Evaluar",
-            "description": "Correr controles de calidad y cumplimiento."
+            "step": "Semanas 1–2",
+            "title": "Perfilar los datos",
+            "description": "Ejecutamos perfilado automático para medir valores faltantes, duplicados, formatos inválidos, valores atípicos y diferencias entre sistemas. Usamos acceso de solo lectura o exportaciones y documentamos cada control para poder repetirlo después de que corrijas los problemas."
           },
           {
-            "step": "Semana 3",
-            "title": "Reportar",
-            "description": "Entregar hallazgos y roadmap priorizado."
+            "step": "Semanas 2–3",
+            "title": "Revisar prácticas y cumplimiento",
+            "description": "Entrevistamos al personal sobre cómo se ingresan, cambian y comparten los datos, y revisamos accesos, retención y consentimiento frente a los requisitos que te aplican. Esto suele revelar causas en los procesos que el perfilado solo no puede ver."
+          },
+          {
+            "step": "Semanas 3–4",
+            "title": "Puntuar y priorizar",
+            "description": "Combinamos las mediciones en un scorecard, calificamos cada hallazgo por impacto y esfuerzo, y agrupamos los problemas por causa raíz. Corregir un problema en el punto de entrada suele resolver varios síntomas posteriores, por eso el orden importa."
+          },
+          {
+            "step": "Semana 4",
+            "title": "Informar y traspasar",
+            "description": "Presentamos los hallazgos a la dirección y a los responsables de los datos, entregamos el scorecard, la hoja de ruta y el resumen ejecutivo, y respondemos preguntas. Tú decides qué abordar primero, con o sin nuestra ayuda."
           }
         ],
         "faq": [
           {
-            "question": "¿Auditan también la configuración cloud?",
-            "answer": "Nos enfocamos en datos, pero nos asociamos con firmas de seguridad para auditorías completas."
+            "question": "¿Cuánto cuesta una auditoría de datos?",
+            "answer": "El costo depende de cuántos sistemas y procesos entren en el alcance y de si incluye revisión de cumplimiento. No cotizamos a ciegas: tras una llamada gratuita de 30 minutos enviamos una propuesta de precio fijo con alcance, entregables y plazos. Una auditoría acotada de un sistema es mucho más pequeña que una revisión de toda la empresa, y te ayudamos a elegir."
           },
           {
-            "question": "¿Cuánto toma una auditoría?",
-            "answer": "Entre 2 y 4 semanas según el alcance."
+            "question": "¿Cuánto tiempo toma una auditoría?",
+            "answer": "Muchas auditorías toman entre dos y cuatro semanas, según el número de sistemas y qué tan rápido obtengamos accesos y tiempo de las personas. Indicamos un estimado en la propuesta. El retraso más común es esperar exportaciones o entrevistas, así que designar a una persona de contacto de tu lado ayuda mucho."
+          },
+          {
+            "question": "¿Nos certifican en GDPR, HIPAA o SOC 2?",
+            "answer": "No. No somos un bufete de abogados ni un organismo de certificación. Evaluamos tus prácticas de datos frente a los requisitos que nos indiques, identificamos brechas y recomendamos soluciones. El resultado puede apoyar conversaciones con tus abogados, asesor de cumplimiento o auditor externo, quienes deciden qué se considera formalmente conforme."
+          },
+          {
+            "question": "¿Qué acceso necesitan?",
+            "answer": "Normalmente basta con acceso de solo lectura o exportaciones. No necesitamos cambiar nada en tus sistemas. Preferimos una copia o un entorno de pruebas cuando es posible, pedimos solo los campos necesarios y con gusto firmamos un acuerdo de confidencialidad. Todo sigue siendo de tu propiedad y puedes retirar el acceso cuando quieras."
+          },
+          {
+            "question": "¿Auditan también la seguridad de la nube y de la red?",
+            "answer": "Nuestro enfoque son los datos: calidad, linaje, acceso a los conjuntos de datos y manejo de información sensible. No hacemos pruebas de penetración ni auditorías completas de seguridad de infraestructura. Cuando tu situación las requiera, podemos recomendarte firmas de seguridad especializadas y compartirles nuestros hallazgos para que no empiecen de cero."
+          },
+          {
+            "question": "¿Corrigen los problemas que encuentran?",
+            "answer": "La auditoría en sí diagnostica y prioriza. Muchos hallazgos son lo bastante pequeños para que tu equipo los corrija con nuestra hoja de ruta. Para limpiezas mayores, como unificar años de registros duplicados o estandarizar un catálogo de productos, podemos cotizar un proyecto aparte y bien definido. Nunca incluimos correcciones sin tu aprobación."
+          },
+          {
+            "question": "¿Qué pasa después de la auditoría?",
+            "answer": "Te quedas con el scorecard, la hoja de ruta, el resumen ejecutivo y los controles que usamos, para que puedas volver a medir después de las correcciones y ver el avance. Algunos equipos repiten una versión más ligera de la auditoría cada seis o doce meses, o agregan controles automáticos para detectar los problemas apenas aparecen."
           }
         ]
       },
@@ -301,6 +534,12 @@
         "shortDescription": "Migración de sistemas legacy a arquitecturas cloud-native y escalables.",
         "summary": "Moderniza tu stack sin romper lo que funciona. Planeamos y ejecutamos transformaciones pragmáticas y por fases.",
         "overview": "La transformación digital no se trata de reemplazar todo de golpe. Tomamos un enfoque por fases, pragmático, para modernizar tu stack tecnológico — empezando por los cambios de mayor impacto y construyendo hacia una operación completamente integrada y basada en datos.",
+        "details": [
+          "La transformación digital para pymes rara vez es una renovación dramática. En la práctica significa reemplazar los traspasos que te frenan, como formularios en papel, datos digitados dos veces, correos con adjuntos llamados «final_v3» y una lista de clientes que existe en cuatro lugares, por sistemas que comparten información. El objetivo no es tener tecnología nueva porque sí, sino una empresa que vea lo que pasa y responda más rápido con el mismo equipo.",
+          "Usamos un enfoque por fases porque una pyme no puede permitirse una migración «de golpe» que fracase. Primero evaluamos lo que tienes: sistemas, costos, cómo trabaja la gente de verdad y dónde se atascan los datos. Luego elegimos los cambios de mayor impacto y menor riesgo, quizás un CRM compartido, un flujo de facturación integrado o un repositorio central de datos, y los ponemos en una hoja de ruta que puedes ajustar a tu presupuesto y flujo de caja.",
+          "Algunos ejemplos. Una tienda reemplaza un mosaico de hojas de cálculo por un sistema de inventario conectado a su punto de venta y a la contabilidad. Una distribuidora pasa cotizaciones y pedidos del correo a un CRM que alimenta la facturación. Una clínica digitaliza la agenda y los recordatorios a pacientes. Una firma de servicios cambia las hojas de horas por una herramienta de proyectos ligada a la facturación. Cada paso elimina digitación repetida y da a los dueños una sola vista confiable.",
+          "La tecnología es solo la mitad del trabajo. La gente necesita saber por qué cambian las cosas, cómo usar las nuevas herramientas y a quién acudir cuando algo falla, por eso incluimos capacitación, documentación y seguimiento de adopción en cada fase. Los sistemas viejos y nuevos funcionan en paralelo hasta que los números cuadran, así el negocio nunca se detiene. Al terminar, la arquitectura, las cuentas y la documentación son tuyas."
+        ],
         "forWho": "PyMEs listas para ir más allá de hojas de cálculo y CRMs legacy.",
         "problem": "Sistemas anticuados no comparten datos, crean silos, ralentizan equipos y hacen el reporting preciso casi imposible.",
         "deliverables": [
@@ -309,31 +548,83 @@
           "Capa de integración entre sistemas viejos y nuevos",
           "Gestión del cambio y capacitación"
         ],
+        "tools": [
+          {
+            "name": "Google Workspace o Microsoft 365",
+            "description": "Correo, unidades compartidas, calendarios, formularios y colaboración en una suscripción por usuario. Suele ser el primer paso, y el más económico, para salir de archivos dispersos y cuentas de correo personales."
+          },
+          {
+            "name": "HubSpot CRM o Zoho CRM",
+            "description": "Seguimiento de clientes y ventas para reemplazar las hojas de contactos. HubSpot ofrece un nivel gratuito de CRM; Zoho tiene planes de pago asequibles. Ambos se integran con el correo y la facturación."
+          },
+          {
+            "name": "Odoo",
+            "description": "Una suite empresarial de código abierto que cubre inventario, ventas, compras y contabilidad. La edición Community es gratuita, con opciones de pago en la nube y Enterprise."
+          },
+          {
+            "name": "PostgreSQL o BigQuery",
+            "description": "Un lugar central para los datos combinados, para que los reportes no dependan de las exportaciones de cada sistema. Ambos escalan de lo pequeño a lo más grande sin cambiar de plataforma."
+          },
+          {
+            "name": "Make o Zapier",
+            "description": "Conectan sistemas que no tienen integración nativa, de modo que un pedido en una herramienta cree una factura o una tarea en otra sin digitar de nuevo."
+          }
+        ],
         "timeline": [
           {
-            "step": "Semana 1",
-            "title": "Evaluar",
-            "description": "Auditar sistemas actuales, costos y riesgos."
+            "step": "Semanas 1–2",
+            "title": "Evaluar la situación actual",
+            "description": "Hacemos un inventario de sistemas, suscripciones, hojas de cálculo y pasos manuales, y entrevistamos al personal sobre cómo fluye realmente el trabajo. Estimamos costos y riesgos, incluyendo la dependencia de personas clave y el software sin soporte, e identificamos dónde los datos se duplican o quedan atrapados."
           },
           {
-            "step": "Semana 2",
-            "title": "Arquitectar",
-            "description": "Diseñar el stack futuro."
+            "step": "Semanas 2–3",
+            "title": "Priorizar y diseñar",
+            "description": "Definimos el estado deseado y una hoja de ruta por fases que ordena los cambios por impacto, esfuerzo y riesgo. Comparamos opciones de herramientas realistas, con su costo y esfuerzo de migración, y acordamos contigo qué va primero, qué espera y qué conviene dejar como está."
           },
           {
-            "step": "Semana 3+",
-            "title": "Migrar",
-            "description": "Rollout por fases con ejecución paralela."
+            "step": "Semanas 3–6",
+            "title": "Construir las bases",
+            "description": "Configuramos las piezas centrales: cuentas, un repositorio de datos compartido, integraciones entre sistemas y aspectos básicos de seguridad como roles de acceso y respaldos. Probamos con datos de muestra antes de tocar nada de lo que tu negocio depende."
+          },
+          {
+            "step": "Semanas 6–10",
+            "title": "Migrar por fases",
+            "description": "Movemos datos y procesos un área a la vez, con los sistemas viejo y nuevo en paralelo y conciliando resultados. Una fase se da por terminada solo cuando los números cuadran y el equipo se siente cómodo. Los planes de reversa se escriben antes de cada paso."
+          },
+          {
+            "step": "Continuo",
+            "title": "Capacitar y estabilizar",
+            "description": "Capacitamos a cada grupo en sus flujos de trabajo, entregamos documentación y damos seguimiento a la adopción en las primeras semanas, corrigiendo fricciones a medida que aparecen. Cuando el sistema está estable, retiramos las herramientas antiguas y revisamos cuál debe ser la siguiente fase de la hoja de ruta."
           }
         ],
         "faq": [
           {
-            "question": "¿Cómo evitan disrupciones?",
-            "answer": "Ejecución paralela, rollouts por fases y testing agresivo."
+            "question": "¿Cuánto cuesta un proyecto de transformación digital?",
+            "answer": "El alcance varía enormemente, desde conectar dos herramientas hasta migrar toda la operación administrativa. No damos un precio genérico. Después de una llamada gratuita de 30 minutos y una evaluación corta, enviamos una propuesta de precio fijo para la primera fase, y la hoja de ruta muestra el esfuerzo estimado de las siguientes. Las suscripciones de software van aparte y las listamos con claridad."
           },
           {
-            "question": "¿Manejan gestión del cambio?",
-            "answer": "Sí — capacitación, documentación y seguimiento de adopción incluidos."
+            "question": "¿Cómo evitan interrumpir la operación diaria?",
+            "answer": "Cambiando un área a la vez y manteniendo los sistemas viejo y nuevo en paralelo hasta que los resultados cuadren. Programamos las migraciones lejos de los periodos de más carga, como el cierre de mes, probamos primero con copias, escribimos planes de reversa y mantenemos informado a tu equipo. Si algo se ve mal, pausamos en lugar de seguir adelante."
+          },
+          {
+            "question": "¿Cuánto tiempo toma?",
+            "answer": "Una primera fase enfocada suele tomar entre uno y tres meses, mientras que una hoja de ruta completa puede extenderse un año o más, al ritmo que tú marques. El plazo depende de cuántos sistemas intervienen, la calidad de los datos y cuánto tiempo pueda dedicar tu equipo."
+          },
+          {
+            "question": "¿Tenemos que reemplazar todos nuestros sistemas?",
+            "answer": "No. Parte de nuestra evaluación es decidir qué conservar. Si tu software contable funciona y se puede conectar con otras herramientas, lo dejamos. Recomendamos reemplazar un sistema solo cuando te bloquea, ya no tiene soporte o cuesta más que su alternativa. Integrar suele ser más barato que reemplazar."
+          },
+          {
+            "question": "¿Qué pasa con la seguridad de los datos durante la migración?",
+            "answer": "Usamos cuentas a tu nombre, acceso de mínimo privilegio y conexiones cifradas, y hacemos respaldos antes de mover nada. Los datos sensibles se mueven solo cuando es necesario, y con gusto firmamos un acuerdo de confidencialidad antes. Tú eres dueño de todos los sistemas y credenciales y puedes retirar nuestro acceso cuando quieras."
+          },
+          {
+            "question": "¿Manejan la capacitación y la gestión del cambio?",
+            "answer": "Sí. La tecnología falla cuando la gente no está de acuerdo, por eso incluimos sesiones de capacitación, guías escritas breves y un seguimiento de la adopción en las primeras semanas. Identificamos un referente dentro de cada equipo y escuchamos los comentarios para corregir los problemas reales del flujo de trabajo en lugar de esquivarlos."
+          },
+          {
+            "question": "¿Pueden trabajar de forma remota con nuestro equipo?",
+            "answer": "Sí. Trabajamos de forma remota con equipos en República Dominicana, Estados Unidos y el resto de Latinoamérica, con videollamadas, documentos compartidos y actualizaciones escritas semanales en español o inglés. Para necesidades presenciales, como equipos de red o instalaciones físicas, coordinamos con proveedores locales de tu confianza."
           }
         ]
       },
@@ -345,6 +636,12 @@
         "shortDescription": "Eliminamos tareas repetitivas con RPA robusto y workflows de API a medida.",
         "summary": "Identificamos los workflows manuales que drenan a tu equipo y los reemplazamos con automatización confiable.",
         "overview": "Identificamos, diseñamos e implementamos soluciones de automatización que reemplazan procesos manuales que consumen tiempo en tu negocio. Desde reportes automatizados y sincronización de datos hasta workflows inteligentes con triggers y aprobaciones, ayudamos a tu equipo a trabajar de forma más inteligente.",
+        "details": [
+          "La automatización de procesos para pymes significa dejar que el software haga los pasos repetitivos que hoy hace tu gente a mano: copiar pedidos al sistema contable, enviar recordatorios de pago, actualizar una hoja de cálculo desde un correo, armar el reporte semanal. Cada tarea toma unos minutos, pero multiplicadas por días, personas y meses suman mucho tiempo y muchos errores de digitación. La automatización te devuelve esas horas y hace el proceso consistente.",
+          "Empezamos mapeando cómo funciona hoy el proceso, incluyendo las excepciones que nunca llegaron a ningún procedimiento. No todo debe automatizarse: un proceso poco frecuente, inestable o lleno de decisiones de criterio suele ser mejor dejarlo manual o simplificarlo primero. Ordenamos los candidatos por tiempo ahorrado, riesgo de error y dificultad, y comenzamos con un flujo pequeño que demuestre valor rápido y genere confianza.",
+          "Ejemplos típicos: una tienda en línea que envía automáticamente los pedidos nuevos a una hoja de despacho y un correo al cliente. Una distribuidora que cruza órdenes de compra con facturas de suplidores y marca las diferencias. Una clínica que manda recordatorios de citas y recoge confirmaciones. Una firma de servicios que crea un borrador de factura al cerrar un hito del proyecto. Un equipo de finanzas que recibe un reporte consolidado en su correo cada lunes.",
+          "Una automatización confiable es más que conectar aplicaciones. Construimos manejo de errores, registros y alertas para que, cuando una factura tenga un campo vacío o un servicio esté caído, una persona reciba un aviso en lugar de que la falla pase inadvertida. Protegemos las credenciales, documentamos cada flujo en lenguaje sencillo y nos aseguramos de que alguien de tu equipo sepa cómo pausarlo, revisarlo y cambiarlo."
+        ],
         "forWho": "Equipos de operaciones y finanzas atrapados en copy-paste.",
         "problem": "Los procesos manuales son lentos, propensos a errores y costosos. Cada hora gastada en tareas repetitivas es una hora que no se dedica al crecimiento.",
         "deliverables": [
@@ -353,31 +650,83 @@
           "Monitoreo y alertas de error",
           "Entrega al equipo y documentación"
         ],
+        "tools": [
+          {
+            "name": "n8n",
+            "description": "Una herramienta visual de flujos que puedes alojar tú mismo o contratar como servicio de pago en la nube. Flexible para lógica compleja y económica con volúmenes altos; requiere cierto cuidado técnico para alojarla y mantenerla."
+          },
+          {
+            "name": "Make",
+            "description": "Una plataforma de automatización visual en la nube con una gran biblioteca de conectores. Buena para flujos de varios pasos con ramificaciones; se cobra según las operaciones usadas cada mes."
+          },
+          {
+            "name": "Zapier",
+            "description": "La opción más fácil para empezar, con miles de integraciones. Ideal para disparadores simples como «cuando se envíe un formulario, crear una tarea»; el costo crece con el volumen de tareas."
+          },
+          {
+            "name": "Power Automate",
+            "description": "La herramienta de automatización de Microsoft, fuerte con Microsoft 365, SharePoint, Teams y Excel. Los conectores estándar vienen incluidos en muchos planes empresariales de Microsoft 365, lo que la hace natural para quienes ya usan Microsoft."
+          },
+          {
+            "name": "Google Apps Script",
+            "description": "Programación gratuita para Google Workspace: automatiza Sheets, Gmail, Calendar y Forms con código a medida cuando las herramientas sin código se quedan cortas o salen caras."
+          }
+        ],
         "timeline": [
           {
             "step": "Semana 1",
-            "title": "Mapear",
-            "description": "Entrevistar equipos, mapear workflows actuales."
+            "title": "Mapear los procesos",
+            "description": "Entrevistamos a quienes hacen el trabajo, observamos el proceso de principio a fin y documentamos cada paso, sistema, traspaso y excepción. Medimos con qué frecuencia ocurre y cuánto tarda, lo que da una base honesta para decidir qué vale la pena automatizar."
           },
           {
-            "step": "Semana 2",
-            "title": "Construir",
-            "description": "Desarrollar y testear cada automatización."
+            "step": "Semanas 1–2",
+            "title": "Priorizar y diseñar",
+            "description": "Ordenamos los candidatos por tiempo ahorrado, riesgo de error y complejidad, y diseñamos el primer flujo: disparadores, campos de datos, aprobaciones, casos límite y qué pasa si algo falla. Revisas el diseño en lenguaje sencillo antes de que se construya nada."
           },
           {
-            "step": "Semana 3",
-            "title": "Operar",
-            "description": "Desplegar, monitorear e iterar."
+            "step": "Semanas 2–4",
+            "title": "Construir y probar",
+            "description": "Construimos el flujo en la plataforma acordada y lo probamos con datos de muestra reales, incluyendo casos inusuales como campos vacíos o pedidos duplicados. Una persona revisa las primeras ejecuciones, así los errores se detectan cuando el riesgo es bajo."
+          },
+          {
+            "step": "Semanas 4–5",
+            "title": "Desplegar con monitoreo",
+            "description": "Activamos el flujo con registros y alertas ya configurados, a menudo en paralelo con el proceso manual por un tiempo corto. Las fallas avisan a la persona indicada con suficiente detalle para resolver el problema rápido."
+          },
+          {
+            "step": "Continuo",
+            "title": "Traspasar y ampliar",
+            "description": "Entregamos documentación y un recorrido breve para que tu equipo pueda operar y ajustar la automatización. Cuando el primer flujo está estable, usamos el mismo enfoque para el siguiente candidato de la hoja de ruta."
           }
         ],
         "faq": [
           {
-            "question": "¿Qué plataformas de automatización usan?",
-            "answer": "Principalmente n8n y Make para workflows visuales, o código custom cuando se necesita."
+            "question": "¿Cuánto cuesta la automatización?",
+            "answer": "Depende de cuántos flujos sean, qué tan complejos y qué sistemas toquen. Tras una llamada gratuita de 30 minutos enviamos una propuesta de precio fijo, normalmente empezando con uno o dos flujos que puedan dar resultados rápido. Las suscripciones a plataformas, si las hay, van aparte y las estimamos contigo para que no haya sorpresas."
           },
           {
-            "question": "¿Quién mantiene las automatizaciones?",
-            "answer": "Entregamos con documentación; también ofrecemos soporte continuo."
+            "question": "¿Qué plataforma usarán?",
+            "answer": "Elegimos según tus herramientas actuales, el volumen y quién la va a mantener. Zapier le va bien a tareas simples, Make a flujos de varios pasos, n8n a trabajos complejos o de alto volumen, y Power Automate a equipos con Microsoft 365. Para casos especiales escribimos scripts pequeños. Te explicamos el costo de cada opción y tú decides."
+          },
+          {
+            "question": "¿Qué pasa si una automatización falla?",
+            "answer": "Tarde o temprano habrá fallas, así que las planificamos. Los flujos registran cada ejecución, reintentan cuando tiene sentido y alertan por correo o chat a una persona designada cuando algo requiere atención, con detalles de lo que falló. Los pasos importantes pueden pausarse para aprobación humana en lugar de actuar con datos dudosos."
+          },
+          {
+            "question": "¿Es seguro darle a la automatización acceso a nuestros sistemas?",
+            "answer": "Usamos cuentas dedicadas o llaves de API con los permisos mínimos necesarios, nunca contraseñas personales, y guardamos las credenciales en el almacenamiento seguro de la plataforma. Las cuentas son tuyas y puedes retirar el acceso cuando quieras. Con datos sensibles limitamos lo que se mueve entre sistemas y con gusto firmamos un acuerdo de confidencialidad."
+          },
+          {
+            "question": "¿Cuánto tardamos en ver resultados?",
+            "answer": "Un flujo sencillo puede estar activo en un par de semanas, una vez que tengamos acceso y una descripción clara del proceso. Los más complejos, con aprobaciones o varios sistemas, toman más. Empezamos en pequeño para que veas el ahorro de tiempo temprano y puedas juzgar el enfoque antes de ampliar."
+          },
+          {
+            "question": "¿La automatización va a reemplazar a nuestro personal?",
+            "answer": "Nuestro objetivo es quitar los pasos repetitivos y propensos a errores para que las personas se dediquen a lo que requiere criterio: atender clientes, resolver excepciones, planificar. Los equipos suelen mantener su tamaño y manejar más volumen. Involucramos a quienes hacen la tarea en el diseño, porque su conocimiento es lo que hace correcto el flujo."
+          },
+          {
+            "question": "¿Quién mantiene las automatizaciones después de la entrega?",
+            "answer": "Puedes hacerlo tú. Entregamos documentación y un recorrido para que alguien de tu equipo pueda monitorear, pausar y editar los flujos. Si prefieres, ofrecemos soporte continuo de forma acotada, que cubre arreglos cuando cambia una aplicación conectada y nuevos flujos a medida que crecen tus necesidades."
           }
         ]
       }

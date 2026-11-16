@@ -1,7 +1,8 @@
 import { Link } from "@/lib/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { services } from "@/lib/data/services";
+import { landingFooterLinks } from "@/lib/data/landings";
 import { FooterLogo } from "./FooterLogo";
 
 const footerLinks = [
@@ -16,7 +17,10 @@ export function Footer() {
   const t = useTranslations("footer");
   const navT = useTranslations("nav");
   const detailT = useTranslations("serviceDetail");
+  const locale = useLocale();
   const year = new Date().getFullYear();
+  // Spanish-only landings are linked from the Spanish footer only.
+  const landingLinks = locale === "es" ? landingFooterLinks : [];
 
   return (
     <footer className="border-t border-border mt-24">
@@ -78,6 +82,18 @@ export function Footer() {
                         min-h-11 flex items-center"
                   >
                     {detailT(`services.${s.slug}.title`)}
+                  </Link>
+                </li>
+              ))}
+              {landingLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    prefetch={false}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors
+                        min-h-11 flex items-center"
+                  >
+                    {label}
                   </Link>
                 </li>
               ))}

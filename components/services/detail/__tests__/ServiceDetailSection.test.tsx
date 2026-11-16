@@ -76,6 +76,14 @@ vi.mock("../deliverables/ServiceDeliverables", () => ({
   ),
 }));
 
+vi.mock("../tools/ServiceTools", () => ({
+  ServiceTools: (props: Record<string, unknown>) => (
+    <div data-testid="tools" data-props={JSON.stringify(props)}>
+      Tools
+    </div>
+  ),
+}));
+
 vi.mock("../timeline/ServiceTimeline", () => ({
   ServiceTimeline: (props: Record<string, unknown>) => (
     <div data-testid="timeline" data-props={JSON.stringify(props)}>
@@ -273,6 +281,7 @@ describe("ServiceDetailSection", () => {
     const props = parseProps("overview");
     expect(props.label).toBe("labels.summaryLabel");
     expect(props.overview).toBe("service.overview");
+    expect(props.details).toBe("service.raw.details");
   });
 
   // ── Audience ───────────────────────────────────────────────────
@@ -309,6 +318,40 @@ describe("ServiceDetailSection", () => {
     expect(props.items).toBe("service.raw.deliverables");
   });
 
+  // ── Tools ──────────────────────────────────────────────────────
+
+  it("renders ServiceTools with label and items (raw tools)", async () => {
+    render(
+      await ServiceDetailSection({
+        service: mockService,
+        locale: defaultLocale,
+        slug: defaultSlug,
+      }),
+    );
+
+    const props = parseProps("tools");
+    expect(props.title).toBe("labels.toolsLabel");
+    expect(props.items).toBe("service.raw.tools");
+  });
+
+  // ── Timeline ───────────────────────────────────────────────────
+
+  it("renders ServiceTimeline with steps, accent and slug", async () => {
+    render(
+      await ServiceDetailSection({
+        service: mockService,
+        locale: defaultLocale,
+        slug: defaultSlug,
+      }),
+    );
+
+    const props = parseProps("timeline");
+    expect(props.title).toBe("labels.timeline");
+    expect(props.steps).toBe("service.raw.timeline");
+    expect(props.accent).toBe("primary");
+    expect(props.slug).toBe("data-analysis");
+  });
+
   // ── FAQ ────────────────────────────────────────────────────────
 
   it("renders ServiceFaq with title and items (raw faq)", async () => {
@@ -342,7 +385,7 @@ describe("ServiceDetailSection", () => {
 
   // ── Structure & ordering ───────────────────────────────────────
 
-  it("renders all 7 child sections", async () => {
+  it("renders all 9 child sections", async () => {
     render(
       await ServiceDetailSection({
         service: mockService,
@@ -356,6 +399,8 @@ describe("ServiceDetailSection", () => {
     expect(screen.getByTestId("overview")).toBeInTheDocument();
     expect(screen.getByTestId("audience")).toBeInTheDocument();
     expect(screen.getByTestId("deliverables")).toBeInTheDocument();
+    expect(screen.getByTestId("tools")).toBeInTheDocument();
+    expect(screen.getByTestId("timeline")).toBeInTheDocument();
     expect(screen.getByTestId("faq")).toBeInTheDocument();
     expect(screen.getByTestId("cta-link")).toBeInTheDocument();
   });
@@ -370,8 +415,8 @@ describe("ServiceDetailSection", () => {
     );
 
     const wrappers = screen.getAllByTestId("scroll-reveal");
-    // 6 ScrollReveal wrappers (breadcrumb is outside ScrollReveal, hero is inside)
-    expect(wrappers).toHaveLength(6);
+    // 8 ScrollReveal wrappers (breadcrumb is outside ScrollReveal, hero is inside)
+    expect(wrappers).toHaveLength(8);
 
     const directions = wrappers.map((w) => w.getAttribute("data-direction"));
 
@@ -380,6 +425,8 @@ describe("ServiceDetailSection", () => {
       "left",
       "down",
       "right",
+      "left",
+      "up",
       "down",
       "scale",
     ]);
@@ -391,7 +438,7 @@ describe("ServiceDetailSection", () => {
 
   // ── Article element ────────────────────────────────────────────
 
-  it("wraps body sections in an article element with all 7 child sections", async () => {
+  it("wraps body sections in an article element with all 9 child sections", async () => {
     render(
       await ServiceDetailSection({
         service: mockService,
@@ -403,7 +450,7 @@ describe("ServiceDetailSection", () => {
     const article = document.querySelector("article");
     expect(article).toBeInTheDocument();
 
-    // Verify all 7 child sections are rendered inside the article
+    // Verify all 9 child sections are rendered inside the article
     expect(screen.getByTestId("hero")).toBeInTheDocument();
     expect(screen.getByTestId("breadcrumb")).toBeInTheDocument();
     expect(screen.getByTestId("overview")).toBeInTheDocument();

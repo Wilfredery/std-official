@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { serviceSlugs } from "@/lib/data/services";
 import { blogPosts } from "@/lib/data/blog";
+import { landings, landingPath, LANDINGS_UPDATED_AT } from "@/lib/data/landings";
 import { locales, PAGES_UPDATED_AT, SITE_URL } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
 
@@ -14,6 +15,7 @@ type PageType =
   | "service"
   | "blog"
   | "post"
+  | "landing"
   | "about"
   | "contact"
   | "legal";
@@ -24,6 +26,7 @@ const PRIORITY: Record<PageType, number> = {
   service: 0.8,
   blog: 0.8,
   post: 0.7,
+  landing: 0.8,
   about: 0.8,
   contact: 0.7,
   legal: 0.5,
@@ -35,6 +38,7 @@ const CHANGEFREQ: Record<PageType, "weekly" | "monthly" | "yearly"> = {
   service: "monthly",
   blog: "weekly",
   post: "monthly",
+  landing: "monthly",
   about: "monthly",
   contact: "monthly",
   legal: "yearly",
@@ -124,6 +128,17 @@ function generateBlogEntries(): MetadataRoute.Sitemap {
   return entries;
 }
 
+/**
+ * Spanish-only landings: a single `es` entry whose only alternate is itself
+ * (no English equivalent, so no `en` and no `x-default`).
+ */
+function generateLandingEntries(): MetadataRoute.Sitemap {
+  return landings.map((landing) => {
+    const url = buildLocaleUrl("es", landingPath(landing.slug));
+    return buildEntry(url, { es: url }, "landing", LANDINGS_UPDATED_AT);
+  });
+}
+
 // ── Default Export ──────────────────────────────────────────────────
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -131,5 +146,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...generateStaticEntries(PAGES_UPDATED_AT),
     ...generateServiceEntries(PAGES_UPDATED_AT),
     ...generateBlogEntries(),
+    ...generateLandingEntries(),
   ];
 }

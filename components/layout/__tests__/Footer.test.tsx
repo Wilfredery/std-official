@@ -151,6 +151,24 @@ describe("Footer", () => {
     expect(servicesHeading).toBeInTheDocument();
   });
 
+  // ---- Spanish-only landing links ----
+
+  it("links both Spanish landings from the Spanish footer", () => {
+    render(<Footer />, { locale: "es" });
+
+    const consultoria = screen.getByText("Consultoría de datos en RD").closest("a");
+    const powerBi = screen.getByText("Consultor Power BI en RD").closest("a");
+    expect(consultoria).toHaveAttribute("href", "/consultoria-de-datos-republica-dominicana/");
+    expect(powerBi).toHaveAttribute("href", "/consultor-power-bi-republica-dominicana/");
+  });
+
+  it("does not link the Spanish landings from the English footer", () => {
+    render(<Footer />, { locale: "en" });
+
+    expect(screen.queryByText("Consultoría de datos en RD")).not.toBeInTheDocument();
+    expect(screen.queryByText("Consultor Power BI en RD")).not.toBeInTheDocument();
+  });
+
   // ---- Navigation / Company links ----
 
   it("renders navigation links (Home, Services, Contact)", () => {

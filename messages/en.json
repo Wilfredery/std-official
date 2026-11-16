@@ -113,6 +113,7 @@
     "forWhoLabel": "Who it's for",
     "problemLabel": "The problem",
     "deliverables": "Key Deliverables",
+    "toolsLabel": "Tools for small businesses",
     "timeline": "How We Deliver",
     "faq": "Frequently Asked Questions",
     "back": "Back to all services",
@@ -125,6 +126,12 @@
         "shortDescription": "Deep-dive diagnostics to uncover hidden operational efficiencies and market trends.",
         "summary": "Practical data auditing, parsing, and exploratory analysis that surfaces the patterns your business has been missing.",
         "overview": "Our Data Analysis service goes beyond surface-level reporting. We dig deep into your raw data to uncover hidden patterns, anomalies, and opportunities that your team might be missing. Whether you have structured databases, spreadsheets, or disparate data sources, we turn them into a coherent story backed by statistical rigor.",
+        "details": [
+          "Data analysis services for small businesses start with a simple idea: before you buy new software or hire a data team, find out what your existing data already says. Most companies have years of sales, inventory, customer and payment records scattered across a point-of-sale system, an accounting package, a CRM and a handful of spreadsheets. Each source tells part of the story. We bring them together, check how reliable they are, and analyze them to answer the specific questions that matter to you.",
+          "The business value is clarity. A retailer can see which products look popular but quietly lose money after returns and discounts. A distributor can spot customers whose order frequency is slipping months before they leave. A clinic can understand where missed appointments cluster by day, doctor or insurer. A services firm can compare quoted hours against actual hours by project type. These are ordinary questions, but they rarely get answered when the data lives in five places.",
+          "We work in a deliberately practical way. We start with the questions you want answered, profile the data to see what is missing or inconsistent, clean what can be cleaned, and document every assumption so the numbers can be reproduced later. Statistical methods are used where they help, such as comparing segments, testing whether a change is real or finding outliers, and left out where a simple pivot table is enough. You get findings in plain language, not a wall of charts.",
+          "After the engagement, your team has a cleaned and documented dataset, a clear list of what the data does and does not support, and a short set of actions ranked by effort and expected impact. Some teams then connect the cleaned data to a dashboard, which is where our business intelligence work picks up. Others simply keep the analysis workbook and refresh it themselves, because we write it so a non-specialist can follow it."
+        ],
         "forWho": "Teams sitting on data they don't trust — or don't yet know how to use.",
         "problem": "Most SMBs have data spread across CRMs, ERPs, spreadsheets, and cloud tools — but no way to see the full picture.",
         "deliverables": [
@@ -133,31 +140,83 @@
           "Key insights deck for leadership",
           "Recommended next steps and quick wins"
         ],
+        "tools": [
+          {
+            "name": "Excel with Power Query",
+            "description": "Already on most office computers. Power Query imports, cleans and merges files in a repeatable way, so a monthly refresh does not mean redoing the work by hand."
+          },
+          {
+            "name": "Google Sheets",
+            "description": "Handy for teams that already live in Google Workspace. We use it for shared working copies and lightweight analysis your team can open and check without installing anything."
+          },
+          {
+            "name": "Python and pandas",
+            "description": "Free, open-source tools for larger files, messy data and statistical tests that spreadsheets handle poorly. We deliver commented notebooks so the analysis can be rerun."
+          },
+          {
+            "name": "SQL with PostgreSQL or BigQuery",
+            "description": "When data outgrows spreadsheets, a small database or cloud warehouse keeps it in one place. PostgreSQL is open source; BigQuery charges by usage and has a free monthly tier."
+          },
+          {
+            "name": "Metabase or Data Studio",
+            "description": "Free or low-cost ways to turn the final tables into charts your team can filter. Metabase is open source; Data Studio is Google's free dashboard tool."
+          }
+        ],
         "timeline": [
           {
             "step": "Week 1",
-            "title": "Scope",
-            "description": "Stakeholder interviews and data inventory."
+            "title": "Frame the questions",
+            "description": "We meet with the people who make decisions and agree on three to five concrete questions, such as why margins dropped or which customers are at risk. We also list every system that holds relevant data and who owns it, so the scope is clear before anyone touches a file."
           },
           {
-            "step": "Week 2",
-            "title": "Audit",
-            "description": "Quality checks, profiling, and cleansing."
+            "step": "Weeks 1–2",
+            "title": "Collect and inventory",
+            "description": "We gather exports or read-only access from each source, record how fields are defined, and note date ranges, gaps and duplicates. The result is a short data inventory that tells you what you actually have and how complete it is."
           },
           {
-            "step": "Week 3",
-            "title": "Insight",
-            "description": "Analysis, visualization, and handoff."
+            "step": "Weeks 2–3",
+            "title": "Clean and prepare",
+            "description": "We standardize formats, merge duplicate customers and products, handle missing values openly, and join the sources on shared keys. Every rule is written down so you can see what changed and why, and so the same cleaning can be repeated next month."
+          },
+          {
+            "step": "Weeks 3–4",
+            "title": "Analyze",
+            "description": "We explore the data, test hypotheses, segment customers or products, and look for trends, seasonality and anomalies. When a finding looks surprising, we check it against the source before it reaches a slide, so you are not acting on a data error."
+          },
+          {
+            "step": "Week 4",
+            "title": "Deliver and hand off",
+            "description": "We walk your team through the findings in plain language and deliver the report, the cleaned dataset and the documentation. We agree on next steps: you decide which quick wins to act on and whether the analysis should become a recurring report."
           }
         ],
         "faq": [
           {
-            "question": "Do you need access to production data?",
-            "answer": "We typically work with anonymized samples or staging environments first."
+            "question": "How much does a data analysis project cost?",
+            "answer": "We do not publish fixed prices because scope varies a lot: one clean source is very different from six messy ones. After a free 30-minute call we send a fixed written proposal covering scope, deliverables and timeline, so you know the cost before work starts. If the scope changes, we agree on it with you in writing first."
+          },
+          {
+            "question": "How long does it take?",
+            "answer": "Small, focused analyses often take two to four weeks. The biggest variable is data readiness: if exports are easy to get and reasonably clean, work moves quickly; if we must chase access or untangle years of spreadsheets, it takes longer. We give you an estimate in the proposal and tell you early if anything puts it at risk."
+          },
+          {
+            "question": "Do you need access to our production systems?",
+            "answer": "Usually not. We prefer exports, anonymized samples or read-only access to a copy of the data, which keeps risk low for your live operations. Where possible we remove names, ID numbers and contact details before analysis. We are happy to sign a confidentiality agreement before seeing any data, and you remain the owner of everything."
           },
           {
             "question": "What tools do you use?",
-            "answer": "Python, SQL, and dbt for analysis; Looker / Metabase / Power BI for reporting."
+            "answer": "We choose by what your team can maintain: Excel with Power Query or Google Sheets for simple work, Python and SQL for heavier analysis, and Metabase, Data Studio or Power BI for reporting. We avoid expensive licences unless they clearly pay off, and we explain why we picked each tool."
+          },
+          {
+            "question": "What do we need to provide?",
+            "answer": "A person who knows the business questions, access to data exports or read-only connections, and a few hours for interviews and feedback. You do not need a data team or technical staff. Someone who knows how the sales or operations records are produced is the most useful person in the room, so please include them early."
+          },
+          {
+            "question": "Can you work with our team remotely?",
+            "answer": "Yes. We work remotely with teams in the Dominican Republic, the United States and across Latin America, using video calls, shared documents and written updates in English or Spanish. Time zones across the region overlap well, so questions and reviews are usually handled the same day."
+          },
+          {
+            "question": "What happens after delivery?",
+            "answer": "You keep the report, the cleaned dataset, the documentation and the code or workbook. We walk your team through it and answer follow-up questions during a short handoff period. If you want the analysis refreshed monthly or turned into a dashboard, we can scope that as a separate, clearly priced step."
           }
         ]
       },
@@ -169,6 +228,12 @@
         "shortDescription": "Custom real-time dashboards that put key metrics in the hands of decision makers.",
         "summary": "We design and ship interactive BI dashboards that your team will actually use every day.",
         "overview": "We design and build BI solutions that turn your data warehouse into a decision-making engine. From executive KPI dashboards to department-level operational reports, we create intuitive visualizations your team will actually use every day.",
+        "details": [
+          "Business intelligence consulting for small businesses is about getting the right numbers in front of the right people without someone rebuilding a spreadsheet every Monday. A BI setup connects your sales, finance, inventory or operations systems, defines each metric once, and displays it in dashboards that refresh on their own. Owners and managers can then answer everyday questions, such as how we are doing against last month, in seconds instead of waiting for a report.",
+          "The common obstacle is not the charting tool; it is disagreement about definitions. Sales says revenue includes pending orders, finance says it does not, and the dashboard becomes one more number nobody trusts. We start by writing down your key metrics in plain language, such as revenue, margin, active customers and days to collect, and agreeing on who owns each one. Only then do we build charts, so everyone reads the same figures.",
+          "Examples show what changes. An e-commerce shop tracks orders, ad spend and returns together instead of in three tabs. A distributor monitors stock against reorder points and overdue invoices by customer. A clinic follows appointments, cancellations and revenue by provider. A services firm watches billable utilization and project margin. Each dashboard is designed around the decisions of one role, so it stays short and readable instead of becoming a screen of every possible chart.",
+          "We also build with maintenance in mind. Dashboards rely on documented data sources, naming is consistent, and access is set by role, so staff see what they need and nothing more. We train your team to edit filters, add a chart and read the data, and we leave documentation behind. When the business changes, someone on your side can adjust the dashboard without starting over or calling us for every tweak."
+        ],
         "forWho": "Leaders tired of waiting on spreadsheets to make decisions.",
         "problem": "Excel files and static PDFs don't scale. Your team needs live, interactive dashboards that update automatically.",
         "deliverables": [
@@ -177,31 +242,83 @@
           "Role-based access and embedded analytics",
           "Team training and documentation"
         ],
+        "tools": [
+          {
+            "name": "Power BI",
+            "description": "Microsoft's BI tool. Power BI Desktop is free for building reports; sharing them across your team requires paid per-user licences. A good fit if you already use Microsoft 365 and Excel."
+          },
+          {
+            "name": "Data Studio (formerly Looker Studio)",
+            "description": "Google's free dashboard tool, strong with Google Sheets, BigQuery, Google Analytics and Google Ads. Suitable for marketing and e-commerce reporting and for teams on Google Workspace."
+          },
+          {
+            "name": "Metabase",
+            "description": "An open-source BI tool you can self-host or use as a paid cloud service. Non-technical staff can ask questions of the data without writing SQL, which suits small teams."
+          },
+          {
+            "name": "Excel and Power Query",
+            "description": "Often the best first step. We can make your existing Excel reports refresh automatically from clean sources instead of being rebuilt by hand every period."
+          },
+          {
+            "name": "BigQuery or PostgreSQL",
+            "description": "A warehouse or database that holds the cleaned data behind your dashboards. BigQuery charges by usage and has a monthly free tier; PostgreSQL is open source and inexpensive to run."
+          }
+        ],
         "timeline": [
           {
             "step": "Week 1",
-            "title": "Discovery",
-            "description": "KPI workshop and metric definition."
+            "title": "Metrics workshop",
+            "description": "We meet with owners and team leads to list the decisions they make every week and the numbers behind them. We agree on a short list of KPIs, write a definition for each, and note which systems supply the data. This becomes the blueprint for the project."
           },
           {
-            "step": "Week 2",
-            "title": "Build",
-            "description": "Modeling, dashboard design, and QA."
+            "step": "Weeks 1–2",
+            "title": "Connect and prepare the data",
+            "description": "We connect your sources, such as accounting, point of sale, CRM and spreadsheets, and build clean tables for reporting. Duplicates and inconsistent names are fixed in one place so the same logic feeds every chart, and the refresh runs on a schedule."
           },
           {
-            "step": "Week 3",
-            "title": "Launch",
-            "description": "Rollout, training, and iteration."
+            "step": "Weeks 2–3",
+            "title": "Design and build dashboards",
+            "description": "We sketch each dashboard with its users, then build it in your chosen tool. We keep layouts focused: a few headline numbers, trends and a drill-down instead of a crowded wall of charts. You review working versions early and request changes."
+          },
+          {
+            "step": "Weeks 3–4",
+            "title": "Test and set up access",
+            "description": "We reconcile dashboard totals against your accounting and operational records, fix differences, and set role-based access. Testing with real users catches confusing labels and slow filters before launch rather than after."
+          },
+          {
+            "step": "Week 4 onward",
+            "title": "Launch and train",
+            "description": "We roll out the dashboards, run a training session, and leave short documentation covering sources, definitions and how to edit. After launch we collect feedback and adjust, so the dashboards evolve with how your team actually uses them."
           }
         ],
         "faq": [
           {
-            "question": "Which BI tool do you recommend?",
-            "answer": "We're tool-agnostic — we pick what fits your team and budget."
+            "question": "How much does a BI project cost?",
+            "answer": "It depends on the number of data sources, dashboards and users. Instead of quoting blindly, we hold a free 30-minute call, review what you have, and send a fixed proposal listing dashboards, sources, training and timeline. Tool licences, if any, are separate, and we show you the options and costs before you commit."
           },
           {
-            "question": "Can you integrate with our warehouse?",
-            "answer": "Yes — Snowflake, BigQuery, Redshift, or Postgres."
+            "question": "Which BI tool should we use?",
+            "answer": "We are tool-agnostic and choose by team habits, budget and where your data lives. Power BI suits Microsoft shops, Data Studio suits Google users on a tight budget, and Metabase suits teams who prefer open source. We explain the trade-offs, including licence costs, so the decision is yours."
+          },
+          {
+            "question": "Do we need a data warehouse?",
+            "answer": "Not always. A small business with one or two sources can often connect a dashboard directly to its systems or to spreadsheets. As sources multiply or data gets slow and messy, a small warehouse such as BigQuery or PostgreSQL helps. We recommend the lightest setup that works and upgrade only when it is justified."
+          },
+          {
+            "question": "How is our data kept secure?",
+            "answer": "We ask for read-only access wherever possible, use accounts in your name rather than shared passwords, and limit access to what the project needs. Dashboards use role-based permissions so staff only see their own area. You remain the owner of all accounts and can revoke our access at any time. We are happy to sign an NDA first."
+          },
+          {
+            "question": "How long does it take?",
+            "answer": "A first set of dashboards for one department typically takes about three to five weeks, depending on how many sources must be connected and how clean they are. Delays are usually about access to data rather than building. We give an estimate in the proposal and update you every week."
+          },
+          {
+            "question": "What do you need from our team?",
+            "answer": "An owner who can decide what the key metrics are, access to the systems that hold the data, and a few short review sessions. The people who will use the dashboards should attend at least one design review, since their feedback shapes the final result more than any technical choice."
+          },
+          {
+            "question": "Who maintains the dashboards afterward?",
+            "answer": "You do, with our help if you want it. We document data sources and metric definitions and train your staff to edit and extend dashboards. Some teams prefer a light monthly support arrangement for new reports and fixes; we scope it separately, so you never pay for something you do not need."
           }
         ]
       },
@@ -213,6 +330,12 @@
         "shortDescription": "Predictive modeling and custom AI integrations to automate complex reasoning.",
         "summary": "From churn prediction to demand forecasting, we ship ML models that move business metrics.",
         "overview": "We build custom ML models tailored to your specific business problems — from demand forecasting and churn prediction to anomaly detection and recommendation engines. No off-the-shelf black boxes; every model is explained, tested, and built with your team's understanding in mind.",
+        "details": [
+          "Machine learning consulting for small businesses should begin with a sober question: do you need machine learning at all? Many problems are solved better by a clean report, a rule or a spreadsheet formula. Machine learning is useful when you have a repeated decision, enough historical records, and a pattern too complex to capture in simple rules, such as forecasting demand, estimating which customers may stop buying, or flagging unusual transactions.",
+          "Concrete small-business examples include forecasting weekly demand for a distributor so purchasing matches real sales, predicting which e-commerce customers are likely to reorder, scoring invoices that tend to be paid late, estimating no-shows for a clinic's agenda, and flagging unusual expense claims. In each case the output is something your team can act on, such as a purchase quantity, a call list or a review queue, not a score nobody knows how to use.",
+          "We are open about limits. Models need enough history and reasonably consistent data; a few hundred rows rarely support a reliable prediction. In the first phase we check whether your data can support the goal and compare the model with a simple baseline, such as last month's numbers. If the baseline is nearly as good, we say so and save you the cost of a complex system.",
+          "A model is only useful when it fits into daily work. We explain which factors drive the predictions, document how it was trained and tested, and set up delivery in a way your team can use: a weekly spreadsheet, a dashboard column or a simple API. We also plan for monitoring, since data and customer behavior change and a model that was accurate last year can drift."
+        ],
         "forWho": "Teams ready to graduate from descriptive to predictive analytics.",
         "problem": "Reactive decision-making based on historical reports leaves money on the table. Predictive models let you act before problems arise.",
         "deliverables": [
@@ -221,31 +344,83 @@
           "API or batch integration with your stack",
           "Performance evaluation report"
         ],
+        "tools": [
+          {
+            "name": "Python with pandas",
+            "description": "The standard free toolkit for preparing and exploring data. It handles files too large or messy for spreadsheets and keeps every transformation in readable, repeatable code."
+          },
+          {
+            "name": "scikit-learn",
+            "description": "An open-source Python library with well-tested algorithms for forecasting, classification and clustering. It covers most small-business problems without special hardware and keeps models easy to explain."
+          },
+          {
+            "name": "XGBoost or LightGBM",
+            "description": "Open-source gradient boosting libraries that usually perform strongly on tabular business data such as orders, customers and invoices, and train in minutes on an ordinary laptop or small server."
+          },
+          {
+            "name": "MLflow",
+            "description": "An open-source tool for recording experiments, parameters and model versions, so you can later see how a model was built and reproduce or roll it back."
+          },
+          {
+            "name": "Power BI or Data Studio",
+            "description": "Where predictions meet decisions. Showing forecasts next to actuals in a dashboard your team already opens makes the model easier to trust and to use."
+          }
+        ],
         "timeline": [
           {
-            "step": "Week 1-2",
-            "title": "Define",
-            "description": "Frame the business problem as an ML task."
+            "step": "Weeks 1–2",
+            "title": "Frame the problem",
+            "description": "We turn a business goal into a testable prediction: what is predicted, how far ahead, and how the result will be used. We define success in business terms, agree on a baseline to beat, and check that your data could realistically support the task."
           },
           {
-            "step": "Week 3",
-            "title": "Build",
-            "description": "Feature engineering, training, validation."
+            "step": "Weeks 2–3",
+            "title": "Prepare the data",
+            "description": "We assemble historical records, fix errors, and create features such as seasonality, purchase frequency or days since the last order. We watch for leakage, where information from the future sneaks in, because it makes models look better in testing than they are in use."
           },
           {
-            "step": "Week 4",
-            "title": "Deploy",
-            "description": "Production deploy with monitoring."
+            "step": "Weeks 3–5",
+            "title": "Train and validate",
+            "description": "We train several approaches, from simple baselines to gradient boosting, and test them on data the model has not seen. We compare results against your baseline, review the errors with you, and choose the simplest model that performs well enough."
+          },
+          {
+            "step": "Weeks 5–6",
+            "title": "Deploy and integrate",
+            "description": "We deliver the model in a form you can use: scheduled batch predictions in a spreadsheet or database, a dashboard, or a small API. We document inputs, outputs and how to retrain, and test the connection with your existing tools."
+          },
+          {
+            "step": "Ongoing",
+            "title": "Monitor and improve",
+            "description": "We set up checks that compare predictions with real outcomes and alert you when accuracy drops. We agree on a retraining routine and, after delivery, answer questions while your team gets used to relying on the predictions."
           }
         ],
         "faq": [
           {
-            "question": "Do you build LLM features?",
-            "answer": "Yes — including RAG, fine-tuning, and evaluation pipelines."
+            "question": "Do we really need machine learning?",
+            "answer": "Often the honest answer is not yet. During scoping we compare your goal with simpler options such as better reporting, rules or a spreadsheet model. If those solve the problem, we recommend them. We only suggest machine learning when a repeated decision, enough history and a pattern too complex for rules point that way."
           },
           {
             "question": "How much data do we need?",
-            "answer": "It depends on the problem — we'll tell you honestly during scoping."
+            "answer": "It depends on the problem. Forecasting weekly sales usually needs at least a couple of years of history to capture seasonality, while a classification task needs enough examples of each outcome. We assess your data in the first phase and tell you plainly if it is not enough, and what to start collecting."
+          },
+          {
+            "question": "How much does it cost?",
+            "answer": "We do not publish prices because projects vary widely. After a free 30-minute call we run a short assessment and send a fixed proposal for the phase we recommend, often starting with a small feasibility study. That way you can see whether the idea works before committing to a full build."
+          },
+          {
+            "question": "Do you build features with large language models?",
+            "answer": "Yes, when they fit, such as classifying support messages, extracting fields from documents or searching your own knowledge base. We evaluate outputs against real examples and flag cost, privacy and accuracy limits. For many tasks a classic model is cheaper and more predictable, and we say so."
+          },
+          {
+            "question": "How do you handle our data privacy?",
+            "answer": "We prefer anonymized extracts, remove personal identifiers where possible, and work with read-only access. Models and code stay under your ownership. If personal or health data is involved, we discuss what is appropriate before touching it, and we are happy to sign a confidentiality agreement first."
+          },
+          {
+            "question": "How accurate will the model be?",
+            "answer": "We cannot promise a number before seeing your data. What we do is measure accuracy honestly on held-out data, compare it with a simple baseline, and explain what the errors look like in business terms. You see the evidence and decide whether performance is good enough to use."
+          },
+          {
+            "question": "What happens after the model is delivered?",
+            "answer": "You receive the code, documentation and monitoring checks, plus a walkthrough with your team. Models drift as behavior changes, so we recommend a regular review and retraining routine. We can support that on a scoped basis or train your team to run it themselves."
           }
         ]
       },
@@ -257,6 +432,12 @@
         "shortDescription": "Quality assurance and compliance reviews for GDPR, HIPAA, and SOC 2.",
         "summary": "We assess the health of your data — completeness, accuracy, lineage, and compliance — and give you a remediation plan.",
         "overview": "According to Gartner, poor data quality costs organizations an average of $12.9M per year. Our Data Auditing service identifies exactly where your data quality issues are, how serious they are, and what to do about them — before they impact your operations or compliance.",
+        "details": [
+          "A data audit for a small business answers one question: can you trust the numbers you run the company on? Duplicate customers, products with several codes, invoices without dates, inventory counts that disagree with the accounting system. These problems are rarely dramatic on their own, but they quietly distort every report, forecast and compliance submission built on top. A data quality audit finds them systematically and shows how serious they are.",
+          "We review the dimensions that matter in practice: completeness (are required fields filled), accuracy (do values match reality or another source), consistency (is the same thing recorded the same way everywhere), timeliness and uniqueness. We also map lineage, meaning where each important figure comes from and who touches it along the way, because many errors enter during manual re-entry or file exports rather than inside the main system.",
+          "Typical situations include a retailer preparing to move to a new ERP, a distributor merging customer lists after an acquisition, a clinic that must show how patient records are stored and accessed, or a growing company about to invest in dashboards that wants to confirm the foundation is sound. On compliance, we assess your data practices against requirements such as GDPR, HIPAA or SOC 2 controls and identify gaps. We are not a law firm or a certified auditor, and we do not issue certifications.",
+          "The result is a scorecard, a prioritized remediation roadmap and an executive summary written for non-technical readers. Each finding includes examples, estimated effort and a suggested owner, so the list becomes a work plan rather than a report that sits in a drawer. You can fix issues yourselves, ask us to help, or hand the roadmap to your compliance advisor."
+        ],
         "forWho": "Companies preparing for compliance, M&A, or a major data project.",
         "problem": "Duplicate records, missing fields, inconsistent formats, and stale data silently corrupt every report and decision built on top of them.",
         "deliverables": [
@@ -265,31 +446,83 @@
           "Prioritized remediation roadmap",
           "Executive summary deck"
         ],
+        "tools": [
+          {
+            "name": "Great Expectations",
+            "description": "An open-source Python framework for writing data checks, such as \"no empty invoice dates\" or \"customer IDs are unique\", and for producing readable reports. Checks can be rerun after every cleanup."
+          },
+          {
+            "name": "Python and pandas",
+            "description": "Free and flexible for profiling large files, finding duplicates and matching records across systems that do not share an ID."
+          },
+          {
+            "name": "SQL on PostgreSQL or your existing database",
+            "description": "Many quality checks are plain queries run against a copy of the data, which keeps the audit fast and the logic transparent."
+          },
+          {
+            "name": "Excel and Power Query",
+            "description": "Useful for smaller datasets and for sharing findings; reviewers can open the evidence behind each issue without special software."
+          },
+          {
+            "name": "Google Sheets",
+            "description": "A shared tracker for the remediation roadmap, with owner, status and due date for each finding, so progress stays visible to the whole team."
+          }
+        ],
         "timeline": [
           {
             "step": "Week 1",
-            "title": "Inventory",
-            "description": "Catalog all data sources and flows."
+            "title": "Scope and inventory",
+            "description": "We agree on which systems, processes and reports are in scope and why, whether that is compliance, a migration or general data health. We then catalog data sources, owners, the flows between them and where sensitive information lives."
           },
           {
-            "step": "Week 2",
-            "title": "Assess",
-            "description": "Run quality and compliance checks."
+            "step": "Weeks 1–2",
+            "title": "Profile the data",
+            "description": "We run automated profiling to measure missing values, duplicates, invalid formats, outliers and mismatches between systems. We use read-only access or exports and document every check so it can be repeated after you fix the issues."
           },
           {
-            "step": "Week 3",
-            "title": "Report",
-            "description": "Deliver findings with a prioritized roadmap."
+            "step": "Weeks 2–3",
+            "title": "Review practices and compliance",
+            "description": "We interview staff about how data is entered, changed and shared, and review access, retention and consent practices against the requirements that apply to you. This often surfaces process causes that profiling alone cannot see."
+          },
+          {
+            "step": "Weeks 3–4",
+            "title": "Score and prioritize",
+            "description": "We combine the measurements into a scorecard, rate each finding by business impact and effort, and group issues by root cause. Fixing one entry-point problem often resolves several downstream symptoms, so the order matters."
+          },
+          {
+            "step": "Week 4",
+            "title": "Report and hand off",
+            "description": "We present findings to leadership and to the people who own the data, deliver the scorecard, roadmap and executive summary, and answer questions. You decide what to tackle first, with or without our help."
           }
         ],
         "faq": [
           {
-            "question": "Do you audit our cloud configuration too?",
-            "answer": "We focus on data, but partner with security firms for full infra audits."
+            "question": "How much does a data audit cost?",
+            "answer": "Cost depends on how many systems and processes are in scope and whether compliance review is included. We do not quote blindly: after a free 30-minute call we send a fixed proposal with scope, deliverables and timeline. A narrow audit of one system is much smaller than a company-wide review, and we help you choose."
           },
           {
             "question": "How long does an audit take?",
-            "answer": "Most audits complete in 2–4 weeks depending on scope."
+            "answer": "Many audits take two to four weeks, depending on the number of systems and how quickly we get access and people's time. We state an estimate in the proposal. The most common delay is waiting for exports or interviews, so naming a point person on your side helps a lot."
+          },
+          {
+            "question": "Do you certify us for GDPR, HIPAA or SOC 2?",
+            "answer": "No. We are not a law firm or a certification body. We assess your data practices against the requirements you give us, identify gaps and recommend fixes. The output can support conversations with your lawyers, compliance advisor or external auditor, who decide what formally counts as compliant."
+          },
+          {
+            "question": "What access do you need?",
+            "answer": "Read-only access or exports are usually enough. We do not need to change anything in your systems. We prefer a copy or staging environment where possible, ask for the minimum fields needed, and are glad to sign a confidentiality agreement. Everything stays under your ownership, and access can be revoked whenever you like."
+          },
+          {
+            "question": "Do you audit our cloud and network security too?",
+            "answer": "Our focus is data: quality, lineage, access to datasets and handling of sensitive information. We do not perform penetration tests or full infrastructure security audits. When your situation needs them, we can recommend specialized security firms and share our findings so they do not start from zero."
+          },
+          {
+            "question": "Will you fix the problems you find?",
+            "answer": "The audit itself diagnoses and prioritizes. Many findings are small enough for your team to fix using our roadmap. For larger cleanups, such as merging years of duplicate records or standardizing a product catalog, we can scope a separate, clearly defined project. Fixes are never bundled in without your approval."
+          },
+          {
+            "question": "What happens after the audit?",
+            "answer": "You keep the scorecard, roadmap, executive summary and the checks we used, so you can re-measure after fixes and see progress. Some teams repeat a lighter version of the audit every six or twelve months, or add automated checks so problems are caught as they appear."
           }
         ]
       },
@@ -301,6 +534,12 @@
         "shortDescription": "Legacy system migration to cloud-native, scalable microservices architectures.",
         "summary": "Modernize your tech stack without breaking what's working. We plan and execute pragmatic, phased transformations.",
         "overview": "Digital transformation isn't about replacing everything at once. We take a phased, pragmatic approach to modernizing your technology stack — starting with the highest-impact changes and building toward a fully integrated, data-driven operation.",
+        "details": [
+          "Digital transformation for small and mid-sized businesses rarely means a dramatic overhaul. In practice it means replacing the handoffs that slow you down, such as paper forms, duplicated entry, email attachments named \"final_v3\" and a customer list that exists in four places, with systems that share information. The goal is not new technology for its own sake; it is a company that can see what is happening and respond faster with the same team.",
+          "We use a phased approach because small businesses cannot afford a failed big-bang migration. First we assess what you have: systems, costs, how people really work and where data gets stuck. Then we pick the changes with the highest impact and lowest risk, perhaps a shared CRM, an integrated invoicing flow or a central data store, and put them in a roadmap you can pace to your budget and cash flow.",
+          "Some examples. A retailer replaces a patchwork of spreadsheets with an inventory system connected to its point of sale and accounting. A distributor moves quotes and orders from email into a CRM that feeds invoicing. A clinic digitizes scheduling and patient reminders. A services firm replaces timesheets in spreadsheets with a project tool linked to billing. Each step removes retyping and gives owners a single reliable view.",
+          "Technology is only half the work. People need to know why things change, how to use the new tools and who to ask when something breaks, so we build training, documentation and adoption checks into every phase. Old and new systems run in parallel until the numbers match, so the business never stops. After the project you own the architecture, accounts and documentation."
+        ],
         "forWho": "SMBs ready to move beyond spreadsheets and legacy CRMs.",
         "problem": "Outdated systems can't share data, create silos, slow teams down, and make accurate reporting nearly impossible.",
         "deliverables": [
@@ -309,31 +548,83 @@
           "Integration layer between old and new systems",
           "Change management and training"
         ],
+        "tools": [
+          {
+            "name": "Google Workspace or Microsoft 365",
+            "description": "Email, shared drives, calendars, forms and collaboration under one subscription per user. Often the first and cheapest step away from scattered files and personal email accounts."
+          },
+          {
+            "name": "HubSpot CRM or Zoho CRM",
+            "description": "Customer and sales tracking to replace contact spreadsheets. HubSpot offers a free CRM tier; Zoho has affordable paid plans. Both integrate with email and invoicing."
+          },
+          {
+            "name": "Odoo",
+            "description": "An open-source business suite covering inventory, sales, purchasing and accounting. The Community edition is free to use, with paid cloud and Enterprise options. Fits companies that have outgrown spreadsheets and want one integrated system."
+          },
+          {
+            "name": "PostgreSQL or BigQuery",
+            "description": "A central place for combined data, so reporting does not depend on each system's own exports. Both scale from small to larger workloads without a change of platform."
+          },
+          {
+            "name": "Make or Zapier",
+            "description": "Connect systems that lack native integrations, so an order in one tool creates an invoice or a task in another without retyping."
+          }
+        ],
         "timeline": [
           {
-            "step": "Week 1",
-            "title": "Assess",
-            "description": "Audit current systems, costs, and risks."
+            "step": "Weeks 1–2",
+            "title": "Assess the current state",
+            "description": "We inventory systems, subscriptions, spreadsheets and manual steps, and interview staff about how work really flows. We estimate costs and risks, including key-person dependencies and unsupported software, and identify where data is duplicated or trapped."
           },
           {
-            "step": "Week 2",
-            "title": "Architect",
-            "description": "Design the future-state stack."
+            "step": "Weeks 2–3",
+            "title": "Prioritize and design",
+            "description": "We define the target state and a phased roadmap that ranks changes by impact, effort and risk. We compare realistic tool options, with their cost and migration effort, and agree with you on what goes first, what waits and what to leave alone."
           },
           {
-            "step": "Week 3+",
-            "title": "Migrate",
-            "description": "Phased rollout with parallel running."
+            "step": "Weeks 3–6",
+            "title": "Build the foundations",
+            "description": "We set up the core pieces: accounts, a shared data store, integrations between systems, and security basics such as access roles and backups. We test with sample data before touching anything your business depends on."
+          },
+          {
+            "step": "Weeks 6–10",
+            "title": "Migrate in phases",
+            "description": "We move data and processes one area at a time, running old and new systems in parallel and reconciling results. A phase is complete only when the numbers match and the team is comfortable. Rollback plans are written before each step."
+          },
+          {
+            "step": "Ongoing",
+            "title": "Train and stabilize",
+            "description": "We train each group on its workflows, deliver documentation, and track adoption in the first weeks, fixing friction as it appears. When the system is stable we retire legacy tools and review what the next phase of the roadmap should be."
           }
         ],
         "faq": [
           {
-            "question": "How do you avoid disruption?",
-            "answer": "Parallel running, phased rollouts, and aggressive testing."
+            "question": "How much does a digital transformation project cost?",
+            "answer": "Scope varies enormously, from connecting two tools to migrating a whole back office. We do not give a generic price. After a free 30-minute call and a short assessment, we send a fixed proposal for the first phase, and the roadmap shows estimated effort for later ones. Software subscriptions are separate and we list them clearly."
           },
           {
-            "question": "Do you handle change management?",
-            "answer": "Yes — training, documentation, and adoption tracking are included."
+            "question": "How do you avoid disrupting daily operations?",
+            "answer": "By changing one area at a time and running old and new systems in parallel until results match. We schedule migrations away from peak periods such as month-end closing, test with copies first, write rollback plans, and keep your team informed. If something looks wrong, we pause rather than push on."
+          },
+          {
+            "question": "How long does it take?",
+            "answer": "A focused first phase often takes between one and three months, while a full roadmap can run for a year or more at a pace you set. The timeline depends on how many systems are involved, data quality and how much time your team can give. We give an estimate for each phase."
+          },
+          {
+            "question": "Do we have to replace all our systems?",
+            "answer": "No. Part of our assessment is deciding what to keep. If your accounting software works and can be connected to other tools, we leave it. We recommend replacing a system only when it blocks you, is unsupported or costs more than its alternative. Integration is frequently cheaper than replacement."
+          },
+          {
+            "question": "What about data security during migration?",
+            "answer": "We use accounts in your name, least-privilege access and encrypted connections, and we take backups before moving anything. Sensitive data is moved only when necessary, and we are happy to sign a confidentiality agreement first. You own all systems and credentials and can revoke our access at any time."
+          },
+          {
+            "question": "Do you handle training and change management?",
+            "answer": "Yes. Technology fails when people are not on board, so we include training sessions, short written guides and a check on adoption in the first weeks. We identify a champion inside each team and listen to feedback so that real workflow problems are fixed rather than worked around."
+          },
+          {
+            "question": "Can you work remotely with our team?",
+            "answer": "Yes. We work remotely with teams in the Dominican Republic, the United States and across Latin America, with video calls, shared documents and weekly written updates in English or Spanish. For on-site needs such as network equipment or physical installations, we coordinate with local providers you trust."
           }
         ]
       },
@@ -345,6 +636,12 @@
         "shortDescription": "Eliminating repetitive tasks with robust RPA and custom API workflows.",
         "summary": "We identify the manual workflows draining your team and replace them with reliable automation.",
         "overview": "We identify, design, and implement automation solutions that replace time-consuming manual processes across your business. From automated reporting and data sync to intelligent workflow triggers and approvals, we help your team work smarter.",
+        "details": [
+          "Process automation for small businesses means letting software do the repetitive steps that your people currently do by hand: copying orders into the accounting system, sending payment reminders, updating a spreadsheet from an email, assembling the weekly report. Each task takes a few minutes, but multiplied across days, staff and months they add up to a lot of time and a lot of typos. Automation gives those hours back and makes the process consistent.",
+          "We start by mapping how the process works today, including the exceptions that never made it into any procedure. Not everything should be automated: a process that is rare, unstable or full of judgment calls is usually better left manual or simplified first. We rank candidates by time saved, error risk and difficulty, and begin with a small workflow that proves value quickly and builds trust.",
+          "Typical examples: an e-commerce shop that sends new orders to a fulfillment sheet and a customer email automatically. A distributor that matches purchase orders with supplier invoices and flags differences. A clinic that sends appointment reminders and collects confirmations. A services firm that creates an invoice draft when a project milestone closes. A finance team that receives a consolidated report in their inbox every Monday.",
+          "Reliable automation is more than connecting apps. We build error handling, logging and alerts, so when an invoice has a missing field or a service is down, a person is notified instead of the failure going unnoticed. We keep credentials secure, document each workflow in plain language, and make sure someone on your team knows how to pause it, check it and change it."
+        ],
         "forWho": "Operations and finance teams stuck in copy-paste hell.",
         "problem": "Manual processes are slow, error-prone, and expensive. Every hour spent on repetitive tasks is an hour not spent on growth.",
         "deliverables": [
@@ -353,31 +650,83 @@
           "Monitoring and error alerting",
           "Team handoff and documentation"
         ],
+        "tools": [
+          {
+            "name": "n8n",
+            "description": "A visual workflow tool that can be self-hosted or used as a paid cloud service. Flexible for complex logic and cost-effective at higher volumes; it requires some technical care to host and maintain."
+          },
+          {
+            "name": "Make",
+            "description": "A hosted visual automation platform with a large library of app connectors. Good for multi-step workflows with branching, and priced by the operations used each month."
+          },
+          {
+            "name": "Zapier",
+            "description": "The most beginner-friendly option, with thousands of app integrations. Ideal for simple triggers like \"when a form is submitted, create a task\"; costs grow with task volume."
+          },
+          {
+            "name": "Power Automate",
+            "description": "Microsoft's automation tool, strong with Microsoft 365, SharePoint, Teams and Excel. Standard connectors are included in many Microsoft 365 business plans, which makes it a natural choice for Microsoft shops."
+          },
+          {
+            "name": "Google Apps Script",
+            "description": "Free scripting for Google Workspace: automate Sheets, Gmail, Calendar and Forms with small custom code when no-code tools are too limited or too costly."
+          }
+        ],
         "timeline": [
           {
             "step": "Week 1",
-            "title": "Map",
-            "description": "Interview teams, map current workflows."
+            "title": "Map the processes",
+            "description": "We interview the people who do the work, watch the process end to end, and document each step, system, handoff and exception. We measure how often it happens and how long it takes, which gives an honest basis for deciding what is worth automating."
           },
           {
-            "step": "Week 2",
-            "title": "Build",
-            "description": "Develop and test each automation."
+            "step": "Weeks 1–2",
+            "title": "Prioritize and design",
+            "description": "We rank candidates by time saved, error risk and complexity, then design the first workflow: triggers, data fields, approvals, edge cases and what happens on failure. You review the design in plain language before anything is built."
           },
           {
-            "step": "Week 3",
-            "title": "Operate",
-            "description": "Deploy, monitor, and iterate."
+            "step": "Weeks 2–4",
+            "title": "Build and test",
+            "description": "We build the workflow in the agreed platform and test it with real sample data, including unusual cases such as missing fields or duplicate orders. A person reviews the early runs, so mistakes are caught while the stakes are low."
+          },
+          {
+            "step": "Weeks 4–5",
+            "title": "Deploy with monitoring",
+            "description": "We switch the workflow on with logging and alerts in place, often running alongside the manual process for a short time. Failures notify the right person with enough detail to fix the problem quickly."
+          },
+          {
+            "step": "Ongoing",
+            "title": "Hand off and expand",
+            "description": "We deliver documentation and a short walkthrough so your team can operate and adjust the automation. Once the first workflow is stable, we use the same approach for the next candidate on the roadmap."
           }
         ],
         "faq": [
           {
-            "question": "Which automation platforms do you use?",
-            "answer": "Mostly n8n and Make for visual workflows, or custom code when needed."
+            "question": "How much does automation cost?",
+            "answer": "It depends on how many workflows, how complex they are and which systems they touch. After a free 30-minute call we send a fixed proposal, usually starting with one or two workflows that can show results quickly. Platform subscriptions, if any, are separate, and we estimate them with you so there are no surprises."
           },
           {
-            "question": "Who maintains the automations?",
-            "answer": "We hand off with docs; we can also offer ongoing support."
+            "question": "Which platform will you use?",
+            "answer": "We choose by your existing tools, volume and who will maintain it. Zapier suits simple tasks, Make suits multi-step flows, n8n suits complex or high-volume work, and Power Automate fits Microsoft 365 teams. For special cases we write small scripts. We explain the cost of each option and you decide."
+          },
+          {
+            "question": "What happens if an automation fails?",
+            "answer": "Failures are expected eventually, so we plan for them. Workflows log every run, retry when it makes sense, and alert a named person by email or chat when something needs attention, with details about what failed. Important steps can pause for human approval rather than acting on doubtful data."
+          },
+          {
+            "question": "Is it safe to give automation access to our systems?",
+            "answer": "We use dedicated accounts or API keys with the minimum permissions required, never personal passwords, and store credentials in the platform's secure storage. You own the accounts and can revoke access at any time. For sensitive data, we limit what moves between systems and are happy to sign a confidentiality agreement."
+          },
+          {
+            "question": "How long does it take to see results?",
+            "answer": "A simple workflow can be live within a couple of weeks, once we have access and a clear description of the process. More complex ones, involving approvals or several systems, take longer. We start small, so you see time saved early and can judge the approach before expanding."
+          },
+          {
+            "question": "Will automation replace our staff?",
+            "answer": "Our goal is to remove repetitive, error-prone steps so people can focus on work that needs judgment: serving customers, solving exceptions, planning. Teams usually stay the same size and handle more volume. We involve the people who do the task in the design, since their knowledge is what makes the workflow correct."
+          },
+          {
+            "question": "Who maintains the automations after delivery?",
+            "answer": "You can. We deliver documentation and a walkthrough so someone on your team can monitor, pause and edit workflows. If you prefer, we can provide ongoing support on a scoped basis, covering fixes when a connected app changes and new workflows as your needs grow."
           }
         ]
       }

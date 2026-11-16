@@ -32,4 +32,21 @@ describe("ServiceOverview", () => {
       "We provide deep-dive diagnostics to uncover operational efficiencies.",
     );
   });
+
+  it("renders each detail paragraph after the overview", () => {
+    const details = ["First detail paragraph.", "Second detail paragraph."];
+    const { container } = render(
+      <ServiceOverview {...defaultProps} details={details} />,
+    );
+    const paragraphs = container.querySelectorAll("p");
+    expect(paragraphs).toHaveLength(3);
+    expect(paragraphs[0]).toHaveTextContent(defaultProps.overview);
+    expect(paragraphs[1]).toHaveTextContent("First detail paragraph.");
+    expect(paragraphs[2]).toHaveTextContent("Second detail paragraph.");
+  });
+
+  it("renders only the overview paragraph when details are omitted", () => {
+    const { container } = render(<ServiceOverview {...defaultProps} />);
+    expect(container.querySelectorAll("p")).toHaveLength(1);
+  });
 });

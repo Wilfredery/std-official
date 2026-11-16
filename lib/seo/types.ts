@@ -84,6 +84,14 @@ export interface Service {
   provider: Organization | EntityRef;
 }
 
+/** schema.org CreativeWork used for `BlogPosting.citation`. */
+export interface CreativeWork {
+  "@type": "CreativeWork";
+  name: string;
+  url: string;
+  publisher: { "@type": "Organization"; name: string };
+}
+
 export interface BlogPosting {
   "@type": "BlogPosting";
   headline: string;
@@ -96,6 +104,8 @@ export interface BlogPosting {
   mainEntityOfPage: string;
   author: Organization | EntityRef;
   publisher: Organization | EntityRef;
+  /** External sources the post cites (statistics, reports). */
+  citation?: CreativeWork[];
 }
 
 export type JsonLdSchema =
