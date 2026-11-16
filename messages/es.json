@@ -429,7 +429,7 @@
         "seoTitle": "Auditoría de calidad de datos | ShineTechData",
         "subtitleStatic": "Descubrimos",
         "subtitleDynamic": "problemas de calidad de datos antes de que cuesten millones.",
-        "shortDescription": "Aseguramiento de calidad y revisiones de cumplimiento para GDPR, HIPAA y SOC 2.",
+        "shortDescription": "Controles de calidad de datos y revisión de brechas frente a los requisitos de GDPR, HIPAA y SOC 2.",
         "summary": "Evaluamos la salud de tus datos — completitud, exactitud, linaje y cumplimiento — y te entregamos un plan de remediación.",
         "overview": "Según Gartner, la mala calidad de los datos le cuesta a las organizaciones un promedio de $12.9M al año. Nuestro servicio de Auditoría de Datos identifica exactamente dónde están tus problemas de calidad de datos, qué tan serios son y qué hacer al respecto — antes de que impacten tus operaciones o cumplimiento.",
         "details": [
@@ -874,7 +874,7 @@
         },
         {
           "title": "Integridad y Cumplimiento",
-          "description": "Protegemos de forma irrestricta la privacidad de los activos de información de nuestros clientes mediante auditorías rigurosas y apego total a las normativas vigentes."
+          "description": "Protegemos la información de nuestros clientes con acceso de mínimo privilegio, acuerdos de confidencialidad y un manejo cuidadoso de los datos sensibles."
         },
         {
           "title": "Eficiencia Sostenible",
@@ -953,14 +953,14 @@
             "Suministrar, mantener y optimizar el rendimiento técnico de nuestro sitio web oficial.",
             "Estructurar, personalizar y desplegar cuadros de mando (BI), reportes dinámicos interactivos y algoritmos de Machine Learning adaptados al modelo estratégico del cliente.",
             "Procesar solicitudes de soporte y mantener canales de comunicación transparentes respecto a cotizaciones.",
-            "Validar el estricto apego regulatorio a través de soluciones de Auditoría de Datos, evitando problemas legales en la organización del cliente y asegurando conformidad absoluta con la Ley No. 172-13 de la República Dominicana."
+            "Prestar servicios de Auditoría de Datos que evalúan las prácticas de datos del cliente frente a los requisitos aplicables, como la Ley No. 172-13 de la República Dominicana, y recomiendan correcciones. Estas evaluaciones apoyan, pero no sustituyen, la asesoría legal ni una certificación formal."
           ]
         },
         {
           "heading": "3. Seguridad y Confidencialidad",
           "items": [
             "Utilizamos estándares modernos de infraestructura técnica y cifrado para salvaguardar la información contra accesos no autorizados, pérdidas accidentales o alteraciones.",
-            "El ciclo de vida de los datos está resguardado por Acuerdos de Confidencialidad (NDA) explícitos desde el primer contacto comercial."
+            "Firmamos un Acuerdo de Confidencialidad (NDA) a solicitud antes de acceder a cualquier dato del cliente."
           ]
         },
         {

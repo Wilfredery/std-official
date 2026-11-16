@@ -429,7 +429,7 @@
         "seoTitle": "Data Quality Audit Services | ShineTechData",
         "subtitleStatic": "We uncover",
         "subtitleDynamic": "data quality issues before they cost you millions.",
-        "shortDescription": "Quality assurance and compliance reviews for GDPR, HIPAA, and SOC 2.",
+        "shortDescription": "Data quality checks and compliance gap reviews against GDPR, HIPAA, and SOC 2 requirements.",
         "summary": "We assess the health of your data — completeness, accuracy, lineage, and compliance — and give you a remediation plan.",
         "overview": "According to Gartner, poor data quality costs organizations an average of $12.9M per year. Our Data Auditing service identifies exactly where your data quality issues are, how serious they are, and what to do about them — before they impact your operations or compliance.",
         "details": [
@@ -874,7 +874,7 @@
         },
         {
           "title": "Integrity & Compliance",
-          "description": "We protect our clients' information assets without restriction through rigorous audits and strict adherence to current regulations."
+          "description": "We protect our clients' information with least-privilege access, confidentiality agreements, and careful handling of sensitive data."
         },
         {
           "title": "Sustainable Efficiency",
@@ -953,14 +953,14 @@
             "Provide, maintain, and optimize the technical performance of our official website.",
             "Structure, customize, and deploy dashboards (BI), interactive dynamic reports, and Machine Learning algorithms tailored to the client's strategic model.",
             "Process support requests and maintain transparent communication channels regarding quotes.",
-            "Validate strict regulatory compliance through Data Auditing solutions, avoiding legal issues for the client's organization and ensuring absolute conformity with Law No. 172-13 of the Dominican Republic."
+            "Deliver Data Auditing services that assess the client's data practices against applicable requirements, such as Law No. 172-13 of the Dominican Republic, and recommend fixes. These assessments support, but do not replace, legal advice or formal certification."
           ]
         },
         {
           "heading": "3. Security and Confidentiality",
           "items": [
             "We use modern technical infrastructure and encryption standards to safeguard information against unauthorized access, accidental loss, or alterations.",
-            "The data lifecycle is protected by explicit Confidentiality Agreements (NDA) from the first commercial contact."
+            "We sign a Confidentiality Agreement (NDA) on request before accessing any client data."
           ]
         },
         {
