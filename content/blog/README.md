@@ -5,8 +5,9 @@ Each post is a folder named after its slug. The slug is the same in every locale
 ```
 content/blog/
   sources.json          verified references, keyed by id (shared by all posts)
+  authors.json          post authors (real people), keyed by id
   <slug>/
-    meta.json           dates and related services
+    meta.json           dates, author and related services
     es.md               Spanish: frontmatter + body
     en.md               English: frontmatter + body
 ```
@@ -19,12 +20,13 @@ The build fails with the file name and the reason if a post is malformed (unknow
 {
   "publishedAt": "2026-12-01",
   "updatedAt": "2026-12-10",
+  "author": "diogenes-monegro",
   "relatedService": "business-intelligence",
   "alsoRelated": ["data-analysis", "process-automation"]
 }
 ```
 
-`updatedAt` is optional. Services must be slugs from `lib/data/services.ts`.
+`updatedAt` is optional. `author` must be an id from `authors.json`. Services must be slugs from `lib/data/services.ts`.
 
 ## es.md / en.md
 
@@ -69,3 +71,19 @@ Every source here was opened and the cited figure confirmed on the page. Do not 
   "url": "https://www.cepal.org/..."
 }
 ```
+
+## authors.json
+
+Real people only: Google checks the byline against the author's public profiles (E-E-A-T). Each post shows a "By …" byline, an author card with the bio, and a schema.org `Person` as `BlogPosting.author`.
+
+```json
+"diogenes-monegro": {
+  "name": "Diogenes Monegro",
+  "jobTitle": { "es": "CEO de ShineTechData", "en": "CEO, ShineTechData" },
+  "bio": { "es": "Bio en español.", "en": "Bio in English." },
+  "sameAs": ["https://www.linkedin.com/in/..."]
+}
+```
+
+- `sameAs` (optional) lists https profile URLs that confirm who the author is (LinkedIn first). They become links in the author card.
+- Bios state only verifiable facts: role, company, real credentials.

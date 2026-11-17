@@ -1,0 +1,14 @@
+{
+  "diogenes-monegro": {
+    "name": "Diogenes Monegro",
+    "jobTitle": {
+      "es": "CEO de ShineTechData",
+      "en": "CEO, ShineTechData"
+    },
+    "bio": {
+      "es": "Diogenes Monegro es el CEO de ShineTechData, consultora de datos e inteligencia artificial con sede en San Pedro de Macorís, República Dominicana, que ayuda a pequeñas y medianas empresas a usar sus datos con criterio.",
+      "en": "Diogenes Monegro is the CEO of ShineTechData, a data and AI consultancy based in San Pedro de Macorís, Dominican Republic, that helps small and mid-sized businesses put their data to work."
+    },
+    "sameAs": ["https://www.linkedin.com/in/diogenes-monegro-isaac-2399b7119/"]
+  }
+}

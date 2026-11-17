@@ -51,6 +51,16 @@ export interface Organization {
   sameAs?: string[];
 }
 
+export interface Person {
+  "@type": "Person";
+  "@id"?: string;
+  name: string;
+  jobTitle?: string;
+  description?: string;
+  sameAs?: string[];
+  worksFor?: Organization | EntityRef;
+}
+
 export interface WebSite {
   "@type": "WebSite";
   "@id"?: string;
@@ -102,7 +112,7 @@ export interface BlogPosting {
   url: string;
   image?: string;
   mainEntityOfPage: string;
-  author: Organization | EntityRef;
+  author: Person | Organization | EntityRef;
   publisher: Organization | EntityRef;
   /** External sources the post cites (statistics, reports). */
   citation?: CreativeWork[];
@@ -110,6 +120,7 @@ export interface BlogPosting {
 
 export type JsonLdSchema =
   | Organization
+  | Person
   | WebSite
   | BreadcrumbList
   | Service

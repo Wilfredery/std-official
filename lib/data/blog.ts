@@ -1,13 +1,19 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import type { ServiceSlug } from "@/lib/data/services";
-import { parseBlogMeta, parseBlogPostContent, parseBlogSources } from "@/lib/data/blogMarkdown";
+import {
+  parseBlogAuthors,
+  parseBlogMeta,
+  parseBlogPostContent,
+  parseBlogSources,
+} from "@/lib/data/blogMarkdown";
 
 /**
  * Blog posts live as Markdown in content/blog/:
  *
  *   content/blog/sources.json        verified references, keyed by id
- *   content/blog/<slug>/meta.json    dates and related services
+ *   content/blog/authors.json        post authors (real people), keyed by id
+ *   content/blog/<slug>/meta.json    dates, author and related services
  *   content/blog/<slug>/es.md        frontmatter (title, seo, sources, cta) + body
  *   content/blog/<slug>/en.md
  *
@@ -24,6 +30,17 @@ export interface BlogSource {
   year: number;
   /** Absolute https URL of the page that was opened and checked. */
   url: string;
+}
+
+/** A real person who writes posts (schema.org Person, for E-E-A-T). */
+export interface BlogAuthor {
+  /** Key in content/blog/authors.json; also the Person `@id` fragment. */
+  id: string;
+  name: string;
+  jobTitle: Record<BlogLocale, string>;
+  bio: Record<BlogLocale, string>;
+  /** Public profiles (LinkedIn, GitHub…) that confirm who the author is. */
+  sameAs: string[];
 }
 
 export interface BlogPostContent {
@@ -49,6 +66,7 @@ export interface BlogPost {
   publishedAt: string;
   /** ISO date (YYYY-MM-DD) of the last meaningful edit. Falls back to `publishedAt`. */
   updatedAt?: string;
+  author: BlogAuthor;
   /** Primary service hub this post supports (CTA target). */
   relatedService: ServiceSlug;
   /** Secondary services the post also links to. */
@@ -77,6 +95,8 @@ export const blogUi: Record<
     home: string;
     sources: string;
     opensInNewTab: string;
+    by: string;
+    aboutAuthor: string;
   }
 > = {
   es: {
@@ -98,6 +118,8 @@ export const blogUi: Record<
     home: "Inicio",
     sources: "Fuentes",
     opensInNewTab: "se abre en una pestaña nueva",
+    by: "Por",
+    aboutAuthor: "Sobre el autor",
   },
   en: {
     eyebrow: "Blog",
@@ -118,6 +140,8 @@ export const blogUi: Record<
     home: "Home",
     sources: "Sources",
     opensInNewTab: "opens in a new tab",
+    by: "By",
+    aboutAuthor: "About the author",
   },
 };
 
@@ -128,6 +152,7 @@ const LOCALES: BlogLocale[] = ["es", "en"];
 function loadPosts(): BlogPost[] {
   const read = (...parts: string[]) => readFileSync(join(CONTENT_DIR, ...parts), "utf8");
   const sources = parseBlogSources(read("sources.json"), "content/blog/sources.json");
+  const authors = parseBlogAuthors(read("authors.json"), "content/blog/authors.json");
 
   const slugs = readdirSync(CONTENT_DIR, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
@@ -137,7 +162,7 @@ function loadPosts(): BlogPost[] {
     slugs
       .map((slug): BlogPost => {
         const dir = `content/blog/${slug}`;
-        const meta = parseBlogMeta(read(slug, "meta.json"), `${dir}/meta.json`);
+        const meta = parseBlogMeta(read(slug, "meta.json"), `${dir}/meta.json`, authors);
         const content = Object.fromEntries(
           LOCALES.map((locale) => [
             locale,

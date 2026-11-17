@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import {
+  parseBlogAuthors,
   parseBlogMeta,
   parseBlogPostContent,
   parseBlogSources,
@@ -67,24 +68,64 @@ describe("parseBlogPostContent", () => {
   });
 });
 
+const authorJson = {
+  "ana-perez": {
+    name: "Ana Pérez",
+    jobTitle: { es: "Analista", en: "Analyst" },
+    bio: { es: "Bio es", en: "Bio en" },
+    sameAs: ["https://www.linkedin.com/in/ana"],
+  },
+};
+const authors = parseBlogAuthors(JSON.stringify(authorJson), "authors.json");
+
 describe("parseBlogMeta", () => {
   const valid = {
     publishedAt: "2026-11-16",
+    author: "ana-perez",
     relatedService: "business-intelligence",
     alsoRelated: ["data-analysis"],
   };
 
-  it("parses valid metadata", () => {
-    expect(parseBlogMeta(JSON.stringify(valid), "meta.json")).toEqual({ ...valid, updatedAt: undefined });
+  it("parses valid metadata and resolves the author", () => {
+    expect(parseBlogMeta(JSON.stringify(valid), "meta.json", authors)).toEqual({
+      ...valid,
+      author: { id: "ana-perez", ...authorJson["ana-perez"] },
+      updatedAt: undefined,
+    });
   });
 
-  it("rejects unknown services and malformed dates", () => {
+  it("rejects unknown services, malformed dates and unknown or missing authors", () => {
     expect(() =>
-      parseBlogMeta(JSON.stringify({ ...valid, relatedService: "seo" }), "meta.json"),
+      parseBlogMeta(JSON.stringify({ ...valid, relatedService: "seo" }), "meta.json", authors),
     ).toThrow(/relatedService "seo" is not one of/);
     expect(() =>
-      parseBlogMeta(JSON.stringify({ ...valid, publishedAt: "16/11/2026" }), "meta.json"),
+      parseBlogMeta(JSON.stringify({ ...valid, publishedAt: "16/11/2026" }), "meta.json", authors),
     ).toThrow(/YYYY-MM-DD/);
+    expect(() =>
+      parseBlogMeta(JSON.stringify({ ...valid, author: "nobody" }), "meta.json", authors),
+    ).toThrow(/unknown author "nobody"/);
+    expect(() =>
+      parseBlogMeta(JSON.stringify({ ...valid, author: undefined }), "meta.json", authors),
+    ).toThrow(/"author"/);
+  });
+});
+
+describe("parseBlogAuthors", () => {
+  const base = authorJson["ana-perez"];
+
+  it("defaults sameAs to an empty list", () => {
+    const noProfiles = JSON.stringify({ "ana-perez": { ...base, sameAs: undefined } });
+    expect(parseBlogAuthors(noProfiles, "authors.json")["ana-perez"].sameAs).toEqual([]);
+  });
+
+  it("rejects a missing locale, non-https profiles and bad ids", () => {
+    expect(() =>
+      parseBlogAuthors(JSON.stringify({ "ana-perez": { ...base, bio: { es: "x" } } }), "authors.json"),
+    ).toThrow(/bio/);
+    expect(() =>
+      parseBlogAuthors(JSON.stringify({ "ana-perez": { ...base, sameAs: ["http://x.org"] } }), "authors.json"),
+    ).toThrow(/https profile URLs/);
+    expect(() => parseBlogAuthors(JSON.stringify({ "Ana Perez": base }), "authors.json")).toThrow(/kebab-case/);
   });
 });
 
