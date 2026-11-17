@@ -1,0 +1,37 @@
+{
+  "ci": {
+    "collect": {
+      "startServerCommand": "pnpm start --port 3100",
+      "startServerReadyPattern": "Ready",
+      "url": [
+        "http://localhost:3100/en/",
+        "http://localhost:3100/es/",
+        "http://localhost:3100/en/services/",
+        "http://localhost:3100/en/services/data-analysis/",
+        "http://localhost:3100/en/blog/business-intelligence-small-business/",
+        "http://localhost:3100/en/contact/",
+        "http://localhost:3100/es/consultoria-de-datos-republica-dominicana/"
+      ],
+      "numberOfRuns": 3,
+      "settings": {
+        "chromeFlags": "--no-sandbox --headless=new"
+      }
+    },
+    "assert": {
+      "aggregationMethod": "median-run",
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.9 }],
+        "categories:accessibility": ["error", { "minScore": 0.95 }],
+        "categories:seo": ["error", { "minScore": 1 }],
+        "categories:best-practices": ["warn", { "minScore": 0.9 }],
+        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+        "largest-contentful-paint": ["warn", { "maxNumericValue": 2500 }],
+        "total-blocking-time": ["warn", { "maxNumericValue": 200 }]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": ".lighthouseci/reports"
+    }
+  }
+}
