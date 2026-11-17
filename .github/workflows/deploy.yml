@@ -1,0 +1,57 @@
+name: Deploy
+
+# Production deploy to Vercel. The Vercel project has no Git integration (the
+# repo owner's account would have to install the Vercel GitHub App), so the
+# deploy runs from here with a Vercel token instead.
+#
+# Runs only after CI succeeds on master, so a red build never reaches
+# production. Can also be started by hand from the Actions tab.
+#
+# Requires one repository secret: VERCEL_TOKEN (vercel.com/account/tokens).
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  # Identifiers, not credentials: they only work together with VERCEL_TOKEN.
+  VERCEL_ORG_ID: team_OGjRddSeDr8wI2z8yHrFoLdo
+  VERCEL_PROJECT_ID: prj_N8QzArSrrYbwVUfhQ6J9z6GzamZT
+
+jobs:
+  production:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.event == 'push')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: https://www.shinetechdata.com
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # Deploy exactly the commit CI verified, not whatever master is now.
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 12.11.2
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: npm install --global vercel@65
+      - run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
