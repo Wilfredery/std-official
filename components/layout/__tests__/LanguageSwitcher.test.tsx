@@ -53,8 +53,15 @@ describe("LanguageSwitcher", () => {
 
   it("names each language button in its own language", () => {
     render(<LanguageSwitcher />, { locale: "en" });
-    expect(screen.getByRole("button", { name: "Español" })).toHaveAttribute("lang", "es");
-    expect(screen.getByRole("button", { name: "English" })).toHaveAttribute("lang", "en");
+    expect(screen.getByRole("button", { name: "ES Español" })).toHaveAttribute("lang", "es");
+    expect(screen.getByRole("button", { name: "EN English" })).toHaveAttribute("lang", "en");
+  });
+
+  it("includes the visible code in each accessible name (WCAG 2.5.3)", () => {
+    render(<LanguageSwitcher />, { locale: "en" });
+    for (const button of screen.getAllByRole("button")) {
+      expect(button.getAttribute("aria-label")).toMatch(new RegExp(`^${button.textContent}\\b`));
+    }
   });
 
   it("marks the current locale button with aria-current", () => {

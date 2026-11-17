@@ -65,7 +65,7 @@ export const landingUi = {
   faqTitle: "Preguntas frecuentes",
   breadcrumbAria: "Ruta de navegación",
   related: "Relacionado",
-  bookingAria: "Agendar una llamada gratuita de 30 minutos (se abre en una pestaña nueva)",
+  newTab: "(se abre en una pestaña nueva)",
 } as const;
 
 /** ISO date of the last meaningful edit of the landings (sitemap `lastmod`). */

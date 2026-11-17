@@ -168,13 +168,14 @@ function BookingButton({ label }: { label: string }) {
       href={BOOKING_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={landingUi.bookingAria}
       className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground
         px-6 py-3 rounded-full font-semibold hover:bg-primary/90 transition-all hover-glow
         focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
     >
       <CalendarDays className="size-4 shrink-0" aria-hidden="true" />
       {label}
+      {/* Visible label stays the accessible name (WCAG 2.5.3); note the new tab. */}
+      <span className="sr-only"> {landingUi.newTab}</span>
     </a>
   );
 }

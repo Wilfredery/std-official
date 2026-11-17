@@ -12,6 +12,8 @@ const localeLabels: Record<string, string> = {
 };
 
 // Each language named in itself, so it reads correctly whatever the page locale.
+// The accessible name starts with the visible code ("ES Español") so voice
+// control users can say what they see (WCAG 2.5.3 Label in Name).
 const localeNames: Record<string, string> = {
   es: "Español",
   en: "English",
@@ -41,12 +43,12 @@ export function LanguageSwitcher() {
           key={l}
           type="button"
           lang={l}
-          aria-label={localeNames[l]}
+          aria-label={`${localeLabels[l]} ${localeNames[l]}`}
           onClick={() => handleSwitch(l)}
           className={cn(
             "px-3 py-1.5 rounded-full uppercase tracking-widest transition-colors",
             locale === l
-              ? "bg-primary text-primary-foreground"
+              ? "bg-foreground text-background"
               : "text-muted-foreground hover:text-foreground",
           )}
           aria-current={locale === l ? "true" : undefined}
