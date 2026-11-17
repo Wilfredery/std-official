@@ -24,7 +24,7 @@ vi.mock("next-intl/server", () => ({
 
 describe("AboutCtaLinks", () => {
   it("renders the cta title from i18n", async () => {
-    const jsx = await AboutCtaLinks({ locale: "en" });
+    const jsx = await AboutCtaLinks();
     render(jsx);
 
     expect(
@@ -33,7 +33,7 @@ describe("AboutCtaLinks", () => {
   });
 
   it("renders the cta subtitle from i18n", async () => {
-    const jsx = await AboutCtaLinks({ locale: "en" });
+    const jsx = await AboutCtaLinks();
     render(jsx);
 
     expect(
@@ -42,7 +42,7 @@ describe("AboutCtaLinks", () => {
   });
 
   it("renders the CtaButton with the correct label", async () => {
-    const jsx = await AboutCtaLinks({ locale: "en" });
+    const jsx = await AboutCtaLinks();
     render(jsx);
 
     const button = screen.getByTestId("cta-button");

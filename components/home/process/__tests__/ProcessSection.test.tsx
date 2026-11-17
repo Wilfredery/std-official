@@ -15,7 +15,7 @@ vi.mock("next-intl/server", () => ({
 
 describe("ProcessSection", () => {
   it("renders eyebrow text", async () => {
-    const jsx = await ProcessSection({ locale: "en" });
+    const jsx = await ProcessSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.process.eyebrow),
@@ -23,20 +23,20 @@ describe("ProcessSection", () => {
   });
 
   it("renders title text", async () => {
-    const jsx = await ProcessSection({ locale: "en" });
+    const jsx = await ProcessSection();
     render(jsx);
     expect(screen.getByText(enMessages.home.process.title)).toBeInTheDocument();
   });
 
   it("renders exactly 3 step items", async () => {
-    const jsx = await ProcessSection({ locale: "en" });
+    const jsx = await ProcessSection();
     render(jsx);
     const headings = screen.getAllByRole("heading", { level: 3 });
     expect(headings).toHaveLength(3);
   });
 
   it("each step has a step number (01, 02, 03)", async () => {
-    const jsx = await ProcessSection({ locale: "en" });
+    const jsx = await ProcessSection();
     render(jsx);
     expect(screen.getByText("01")).toBeInTheDocument();
     expect(screen.getByText("02")).toBeInTheDocument();
@@ -44,7 +44,7 @@ describe("ProcessSection", () => {
   });
 
   it("connecting line exists on desktop (hidden on mobile)", async () => {
-    const jsx = await ProcessSection({ locale: "en" });
+    const jsx = await ProcessSection();
     const { container } = render(jsx);
     const line = container.querySelector(".h-px");
     expect(line).toBeInTheDocument();

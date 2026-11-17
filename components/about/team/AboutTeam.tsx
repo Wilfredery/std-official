@@ -1,10 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import { UserCog, Code2, BrainCircuit, ShieldCheck } from "lucide-react";
-import { CtaButton } from "@/components/home/cta/CtaButton";
 
 const icons = [UserCog, Code2, BrainCircuit, ShieldCheck];
 
-export async function AboutTeam({ locale }: { locale: string }) {
+export async function AboutTeam() {
   const t = await getTranslations("about.team");
 
   return (

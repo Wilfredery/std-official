@@ -15,7 +15,7 @@ vi.mock("next-intl/server", () => ({
 
 describe("ProblemSection", () => {
   it("renders eyebrow text", async () => {
-    const jsx = await ProblemSection({ locale: "en" });
+    const jsx = await ProblemSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.problem.eyebrow),
@@ -23,7 +23,7 @@ describe("ProblemSection", () => {
   });
 
   it("renders title text", async () => {
-    const jsx = await ProblemSection({ locale: "en" });
+    const jsx = await ProblemSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.problem.title),
@@ -31,14 +31,14 @@ describe("ProblemSection", () => {
   });
 
   it("renders exactly 3 problem cards", async () => {
-    const jsx = await ProblemSection({ locale: "en" });
+    const jsx = await ProblemSection();
     const { container } = render(jsx);
     const cards = container.querySelectorAll(".gradient-border-card");
     expect(cards).toHaveLength(3);
   });
 
   it("each card renders the correct item text from messages", async () => {
-    const jsx = await ProblemSection({ locale: "en" });
+    const jsx = await ProblemSection();
     render(jsx);
 
     const items = enMessages.home.problem.items as string[];
@@ -48,7 +48,7 @@ describe("ProblemSection", () => {
   });
 
   it("cards have gradient-border-card class", async () => {
-    const jsx = await ProblemSection({ locale: "en" });
+    const jsx = await ProblemSection();
     const { container } = render(jsx);
     const firstCard = container.querySelector(".gradient-border-card");
     expect(firstCard).toBeInTheDocument();
@@ -56,7 +56,7 @@ describe("ProblemSection", () => {
   });
 
   it("cards have glow-gradient class", async () => {
-    const jsx = await ProblemSection({ locale: "en" });
+    const jsx = await ProblemSection();
     const { container } = render(jsx);
     const firstCard = container.querySelector(".glow-gradient");
     expect(firstCard).toBeInTheDocument();

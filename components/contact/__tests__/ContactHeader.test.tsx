@@ -25,13 +25,13 @@ vi.mock("next-intl/server", () => ({
 
 describe("ContactHeader", () => {
   it("renders eyebrow text", async () => {
-    const jsx = await ContactHeader({ locale: "en" });
+    const jsx = await ContactHeader();
     render(jsx);
     expect(screen.getByText(enMessages.contact.header.eyebrow)).toBeInTheDocument();
   });
 
   it("renders title and titleAccent", async () => {
-    const jsx = await ContactHeader({ locale: "en" });
+    const jsx = await ContactHeader();
     render(jsx);
     expect(
       screen.getByText(enMessages.contact.header.title.trim()),
@@ -42,7 +42,7 @@ describe("ContactHeader", () => {
   });
 
   it("SubtitleTyping receives correct props", async () => {
-    const jsx = await ContactHeader({ locale: "en" });
+    const jsx = await ContactHeader();
     render(jsx);
     expect(
       screen.getByText(

@@ -15,7 +15,7 @@ vi.mock("next-intl/server", () => ({
 
 describe("BrandStory", () => {
   it("renders the story title from i18n", async () => {
-    const jsx = await BrandStory({ locale: "en" });
+    const jsx = await BrandStory();
     render(jsx);
 
     expect(
@@ -24,7 +24,7 @@ describe("BrandStory", () => {
   });
 
   it("renders the origin paragraph from i18n", async () => {
-    const jsx = await BrandStory({ locale: "en" });
+    const jsx = await BrandStory();
     render(jsx);
 
     expect(
@@ -33,7 +33,7 @@ describe("BrandStory", () => {
   });
 
   it("renders the philosophy paragraph from i18n", async () => {
-    const jsx = await BrandStory({ locale: "en" });
+    const jsx = await BrandStory();
     render(jsx);
 
     expect(
@@ -42,7 +42,7 @@ describe("BrandStory", () => {
   });
 
   it("renders two paragraph blocks (origin + philosophy)", async () => {
-    const jsx = await BrandStory({ locale: "en" });
+    const jsx = await BrandStory();
     render(jsx);
 
     expect(

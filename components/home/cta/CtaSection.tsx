@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { CtaButton } from "./CtaButton";
 
-export async function CtaSection({ locale }: { locale: string }) {
+export async function CtaSection() {
   const t = await getTranslations("home.cta");
 
   return (

@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { services } from "@/lib/data/services";
 import { ServiceCard } from "./ServiceCard";
 
-export async function ServicesSection({ locale }: { locale: string }) {
+export async function ServicesSection() {
   const t = await getTranslations("home.services");
   const tDetail = await getTranslations("serviceDetail");
   const tCommon = await getTranslations("common");

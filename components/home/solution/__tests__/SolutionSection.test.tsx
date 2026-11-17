@@ -15,7 +15,7 @@ vi.mock("next-intl/server", () => ({
 
 describe("SolutionSection", () => {
   it("renders eyebrow text", async () => {
-    const jsx = await SolutionSection({ locale: "en" });
+    const jsx = await SolutionSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.solution.eyebrow),
@@ -23,7 +23,7 @@ describe("SolutionSection", () => {
   });
 
   it("renders title text", async () => {
-    const jsx = await SolutionSection({ locale: "en" });
+    const jsx = await SolutionSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.solution.title),
@@ -31,7 +31,7 @@ describe("SolutionSection", () => {
   });
 
   it("renders description text", async () => {
-    const jsx = await SolutionSection({ locale: "en" });
+    const jsx = await SolutionSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.solution.description),
@@ -39,7 +39,7 @@ describe("SolutionSection", () => {
   });
 
   it("renders section with border-b class", async () => {
-    const jsx = await SolutionSection({ locale: "en" });
+    const jsx = await SolutionSection();
     const { container } = render(jsx);
     const section = container.querySelector("section");
     expect(section).toHaveClass("border-b");
