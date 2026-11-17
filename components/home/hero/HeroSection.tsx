@@ -16,7 +16,7 @@ export async function HeroSection() {
           >
             {t("badge")}
           </span>
-          <div className="flex justify-center mb-8 animate-[fadeInUp_0.8s_ease-out_forwards]">
+          <div className="flex justify-center mb-8 animate-[riseIn_0.8s_ease-out] motion-reduce:animate-none">
             <h1 className="mt-8 text-4xl font-extrabold tracking-tight sm:text-7xl lg:text-6xl">
               {t("title")}{" "}
               <span className="gradient-text">{t("titleAccent")}</span>
