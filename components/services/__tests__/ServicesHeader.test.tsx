@@ -26,19 +26,19 @@ vi.mock("next-intl/server", () => ({
 
 describe("ServicesHeader", () => {
   it("renders eyebrow text", async () => {
-    const jsx = await ServicesHeader({ locale: "en" });
+    const jsx = await ServicesHeader();
     render(jsx);
     expect(screen.getByText(enMessages.services.header.eyebrow)).toBeInTheDocument();
   });
 
   it("renders title text", async () => {
-    const jsx = await ServicesHeader({ locale: "en" });
+    const jsx = await ServicesHeader();
     render(jsx);
     expect(screen.getByText(enMessages.services.header.title)).toBeInTheDocument();
   });
 
   it("renders titleAccent text", async () => {
-    const jsx = await ServicesHeader({ locale: "en" });
+    const jsx = await ServicesHeader();
     render(jsx);
     expect(
       screen.getByText(enMessages.services.header.titleAccent),
@@ -46,7 +46,7 @@ describe("ServicesHeader", () => {
   });
 
   it("renders SubtitleTyping with correct props", async () => {
-    const jsx = await ServicesHeader({ locale: "en" });
+    const jsx = await ServicesHeader();
     render(jsx);
     expect(
       screen.getByText(

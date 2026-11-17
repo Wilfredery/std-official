@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-export async function BrandStory({ locale }: { locale: string }) {
+export async function BrandStory() {
   const t = await getTranslations("about.story");
 
   return (

@@ -23,7 +23,7 @@ vi.mock("@/components/services/ServiceCard", () => ({
 
 describe("ServicesSection", () => {
   it("renders the section eyebrow from i18n", async () => {
-    const jsx = await ServicesSection({ locale: "en" });
+    const jsx = await ServicesSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.services.eyebrow),
@@ -31,7 +31,7 @@ describe("ServicesSection", () => {
   });
 
   it("renders the section title from i18n", async () => {
-    const jsx = await ServicesSection({ locale: "en" });
+    const jsx = await ServicesSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.services.title),
@@ -39,7 +39,7 @@ describe("ServicesSection", () => {
   });
 
   it("renders the section subtitle from i18n", async () => {
-    const jsx = await ServicesSection({ locale: "en" });
+    const jsx = await ServicesSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.services.subtitle),
@@ -47,7 +47,7 @@ describe("ServicesSection", () => {
   });
 
   it("renders all service cards in a grid", async () => {
-    const jsx = await ServicesSection({ locale: "en" });
+    const jsx = await ServicesSection();
     render(jsx);
     const cards = screen.getAllByTestId("service-card");
     expect(cards.length).toBeGreaterThan(0);

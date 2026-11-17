@@ -8,7 +8,7 @@ const valueIcons = [
   Zap, // Sustainable Efficiency
 ];
 
-export async function ValuesSection({ locale }: { locale: string }) {
+export async function ValuesSection() {
   const t = await getTranslations("about.values");
   const items = t.raw("items") as Array<{ title: string; description: string }>;
 

@@ -24,7 +24,7 @@ vi.mock("next-intl/server", () => ({
 
 describe("AboutTeam", () => {
   it("renders the section title from i18n", async () => {
-    const jsx = await AboutTeam({ locale: "en" });
+    const jsx = await AboutTeam();
     render(jsx);
 
     expect(
@@ -33,7 +33,7 @@ describe("AboutTeam", () => {
   });
 
   it("renders the subtitle from i18n", async () => {
-    const jsx = await AboutTeam({ locale: "en" });
+    const jsx = await AboutTeam();
     render(jsx);
 
     expect(
@@ -42,7 +42,7 @@ describe("AboutTeam", () => {
   });
 
   it("renders all 4 team member cards with their roles", async () => {
-    const jsx = await AboutTeam({ locale: "en" });
+    const jsx = await AboutTeam();
     render(jsx);
 
     const items = enMessages.about.team.items;
@@ -52,7 +52,7 @@ describe("AboutTeam", () => {
   });
 
   it("renders all 4 team member cards with their descriptions", async () => {
-    const jsx = await AboutTeam({ locale: "en" });
+    const jsx = await AboutTeam();
     render(jsx);
 
     const items = enMessages.about.team.items;

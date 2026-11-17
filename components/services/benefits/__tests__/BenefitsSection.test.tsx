@@ -15,7 +15,7 @@ vi.mock("next-intl/server", () => ({
 
 describe("BenefitsSection", () => {
   it("renders eyebrow text", async () => {
-    const jsx = await BenefitsSection({ locale: "en" });
+    const jsx = await BenefitsSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.benefits.eyebrow),
@@ -23,7 +23,7 @@ describe("BenefitsSection", () => {
   });
 
   it("renders title text", async () => {
-    const jsx = await BenefitsSection({ locale: "en" });
+    const jsx = await BenefitsSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.benefits.title),
@@ -31,14 +31,14 @@ describe("BenefitsSection", () => {
   });
 
   it("renders exactly 4 benefit cards", async () => {
-    const jsx = await BenefitsSection({ locale: "en" });
+    const jsx = await BenefitsSection();
     render(jsx);
     const headings = screen.getAllByRole("heading", { level: 3 });
     expect(headings).toHaveLength(4);
   });
 
   it("each card contains an icon (SVG)", async () => {
-    const jsx = await BenefitsSection({ locale: "en" });
+    const jsx = await BenefitsSection();
     const { container } = render(jsx);
     const cards = container.querySelectorAll(".gradient-border-card");
     expect(cards).toHaveLength(4);
@@ -48,7 +48,7 @@ describe("BenefitsSection", () => {
   });
 
   it("each card has a title and description", async () => {
-    const jsx = await BenefitsSection({ locale: "en" });
+    const jsx = await BenefitsSection();
     render(jsx);
     enMessages.home.benefits.items.forEach((item) => {
       expect(screen.getByText(item.title)).toBeInTheDocument();

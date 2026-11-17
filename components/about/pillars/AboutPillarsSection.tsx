@@ -25,7 +25,7 @@ const keys = [
   "process-automation",
 ];
 
-export async function PillarsSection({ locale }: { locale: string }) {
+export async function PillarsSection() {
   const t = await getTranslations("about.pillars");
 
   return (

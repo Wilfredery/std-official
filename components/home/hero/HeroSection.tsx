@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { SubtitleTyping } from "./SubtitleTyping";
 import { CtaLinks } from "./CtaLinks";
 
-export async function HeroSection({ locale }: { locale: string }) {
+export async function HeroSection() {
   const t = await getTranslations("home.hero");
 
   return (

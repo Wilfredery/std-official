@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-export async function SolutionSection({ locale }: { locale: string }) {
+export async function SolutionSection() {
   const t = await getTranslations("home.solution");
 
   return (

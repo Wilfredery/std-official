@@ -29,7 +29,7 @@ vi.mock("next-intl/server", () => ({
 
 describe("AboutHeader", () => {
   it("renders the eyebrow text from i18n", async () => {
-    const jsx = await AboutHeader({ locale: "en" });
+    const jsx = await AboutHeader();
     render(jsx);
     expect(
       screen.getByText(enMessages.about.header.eyebrow),
@@ -37,7 +37,7 @@ describe("AboutHeader", () => {
   });
 
   it("renders title and titleAccent combined in the h1", async () => {
-    const jsx = await AboutHeader({ locale: "en" });
+    const jsx = await AboutHeader();
     render(jsx);
 
     const heading = screen.getByRole("heading", { level: 1 });
@@ -46,7 +46,7 @@ describe("AboutHeader", () => {
   });
 
   it("renders the subtitle typing mock with correct static and dynamic text", async () => {
-    const jsx = await AboutHeader({ locale: "en" });
+    const jsx = await AboutHeader();
     render(jsx);
 
     const subtitle = screen.getByTestId("subtitle");

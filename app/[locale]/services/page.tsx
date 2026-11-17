@@ -2,7 +2,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
-import { routing } from "@/lib/i18n/routing";
 import { ServicesHeader } from "@/components/services/ServicesHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ServicesSection } from "@/components/services/ServicesSection";
@@ -58,18 +57,18 @@ export default async function ServicesPage({
   return (
     <>
       {/* Above the fold: no ScrollReveal, so the LCP paints without waiting for hydration. */}
-      <ServicesHeader locale={locale} />
+      <ServicesHeader />
 
       <ScrollReveal direction="down">
-        <ServicesSection locale={locale} />
+        <ServicesSection />
       </ScrollReveal>
 
       <ScrollReveal direction="scale">
-        <BenefitsSection locale={locale} />
+        <BenefitsSection />
       </ScrollReveal>
 
       <ScrollReveal direction="down">
-        <CtaSection locale={locale} />
+        <CtaSection />
       </ScrollReveal>
     </>
   );

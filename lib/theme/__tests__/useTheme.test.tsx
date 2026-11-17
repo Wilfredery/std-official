@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { renderHook, act, waitFor } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { renderHook, act } from "@testing-library/react";
 import React from "react";
 
 // Will be imported after mock setup
@@ -63,7 +63,7 @@ function createMatchMediaResponse(matches = false) {
   };
 }
 
-const matchMediaMock = vi.fn((_query: string) => createMatchMediaResponse());
+const matchMediaMock = vi.fn((query: string) => ({ ...createMatchMediaResponse(), media: query }));
 
 Object.defineProperty(window, "matchMedia", {
   value: matchMediaMock,

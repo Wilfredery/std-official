@@ -1,5 +1,4 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
 
 // ============================================================
 // Mocks — set up BEFORE importing the layout component

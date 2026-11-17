@@ -2,7 +2,6 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
-import { routing } from "@/lib/i18n/routing";
 import { AboutHeader } from "@/components/about/hero/AboutHeader";
 import { BrandStory } from "@/components/about/brandStory/AboutBrandStory";
 import { MissionVision } from "@/components/about/missionVission/AboutMissionVision";
@@ -66,30 +65,30 @@ export default async function AboutPage({
   return (
     <>
       {/* Above the fold: no ScrollReveal, so the LCP paints without waiting for hydration. */}
-      <AboutHeader locale={locale} />
+      <AboutHeader />
 
       <ScrollReveal direction="left">
-        <BrandStory locale={locale} />
+        <BrandStory />
       </ScrollReveal>
 
       <ScrollReveal direction="right">
-        <MissionVision locale={locale} />
+        <MissionVision />
       </ScrollReveal>
 
       <ScrollReveal direction="up">
-        <ValuesSection locale={locale} />
+        <ValuesSection />
       </ScrollReveal>
 
       <ScrollReveal direction="up">
-        <PillarsSection locale={locale} />
+        <PillarsSection />
       </ScrollReveal>
 
       <ScrollReveal direction="up">
-        <AboutTeam locale={locale} />
+        <AboutTeam />
       </ScrollReveal>
 
       <ScrollReveal direction="up">
-        <AboutCtaLinks locale={locale} />
+        <AboutCtaLinks />
       </ScrollReveal>
     </>
   );

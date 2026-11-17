@@ -33,7 +33,7 @@ vi.mock("next-intl/server", () => ({
 
 describe("HeroSection", () => {
   it("renders badge text", async () => {
-    const jsx = await HeroSection({ locale: "en" });
+    const jsx = await HeroSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.hero.badge),
@@ -41,7 +41,7 @@ describe("HeroSection", () => {
   });
 
   it("renders title and titleAccent", async () => {
-    const jsx = await HeroSection({ locale: "en" });
+    const jsx = await HeroSection();
     render(jsx);
     expect(
       screen.getByText(enMessages.home.hero.title.trim()),
@@ -52,7 +52,7 @@ describe("HeroSection", () => {
   });
 
   it("renders SubtitleTyping mock with correct text", async () => {
-    const jsx = await HeroSection({ locale: "en" });
+    const jsx = await HeroSection();
     render(jsx);
 
     const subtitle = screen.getByTestId("subtitle");
@@ -63,7 +63,7 @@ describe("HeroSection", () => {
   });
 
   it("renders CtaLinks mock", async () => {
-    const jsx = await HeroSection({ locale: "en" });
+    const jsx = await HeroSection();
     render(jsx);
 
     expect(screen.getByTestId("cta-links")).toBeInTheDocument();
@@ -71,7 +71,7 @@ describe("HeroSection", () => {
   });
 
   it("renders hero-glow background element", async () => {
-    const jsx = await HeroSection({ locale: "en" });
+    const jsx = await HeroSection();
     const { container } = render(jsx);
     expect(container.querySelector(".hero-glow")).toBeInTheDocument();
   });

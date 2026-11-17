@@ -7,5 +7,5 @@
     } else {
       document.documentElement.classList.remove('dark');
     }
-  } catch (e) {}
+  } catch {}
 })();

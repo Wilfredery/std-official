@@ -27,19 +27,19 @@ vi.mock("@/lib/i18n/navigation", () => ({
 
 describe("CtaSection", () => {
   it("renders title text", async () => {
-    const jsx = await CtaSection({ locale: "en" });
+    const jsx = await CtaSection();
     render(jsx);
     expect(screen.getByText(enMessages.home.cta.title)).toBeInTheDocument();
   });
 
   it("renders subtitle text", async () => {
-    const jsx = await CtaSection({ locale: "en" });
+    const jsx = await CtaSection();
     render(jsx);
     expect(screen.getByText(enMessages.home.cta.subtitle)).toBeInTheDocument();
   });
 
   it("contains the CtaButton component", async () => {
-    const jsx = await CtaSection({ locale: "en" });
+    const jsx = await CtaSection();
     render(jsx);
     expect(screen.getByText(enMessages.home.cta.button)).toBeInTheDocument();
   });
