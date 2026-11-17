@@ -202,6 +202,17 @@ export function postsForService(slug: ServiceSlug): BlogPost[] {
   ];
 }
 
+/**
+ * Posts newest first, optionally capped. Reversed before the (stable) sort so a
+ * post added later wins a same-day tie.
+ */
+export function latestPosts(limit?: number): BlogPost[] {
+  const sorted = [...blogPosts]
+    .reverse()
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+  return limit === undefined ? sorted : sorted.slice(0, limit);
+}
+
 /** Other posts to cross-link from a post (newest first). */
 export function otherPosts(slug: string, limit = 2): BlogPost[] {
   return blogPosts

@@ -21,8 +21,8 @@
   "home": {
     "hero": {
       "badge": "Potenciamos a equipos basados en datos",
-      "title": "Convierte tus datos en",
-      "titleAccent": "Decisiones Inteligentes de Negocio",
+      "title": "Consultoría de datos y Power BI para",
+      "titleAccent": "decisiones de negocio más inteligentes",
       "subtitleStatic": "Transforma datos crudos en",
       "subtitleDynamic": "insights claros, procesos automatizados y crecimiento real — sin contratar un equipo interno.",
       "cta_primary": "Agendar Consultoría Gratis",
@@ -86,6 +86,11 @@
           "description": "Implementamos, integramos y capacitamos. Resultados en semanas, no trimestres."
         }
       ]
+    },
+    "latestPosts": {
+      "eyebrow": "Del blog",
+      "title": "Guías prácticas de datos e IA",
+      "viewAll": "Ver todos los artículos"
     },
     "cta": {
       "title": "¿Listo para desbloquear el potencial de tus datos?",
@@ -806,8 +811,8 @@
   },
   "seo": {
     "home": {
-      "title": "ShineTechData — Convierte tus datos en decisiones inteligentes",
-      "description": "ShineTechData ayuda a PyMEs a transformar datos crudos en insights claros, procesos automatizados y crecimiento real."
+      "title": "Consultoría de Datos y Power BI para PyMEs | ShineTechData",
+      "description": "Análisis de datos, dashboards de Power BI, machine learning y automatización de procesos para pymes. Agenda una consulta gratuita de 30 minutos."
     },
     "about": {
       "title": "Sobre Nosotros | ShineTechData",

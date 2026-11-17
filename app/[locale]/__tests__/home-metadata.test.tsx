@@ -32,6 +32,12 @@ vi.mock("@/components/home/process/ProcessSection", () => ({
 vi.mock("@/components/home/cta/CtaSection", () => ({
   CtaSection: () => null,
 }));
+vi.mock("@/components/services/ServicesSection", () => ({
+  ServicesSection: () => null,
+}));
+vi.mock("@/components/home/blog/LatestPostsSection", () => ({
+  LatestPostsSection: () => null,
+}));
 
 // ============================================================
 // Translation data

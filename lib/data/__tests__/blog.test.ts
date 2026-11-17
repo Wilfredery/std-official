@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   blogPosts,
   getPostBySlug,
+  latestPosts,
   otherPosts,
   postsForService,
   type BlogLocale,
@@ -26,6 +27,15 @@ describe("blog internal linking", () => {
       if (firstSecondary === -1) continue;
       expect(posts.slice(firstSecondary).every((p) => p.relatedService !== slug)).toBe(true);
     }
+  });
+
+  it("latestPosts returns every post newest first, and caps when asked", () => {
+    const all = latestPosts();
+    expect(all).toHaveLength(blogPosts.length);
+    for (let i = 1; i < all.length; i++) {
+      expect(all[i - 1].publishedAt >= all[i].publishedAt).toBe(true);
+    }
+    expect(latestPosts(2).map((p) => p.slug)).toEqual(all.slice(0, 2).map((p) => p.slug));
   });
 
   it("otherPosts never includes the current post", () => {
