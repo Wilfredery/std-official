@@ -31,7 +31,7 @@ describe("CtaLink", () => {
   });
 
   it("renders an ArrowLeft icon inside the link", () => {
-    const { container } = render(<CtaLink label="Back" />);
+    render(<CtaLink label="Back" />);
     const link = screen.getByRole("link");
     const svg = link.querySelector("svg");
     expect(svg).toBeInTheDocument();

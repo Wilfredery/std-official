@@ -45,6 +45,7 @@ vi.mock("next/image", () => ({
     className?: string;
     sizes?: string;
   }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock of next/image
     <img
       src={src}
       alt={alt}
@@ -65,7 +66,7 @@ describe("MissionVision", () => {
   describe("when mounted", () => {
     it("renders mission title and description", () => {
       mockHydrated.mockReturnValue(true);
-      render(<MissionVision locale="en" />);
+      render(<MissionVision />);
 
       expect(
         screen.getByText(enMessages.about.mission.title),
@@ -77,7 +78,7 @@ describe("MissionVision", () => {
 
     it("renders vision title and description", () => {
       mockHydrated.mockReturnValue(true);
-      render(<MissionVision locale="en" />);
+      render(<MissionVision />);
 
       expect(
         screen.getByText(enMessages.about.vision.title),
@@ -89,7 +90,7 @@ describe("MissionVision", () => {
 
     it("renders the logo image (light theme by default)", () => {
       mockHydrated.mockReturnValue(true);
-      render(<MissionVision locale="en" />);
+      render(<MissionVision />);
 
       const img = screen.getByAltText(enMessages.about.imageAlt);
       expect(img).toBeInTheDocument();
@@ -101,7 +102,7 @@ describe("MissionVision", () => {
 
     it("includes sizes attribute on the image for responsive loading", () => {
       mockHydrated.mockReturnValue(true);
-      render(<MissionVision locale="en" />);
+      render(<MissionVision />);
 
       const img = screen.getByAltText(enMessages.about.imageAlt);
       expect(img).toHaveAttribute(
@@ -112,7 +113,7 @@ describe("MissionVision", () => {
 
     it("renders exactly two content sections (mission + vision)", () => {
       mockHydrated.mockReturnValue(true);
-      render(<MissionVision locale="en" />);
+      render(<MissionVision />);
 
       // Verify both mission and vision content is present
       expect(
@@ -125,14 +126,14 @@ describe("MissionVision", () => {
 
     it("about image has fetchpriority='high' for LCP priority", () => {
       mockHydrated.mockReturnValue(true);
-      render(<MissionVision locale="en" />);
+      render(<MissionVision />);
       const img = screen.getByAltText(enMessages.about.imageAlt);
       expect(img.getAttribute("fetchpriority")).toBe("high");
     });
 
     it("about image retains priority marker for preload scanning", () => {
       mockHydrated.mockReturnValue(true);
-      render(<MissionVision locale="en" />);
+      render(<MissionVision />);
       const img = screen.getByAltText(enMessages.about.imageAlt);
       expect(img.getAttribute("data-priority")).toBe("true");
     });
@@ -141,7 +142,7 @@ describe("MissionVision", () => {
   describe("when not mounted (SSR state)", () => {
     it("renders a skeleton placeholder instead of the image", () => {
       mockHydrated.mockReturnValue(false);
-      const { container } = render(<MissionVision locale="en" />);
+      const { container } = render(<MissionVision />);
 
       // Skeleton uses animate-pulse
       const skeleton = container.querySelector(".animate-pulse");
@@ -150,7 +151,7 @@ describe("MissionVision", () => {
 
     it("still renders mission and vision text content", () => {
       mockHydrated.mockReturnValue(false);
-      render(<MissionVision locale="en" />);
+      render(<MissionVision />);
 
       expect(
         screen.getByText(enMessages.about.mission.title),

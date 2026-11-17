@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { SubtitleTyping } from "@/components/home/hero/SubtitleTyping";
 
-export async function AboutHeader({ locale }: { locale: string }) {
+export async function AboutHeader() {
   const t = await getTranslations("about.header");
 
   return (

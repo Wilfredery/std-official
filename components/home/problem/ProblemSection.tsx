@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-export async function ProblemSection({ locale }: { locale: string }) {
+export async function ProblemSection() {
   const t = await getTranslations("home.problem");
   return (
     <section className="py-16 sm:py-20 border-b border-border">

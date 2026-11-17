@@ -15,7 +15,7 @@ vi.mock("next-intl/server", () => ({
 
 describe("PillarsSection", () => {
   it("renders the eyebrow from i18n", async () => {
-    const jsx = await PillarsSection({ locale: "en" });
+    const jsx = await PillarsSection();
     render(jsx);
 
     expect(
@@ -24,7 +24,7 @@ describe("PillarsSection", () => {
   });
 
   it("renders the section title from i18n", async () => {
-    const jsx = await PillarsSection({ locale: "en" });
+    const jsx = await PillarsSection();
     render(jsx);
 
     expect(
@@ -35,7 +35,7 @@ describe("PillarsSection", () => {
   });
 
   it("renders the accent part of the title", async () => {
-    const jsx = await PillarsSection({ locale: "en" });
+    const jsx = await PillarsSection();
     render(jsx);
 
     expect(
@@ -44,7 +44,7 @@ describe("PillarsSection", () => {
   });
 
   it("renders the subtitle from i18n", async () => {
-    const jsx = await PillarsSection({ locale: "en" });
+    const jsx = await PillarsSection();
     render(jsx);
 
     expect(
@@ -53,7 +53,7 @@ describe("PillarsSection", () => {
   });
 
   it("renders all 6 pillar cards with their titles", async () => {
-    const jsx = await PillarsSection({ locale: "en" });
+    const jsx = await PillarsSection();
     render(jsx);
 
     const titles = enMessages.about.pillars.titles;
@@ -64,7 +64,7 @@ describe("PillarsSection", () => {
   });
 
   it("renders all 6 pillar cards with their descriptions", async () => {
-    const jsx = await PillarsSection({ locale: "en" });
+    const jsx = await PillarsSection();
     render(jsx);
 
     const descriptions = enMessages.about.pillars.descriptions;

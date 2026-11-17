@@ -34,7 +34,7 @@ vi.mock("next-intl/server", () => ({
 
 describe("ValuesSection", () => {
   it("renders the eyebrow from i18n", async () => {
-    const jsx = await ValuesSection({ locale: "en" });
+    const jsx = await ValuesSection();
     render(jsx);
 
     expect(
@@ -43,7 +43,7 @@ describe("ValuesSection", () => {
   });
 
   it("renders the section title from i18n", async () => {
-    const jsx = await ValuesSection({ locale: "en" });
+    const jsx = await ValuesSection();
     render(jsx);
 
     expect(
@@ -52,7 +52,7 @@ describe("ValuesSection", () => {
   });
 
   it("renders all 4 value cards with their titles", async () => {
-    const jsx = await ValuesSection({ locale: "en" });
+    const jsx = await ValuesSection();
     render(jsx);
 
     const items = enMessages.about.values.items;
@@ -62,7 +62,7 @@ describe("ValuesSection", () => {
   });
 
   it("renders all 4 value cards with their descriptions", async () => {
-    const jsx = await ValuesSection({ locale: "en" });
+    const jsx = await ValuesSection();
     render(jsx);
 
     const items = enMessages.about.values.items;

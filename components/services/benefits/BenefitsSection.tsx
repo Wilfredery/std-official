@@ -3,7 +3,7 @@ import { TrendingDown, Zap, Lightbulb, Activity } from "lucide-react";
 
 const icons = [TrendingDown, Zap, Lightbulb, Activity];
 
-export async function BenefitsSection({ locale }: { locale: string }) {
+export async function BenefitsSection() {
   const t = await getTranslations("home.benefits");
 
   return (

@@ -3,7 +3,7 @@ import { Search, PenTool, Rocket } from "lucide-react";
 
 const icons = [Search, PenTool, Rocket];
 
-export async function ProcessSection({ locale }: { locale: string }) {
+export async function ProcessSection() {
   const t = await getTranslations("home.process");
 
   return (

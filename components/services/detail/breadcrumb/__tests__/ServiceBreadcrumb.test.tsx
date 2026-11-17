@@ -31,7 +31,7 @@ describe("ServiceBreadcrumb", () => {
   });
 
   it("renders an ArrowLeft icon inside the link", () => {
-    const { container } = render(<ServiceBreadcrumb label="Back" />);
+    render(<ServiceBreadcrumb label="Back" />);
     const link = screen.getByRole("link");
     const svg = link.querySelector("svg");
     expect(svg).toBeInTheDocument();

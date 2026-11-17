@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { AboutThemedImage } from "./AboutThemedImage";
 
-export function MissionVision({ locale }: { locale: string }) {
+export function MissionVision() {
   const t = useTranslations("about");
 
   return (
