@@ -84,6 +84,9 @@ export function ThemeProvider({
     }
 
     const stored = readStoredTheme();
+    // Intentional post-mount sync: SSR and the first client render use a
+    // fixed default (hydration-safe); localStorage is only readable here.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setThemeState(stored);
     const resolved = resolveTheme(stored);
     setResolvedTheme(resolved);

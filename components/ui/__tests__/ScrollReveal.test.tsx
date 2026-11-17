@@ -14,7 +14,7 @@ const mockUnobserve = vi.fn();
 // Track how many IntersectionObserver instances are created
 let observerInstantiationCount = 0;
 // Capture the IntersectionObserver callback so we can fire it in tests
-let intersectionCallback: ((entries: Partial<IntersectionObserverEntry>[]) => void) | null = null;
+let intersectionCallback: IntersectionObserverCallback | null = null;
 // Track observed elements so we can map targets in fireIntersection
 const observedElements = new Set<Element>();
 
@@ -67,9 +67,10 @@ function fireIntersection(isIntersecting: boolean, target?: Element) {
   }
   const t = target ?? (observedElements.size > 0 ? [...observedElements][0] : undefined);
   act(() => {
-    intersectionCallback!([
-      { isIntersecting, target: t } as IntersectionObserverEntry,
-    ]);
+    intersectionCallback!(
+      [{ isIntersecting, target: t } as IntersectionObserverEntry],
+      {} as IntersectionObserver,
+    );
   });
 }
 

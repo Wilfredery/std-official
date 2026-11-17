@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
+import { getOpenGraph, getTwitter } from "@/lib/__tests__/metadata-helpers";
 
 const { getTranslationsMock } = vi.hoisted(() => ({
   getTranslationsMock: vi.fn(),
@@ -62,8 +63,8 @@ describe("Contact Page — generateMetadata (SEO-1)", () => {
     });
 
     expect(metadata.openGraph).toBeDefined();
-    expect(metadata.openGraph!.type).toBe("website");
-    expect(metadata.twitter!.card).toBe("summary_large_image");
+    expect(getOpenGraph(metadata).type).toBe("website");
+    expect(getTwitter(metadata).card).toBe("summary_large_image");
     expect(metadata.alternates!.canonical).toContain("shinetechdata.com/en/contact");
   });
 

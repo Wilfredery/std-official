@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
+import { getOpenGraph, getTwitter } from "@/lib/__tests__/metadata-helpers";
 
 // ============================================================
 // Mocks
@@ -40,7 +41,11 @@ function makeRawT(
   rawData: Record<string, { title: string; seoTitle?: string; summary: string }>,
 ) {
   const fn = vi.fn((key: string) => key);
-  return Object.assign(fn, { raw: vi.fn((key: string) => rawData[key]) });
+  // Cast to the resolved type of getTranslations so it can be passed to
+  // mockResolvedValue (the mock only implements the parts the page uses).
+  return Object.assign(fn, {
+    raw: vi.fn((key: string) => rawData[key]),
+  }) as unknown as Awaited<ReturnType<typeof getTranslations>>;
 }
 
 describe("Service Detail Page — generateMetadata (SEO-1, SEO-4)", () => {
@@ -109,8 +114,8 @@ describe("Service Detail Page — generateMetadata (SEO-1, SEO-4)", () => {
       expect(metadata.openGraph!.title).toBe(
         "Machine Learning | ShineTechData"
       );
-      expect(metadata.openGraph!.type).toBe("website");
-      expect(metadata.openGraph!.images![0].url).toContain(
+      expect(getOpenGraph(metadata).type).toBe("website");
+      expect(getOpenGraph(metadata).images[0].url).toContain(
         "/opengraph-image.png"
       );
     });
@@ -132,8 +137,8 @@ describe("Service Detail Page — generateMetadata (SEO-1, SEO-4)", () => {
       });
 
       expect(metadata.twitter).toBeDefined();
-      expect(metadata.twitter!.card).toBe("summary_large_image");
-      expect(metadata.twitter!.images![0]).toContain("/opengraph-image.png");
+      expect(getTwitter(metadata).card).toBe("summary_large_image");
+      expect(getTwitter(metadata).images[0]).toContain("/opengraph-image.png");
     });
   });
 

@@ -41,7 +41,7 @@ vi.mock("next/image", () => ({
     alt: string;
     fill?: boolean;
     priority?: boolean;
-    fetchPriority?: string;
+    fetchPriority?: "auto" | "high" | "low";
     className?: string;
     sizes?: string;
   }) => (

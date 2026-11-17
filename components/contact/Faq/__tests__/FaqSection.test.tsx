@@ -28,7 +28,7 @@ describe("ContactFaq", () => {
     const jsx = await ContactFaq();
     render(jsx);
     enMessages.contact.faq.items.forEach((item) => {
-      expect(screen.getByText(item.a, { hidden: true })).toBeInTheDocument();
+      expect(screen.getByText(item.a)).toBeInTheDocument();
     });
   });
 
