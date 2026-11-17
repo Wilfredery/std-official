@@ -8,6 +8,8 @@ import { ProblemSection } from "@/components/home/problem/ProblemSection";
 import { SolutionSection } from "@/components/home/solution/SolutionSection";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ProcessSection } from "@/components/home/process/ProcessSection";
+import { ServicesSection } from "@/components/services/ServicesSection";
+import { LatestPostsSection } from "@/components/home/blog/LatestPostsSection";
 import { CtaSection } from "@/components/home/cta/CtaSection";
 
 export async function generateMetadata({
@@ -66,8 +68,16 @@ export default async function HomePage({
         <SolutionSection locale={locale} />
       </ScrollReveal>
 
+      <ScrollReveal direction="up">
+        <ServicesSection locale={locale} />
+      </ScrollReveal>
+
       <ScrollReveal direction="down">
         <ProcessSection locale={locale} />
+      </ScrollReveal>
+
+      <ScrollReveal direction="up">
+        <LatestPostsSection locale={locale} />
       </ScrollReveal>
 
       <ScrollReveal direction="up">

@@ -216,4 +216,10 @@ describe("Footer", () => {
       screen.getByText("dev.text"),
     ).toBeInTheDocument();
   });
+
+  it("marks the developer credit link as nofollow", () => {
+    render(<Footer />);
+    const credit = screen.getByText("dev.text").closest("a");
+    expect(credit).toHaveAttribute("rel", "nofollow noopener noreferrer");
+  });
 });

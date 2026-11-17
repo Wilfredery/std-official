@@ -153,7 +153,7 @@ export function Footer() {
           <a
             href={t("dev.linkedin")}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="text-ms gradient-text text-muted-foreground hover:text-primary hover:underline 
             transition-colors flex items-center gap-1 sm:ml-4"
           >

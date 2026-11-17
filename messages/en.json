@@ -21,8 +21,8 @@
   "home": {
     "hero": {
       "badge": "Powering data-driven teams",
-      "title": "Transform Your Data into",
-      "titleAccent": "Smart Business Decisions",
+      "title": "Data Analytics & BI Consulting for",
+      "titleAccent": "Smarter Business Decisions",
       "subtitleStatic": "Turn raw data into",
       "subtitleDynamic": "clear insights, automated processes, and real business growth — without hiring an internal team.",
       "cta_primary": "Schedule a Free Consultation",
@@ -86,6 +86,11 @@
           "description": "We ship, integrate, and train your team. You see results within weeks, not quarters."
         }
       ]
+    },
+    "latestPosts": {
+      "eyebrow": "From the Blog",
+      "title": "Practical guides on data and AI",
+      "viewAll": "View all articles"
     },
     "cta": {
       "title": "Ready to unlock your data's potential?",
@@ -806,8 +811,8 @@
   },
   "seo": {
     "home": {
-      "title": "ShineTechData — Turn your data into smarter decisions",
-      "description": "ShineTechData helps SMBs turn raw data into clear insights, automated processes, and real business growth."
+      "title": "Data Analytics & BI Consulting for SMBs | ShineTechData",
+      "description": "Data analysis, Power BI dashboards, machine learning and process automation for small and mid-sized businesses. Book a free 30-minute data consultation."
     },
     "about": {
       "title": "About Us | ShineTechData",
