@@ -15,10 +15,11 @@ import {
 } from "@/lib/data/blog";
 import { BlogPostBody, formatPostDate } from "@/components/blog/BlogPostBody";
 import { BlogSources } from "@/components/blog/BlogSources";
+import { BlogAuthorCard } from "@/components/blog/BlogAuthorCard";
 import { CtaButton } from "@/components/home/cta/CtaButton";
 import { JsonLd } from "@/components/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import type { BlogPosting, Organization } from "@/lib/seo/types";
+import type { BlogPosting, Person } from "@/lib/seo/types";
 
 // The share image comes from the colocated opengraph-image.tsx / twitter-image.tsx
 // file conventions (file-based metadata overrides `images` in generateMetadata),
@@ -63,6 +64,7 @@ export async function generateMetadata({
       type: "article",
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt ?? post.publishedAt,
+      authors: [post.author.name],
     },
     twitter: {
       card: "summary_large_image",
@@ -93,12 +95,15 @@ export default async function BlogPostPage({
   });
   const serviceTitle = tService(`${post.relatedService}.title`);
 
-  const org: Organization = {
-    "@type": "Organization",
-    "@id": ORG_ID,
-    name: "ShineTechData",
-    url: SITE_URL,
-    logo: `${SITE_URL}/images/navbarFooter/logo-light.webp`,
+  const { author } = post;
+  const authorLd: Person = {
+    "@type": "Person",
+    "@id": `${SITE_URL}/#person-${author.id}`,
+    name: author.name,
+    jobTitle: author.jobTitle[lang],
+    description: author.bio[lang],
+    ...(author.sameAs.length > 0 && { sameAs: author.sameAs }),
+    worksFor: { "@id": ORG_ID },
   };
 
   return (
@@ -121,7 +126,7 @@ export default async function BlogPostPage({
           url,
           image: `${SITE_URL}/opengraph-image.png`,
           mainEntityOfPage: url,
-          author: org,
+          author: authorLd,
           publisher: { "@id": ORG_ID },
           citation: content.sources.map((source) => ({
             "@type": "CreativeWork",
@@ -145,6 +150,9 @@ export default async function BlogPostPage({
 
         <header className="mt-8 mb-10 space-y-5">
           <p className="text-sm text-muted-foreground">
+            {ui.by}{" "}
+            <span className="font-medium text-foreground">{author.name}</span>
+            {" · "}
             <time dateTime={post.publishedAt}>
               {formatPostDate(post.publishedAt, locale)}
             </time>{" "}
@@ -162,6 +170,12 @@ export default async function BlogPostPage({
         <BlogSources
           sources={content.sources}
           heading={ui.sources}
+          newTabLabel={ui.opensInNewTab}
+        />
+        <BlogAuthorCard
+          author={author}
+          lang={lang}
+          heading={ui.aboutAuthor}
           newTabLabel={ui.opensInNewTab}
         />
 

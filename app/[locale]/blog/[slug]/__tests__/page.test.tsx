@@ -91,5 +91,31 @@ describe("blog post page", () => {
         })),
       );
     });
+
+    it("credits a real person as author, visibly and in JSON-LD", async () => {
+      const ui = blogUi[lang];
+      const { author } = post;
+      const { container } = render(
+        await BlogPostPage({ params: Promise.resolve({ locale, slug }) }),
+      );
+
+      const card = screen
+        .getByRole("heading", { level: 2, name: ui.aboutAuthor })
+        .closest("section") as HTMLElement;
+      expect(card).toHaveTextContent(author.name);
+      expect(card).toHaveTextContent(author.bio[lang]);
+      expect(container.querySelector("header")).toHaveTextContent(`${ui.by} ${author.name}`);
+
+      const posting = jsonLdOf(container).find((d) => d["@type"] === "BlogPosting");
+      expect(posting.author).toMatchObject({
+        "@type": "Person",
+        name: author.name,
+        jobTitle: author.jobTitle[lang],
+        worksFor: { "@id": expect.stringMatching(/#organization$/) },
+      });
+
+      const meta = await generateMetadata({ params: Promise.resolve({ locale, slug }) });
+      expect(meta.openGraph).toMatchObject({ authors: [author.name] });
+    });
   });
 });

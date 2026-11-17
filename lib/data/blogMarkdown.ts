@@ -1,7 +1,7 @@
 import matter from "gray-matter";
 import { Marked } from "marked";
 import { serviceSlugs, type ServiceSlug } from "@/lib/data/services";
-import type { BlogPostContent, BlogSource } from "@/lib/data/blog";
+import type { BlogAuthor, BlogLocale, BlogPostContent, BlogSource } from "@/lib/data/blog";
 
 /**
  * Pure parsers for the Markdown blog in content/blog/ (no filesystem access,
@@ -12,6 +12,7 @@ import type { BlogPostContent, BlogSource } from "@/lib/data/blog";
 export interface BlogPostMeta {
   publishedAt: string;
   updatedAt?: string;
+  author: BlogAuthor;
   relatedService: ServiceSlug;
   alsoRelated: ServiceSlug[];
 }
@@ -57,8 +58,12 @@ function requireDate(obj: Record<string, unknown>, key: string, file: string): s
   return v;
 }
 
-/** Parses `content/blog/<slug>/meta.json`. */
-export function parseBlogMeta(raw: string, file: string): BlogPostMeta {
+/** Parses `content/blog/<slug>/meta.json`, resolving `author` against authors.json. */
+export function parseBlogMeta(
+  raw: string,
+  file: string,
+  authors: Record<string, BlogAuthor>,
+): BlogPostMeta {
   let data: unknown;
   try {
     data = JSON.parse(raw);
@@ -70,9 +75,15 @@ export function parseBlogMeta(raw: string, file: string): BlogPostMeta {
   if (!Array.isArray(data.alsoRelated)) {
     throw new BlogContentError(file, `"alsoRelated" must be an array of service slugs`);
   }
+  const authorId = requireString(data, "author", file);
+  const author = authors[authorId];
+  if (!author) {
+    throw new BlogContentError(file, `unknown author "${authorId}" (add it to content/blog/authors.json)`);
+  }
   return {
     publishedAt: requireDate(data, "publishedAt", file),
     updatedAt: data.updatedAt === undefined ? undefined : requireDate(data, "updatedAt", file),
+    author,
     relatedService: requireService(data.relatedService, "relatedService", file),
     alsoRelated: data.alsoRelated.map((s) => requireService(s, "alsoRelated", file)),
   };
@@ -97,6 +108,46 @@ export function parseBlogSources(raw: string, file: string): Record<string, Blog
     };
   }
   return sources;
+}
+
+const BLOG_LOCALES: BlogLocale[] = ["es", "en"];
+
+function requireLocalized(
+  obj: Record<string, unknown>,
+  key: string,
+  file: string,
+): Record<BlogLocale, string> {
+  const v = obj[key];
+  if (!isRecord(v)) throw new BlogContentError(file, `"${key}" must have "es" and "en" strings`);
+  return Object.fromEntries(
+    BLOG_LOCALES.map((locale) => [locale, requireString(v, locale, `${file} ${key}`)]),
+  ) as Record<BlogLocale, string>;
+}
+
+/** Parses `content/blog/authors.json`: real people who write the posts, keyed by id. */
+export function parseBlogAuthors(raw: string, file: string): Record<string, BlogAuthor> {
+  const data: unknown = JSON.parse(raw);
+  if (!isRecord(data)) throw new BlogContentError(file, "must be a JSON object");
+  const authors: Record<string, BlogAuthor> = {};
+  for (const [id, value] of Object.entries(data)) {
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(id)) {
+      throw new BlogContentError(file, `author id "${id}" must be lowercase-kebab-case`);
+    }
+    if (!isRecord(value)) throw new BlogContentError(file, `author "${id}" must be an object`);
+    const where = `${file} (${id})`;
+    const sameAs = value.sameAs ?? [];
+    if (!Array.isArray(sameAs) || !sameAs.every((u) => typeof u === "string" && /^https:\/\/\S+$/.test(u))) {
+      throw new BlogContentError(where, `"sameAs" must be an array of https profile URLs`);
+    }
+    authors[id] = {
+      id,
+      name: requireString(value, "name", where),
+      jobTitle: requireLocalized(value, "jobTitle", where),
+      bio: requireLocalized(value, "bio", where),
+      sameAs: sameAs as string[],
+    };
+  }
+  return authors;
 }
 
 const ENTITIES: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', "#39": "'" };
