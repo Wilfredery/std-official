@@ -41,3 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 .atl/
+# quality tooling output
+/test-results/
+/playwright-report/
+/.lighthouseci/

@@ -33,12 +33,12 @@ export async function ContactChannels() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={t("bookingAria")}
               className="sm:col-span-2 gradient-border-card p-6 text-center hover-glow transition-all duration-300"
             >
               <CalendarDays className="size-8 mx-auto mb-3 text-primary" />
               <h3 className="font-bold text-lg mb-1">{t("booking")}</h3>
               <p className="text-sm text-muted-foreground">{t("bookingValue")}</p>
+              <span className="sr-only">{t("newTab")}</span>
             </a>
 
             {/*WS card*/}
@@ -46,12 +46,12 @@ export async function ContactChannels() {
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={t("whatsappAria")}
               className="gradient-border-card p-6 text-center hover-glow transition-all ..."
             >
               <MessageCircle className="size-8 mx-auto mb-3 text-green-500" />
               <h3 className="font-bold text-lg mb-1">{t("whatsapp")}</h3>
               <p className="text-sm text-muted-foreground">{t("phoneValue")}</p>
+              <span className="sr-only">{t("newTab")}</span>
             </a>
 
             {/*Email card*/}
@@ -69,12 +69,12 @@ export async function ContactChannels() {
               href="https://www.instagram.com/shinetechdata/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={t("instagramAria")}
               className="gradient-border-card p-6 text-center hover-glow transition-all duration-300"
             >
               <svg
                 className="size-8 mx-auto mb-3 text-pink-500"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -89,6 +89,7 @@ export async function ContactChannels() {
               <p className="text-sm text-muted-foreground">
                 {t("instagramValue")}
               </p>
+              <span className="sr-only">{t("newTab")}</span>
             </a>
 
             {/*Hours + Remote card*/}

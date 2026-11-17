@@ -9,7 +9,7 @@ export function SuppressScriptError() {
   useEffect(() => {
     const originalError = console.error;
 
-    console.error = (...args: any[]) => {
+    console.error = (...args: unknown[]) => {
       if (
         args.length > 0 &&
         typeof args[0] === "string" &&

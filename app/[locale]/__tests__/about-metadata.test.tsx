@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
+import { getOpenGraph, getTwitter } from "@/lib/__tests__/metadata-helpers";
 
 // ============================================================
 // Mocks
@@ -82,9 +83,9 @@ describe("About Page — generateMetadata (SEO-1)", () => {
     });
 
     expect(metadata.openGraph).toBeDefined();
-    expect(metadata.openGraph!.type).toBe("website");
+    expect(getOpenGraph(metadata).type).toBe("website");
     expect(metadata.openGraph!.siteName).toBe("ShineTechData");
-    expect(metadata.openGraph!.images![0].url).toContain("/opengraph-image.png");
+    expect(getOpenGraph(metadata).images[0].url).toContain("/opengraph-image.png");
   });
 
   it("includes twitter metadata", async () => {
@@ -95,7 +96,7 @@ describe("About Page — generateMetadata (SEO-1)", () => {
     });
 
     expect(metadata.twitter).toBeDefined();
-    expect(metadata.twitter!.card).toBe("summary_large_image");
+    expect(getTwitter(metadata).card).toBe("summary_large_image");
   });
 
   it("includes canonical URL with trailing slash for static export", async () => {

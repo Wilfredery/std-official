@@ -13,6 +13,9 @@ vi.mock("next-intl/server", () => ({
   }),
 }));
 
+
+const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 describe("ContactChannels", () => {
   it("renders the section title with gradient-text accent", async () => {
     const jsx = await ContactChannels();
@@ -28,7 +31,7 @@ describe("ContactChannels", () => {
     const jsx = await ContactChannels();
     render(jsx);
     const link = screen.getByRole("link", {
-      name: enMessages.contact.channels.bookingAria,
+      name: new RegExp(`^${enMessages.contact.channels.booking}.*${escapeRegExp(enMessages.contact.channels.newTab)}$`),
     });
     expect(link).toHaveAttribute("href", "https://calendly.com/cacasicaxxxx/30min");
     expect(link).toHaveAttribute("target", "_blank");
@@ -39,7 +42,7 @@ describe("ContactChannels", () => {
     const jsx = await ContactChannels();
     render(jsx);
     const link = screen.getByRole("link", {
-      name: enMessages.contact.channels.whatsappAria,
+      name: new RegExp(`^${enMessages.contact.channels.whatsapp}`),
     });
     expect(link).toHaveAttribute("href", expect.stringContaining("wa.me"));
   });

@@ -9,6 +9,7 @@ import enMessages from "@/messages/en.json";
 
 vi.mock("@/components/home/cta/CtaButton", () => ({
   CtaButton: ({ label }: { label: string }) => (
+    // eslint-disable-next-line @next/next/no-html-link-for-pages -- test mock of next/link, not a real page link
     <a data-testid="cta-button" href="/contact">
       {label}
     </a>

@@ -103,7 +103,7 @@ describe("Namespace Declaration Guard", () => {
       "about",
       "legal",
     ];
-    expect(ALL_NAMESPACES.sort()).toEqual(expected.sort());
+    expect([...ALL_NAMESPACES].sort()).toEqual(expected.sort());
   });
 
   it("every page has a declared namespace mapping", () => {

@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
+import { getTwitter } from "@/lib/__tests__/metadata-helpers";
 
 const { getTranslationsMock } = vi.hoisted(() => ({
   getTranslationsMock: vi.fn(),
@@ -53,7 +54,7 @@ describe("Terms Page — generateMetadata (SEO-1)", () => {
     });
 
     expect(metadata.twitter).toBeDefined();
-    expect(metadata.twitter!.card).toBe("summary_large_image");
+    expect(getTwitter(metadata).card).toBe("summary_large_image");
   });
 
   it("includes canonical and hreflang (new)", async () => {

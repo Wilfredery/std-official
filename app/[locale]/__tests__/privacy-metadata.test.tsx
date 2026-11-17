@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
+import { getOpenGraph, getTwitter } from "@/lib/__tests__/metadata-helpers";
 
 // ============================================================
 // Privacy page test
@@ -48,7 +49,7 @@ describe("Privacy Page — generateMetadata (SEO-1)", () => {
     });
 
     expect(metadata.openGraph).toBeDefined();
-    expect(metadata.openGraph!.type).toBe("website");
+    expect(getOpenGraph(metadata).type).toBe("website");
     expect(metadata.openGraph!.siteName).toBe("ShineTechData");
   });
 
@@ -58,7 +59,7 @@ describe("Privacy Page — generateMetadata (SEO-1)", () => {
     });
 
     expect(metadata.twitter).toBeDefined();
-    expect(metadata.twitter!.card).toBe("summary_large_image");
+    expect(getTwitter(metadata).card).toBe("summary_large_image");
   });
 
   it("includes canonical URL (new)", async () => {

@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
+import { getOpenGraph, getTwitter } from "@/lib/__tests__/metadata-helpers";
 
 const { getTranslationsMock } = vi.hoisted(() => ({
   getTranslationsMock: vi.fn(),
@@ -56,8 +57,8 @@ describe("Services Page — generateMetadata (SEO-1)", () => {
     });
 
     expect(metadata.openGraph).toBeDefined();
-    expect(metadata.openGraph!.type).toBe("website");
-    expect(metadata.openGraph!.images![0].url).toContain("/opengraph-image.png");
+    expect(getOpenGraph(metadata).type).toBe("website");
+    expect(getOpenGraph(metadata).images[0].url).toContain("/opengraph-image.png");
   });
 
   it("includes twitter metadata", async () => {
@@ -65,7 +66,7 @@ describe("Services Page — generateMetadata (SEO-1)", () => {
       params: Promise.resolve({ locale: "en" }),
     });
 
-    expect(metadata.twitter!.card).toBe("summary_large_image");
+    expect(getTwitter(metadata).card).toBe("summary_large_image");
   });
 
   it("includes canonical URL", async () => {
