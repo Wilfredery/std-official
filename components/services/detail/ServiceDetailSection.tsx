@@ -86,22 +86,19 @@ export async function ServiceDetailSection({
         <div className="relative overflow-hidden pt-8 pb-6">
           <div className="absolute inset-0 -z-10" />
 
-          <ScrollReveal direction="up">
-            <ServiceHero
-              title={serviceT("title")}
-              subtitleStatic={serviceT("subtitleStatic")}
-              subtitleDynamic={serviceT("subtitleDynamic")}
-            />
-          </ScrollReveal>
+          {/* Above the fold: no ScrollReveal, so the LCP paints without waiting for hydration. */}
+          <ServiceHero
+            title={serviceT("title")}
+            subtitleStatic={serviceT("subtitleStatic")}
+            subtitleDynamic={serviceT("subtitleDynamic")}
+          />
         </div>
 
-        <ScrollReveal direction="left">
-          <ServiceOverview
-            label={labels.summaryLabel}
-            overview={data.overview}
-            details={data.details}
-          />
-        </ScrollReveal>
+        <ServiceOverview
+          label={labels.summaryLabel}
+          overview={data.overview}
+          details={data.details}
+        />
 
         <ScrollReveal direction="down">
           <ServiceAudience

@@ -243,6 +243,16 @@
     transform: translateY(0);
   }
 }
+/* Entrance motion for LCP headings: transform only. Starting at opacity 0
+   would keep the heading out of LCP until the animation reveals it. */
+@keyframes riseIn {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 @keyframes scroll {
   from {
     transform: translateX(0);

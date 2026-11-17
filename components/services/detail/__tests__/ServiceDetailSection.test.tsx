@@ -234,7 +234,7 @@ describe("ServiceDetailSection", () => {
     expect(props.subtitleDynamic).toBe("service.subtitleDynamic");
   });
 
-  it("wraps Hero in ScrollReveal with direction=up", async () => {
+  it("renders above-the-fold Hero and Overview outside ScrollReveal (LCP)", async () => {
     render(
       await ServiceDetailSection({
         service: mockService,
@@ -243,10 +243,10 @@ describe("ServiceDetailSection", () => {
       }),
     );
 
-    const hero = screen.getByTestId("hero");
-    const heroWrapper = hero.closest('[data-testid="scroll-reveal"]');
-    expect(heroWrapper).toHaveAttribute("data-direction", "up");
-    expect(heroWrapper).not.toHaveAttribute("data-delay");
+    // ScrollReveal starts at opacity 0 until hydration, which would hold
+    // back the LCP paint.
+    expect(screen.getByTestId("hero").closest('[data-testid="scroll-reveal"]')).toBeNull();
+    expect(screen.getByTestId("overview").closest('[data-testid="scroll-reveal"]')).toBeNull();
   });
 
   // ── Breadcrumb ─────────────────────────────────────────────────
@@ -405,7 +405,7 @@ describe("ServiceDetailSection", () => {
     expect(screen.getByTestId("cta-link")).toBeInTheDocument();
   });
 
-  it("wraps each section in a ScrollReveal with distinct direction", async () => {
+  it("wraps below-the-fold sections in a ScrollReveal with distinct direction", async () => {
     render(
       await ServiceDetailSection({
         service: mockService,
@@ -415,14 +415,12 @@ describe("ServiceDetailSection", () => {
     );
 
     const wrappers = screen.getAllByTestId("scroll-reveal");
-    // 8 ScrollReveal wrappers (breadcrumb is outside ScrollReveal, hero is inside)
-    expect(wrappers).toHaveLength(8);
+    // 6 ScrollReveal wrappers: breadcrumb, hero and overview stay outside.
+    expect(wrappers).toHaveLength(6);
 
     const directions = wrappers.map((w) => w.getAttribute("data-direction"));
 
     expect(directions).toEqual([
-      "up",
-      "left",
       "down",
       "right",
       "left",
