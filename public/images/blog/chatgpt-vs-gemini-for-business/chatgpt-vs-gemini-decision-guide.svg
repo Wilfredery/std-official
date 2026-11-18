@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400" role="img" aria-labelledby="t d" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<title id="t">Which AI fits your team?</title>
+<desc id="d">Teams on Gmail, Drive and Docs fit Gemini in Google Workspace; teams across Microsoft 365, Slack and other tools fit ChatGPT Business; teams mostly on Microsoft 365 should also evaluate Microsoft Copilot.</desc>
+<rect width="960" height="400" rx="24" fill="#16141d"/>
+<text x="40" y="58" font-size="26" fill="#f5f5f7" font-weight="700" text-anchor="start">Which AI fits your team?</text>
+<rect x="280" y="84" width="400" height="56" rx="14" fill="#211e2c" stroke="#8b5cf6" stroke-width="1.5"/>
+<text x="480" y="119" font-size="18" fill="#f5f5f7" font-weight="600" text-anchor="middle">Where does your team's work live?</text>
+<path d="M480 140 V162 M160 162 H800" stroke="#8b5cf6" stroke-width="2.5" fill="none"/>
+<path d="M160 162 V190" stroke="#8b5cf6" stroke-width="2.5" fill="none"/><path d="M154 181 L160 190 L166 181" stroke="#8b5cf6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="160" y="214" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="middle">Gmail, Drive and Docs</text>
+<rect x="20" y="232" width="280" height="110" rx="14" fill="#211e2c" stroke="#8b5cf6" stroke-width="1.5"/>
+<text x="160" y="278" font-size="18" fill="#c4b5fd" font-weight="700" text-anchor="middle">Gemini in Workspace</text>
+<text x="160" y="308" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="middle">Included from $7 per user</text>
+<path d="M480 162 V190" stroke="#8b5cf6" stroke-width="2.5" fill="none"/><path d="M474 181 L480 190 L486 181" stroke="#8b5cf6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="480" y="214" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="middle">Many tools: Microsoft 365, Slack</text>
+<rect x="340" y="232" width="280" height="110" rx="14" fill="#211e2c" stroke="#8b5cf6" stroke-width="1.5"/>
+<text x="480" y="278" font-size="18" fill="#c4b5fd" font-weight="700" text-anchor="middle">ChatGPT Business</text>
+<text x="480" y="308" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="middle">$20 per user, billed yearly</text>
+<path d="M800 162 V190" stroke="#8b5cf6" stroke-width="2.5" fill="none"/><path d="M794 181 L800 190 L806 181" stroke="#8b5cf6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="800" y="214" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="middle">Mostly Microsoft 365</text>
+<rect x="660" y="232" width="280" height="110" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="800" y="278" font-size="18" fill="#f5f5f7" font-weight="700" text-anchor="middle">Also evaluate Copilot</text>
+<text x="800" y="308" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="middle">Before you decide</text>
+<text x="40" y="380" font-size="14" fill="#a1a1b5" font-weight="400" text-anchor="start">Prices per user per month, from each pricing page, November 2026.</text>
+</svg>

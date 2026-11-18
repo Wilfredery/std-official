@@ -82,5 +82,17 @@
     "publisher": "Microsoft Support",
     "year": 2026,
     "url": "https://support.microsoft.com/en-us/excel/refresh-an-external-data-connection-in-excel"
+  },
+  "chatgptPricing": {
+    "title": "ChatGPT plans and pricing",
+    "publisher": "OpenAI",
+    "year": 2026,
+    "url": "https://chatgpt.com/pricing"
+  },
+  "workspacePricing": {
+    "title": "Compare Google Workspace pricing plans",
+    "publisher": "Google",
+    "year": 2026,
+    "url": "https://workspace.google.com/pricing"
   }
 }
