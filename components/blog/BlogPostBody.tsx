@@ -8,6 +8,8 @@ const BODY_CLASSES = [
   "[&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary/80",
   "[&_strong]:font-semibold [&_strong]:text-foreground",
   "[&_blockquote]:border-l-4 [&_blockquote]:border-primary/40 [&_blockquote]:pl-4 [&_blockquote]:italic",
+  "[&_figure]:py-2 [&_img]:w-full [&_img]:h-auto [&_img]:rounded-2xl [&_img]:border [&_img]:border-border",
+  "[&_figcaption]:pt-3 [&_figcaption]:text-center [&_figcaption]:text-sm [&_figcaption]:text-muted-foreground",
 ].join(" ");
 
 /** Renders a post body. `html` comes from the repo's own Markdown (lib/data/blog.ts). */

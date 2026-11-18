@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="380" viewBox="0 0 960 380" role="img" aria-labelledby="t d" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<title id="t">Excel or Power BI?</title>
+<desc id="d">Stay in Excel with one owner, one or two data sources and refresh on open. Move to Power BI when several people need the same numbers, there are three or more sources, refresh must be scheduled and each person sees only their data.</desc>
+<rect width="960" height="380" rx="24" fill="#16141d"/>
+<text x="40" y="58" font-size="26" fill="#f5f5f7" font-weight="700" text-anchor="start">Excel or Power BI?</text>
+<rect x="40" y="86" width="430" height="254" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="64" y="126" font-size="20" fill="#f5f5f7" font-weight="700" text-anchor="start">Stay in Excel</text>
+<circle cx="76" cy="170" r="13" fill="#16141d" stroke="#363149" stroke-width="1.5"/>
+<g transform="translate(67 161) scale(0.75)" fill="none" stroke="#a1a1b5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></g>
+<text x="100" y="176" font-size="15" fill="#f5f5f7" font-weight="400" text-anchor="start">One person owns the report</text>
+<circle cx="76" cy="214" r="13" fill="#16141d" stroke="#363149" stroke-width="1.5"/>
+<g transform="translate(67 205) scale(0.75)" fill="none" stroke="#a1a1b5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></g>
+<text x="100" y="220" font-size="15" fill="#f5f5f7" font-weight="400" text-anchor="start">One or two data sources</text>
+<circle cx="76" cy="258" r="13" fill="#16141d" stroke="#363149" stroke-width="1.5"/>
+<g transform="translate(67 249) scale(0.75)" fill="none" stroke="#a1a1b5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></g>
+<text x="100" y="264" font-size="15" fill="#f5f5f7" font-weight="400" text-anchor="start">Refreshing on open is enough</text>
+<circle cx="76" cy="302" r="13" fill="#16141d" stroke="#363149" stroke-width="1.5"/>
+<g transform="translate(67 293) scale(0.75)" fill="none" stroke="#a1a1b5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></g>
+<text x="100" y="308" font-size="15" fill="#f5f5f7" font-weight="400" text-anchor="start">A few people look at it</text>
+<rect x="490" y="86" width="430" height="254" rx="14" fill="#211e2c" stroke="#8b5cf6" stroke-width="1.5"/>
+<text x="514" y="126" font-size="20" fill="#c4b5fd" font-weight="700" text-anchor="start">Move to Power BI</text>
+<circle cx="526" cy="170" r="13" fill="#16141d" stroke="#8b5cf6" stroke-width="1.5"/>
+<g transform="translate(517 161) scale(0.75)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></g>
+<text x="550" y="176" font-size="15" fill="#f5f5f7" font-weight="400" text-anchor="start">Several people need the same numbers</text>
+<circle cx="526" cy="214" r="13" fill="#16141d" stroke="#8b5cf6" stroke-width="1.5"/>
+<g transform="translate(517 205) scale(0.75)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></g>
+<text x="550" y="220" font-size="15" fill="#f5f5f7" font-weight="400" text-anchor="start">Three or more data sources</text>
+<circle cx="526" cy="258" r="13" fill="#16141d" stroke="#8b5cf6" stroke-width="1.5"/>
+<g transform="translate(517 249) scale(0.75)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></g>
+<text x="550" y="264" font-size="15" fill="#f5f5f7" font-weight="400" text-anchor="start">Scheduled refresh, even if nobody opens it</text>
+<circle cx="526" cy="302" r="13" fill="#16141d" stroke="#8b5cf6" stroke-width="1.5"/>
+<g transform="translate(517 293) scale(0.75)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></g>
+<text x="550" y="308" font-size="15" fill="#f5f5f7" font-weight="400" text-anchor="start">Each person sees only their data</text>
+</svg>

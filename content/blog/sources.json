@@ -64,5 +64,35 @@
     "publisher": "Google Cloud",
     "year": 2026,
     "url": "https://cloud.google.com/data-studio"
+  },
+  "zapierPricing": {
+    "title": "Plans & Pricing",
+    "publisher": "Zapier",
+    "year": 2026,
+    "url": "https://zapier.com/pricing"
+  },
+  "n8nPricing": {
+    "title": "n8n Plans and Pricing",
+    "publisher": "n8n",
+    "year": 2026,
+    "url": "https://n8n.io/pricing/"
+  },
+  "excelRefresh": {
+    "title": "Refresh an external data connection in Excel",
+    "publisher": "Microsoft Support",
+    "year": 2026,
+    "url": "https://support.microsoft.com/en-us/excel/refresh-an-external-data-connection-in-excel"
+  },
+  "chatgptPricing": {
+    "title": "ChatGPT plans and pricing",
+    "publisher": "OpenAI",
+    "year": 2026,
+    "url": "https://chatgpt.com/pricing"
+  },
+  "workspacePricing": {
+    "title": "Compare Google Workspace pricing plans",
+    "publisher": "Google",
+    "year": 2026,
+    "url": "https://workspace.google.com/pricing"
   }
 }

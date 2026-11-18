@@ -18,7 +18,6 @@ export interface BlogPostMeta {
 }
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
-const marked = new Marked({ gfm: true });
 
 class BlogContentError extends Error {
   constructor(file: string, message: string) {
@@ -150,6 +149,55 @@ export function parseBlogAuthors(raw: string, file: string): Record<string, Blog
   return authors;
 }
 
+export interface ImageSize {
+  width: number;
+  height: number;
+}
+
+/** Looks up the intrinsic size of a body image by its `src`; throws if the file is missing. */
+export type ImageSizeResolver = (src: string) => ImageSize;
+
+/** Size of an SVG from its root width/height attributes, or its viewBox. */
+export function svgSize(svg: string, file: string): ImageSize {
+  const root = svg.match(/<svg\b[^>]*>/)?.[0] ?? "";
+  const attr = (name: string) => root.match(new RegExp(`\\s${name}="([\\d.]+)(?:px)?"`))?.[1];
+  const [w, h] = [attr("width"), attr("height")];
+  if (w && h) return { width: Number(w), height: Number(h) };
+  const box = root.match(/\sviewBox="[\d.-]+[\s,]+[\d.-]+[\s,]+([\d.]+)[\s,]+([\d.]+)"/);
+  if (box) return { width: Number(box[1]), height: Number(box[2]) };
+  throw new BlogContentError(file, "the <svg> root needs width and height attributes or a viewBox");
+}
+
+const ATTR_ESCAPES: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" };
+const escapeAttr = (s: string) => s.replace(/[&<>"]/g, (c) => ATTR_ESCAPES[c]);
+
+/**
+ * Marked instance for one file. Images must be local, carry alt text (the build
+ * fails otherwise) and get their intrinsic size so lazy loading causes no layout shift.
+ * An image alone in its paragraph becomes a <figure>; its Markdown title is the caption.
+ */
+function markedFor(file: string, imageSize: ImageSizeResolver): Marked {
+  const IMAGE_DIR = "/images/blog/";
+  return new Marked({
+    gfm: true,
+    renderer: {
+      image({ href, title, text }) {
+        if (!href.startsWith(IMAGE_DIR) || href.includes("..")) {
+          throw new BlogContentError(file, `image "${href}" must be a local path under ${IMAGE_DIR}`);
+        }
+        if (text.trim() === "") throw new BlogContentError(file, `image "${href}" needs alt text`);
+        const { width, height } = imageSize(href);
+        const img = `<img src="${escapeAttr(href)}" alt="${escapeAttr(text.trim())}" width="${width}" height="${height}" loading="lazy" decoding="async">`;
+        return `<figure>${img}${title ? `<figcaption>${escapeAttr(title)}</figcaption>` : ""}</figure>`;
+      },
+      paragraph({ tokens }) {
+        const inline = this.parser.parseInline(tokens);
+        return tokens.length === 1 && tokens[0].type === "image" ? `${inline}\n` : `<p>${inline}</p>\n`;
+      },
+    },
+  });
+}
+
 const ENTITIES: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', "#39": "'" };
 
 /** Visible text of rendered HTML, for word counts and reading time. */
@@ -166,6 +214,7 @@ export function parseBlogPostContent(
   raw: string,
   file: string,
   sources: Record<string, BlogSource>,
+  imageSize: ImageSizeResolver,
 ): BlogPostContent {
   const { data, content } = matter(raw);
 
@@ -191,7 +240,7 @@ export function parseBlogPostContent(
   // The page renders the title as <h1>; sections in the body start at ##.
   if (/^#\s/m.test(body)) throw new BlogContentError(file, `use "##" for section headings, not "#"`);
 
-  const html = marked.parse(body, { async: false });
+  const html = markedFor(file, imageSize).parse(body, { async: false });
 
   return {
     title: requireString(data, "title", file),

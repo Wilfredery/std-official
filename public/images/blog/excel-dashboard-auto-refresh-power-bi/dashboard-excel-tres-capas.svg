@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400" role="img" aria-labelledby="t d" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<title id="t">Un dashboard en Excel que se actualiza solo</title>
+<desc id="d">Tres capas: una hoja de Datos con los datos crudos como tabla de Excel, una hoja de Cálculos con tablas dinámicas y fórmulas, y una hoja de Dashboard con gráficos, indicadores y segmentaciones.</desc>
+<rect width="960" height="400" rx="24" fill="#16141d"/>
+<text x="40" y="58" font-size="26" fill="#f5f5f7" font-weight="700" text-anchor="start">Un dashboard en Excel que se actualiza solo</text>
+<text x="40" y="106" font-size="13" fill="#c4b5fd" font-weight="600" text-anchor="start" letter-spacing="1.5">1  HOJA DE DATOS</text>
+<rect x="40" y="122" width="280" height="160" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<g transform="translate(64 146) scale(1.4166666666666667)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></g>
+<text x="64" y="216" font-size="18" fill="#f5f5f7" font-weight="600" text-anchor="start">Datos crudos en tabla</text>
+<text x="64" y="242" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="start">Entran con Power Query</text>
+<text x="64" y="264" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="start">Aquí nadie escribe</text>
+<path d="M324 202 L356 202" stroke="#8b5cf6" stroke-width="2.5" fill="none"/><path d="M347 196 L356 202 L347 208" stroke="#8b5cf6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="340" y="106" font-size="13" fill="#c4b5fd" font-weight="600" text-anchor="start" letter-spacing="1.5">2  HOJA DE CÁLCULOS</text>
+<rect x="340" y="122" width="280" height="160" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<g transform="translate(364 146) scale(1.4166666666666667)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/><path d="M13 14h5M15.5 11.5L18 14l-2.5 2.5"/></g>
+<text x="364" y="216" font-size="18" fill="#f5f5f7" font-weight="600" text-anchor="start">Tablas dinámicas</text>
+<text x="364" y="242" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="start">Leen la tabla por nombre</text>
+<text x="364" y="264" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="start">Los rangos crecen solos</text>
+<path d="M624 202 L656 202" stroke="#8b5cf6" stroke-width="2.5" fill="none"/><path d="M647 196 L656 202 L647 208" stroke="#8b5cf6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="640" y="106" font-size="13" fill="#c4b5fd" font-weight="600" text-anchor="start" letter-spacing="1.5">3  HOJA DE DASHBOARD</text>
+<rect x="640" y="122" width="280" height="160" rx="14" fill="#211e2c" stroke="#8b5cf6" stroke-width="1.5"/>
+<g transform="translate(664 146) scale(1.4166666666666667)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 16v-3M11 16V9M15 16v-5"/><circle cx="17.5" cy="7" r="1.2"/></g>
+<text x="664" y="216" font-size="18" fill="#f5f5f7" font-weight="600" text-anchor="start">Gráficos e indicadores</text>
+<text x="664" y="242" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="start">La hoja que todos abren</text>
+<text x="664" y="264" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="start">Aquí tampoco se escribe</text>
+<rect x="40" y="306" width="880" height="56" rx="28" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<g transform="translate(64 320) scale(1.1666666666666667)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M20 20v-4h-4"/></g>
+<text x="106" y="340" font-size="16" fill="#f5f5f7" font-weight="500" text-anchor="start">Actualizar todo (Ctrl+Alt+F5), al abrir el archivo o cada N minutos</text>
+</svg>

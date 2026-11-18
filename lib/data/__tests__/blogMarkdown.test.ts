@@ -4,6 +4,7 @@ import {
   parseBlogMeta,
   parseBlogPostContent,
   parseBlogSources,
+  svgSize,
 } from "@/lib/data/blogMarkdown";
 
 const sources = parseBlogSources(
@@ -12,6 +13,11 @@ const sources = parseBlogSources(
   }),
   "sources.json",
 );
+
+const noImages = (src: string) => {
+  throw new Error(`unexpected image ${src}`);
+};
+const fixedSize = () => ({ width: 800, height: 400 });
 
 function post({ front = "", body = "Intro with a [link](/es/blog/) and **bold**." } = {}) {
   return [
@@ -37,6 +43,7 @@ describe("parseBlogPostContent", () => {
       post({ body: "Hola **mundo** y [CEPAL](https://www.cepal.org/x).\n\n## Sección\n\n- uno\n- dos\n\n1. a\n2. b" }),
       "es.md",
       sources,
+      noImages,
     );
     expect(content.title).toBe("Título");
     expect(content.seoTitle).toBeUndefined();
@@ -51,20 +58,53 @@ describe("parseBlogPostContent", () => {
 
   it("rejects an unknown source id", () => {
     const raw = post().replace("  - cepal", "  - missing");
-    expect(() => parseBlogPostContent(raw, "es.md", sources)).toThrow(/es\.md: unknown source "missing"/);
+    expect(() => parseBlogPostContent(raw, "es.md", sources, noImages)).toThrow(/es\.md: unknown source "missing"/);
   });
 
   it("rejects a level-1 heading in the body", () => {
-    expect(() => parseBlogPostContent(post({ body: "# Título otra vez" }), "es.md", sources)).toThrow(
+    expect(() => parseBlogPostContent(post({ body: "# Título otra vez" }), "es.md", sources, noImages)).toThrow(
       /use "##"/,
     );
   });
 
   it("rejects a missing CTA field and an empty body", () => {
     expect(() =>
-      parseBlogPostContent(post().replace('  button: "Botón"\n', ""), "es.md", sources),
+      parseBlogPostContent(post().replace('  button: "Botón"\n', ""), "es.md", sources, noImages),
     ).toThrow(/"button" must be a non-empty string/);
-    expect(() => parseBlogPostContent(post({ body: "   " }), "es.md", sources)).toThrow(/body is empty/);
+    expect(() => parseBlogPostContent(post({ body: "   " }), "es.md", sources, noImages)).toThrow(/body is empty/);
+  });
+
+  it("renders a standalone image as a lazy figure with alt, size and caption", () => {
+    const { html } = parseBlogPostContent(
+      post({ body: 'Intro.\n\n![Flujo con "IA" & CRM](/images/blog/x/flujo.svg "Un flujo típico")\n\nFin.' }),
+      "es.md",
+      sources,
+      fixedSize,
+    );
+    expect(html).toContain(
+      '<figure><img src="/images/blog/x/flujo.svg" alt="Flujo con &quot;IA&quot; &amp; CRM" width="800" height="400" loading="lazy" decoding="async"><figcaption>Un flujo típico</figcaption></figure>',
+    );
+    expect(html).not.toMatch(/<p>\s*<figure>/);
+  });
+
+  it("rejects an image without alt text or with a non-local src", () => {
+    expect(() =>
+      parseBlogPostContent(post({ body: "![](/images/blog/x/a.svg)" }), "es.md", sources, fixedSize),
+    ).toThrow(/es\.md: image "\/images\/blog\/x\/a\.svg" needs alt text/);
+    expect(() =>
+      parseBlogPostContent(post({ body: "![Logo](https://cdn.example.com/a.svg)" }), "es.md", sources, fixedSize),
+    ).toThrow(/must be a local path under \/images\/blog\//);
+  });
+});
+
+describe("svgSize", () => {
+  it("reads width/height attributes, falling back to the viewBox", () => {
+    expect(svgSize('<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 10 10">', "a.svg")).toEqual({ width: 960, height: 420 });
+    expect(svgSize('<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">', "b.svg")).toEqual({ width: 640, height: 360 });
+  });
+
+  it("throws when the size cannot be read", () => {
+    expect(() => svgSize("<svg>", "c.svg")).toThrow(/c\.svg: .*width and height/);
   });
 });
 
