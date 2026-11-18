@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400" role="img" aria-labelledby="t d" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<title id="t">El mismo flujo, dos formas de cobrar</title>
+<desc id="d">Gráfico de barras: en n8n el flujo cuenta como 500 ejecuciones al mes; en Zapier usa unas 2,000 tareas al mes o más.</desc>
+<rect width="960" height="400" rx="24" fill="#16141d"/>
+<text x="40" y="58" font-size="26" fill="#f5f5f7" font-weight="700" text-anchor="start">El mismo flujo, dos formas de cobrar</text>
+<text x="40" y="92" font-size="17" fill="#a1a1b5" font-weight="400" text-anchor="start">Un flujo de 5 pasos que corre 500 veces al mes</text>
+<text x="40" y="170" font-size="20" fill="#f5f5f7" font-weight="700" text-anchor="start">n8n</text>
+<rect x="170" y="148" width="560" height="34" rx="8" fill="#211e2c"/>
+<rect x="170" y="148" width="140" height="34" rx="8" fill="#8b5cf6"/>
+<text x="324.0" y="171" font-size="17" fill="#f5f5f7" font-weight="700" text-anchor="start">500 ejecuciones</text>
+<text x="170" y="212" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="start">Cuenta cada corrida completa una vez, sin importar los pasos</text>
+<text x="40" y="280" font-size="20" fill="#f5f5f7" font-weight="700" text-anchor="start">Zapier</text>
+<rect x="170" y="258" width="560" height="34" rx="8" fill="#211e2c"/>
+<rect x="170" y="258" width="560" height="34" rx="8" fill="#f59e0b"/>
+<text x="716" y="281" font-size="17" fill="#16141d" font-weight="700" text-anchor="end">~2,000+ tareas</text>
+<text x="170" y="322" font-size="15" fill="#a1a1b5" font-weight="400" text-anchor="start">Cada paso de acción consume tareas; IA y código pueden consumir más</text>
+<text x="40" y="368" font-size="14" fill="#a1a1b5" font-weight="400" text-anchor="start">Estimación con base en la página de precios de cada empresa, noviembre de 2026.</text>
+</svg>

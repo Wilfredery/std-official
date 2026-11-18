@@ -64,5 +64,17 @@
     "publisher": "Google Cloud",
     "year": 2026,
     "url": "https://cloud.google.com/data-studio"
+  },
+  "zapierPricing": {
+    "title": "Plans & Pricing",
+    "publisher": "Zapier",
+    "year": 2026,
+    "url": "https://zapier.com/pricing"
+  },
+  "n8nPricing": {
+    "title": "n8n Plans and Pricing",
+    "publisher": "n8n",
+    "year": 2026,
+    "url": "https://n8n.io/pricing/"
   }
 }
