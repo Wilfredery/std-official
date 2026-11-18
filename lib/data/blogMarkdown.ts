@@ -175,12 +175,25 @@ const escapeAttr = (s: string) => s.replace(/[&<>"]/g, (c) => ATTR_ESCAPES[c]);
  * Marked instance for one file. Images must be local, carry alt text (the build
  * fails otherwise) and get their intrinsic size so lazy loading causes no layout shift.
  * An image alone in its paragraph becomes a <figure>; its Markdown title is the caption.
+ * Fenced code becomes a keyboard-focusable <pre> so long lines can be scrolled.
  */
 function markedFor(file: string, imageSize: ImageSizeResolver): Marked {
   const IMAGE_DIR = "/images/blog/";
   return new Marked({
     gfm: true,
+    // The page renders the title as <h1>; sections in the body start at ##.
+    // Checked on tokens so a "# comment" inside a code block is not a heading.
+    walkTokens(token) {
+      if (token.type === "heading" && token.depth === 1) {
+        throw new BlogContentError(file, `use "##" for section headings, not "#"`);
+      }
+    },
     renderer: {
+      code({ text, lang }) {
+        const language = lang?.match(/^[\w-]+/)?.[0];
+        const cls = language ? ` class="language-${language}"` : "";
+        return `<pre tabindex="0"><code${cls}>${escapeAttr(text)}</code></pre>\n`;
+      },
       image({ href, title, text }) {
         if (!href.startsWith(IMAGE_DIR) || href.includes("..")) {
           throw new BlogContentError(file, `image "${href}" must be a local path under ${IMAGE_DIR}`);
@@ -237,8 +250,6 @@ export function parseBlogPostContent(
 
   const body = content.trim();
   if (body === "") throw new BlogContentError(file, "body is empty");
-  // The page renders the title as <h1>; sections in the body start at ##.
-  if (/^#\s/m.test(body)) throw new BlogContentError(file, `use "##" for section headings, not "#"`);
 
   const html = markedFor(file, imageSize).parse(body, { async: false });
 

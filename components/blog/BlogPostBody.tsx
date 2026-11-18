@@ -10,6 +10,10 @@ const BODY_CLASSES = [
   "[&_blockquote]:border-l-4 [&_blockquote]:border-primary/40 [&_blockquote]:pl-4 [&_blockquote]:italic",
   "[&_figure]:py-2 [&_img]:w-full [&_img]:h-auto [&_img]:rounded-2xl [&_img]:border [&_img]:border-border",
   "[&_figcaption]:pt-3 [&_figcaption]:text-center [&_figcaption]:text-sm [&_figcaption]:text-muted-foreground",
+  "[&_code]:font-mono [&_code]:text-foreground [&_:not(pre)>code]:text-[0.875em]",
+  "[&_:not(pre)>code]:rounded-md [&_:not(pre)>code]:bg-muted [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5",
+  "[&_pre]:overflow-x-auto [&_pre]:rounded-2xl [&_pre]:border [&_pre]:border-border [&_pre]:bg-muted [&_pre]:p-4 sm:[&_pre]:p-5",
+  "[&_pre]:text-sm [&_pre]:leading-relaxed focus-visible:[&_pre]:outline-2 focus-visible:[&_pre]:outline-ring",
 ].join(" ");
 
 /** Renders a post body. `html` comes from the repo's own Markdown (lib/data/blog.ts). */

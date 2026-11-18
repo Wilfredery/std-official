@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="330" viewBox="0 0 960 330" role="img" aria-labelledby="t d" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<title id="t">How an AI agent works</title>
+<desc id="d">The agent loop: a question arrives, the model decides which tool to use, your Python function runs and returns the result, and the loop repeats until the model has the final answer.</desc>
+<rect width="960" height="330" rx="24" fill="#16141d"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b5cf6"/></marker></defs>
+<rect x="48" y="32" width="180" height="196" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<circle cx="138.0" cy="88" r="34" fill="#16141d" stroke="#8b5cf6" stroke-width="1.5"/>
+<g transform="translate(121.0 71) scale(1.4166666666666667)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></g>
+<text x="138.0" y="158" font-size="17" fill="#f5f5f7" font-weight="600" text-anchor="middle">Question</text>
+<text x="138.0" y="184" font-size="14" fill="#a1a1b5" font-weight="400" text-anchor="middle">What the user asks</text>
+<text x="138.0" y="208" font-size="13" fill="#c4b5fd" font-weight="700" text-anchor="middle">1</text>
+<line x1="234" y1="130" x2="278" y2="130" stroke="#8b5cf6" stroke-width="2" marker-end="url(#a)"/>
+<rect x="284" y="32" width="180" height="196" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<circle cx="374.0" cy="88" r="34" fill="#16141d" stroke="#8b5cf6" stroke-width="1.5"/>
+<g transform="translate(357.0 71) scale(1.4166666666666667)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></g>
+<text x="374.0" y="158" font-size="17" fill="#f5f5f7" font-weight="600" text-anchor="middle">Model decides</text>
+<text x="374.0" y="184" font-size="14" fill="#a1a1b5" font-weight="400" text-anchor="middle">Answer or act?</text>
+<text x="374.0" y="208" font-size="13" fill="#c4b5fd" font-weight="700" text-anchor="middle">2</text>
+<line x1="470" y1="130" x2="514" y2="130" stroke="#8b5cf6" stroke-width="2" marker-end="url(#a)"/>
+<rect x="520" y="32" width="180" height="196" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<circle cx="610.0" cy="88" r="34" fill="#16141d" stroke="#8b5cf6" stroke-width="1.5"/>
+<g transform="translate(593.0 71) scale(1.4166666666666667)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></g>
+<text x="610.0" y="158" font-size="17" fill="#f5f5f7" font-weight="600" text-anchor="middle">Your function</text>
+<text x="610.0" y="184" font-size="14" fill="#a1a1b5" font-weight="400" text-anchor="middle">Python fetches data</text>
+<text x="610.0" y="208" font-size="13" fill="#c4b5fd" font-weight="700" text-anchor="middle">3</text>
+<line x1="706" y1="130" x2="750" y2="130" stroke="#8b5cf6" stroke-width="2" marker-end="url(#a)"/>
+<rect x="756" y="32" width="180" height="196" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<circle cx="846.0" cy="88" r="34" fill="#16141d" stroke="#8b5cf6" stroke-width="1.5"/>
+<g transform="translate(829.0 71) scale(1.4166666666666667)" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></g>
+<text x="846.0" y="158" font-size="17" fill="#f5f5f7" font-weight="600" text-anchor="middle">Answer</text>
+<text x="846.0" y="184" font-size="14" fill="#a1a1b5" font-weight="400" text-anchor="middle">Based on real data</text>
+<text x="846.0" y="208" font-size="13" fill="#c4b5fd" font-weight="700" text-anchor="middle">4</text>
+<path d="M610.0 234 V272 H374.0 V240" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#a)"/>
+<text x="492.0" y="300" font-size="14" fill="#c4b5fd" font-weight="600" text-anchor="middle">Repeats until it has the answer</text>
+</svg>
