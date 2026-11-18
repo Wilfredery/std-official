@@ -67,6 +67,26 @@ describe("parseBlogPostContent", () => {
     );
   });
 
+  it("renders fenced code as an escaped, focusable block where # is a comment, not a heading", () => {
+    const { html } = parseBlogPostContent(
+      post({ body: "Código:\n\n```python\n# 1. Datos\nif a < b and c > d:\n    print(\"&\")\n```\n\nUsa `pip`." }),
+      "es.md",
+      sources,
+      noImages,
+    );
+    expect(html).toContain(
+      '<pre tabindex="0"><code class="language-python"># 1. Datos\nif a &lt; b and c &gt; d:\n    print(&quot;&amp;&quot;)</code></pre>',
+    );
+    expect(html).toContain("<code>pip</code>");
+    expect(html).not.toContain("<h1>");
+  });
+
+  it("rejects a setext level-1 heading too", () => {
+    expect(() => parseBlogPostContent(post({ body: "Título\n======" }), "es.md", sources, noImages)).toThrow(
+      /use "##"/,
+    );
+  });
+
   it("rejects a missing CTA field and an empty body", () => {
     expect(() =>
       parseBlogPostContent(post().replace('  button: "Botón"\n', ""), "es.md", sources, noImages),
