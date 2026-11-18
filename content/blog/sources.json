@@ -76,5 +76,11 @@
     "publisher": "n8n",
     "year": 2026,
     "url": "https://n8n.io/pricing/"
+  },
+  "excelRefresh": {
+    "title": "Refresh an external data connection in Excel",
+    "publisher": "Microsoft Support",
+    "year": 2026,
+    "url": "https://support.microsoft.com/en-us/excel/refresh-an-external-data-connection-in-excel"
   }
 }
