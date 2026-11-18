@@ -44,6 +44,8 @@ jobs:
         with:
           # Deploy exactly the commit CI verified, not whatever master is now.
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          # The parent commit is needed to list what changed for IndexNow.
+          fetch-depth: 2
       - uses: pnpm/action-setup@v6
         with:
           version: 12.11.2
@@ -55,3 +57,10 @@ jobs:
       - run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
       - run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+      # Tell Bing & co. which blog posts this commit added, changed or removed.
+      # Merges are squashed, so HEAD^..HEAD is the whole merged PR. A failed
+      # ping must not mark the deploy as failed: the site is already live.
+      - name: Notify IndexNow
+        if: github.event_name == 'workflow_run'
+        continue-on-error: true
+        run: node scripts/indexnow.mts HEAD^ HEAD
