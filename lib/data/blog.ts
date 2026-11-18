@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import type { ServiceSlug } from "@/lib/data/services";
 import {
@@ -6,6 +6,8 @@ import {
   parseBlogMeta,
   parseBlogPostContent,
   parseBlogSources,
+  svgSize,
+  type ImageSize,
 } from "@/lib/data/blogMarkdown";
 
 /**
@@ -147,7 +149,18 @@ export const blogUi: Record<
 
 
 const CONTENT_DIR = join(process.cwd(), "content", "blog");
+const PUBLIC_DIR = join(process.cwd(), "public");
 const LOCALES: BlogLocale[] = ["es", "en"];
+
+/** Intrinsic size of a body image in public/, so the build fails on a missing file. SVG only for now. */
+function bodyImageSize(file: string) {
+  return (src: string): ImageSize => {
+    const path = join(PUBLIC_DIR, src);
+    if (!existsSync(path)) throw new Error(`[blog] ${file}: image "${src}" not found in public/`);
+    if (!src.endsWith(".svg")) throw new Error(`[blog] ${file}: image "${src}" must be an .svg`);
+    return svgSize(readFileSync(path, "utf8"), `public${src}`);
+  };
+}
 
 function loadPosts(): BlogPost[] {
   const read = (...parts: string[]) => readFileSync(join(CONTENT_DIR, ...parts), "utf8");
@@ -166,7 +179,12 @@ function loadPosts(): BlogPost[] {
         const content = Object.fromEntries(
           LOCALES.map((locale) => [
             locale,
-            parseBlogPostContent(read(slug, `${locale}.md`), `${dir}/${locale}.md`, sources),
+            parseBlogPostContent(
+              read(slug, `${locale}.md`),
+              `${dir}/${locale}.md`,
+              sources,
+              bodyImageSize(`${dir}/${locale}.md`),
+            ),
           ]),
         ) as Record<BlogLocale, BlogPostContent>;
         return { slug, ...meta, content };
