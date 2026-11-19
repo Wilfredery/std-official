@@ -1,0 +1,56 @@
+name: Auto-merge
+
+# Squash-merges a pull request into master as soon as CI is fully green on it,
+# then starts the production deploy.
+#
+# Why a workflow and not GitHub's native auto-merge: turning that on needs repo
+# admin rights. This only needs the default GITHUB_TOKEN.
+#
+# Why the deploy is started by hand: a merge pushed with GITHUB_TOKEN does not
+# trigger other workflows (GitHub's loop guard), so CI never runs on master for
+# it and deploy.yml's workflow_run trigger never fires. workflow_dispatch is the
+# one event GITHUB_TOKEN may start.
+#
+# Skipped for: draft PRs, PRs from forks, PRs not targeting master, and PRs that
+# got a new commit after the green run (it merges only the commit CI tested).
+# To keep a PR from merging on green, open it as a draft.
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+permissions: {}
+
+jobs:
+  merge:
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write # merge
+      pull-requests: write # merge
+      actions: write # start deploy.yml
+    steps:
+      - name: Merge the PR CI just passed
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          pr=$(gh api "repos/$GH_REPO/commits/$HEAD_SHA/pulls" --jq '
+            [.[] | select(.state == "open" and .base.ref == "master"
+                          and .head.sha == env.HEAD_SHA and (.draft | not))
+                 | .number][0] // empty')
+          if [ -z "$pr" ]; then
+            echo "No open, non-draft PR into master has $HEAD_SHA as its head. Nothing to merge."
+            exit 0
+          fi
+          # --match-head-commit: refuse if the PR moved since CI tested it.
+          gh pr merge "$pr" --squash --match-head-commit "$HEAD_SHA"
+          gh workflow run deploy.yml --ref master -f indexnow=true
+          echo "Merged #$pr and started the production deploy."

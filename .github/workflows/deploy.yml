@@ -5,7 +5,9 @@ name: Deploy
 # deploy runs from here with a Vercel token instead.
 #
 # Runs only after CI succeeds on master, so a red build never reaches
-# production. Can also be started by hand from the Actions tab.
+# production. Also started by automerge.yml right after it merges a green PR
+# (its merge cannot trigger CI on master), and can be started by hand from the
+# Actions tab.
 #
 # Requires one repository secret: VERCEL_TOKEN (vercel.com/account/tokens).
 
@@ -15,6 +17,11 @@ on:
     types: [completed]
     branches: [master]
   workflow_dispatch:
+    inputs:
+      indexnow:
+        description: Notify IndexNow of blog posts changed by the last commit
+        type: boolean
+        default: false
 
 concurrency:
   group: deploy-production
@@ -61,6 +68,6 @@ jobs:
       # Merges are squashed, so HEAD^..HEAD is the whole merged PR. A failed
       # ping must not mark the deploy as failed: the site is already live.
       - name: Notify IndexNow
-        if: github.event_name == 'workflow_run'
+        if: github.event_name == 'workflow_run' || inputs.indexnow
         continue-on-error: true
         run: node scripts/indexnow.mts HEAD^ HEAD
