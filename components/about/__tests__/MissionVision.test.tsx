@@ -94,10 +94,8 @@ describe("MissionVision", () => {
 
       const img = screen.getByAltText(enMessages.about.imageAlt);
       expect(img).toBeInTheDocument();
-      expect(img).toHaveAttribute(
-        "src",
-        "/images/about/about-light.webp",
-      );
+      // Static import: the bundler decides the final (hashed) URL.
+      expect(img.getAttribute("src")).toMatch(/about-light.*\.webp/);
     });
 
     it("includes sizes attribute on the image for responsive loading", () => {

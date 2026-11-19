@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import logoDark from "@/public/images/navbarFooter/logo-dark.webp";
+import logoLight from "@/public/images/navbarFooter/logo-light.webp";
 import { useHydrated } from "@/hooks/useHydrated";
 import { useTheme } from "@/lib/theme/ThemeContext";
 
@@ -20,11 +22,7 @@ export function FooterLogo() {
 
   return (
     <Image
-      src={
-        resolvedTheme === "dark"
-          ? "/images/navbarFooter/logo-dark.webp"
-          : "/images/navbarFooter/logo-light.webp"
-      }
+      src={resolvedTheme === "dark" ? logoDark : logoLight}
       alt=""
       width={120}
       height={40}

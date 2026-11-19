@@ -34,11 +34,31 @@ const securityHeaders = [
   { key: "Content-Security-Policy", value: csp },
 ];
 
+// /public files are served with `max-age=0` because their names carry no
+// content hash. Files imported from code (logos, About images) get hashed,
+// immutable URLs instead; these are the ones that can't be imported (Markdown
+// blog images, icons, the OG fallback). One week fresh, then up to 30 days
+// served instantly while revalidating. Rename a file to force an update.
+const publicAssetCache = [
+  { key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=2592000" },
+];
+
 const nextConfig: NextConfig = {
-  /* config options here */
   trailingSlash: true,
+  images: {
+    // Default is 4h; these images change rarely, so re-optimize monthly.
+    // There is no purge: change the file name when an image changes.
+    minimumCacheTTL: 2592000,
+  },
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      { source: "/images/:path*", headers: publicAssetCache },
+      {
+        source: "/:file(icon.png|apple-icon.png|favicon.ico|opengraph-image.png)",
+        headers: publicAssetCache,
+      },
+    ];
   },
   // PostHog reverse proxy. Static/array rules must precede the catch-all.
   async rewrites() {
