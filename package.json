@@ -9,7 +9,7 @@
     "lint": "eslint --max-warnings=0",
     "test": "vitest",
     "test:run": "vitest run",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "test:e2e": "playwright test",
     "lighthouse": "lhci autorun"
   },

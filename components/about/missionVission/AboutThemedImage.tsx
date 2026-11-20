@@ -4,8 +4,10 @@ import Image from "next/image";
 import { useHydrated } from "@/hooks/useHydrated";
 import { useTheme } from "@/lib/theme/ThemeContext";
 
-const IMG_LIGHT = "/images/about/about-light.webp";
-const IMG_DARK = "/images/about/about-dark.webp";
+// Static imports: Next hashes the file name and serves it with a one-year
+// immutable Cache-Control, unlike plain /public paths (max-age=0).
+import IMG_DARK from "@/public/images/about/about-dark.webp";
+import IMG_LIGHT from "@/public/images/about/about-light.webp";
 
 export function AboutThemedImage({ alt }: { alt: string }) {
   const { resolvedTheme } = useTheme();

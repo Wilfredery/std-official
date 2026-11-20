@@ -5,6 +5,8 @@ import { Link, usePathname } from "@/lib/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Menu } from "lucide-react";
 import Image from "next/image";
+import logoDark from "@/public/images/navbarFooter/logo-dark.webp";
+import logoLight from "@/public/images/navbarFooter/logo-light.webp";
 import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
@@ -39,10 +41,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const logoSrc =
-    mounted && resolvedTheme === "dark"
-      ? "/images/navbarFooter/logo-dark.webp"
-      : "/images/navbarFooter/logo-light.webp";
+  const logoSrc = mounted && resolvedTheme === "dark" ? logoDark : logoLight;
 
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (pathname !== prevPathname) {
