@@ -2,6 +2,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { LegalPage } from "@/components/legal/LegalPage";
 
 export async function generateMetadata({
@@ -52,5 +53,20 @@ export default async function PrivacyPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <LegalPage namespace="privacy" />;
+  const nav = await getTranslations({ locale, namespace: "nav" });
+  const page = await getTranslations({ locale, namespace: "legal.privacy" });
+  const breadcrumb = (
+    <BreadcrumbJsonLd
+      items={[
+        { name: nav("home"), url: `${SITE_URL}/${locale}/` },
+        { name: page("pageTitle"), url: `${SITE_URL}/${locale}/privacy/` },
+      ]}
+    />
+  );
+  return (
+    <>
+      {breadcrumb}
+      <LegalPage namespace="privacy" />
+    </>
+  );
 }

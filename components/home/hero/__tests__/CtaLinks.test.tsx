@@ -63,22 +63,20 @@ describe("CtaLinks", () => {
     expect(svgs).toHaveLength(2);
   });
 
-  it("renders text-reveal classes on primary link span", () => {
+  it("keeps the primary label visible at every breakpoint", () => {
     render(
       <CtaLinks primaryLabel={primaryLabel} secondaryLabel={secondaryLabel} />,
     );
     const spans = screen.getAllByText(primaryLabel);
-    expect(spans[0]).toHaveClass("sm:max-w-0");
-    expect(spans[0]).toHaveClass("sm:group-hover:max-w-xs");
+    expect(spans[0].className).not.toMatch(/max-w-0|group-hover/);
   });
 
-  it("renders text-reveal classes on secondary link span", () => {
+  it("keeps the secondary label visible at every breakpoint", () => {
     render(
       <CtaLinks primaryLabel={primaryLabel} secondaryLabel={secondaryLabel} />,
     );
     const spans = screen.getAllByText(secondaryLabel);
-    expect(spans[0]).toHaveClass("sm:max-w-0");
-    expect(spans[0]).toHaveClass("sm:group-hover:max-w-xs");
+    expect(spans[0].className).not.toMatch(/max-w-0|group-hover/);
   });
 
   // ---- S1-R3: focus-visible ring ----

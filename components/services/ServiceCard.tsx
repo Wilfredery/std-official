@@ -50,12 +50,7 @@ export function ServiceCard({
       </p>
       <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
         <ChevronRight className="size-3.5 shrink" />
-        <span
-          className="sm:max-w-0 sm:overflow-hidden sm:whitespace-nowrap sm:group-hover:max-w-xs
-        transition-all duration-300"
-        >
-          {learnMoreLabel}
-        </span>
+        <span>{learnMoreLabel}</span>
       </span>
     </Link>
   );

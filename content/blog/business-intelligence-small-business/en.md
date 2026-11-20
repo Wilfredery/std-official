@@ -59,18 +59,13 @@ Every KPI needs a written definition. Does "revenue" include sales tax? Is it ne
 
 ## Affordable tools to start with
 
-You don't need a data warehouse or an engineering team to begin. These are the options that make the most sense for a small business. Prices change, so always confirm on the vendor's own page:
+You don't need a data warehouse or an engineering team to begin. Most small businesses start with one of four tools: Excel with Power Query, Power BI, Data Studio from Google or Metabase. Several have a free tier: Power BI Desktop is a free download, and Microsoft's pricing page lists Power BI Pro, needed to share reports in the cloud, at $14 per user per month billed yearly (checked November 2026). Google says the self-service tier of Data Studio is available at no cost.
 
-- Excel with Power Query: if you already use Excel, Power Query (on the Data tab, under Get & Transform Data) lets you import, clean and combine files and refresh them with a click. For a business with a few sources and one user, it may be enough.
-- Power BI: Power BI Desktop is a free download for building reports on your computer. To share them with your team in the cloud you need licenses: according to Microsoft's pricing page, Power BI Pro is $14 per user per month billed yearly (checked November 2026). It fits well if your company already runs on Microsoft 365.
-- Data Studio from Google (formerly Looker Studio): according to Google, its self-service tier is available at no cost and connects to more than 1,400 data sources, including Google Sheets, Google Ads, Google Analytics and BigQuery. A good fit for simple sales and marketing reporting if your data already lives in Google Sheets.
-- Metabase: it has a free, open-source, self-hosted edition (you pay for the server and for someone to maintain it), plus a paid cloud version. It's useful when your data sits in a database and you want your team to ask questions without writing code.
+Which one should you choose? The one that connects best to the systems you already use and that your team can maintain. The tool matters less than having well-defined KPIs and tidy data. We compare the four on price, limits and upkeep, with a cost example for a 10-person team, in [the best BI tools for small business](/en/blog/business-intelligence-tools-small-business/).
 
-Which one should you choose? The one that connects best to the systems you already use and that your team can maintain. The tool matters less than having well-defined KPIs and tidy data. For prices, limits and a cost example for a 10-person team, see our [comparison of small business intelligence tools](/en/blog/business-intelligence-tools-small-business/).
+## How much effort it takes
 
-## What it costs and how much effort it takes
-
-Honestly: licenses are usually the cheapest part. As you saw, there are free options and others at a few dollars per user per month. The real cost is time: defining KPIs, cleaning up data, connecting systems and keeping everything running when a process or a system changes.
+Honestly: licenses are usually the cheapest part. The real cost is time: defining KPIs, cleaning up data, connecting systems and keeping everything running when a process or a system changes.
 
 As a general rule of thumb, a first dashboard built on one or two clean sources can be up and running in a matter of weeks. When several sources disagree and have to be reconciled, the data work grows and becomes the slowest part. That's why we don't quote a single number: it depends on how many sources you have, how clean they are and who will maintain the dashboard. If nobody on your team has the time, getting help with the first version and letting your team maintain it is a reasonable option.
 

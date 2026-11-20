@@ -10,6 +10,7 @@ import { ServiceTools } from "./tools/ServiceTools";
 import { ServiceTimeline } from "./timeline/ServiceTimeline";
 import { ServiceFaq } from "./faq/ServiceFaq";
 import { CtaLink } from "./ctaLink/CtaLink";
+import { BookCallCta } from "@/components/ui/BookCall";
 
 interface ServiceDetailData {
   overview: string;
@@ -46,6 +47,7 @@ export async function ServiceDetailSection({
   slug,
 }: ServiceDetailSectionProps) {
   const labelsT = await getTranslations({ locale, namespace: "serviceDetail" });
+  const contactT = await getTranslations({ locale, namespace: "contact.channels" });
   const serviceT = await getTranslations({
     locale,
     namespace: `serviceDetail.services.${slug}`,
@@ -77,6 +79,19 @@ export async function ServiceDetailSection({
     }[],
     faq: serviceT.raw("faq") as { question: string; answer: string }[],
   };
+
+  // Same booking card after the delivery steps and after the FAQ, so readers
+  // who are convinced at either point have a next step without scrolling back.
+  const bookCall = (
+    <BookCallCta
+      title={labelsT("cta.title")}
+      text={labelsT("cta.text")}
+      bookingLabel={labelsT("cta.bookingLabel")}
+      contactLabel={labelsT("cta.contactLabel")}
+      newTabLabel={contactT("newTab")}
+      className="my-16"
+    />
+  );
 
   return (
     <>
@@ -129,9 +144,13 @@ export async function ServiceDetailSection({
           />
         </ScrollReveal>
 
+        {bookCall}
+
         <ScrollReveal direction="down">
           <ServiceFaq title={labels.faq} items={data.faq} />
         </ScrollReveal>
+
+        {bookCall}
 
         <ScrollReveal direction="scale">
           <CtaLink label={labels.back} />

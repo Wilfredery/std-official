@@ -2,6 +2,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { AboutHeader } from "@/components/about/hero/AboutHeader";
 import { BrandStory } from "@/components/about/brandStory/AboutBrandStory";
 import { MissionVision } from "@/components/about/missionVission/AboutMissionVision";
@@ -61,9 +62,19 @@ export default async function AboutPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const nav = await getTranslations({ locale, namespace: "nav" });
+  const breadcrumb = (
+    <BreadcrumbJsonLd
+      items={[
+        { name: nav("home"), url: `${SITE_URL}/${locale}/` },
+        { name: nav("about"), url: `${SITE_URL}/${locale}/about/` },
+      ]}
+    />
+  );
 
   return (
     <>
+      {breadcrumb}
       {/* Above the fold: no ScrollReveal, so the LCP paints without waiting for hydration. */}
       <AboutHeader />
 
