@@ -33,6 +33,8 @@ Esa diferencia importa para el retorno: la IA generativa ahorra tiempo en trabaj
 - Conocimiento interno: responder preguntas de los empleados a partir de tus propios manuales y políticas, para que nadie pierda tiempo buscando en carpetas.
 - Reportes: convertir dashboards y hojas de cálculo en resúmenes claros para los gerentes.
 
+Para ver qué dice la evidencia herramienta por herramienta, lee [con qué herramientas de IA generativa están viendo retorno las empresas](/es/blog/generative-ai-tools-roi/).
+
 ## Dónde casi nunca rinde
 
 - Tareas donde un error sale caro y es difícil de detectar: asesoría legal, declaraciones de impuestos o decisiones médicas y financieras sin revisión de un experto.
