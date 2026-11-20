@@ -66,7 +66,7 @@ No necesitas un almacén de datos ni un equipo de ingenieros para empezar. Estas
 - Data Studio de Google (antes Looker Studio): según Google, su nivel de autoservicio no tiene costo y se conecta con más de 1,400 fuentes de datos, entre ellas Google Sheets, Google Ads, Google Analytics y BigQuery. Es una buena opción para ventas y marketing sencillos si tus datos ya viven en hojas de Google.
 - Metabase: tiene una edición de código abierto, gratuita y autohospedada (pagas el servidor y a alguien que la mantenga), además de una versión en la nube de pago. Es útil cuando tus datos están en una base de datos y quieres que tu equipo haga preguntas sin escribir código.
 
-¿Cuál elegir? La que mejor se conecte con los sistemas que ya usas y que tu equipo pueda mantener. La herramienta importa menos que tener indicadores bien definidos y datos ordenados.
+¿Cuál elegir? La que mejor se conecte con los sistemas que ya usas y que tu equipo pueda mantener. La herramienta importa menos que tener indicadores bien definidos y datos ordenados. Para precios, límites y un ejemplo de costo para un equipo de 10 personas, mira nuestra [comparación de herramientas de inteligencia de negocios para pymes](/es/blog/business-intelligence-tools-small-business/).
 
 ## Cuánto cuesta y cuánto esfuerzo implica
 

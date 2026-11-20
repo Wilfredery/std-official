@@ -112,5 +112,29 @@
     "publisher": "Anthropic (Claude Docs)",
     "year": 2026,
     "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"
+  },
+  "wharton2025": {
+    "title": "Accountable Acceleration: Gen AI Fast-Tracks Into the Enterprise (2025 AI Adoption Report)",
+    "publisher": "Knowledge at Wharton (The Wharton School)",
+    "year": 2025,
+    "url": "https://knowledge.wharton.upenn.edu/special-report/2025-ai-adoption-report/"
+  },
+  "metabasePricing": {
+    "title": "Metabase pricing",
+    "publisher": "Metabase",
+    "year": 2026,
+    "url": "https://www.metabase.com/pricing/"
+  },
+  "qjeGenAiAtWork2025": {
+    "title": "Generative AI at Work",
+    "publisher": "The Quarterly Journal of Economics (Brynjolfsson, Li, Raymond)",
+    "year": 2025,
+    "url": "https://doi.org/10.1093/qje/qjae044"
+  },
+  "copilotFieldExperiments2025": {
+    "title": "The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers",
+    "publisher": "MIT Economics (Cui, Demirer, Jaffe, Musolff, Peng, Salz)",
+    "year": 2025,
+    "url": "https://economics.mit.edu/sites/default/files/inline-files/draft_copilot_experiments.pdf"
   }
 }

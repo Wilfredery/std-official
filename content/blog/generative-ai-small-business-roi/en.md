@@ -33,6 +33,8 @@ That distinction matters for ROI: generative AI saves time on language-heavy wor
 - Internal knowledge: answering employee questions from your own manuals and policies, so people stop digging through folders.
 - Reporting: turning dashboards and spreadsheets into plain-English summaries for managers.
 
+For what the evidence says tool by tool, see [which generative AI tools businesses are actually seeing ROI from](/en/blog/generative-ai-tools-roi/).
+
 ## Where it usually doesn't
 
 - Tasks where a mistake is expensive and hard to spot: legal advice, tax filings, or medical and financial decisions without expert review.

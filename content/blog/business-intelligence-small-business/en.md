@@ -66,7 +66,7 @@ You don't need a data warehouse or an engineering team to begin. These are the o
 - Data Studio from Google (formerly Looker Studio): according to Google, its self-service tier is available at no cost and connects to more than 1,400 data sources, including Google Sheets, Google Ads, Google Analytics and BigQuery. A good fit for simple sales and marketing reporting if your data already lives in Google Sheets.
 - Metabase: it has a free, open-source, self-hosted edition (you pay for the server and for someone to maintain it), plus a paid cloud version. It's useful when your data sits in a database and you want your team to ask questions without writing code.
 
-Which one should you choose? The one that connects best to the systems you already use and that your team can maintain. The tool matters less than having well-defined KPIs and tidy data.
+Which one should you choose? The one that connects best to the systems you already use and that your team can maintain. The tool matters less than having well-defined KPIs and tidy data. For prices, limits and a cost example for a 10-person team, see our [comparison of small business intelligence tools](/en/blog/business-intelligence-tools-small-business/).
 
 ## What it costs and how much effort it takes
 
