@@ -122,6 +122,12 @@
     "timeline": "Cómo Entregamos",
     "faq": "Preguntas Frecuentes",
     "back": "Volver a todos los servicios",
+    "cta": {
+      "title": "¿Quieres ver cómo se aplicaría en tu negocio?",
+      "text": "Agenda una llamada gratis de 30 minutos. Revisamos tus datos y tus objetivos y te decimos con honestidad por dónde empezar.",
+      "bookingLabel": "Agendar llamada gratis",
+      "contactLabel": "Otras formas de contactarnos"
+    },
     "services": {
       "data-analysis": {
         "title": "Análisis de Datos",
@@ -763,7 +769,7 @@
       "instagram": "Síguenos en Instagram",
       "instagramValue": "@shinetechdata",
       "number": "18295849184",
-      "message": "Hola, estoy interesado en sus servicios de ...",
+      "message": "Hola, los encontré en shinetechdata.com y me gustaría hablar sobre un proyecto de datos para mi negocio.",
       "email": "contact@shinetechdata.com",
       "subject": "Consulta",
       "body": "Hola, quiero más información"

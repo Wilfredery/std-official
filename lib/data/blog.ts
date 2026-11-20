@@ -231,10 +231,25 @@ export function latestPosts(limit?: number): BlogPost[] {
   return limit === undefined ? sorted : sorted.slice(0, limit);
 }
 
-/** Other posts to cross-link from a post (newest first). */
+/**
+ * Other posts to cross-link from a post, closest topic first: posts for the same
+ * primary service, then by how many services they share. Ties go to the older
+ * post, which in each cluster is the guide the others build on. Ranking by date
+ * alone sent every post's links to the two newest posts.
+ */
 export function otherPosts(slug: string, limit = 2): BlogPost[] {
+  const post = getPostBySlug(slug);
+  if (!post) return [];
+  const services = (p: BlogPost) => new Set([p.relatedService, ...p.alsoRelated]);
+  const mine = services(post);
+  const score = (p: BlogPost) =>
+    (p.relatedService === post.relatedService ? 10 : 0) +
+    [...services(p)].filter((s) => mine.has(s)).length;
+
   return blogPosts
     .filter((p) => p.slug !== slug)
-    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
-    .slice(0, limit);
+    .map((p) => ({ p, score: score(p) }))
+    .sort((a, b) => b.score - a.score || a.p.publishedAt.localeCompare(b.p.publishedAt))
+    .slice(0, limit)
+    .map(({ p }) => p);
 }

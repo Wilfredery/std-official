@@ -122,6 +122,12 @@
     "timeline": "How We Deliver",
     "faq": "Frequently Asked Questions",
     "back": "Back to all services",
+    "cta": {
+      "title": "Want to see what this looks like for your business?",
+      "text": "Book a free 30-minute call. We look at your data and goals and tell you honestly where to start.",
+      "bookingLabel": "Book a free call",
+      "contactLabel": "Other ways to contact us"
+    },
     "services": {
       "data-analysis": {
         "title": "Data Analysis",
@@ -763,7 +769,7 @@
       "instagram": "Follow us on Instagram",
       "instagramValue": "@shinetechdata",
       "number": "18295849184",
-      "message": "Hi, I'm interested in your ...",
+      "message": "Hi, I found you on shinetechdata.com and I'd like to talk about a data project for my business.",
       "email": "contact@shinetechdata.com",
       "subject": "Inquiry",
       "body": "Hello, I would like more information"

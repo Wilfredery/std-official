@@ -108,6 +108,14 @@ vi.mock("../ctaLink/CtaLink", () => ({
   ),
 }));
 
+vi.mock("@/components/ui/BookCall", () => ({
+  BookCallCta: (props: Record<string, unknown>) => (
+    <div data-testid="book-call" data-props={JSON.stringify(props)}>
+      Book call
+    </div>
+  ),
+}));
+
 // ---------------------------------------------------------------------------
 // Component under test
 // ---------------------------------------------------------------------------
@@ -172,7 +180,11 @@ describe("ServiceDetailSection", () => {
       }),
     );
 
-    expect(mockGetTranslations).toHaveBeenCalledTimes(2);
+    expect(mockGetTranslations).toHaveBeenCalledTimes(3);
+    expect(mockGetTranslations).toHaveBeenCalledWith({
+      locale: "en",
+      namespace: "contact.channels",
+    });
     expect(mockGetTranslations).toHaveBeenCalledWith({
       locale: "en",
       namespace: "serviceDetail",
@@ -181,6 +193,31 @@ describe("ServiceDetailSection", () => {
       locale: "en",
       namespace: "serviceDetail.services.data-analysis",
     });
+  });
+
+  it("offers the booking card after the delivery steps and after the FAQ", async () => {
+    render(
+      await ServiceDetailSection({
+        service: mockService,
+        locale: defaultLocale,
+        slug: defaultSlug,
+      }),
+    );
+
+    const cards = screen.getAllByTestId("book-call");
+    expect(cards).toHaveLength(2);
+    const props = JSON.parse(cards[0].getAttribute("data-props")!);
+    expect(props).toMatchObject({
+      title: "labels.cta.title",
+      bookingLabel: "labels.cta.bookingLabel",
+      contactLabel: "labels.cta.contactLabel",
+    });
+    // DOM order: timeline, card, FAQ, card, back link.
+    const order = [...document.querySelectorAll("[data-testid]")].map((el) =>
+      el.getAttribute("data-testid"),
+    );
+    expect(order.indexOf("faq")).toBeGreaterThan(order.indexOf("book-call"));
+    expect(order.lastIndexOf("book-call")).toBeGreaterThan(order.indexOf("faq"));
   });
 
   it("passes locale through correctly", async () => {

@@ -17,10 +17,7 @@ export function CtaLink({ label }: CtaLinkProps) {
           focus-visible:outline-ring"
       >
         <ArrowLeft className="size-4 shrink-0" />
-        <span
-          className="ml-2 sm:ml-0 sm:inline-block sm:max-w-0 sm:overflow-hidden sm:whitespace-nowrap
-            sm:group-hover:max-w-xs sm:group-hover:ml-2 transition-all duration-300"
-        >
+        <span className="ml-2">
           {label}
         </span>
       </Link>

@@ -1,7 +1,7 @@
 ---
-title: "Small Business Intelligence Tools Compared: Excel, Power BI, Data Studio and Metabase"
-description: "Four business intelligence tools that fit a small business budget, compared on price, who they suit and what they take to maintain, with a cost example for a 10-person team."
-seoTitle: "Small Business Intelligence Tools: 4 Options Compared"
+title: "Excel vs Power BI vs Data Studio vs Metabase: The Best BI Tools for a Small Business"
+description: "Excel, Power BI, Data Studio and Metabase compared on price, who each one suits and what it takes to maintain, with a cost example for a 10-person team."
+seoTitle: "Best BI Tools for Small Business: Excel vs Power BI & More"
 seoDescription: "Excel, Power BI, Data Studio and Metabase compared for small businesses: real prices, who each one suits and what a 10-person team pays."
 sources:
   - powerBiPricing

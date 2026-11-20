@@ -39,16 +39,11 @@ describe("CtaButton", () => {
     expect(link).toHaveAttribute("href", "/contact");
   });
 
-  it("label text is hidden on small screens by default (max-w-0)", () => {
+  it("keeps the label visible at every breakpoint (no hover-only reveal)", () => {
     const { container } = render(<CtaButton label={label} />);
     const span = container.querySelector("span");
-    expect(span).toHaveClass("sm:max-w-0");
-  });
-
-  it("on hover/group interaction, text expands (group-hover:max-w-xs)", () => {
-    const { container } = render(<CtaButton label={label} />);
-    const span = container.querySelector("span");
-    expect(span).toHaveClass("sm:group-hover:max-w-xs");
+    expect(span).toHaveTextContent(label);
+    expect(span?.className).not.toMatch(/max-w-0|group-hover/);
   });
 
   // ---- S1-R3: focus-visible ring ----

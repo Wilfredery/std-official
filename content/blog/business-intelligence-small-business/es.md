@@ -59,18 +59,13 @@ Cada indicador necesita una definición escrita. ¿La «venta» incluye o no el 
 
 ## Herramientas accesibles para empezar
 
-No necesitas un almacén de datos ni un equipo de ingenieros para empezar. Estas son las opciones que más sentido tienen para una pyme. Los precios cambian, así que confirma siempre en la página del fabricante:
+No necesitas un almacén de datos ni un equipo de ingenieros para empezar. La mayoría de las pymes arranca con una de cuatro herramientas: Excel con Power Query, Power BI, Data Studio de Google o Metabase. Varias tienen una opción gratuita: Power BI Desktop se descarga gratis, y la página de precios de Microsoft indica que Power BI Pro, necesario para compartir reportes en la nube, cuesta US$14 por usuario al mes con facturación anual (consultada en noviembre de 2026). Según Google, el nivel de autoservicio de Data Studio no tiene costo.
 
-- Excel con Power Query: si ya usas Excel, Power Query (en la pestaña Datos, «Obtener y transformar datos») te permite importar, limpiar y combinar archivos y actualizarlos con un clic. Para un negocio con pocas fuentes y un solo usuario, puede ser suficiente.
-- Power BI: Power BI Desktop se puede descargar gratis para crear reportes en tu computadora. Para compartirlos con tu equipo en la nube necesitas licencias: según la página de precios de Microsoft, Power BI Pro cuesta US$14 por usuario al mes con facturación anual (consultada en noviembre de 2026). Encaja bien si tu empresa ya trabaja con Microsoft 365.
-- Data Studio de Google (antes Looker Studio): según Google, su nivel de autoservicio no tiene costo y se conecta con más de 1,400 fuentes de datos, entre ellas Google Sheets, Google Ads, Google Analytics y BigQuery. Es una buena opción para ventas y marketing sencillos si tus datos ya viven en hojas de Google.
-- Metabase: tiene una edición de código abierto, gratuita y autohospedada (pagas el servidor y a alguien que la mantenga), además de una versión en la nube de pago. Es útil cuando tus datos están en una base de datos y quieres que tu equipo haga preguntas sin escribir código.
+¿Cuál elegir? La que mejor se conecte con los sistemas que ya usas y que tu equipo pueda mantener. La herramienta importa menos que tener indicadores bien definidos y datos ordenados. Comparamos las cuatro por precio, límites y mantenimiento, con un ejemplo de costo para un equipo de 10 personas, en [las mejores herramientas de BI para pymes](/es/blog/business-intelligence-tools-small-business/).
 
-¿Cuál elegir? La que mejor se conecte con los sistemas que ya usas y que tu equipo pueda mantener. La herramienta importa menos que tener indicadores bien definidos y datos ordenados. Para precios, límites y un ejemplo de costo para un equipo de 10 personas, mira nuestra [comparación de herramientas de inteligencia de negocios para pymes](/es/blog/business-intelligence-tools-small-business/).
+## Cuánto esfuerzo implica
 
-## Cuánto cuesta y cuánto esfuerzo implica
-
-Con honestidad: las licencias suelen ser la parte más barata. Como viste, hay opciones gratuitas o de unos pocos dólares por usuario al mes. El costo real es tiempo: definir indicadores, ordenar datos, conectar sistemas y mantener todo funcionando cuando cambia un proceso o un sistema.
+Con honestidad: las licencias suelen ser la parte más barata. El costo real es tiempo: definir indicadores, ordenar datos, conectar sistemas y mantener todo funcionando cuando cambia un proceso o un sistema.
 
 Como referencia general, un primer tablero con una o dos fuentes en orden puede estar funcionando en cuestión de semanas. Cuando hay que reconciliar varias fuentes que no coinciden, el trabajo con los datos crece y es lo que más tiempo toma. Por eso no damos una cifra única: depende de cuántas fuentes tengas, de su calidad y de quién vaya a mantener el tablero. Si nadie en tu equipo tiene ese tiempo, contratar ayuda para la primera versión y dejar que tu equipo la mantenga es una opción razonable.
 

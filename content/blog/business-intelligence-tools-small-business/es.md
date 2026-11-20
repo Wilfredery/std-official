@@ -1,7 +1,7 @@
 ---
-title: "Herramientas de inteligencia de negocios para pymes: Excel, Power BI, Data Studio y Metabase comparadas"
-description: "Cuatro herramientas de inteligencia de negocios que caben en el presupuesto de una pyme, comparadas por precio, para quién sirven y cuánto cuesta mantenerlas, con un ejemplo de costo para un equipo de 10 personas."
-seoTitle: "Herramientas de BI para pymes: 4 opciones comparadas"
+title: "Excel, Power BI, Data Studio y Metabase: las mejores herramientas de BI para tu pyme"
+description: "Excel, Power BI, Data Studio y Metabase comparadas por precio, para quién sirve cada una y cuánto cuesta mantenerlas, con un ejemplo de costo para un equipo de 10 personas."
+seoTitle: "Mejores herramientas de BI para pymes: Excel, Power BI y más"
 seoDescription: "Excel, Power BI, Data Studio y Metabase comparadas para pymes: precios reales, para quién sirve cada una y cuánto paga un equipo de 10."
 sources:
   - powerBiPricing

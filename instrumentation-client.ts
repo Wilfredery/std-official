@@ -16,6 +16,9 @@ function loadPostHog(apiKey: string) {
       // Pinned defaults snapshot: SPA pageviews on history change, pageleave,
       // autocapture (WhatsApp/email link clicks), session replay with inputs masked.
       defaults: "2026-08-29",
+      // Not used on this site; skipping them avoids loading their extra chunks.
+      disable_surveys: true,
+      capture_dead_clicks: false,
     });
   });
 }

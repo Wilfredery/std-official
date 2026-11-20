@@ -1,6 +1,5 @@
-import { ArrowRight, CalendarDays } from "lucide-react";
 import { Link } from "@/lib/i18n/navigation";
-import { BOOKING_URL } from "@/lib/site";
+import { BookCallCta, BookingButton, ContactButton } from "@/components/ui/BookCall";
 import {
   landingUi,
   type Landing,
@@ -108,7 +107,7 @@ export function LandingPage({ landing }: { landing: Landing }) {
             {landing.intro}
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
-            <BookingButton label={landing.cta.bookingLabel} />
+            <BookingButton label={landing.cta.bookingLabel} newTabLabel={landingUi.newTab} />
             <ContactButton label={landing.cta.contactLabel} />
           </div>
         </header>
@@ -148,49 +147,14 @@ export function LandingPage({ landing }: { landing: Landing }) {
           </div>
         </section>
 
-        <aside className="relative mt-16 rounded-2xl overflow-hidden gradient-border-card p-8 sm:p-10 text-center">
-          <div className="absolute inset-0 hero-glow -z-[1] opacity-50" />
-          <p className="text-2xl font-extrabold tracking-tight">{landing.cta.title}</p>
-          <p className="mt-3 mb-8 text-muted-foreground">{landing.cta.text}</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <BookingButton label={landing.cta.bookingLabel} />
-            <ContactButton label={landing.cta.contactLabel} />
-          </div>
-        </aside>
+        <BookCallCta
+          title={landing.cta.title}
+          text={landing.cta.text}
+          bookingLabel={landing.cta.bookingLabel}
+          contactLabel={landing.cta.contactLabel}
+          newTabLabel={landingUi.newTab}
+        />
       </article>
     </>
-  );
-}
-
-function BookingButton({ label }: { label: string }) {
-  return (
-    <a
-      href={BOOKING_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground
-        px-6 py-3 rounded-full font-semibold hover:bg-primary/90 transition-all hover-glow
-        focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-    >
-      <CalendarDays className="size-4 shrink-0" aria-hidden="true" />
-      {label}
-      {/* Visible label stays the accessible name (WCAG 2.5.3); note the new tab. */}
-      <span className="sr-only"> {landingUi.newTab}</span>
-    </a>
-  );
-}
-
-function ContactButton({ label }: { label: string }) {
-  return (
-    <Link
-      href="/contact/"
-      prefetch={false}
-      className="inline-flex items-center justify-center gap-2 border border-border px-6 py-3
-        rounded-full font-semibold hover:border-primary hover:text-primary transition-colors
-        focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-    >
-      {label}
-      <ArrowRight className="size-4 shrink-0" aria-hidden="true" />
-    </Link>
   );
 }

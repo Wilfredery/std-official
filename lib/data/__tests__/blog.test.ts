@@ -47,6 +47,27 @@ describe("blog internal linking", () => {
   });
 });
 
+describe("otherPosts topic ranking", () => {
+  it("links the BI tools comparison to the BI guide", () => {
+    const slugs = otherPosts("business-intelligence-tools-small-business").map((p) => p.slug);
+    expect(slugs).toContain("business-intelligence-small-business");
+  });
+
+  it("lists posts for the same primary service before other posts", () => {
+    for (const post of blogPosts) {
+      const others = otherPosts(post.slug, blogPosts.length);
+      const firstOther = others.findIndex((p) => p.relatedService !== post.relatedService);
+      const lastSame = others.map((p) => p.relatedService).lastIndexOf(post.relatedService);
+      if (firstOther !== -1) expect(lastSame).toBeLessThan(firstOther);
+    }
+  });
+
+  it("does not send every post to the same two articles", () => {
+    const targets = new Set(blogPosts.flatMap((p) => otherPosts(p.slug).map((o) => o.slug)));
+    expect(targets.size).toBeGreaterThan(2);
+  });
+});
+
 const LOCALES: BlogLocale[] = ["en", "es"];
 
 function wordCount(text: string) {

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { ContactHeader } from "@/components/contact/ContactHeader";
 import { ContactChannels } from "@/components/contact/Channels/ContactChannels";
 import { ContactFaq } from "@/components/contact/Faq/FaqSection";
@@ -46,16 +47,26 @@ export async function generateMetadata({
   };
 }
 
-export default async function HomePage({
+export default async function ContactPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const nav = await getTranslations({ locale, namespace: "nav" });
+  const breadcrumb = (
+    <BreadcrumbJsonLd
+      items={[
+        { name: nav("home"), url: `${SITE_URL}/${locale}/` },
+        { name: nav("contact"), url: `${SITE_URL}/${locale}/contact/` },
+      ]}
+    />
+  );
 
   return (
     <>
+      {breadcrumb}
       {/* Above the fold: no ScrollReveal, so the LCP paints without waiting for hydration. */}
       <ContactHeader />
 
