@@ -33,7 +33,7 @@ describe("ContactChannels", () => {
     const link = screen.getByRole("link", {
       name: new RegExp(`^${enMessages.contact.channels.booking}.*${escapeRegExp(enMessages.contact.channels.newTab)}$`),
     });
-    expect(link).toHaveAttribute("href", "https://calendly.com/cacasicaxxxx/30min");
+    expect(link).toHaveAttribute("href", "https://calendly.com/shinetechdata/30min");
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", expect.stringContaining("noopener"));
   });
