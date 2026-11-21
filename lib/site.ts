@@ -20,4 +20,4 @@ export const AREA_SERVED = ["Dominican Republic", "United States", "Latin Americ
 export const PAGES_UPDATED_AT = "2026-11-16";
 
 /** Public booking link for free 30-min consultations. */
-export const BOOKING_URL = "https://calendly.com/cacasicaxxxx/30min";
+export const BOOKING_URL = "https://calendly.com/shinetechdata/30min";
