@@ -67,7 +67,7 @@ Which one should you choose? The one that connects best to the systems you alrea
 
 Honestly: licenses are usually the cheapest part. The real cost is time: defining KPIs, cleaning up data, connecting systems and keeping everything running when a process or a system changes.
 
-As a general rule of thumb, a first dashboard built on one or two clean sources can be up and running in a matter of weeks. When several sources disagree and have to be reconciled, the data work grows and becomes the slowest part. That's why we don't quote a single number: it depends on how many sources you have, how clean they are and who will maintain the dashboard. If nobody on your team has the time, getting help with the first version and letting your team maintain it is a reasonable option.
+As a general rule of thumb, a first dashboard built on one or two clean sources can be up and running in a matter of weeks. When several sources disagree and have to be reconciled, the data work grows and becomes the slowest part. That's why we don't quote a single number: it depends on how many sources you have, how clean they are and who will maintain the dashboard. If nobody on your team has the time, getting help with the first version and letting your team maintain it is a reasonable option. To check that the effort pays off, we cover [the benefits of business intelligence for small business and how to measure them](/en/blog/business-intelligence-benefits-small-business/).
 
 ## Common mistakes when starting out
 
