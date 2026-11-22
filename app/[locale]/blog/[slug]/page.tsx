@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@/lib/i18n/navigation";
-import { ORG_ID, SITE_URL, locales } from "@/lib/site";
+import { ORG_ID, SITE_URL, locales, personId } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
 import {
   blogSlugs,
@@ -98,7 +98,7 @@ export default async function BlogPostPage({
   const { author } = post;
   const authorLd: Person = {
     "@type": "Person",
-    "@id": `${SITE_URL}/#person-${author.id}`,
+    "@id": personId(author.id),
     name: author.name,
     jobTitle: author.jobTitle[lang],
     description: author.bio[lang],

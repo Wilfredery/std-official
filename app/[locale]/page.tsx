@@ -1,6 +1,8 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import { SITE_URL } from "@/lib/site";
+import { ORG_ID, SITE_URL, WEBSITE_ID } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import type { WebPage } from "@/lib/seo/types";
 import { languageAlternates } from "@/lib/seo/alternates";
 import { HeroSection } from "@/components/home/hero/HeroSection";
 import { ProblemSection } from "@/components/home/problem/ProblemSection";
@@ -53,9 +55,24 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "seo" });
+  const url = `${SITE_URL}/${locale}/`;
 
   return (
     <>
+      <JsonLd<WebPage>
+        data={{
+          "@type": "WebPage",
+          "@id": `${url}#webpage`,
+          url,
+          name: t("home.title"),
+          description: t("home.description"),
+          inLanguage: locale === "es" ? "es-DO" : "en-US",
+          isPartOf: { "@id": WEBSITE_ID },
+          about: { "@id": ORG_ID },
+          publisher: { "@id": ORG_ID },
+        }}
+      />
       {/* Above the fold: no ScrollReveal, so the LCP paints without waiting for hydration. */}
       <HeroSection />
 

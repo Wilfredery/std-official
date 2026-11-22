@@ -841,6 +841,10 @@
     "terms": {
       "title": "Términos y Condiciones — ShineTechData",
       "description": "Lee los términos de uso del sitio y los acuerdos de servicio de ShineTechData."
+    },
+    "organization": {
+      "description": "Consultoría de análisis de datos, inteligencia de negocios, machine learning y automatización de procesos para pequeñas y medianas empresas, con sede en San Pedro de Macorís, República Dominicana.",
+      "catalogName": "Servicios"
     }
   },
   "notFound": {

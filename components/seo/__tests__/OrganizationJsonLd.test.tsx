@@ -126,4 +126,37 @@ describe("OrganizationJsonLd (SEO-5)", () => {
     const parsed = JSON.parse(script.textContent ?? "");
     expect(parsed).not.toHaveProperty("sameAs");
   });
+
+  it("includes opening hours, founder and offer catalog when provided", () => {
+    render(
+      <OrganizationJsonLd
+        type="ProfessionalService"
+        name="ShineTechData"
+        url={SITE_URL}
+        openingHoursSpecification={[
+          { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday"], opens: "09:00", closes: "18:00" },
+        ]}
+        founder={{ "@id": `${SITE_URL}/#person-x` }}
+        hasOfferCatalog={{
+          "@type": "OfferCatalog",
+          name: "Services",
+          itemListElement: [
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "BI", url: `${SITE_URL}/en/services/bi/` } },
+          ],
+        }}
+      />
+    );
+    const parsed = JSON.parse(screen.getByTestId("json-ld").textContent ?? "");
+    expect(parsed.openingHoursSpecification[0].opens).toBe("09:00");
+    expect(parsed.founder["@id"]).toBe(`${SITE_URL}/#person-x`);
+    expect(parsed.hasOfferCatalog.itemListElement[0].itemOffered.name).toBe("BI");
+  });
+
+  it("omits opening hours, founder and catalog when not provided", () => {
+    render(<OrganizationJsonLd name="ShineTechData" url={SITE_URL} />);
+    const parsed = JSON.parse(screen.getByTestId("json-ld").textContent ?? "");
+    expect(parsed).not.toHaveProperty("openingHoursSpecification");
+    expect(parsed).not.toHaveProperty("founder");
+    expect(parsed).not.toHaveProperty("hasOfferCatalog");
+  });
 });

@@ -162,10 +162,18 @@ function bodyImageSize(file: string) {
   };
 }
 
+const readContent = (...parts: string[]) => readFileSync(join(CONTENT_DIR, ...parts), "utf8");
+
+/** Post authors from content/blog/authors.json, keyed by id. */
+export const blogAuthors: Record<string, BlogAuthor> = parseBlogAuthors(
+  readContent("authors.json"),
+  "content/blog/authors.json",
+);
+
 function loadPosts(): BlogPost[] {
-  const read = (...parts: string[]) => readFileSync(join(CONTENT_DIR, ...parts), "utf8");
+  const read = readContent;
   const sources = parseBlogSources(read("sources.json"), "content/blog/sources.json");
-  const authors = parseBlogAuthors(read("authors.json"), "content/blog/authors.json");
+  const authors = blogAuthors;
 
   const slugs = readdirSync(CONTENT_DIR, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())

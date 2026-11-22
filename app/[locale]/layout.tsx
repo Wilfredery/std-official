@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/lib/i18n/routing";
 import { notFound } from "next/navigation";
 import Script from "next/script";
@@ -13,8 +13,25 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { WebSiteJsonLd } from "@/components/seo/WebSiteJsonLd";
 import { SuppressScriptError } from "@/components/errors/SuppressScriptError";
-import { AREA_SERVED, ORG_ID, SITE_URL, WEBSITE_ID } from "@/lib/site";
+import {
+  AREA_SERVED,
+  FOUNDER_AUTHOR_ID,
+  ORG_ID,
+  SITE_URL,
+  WEBSITE_ID,
+  personId,
+} from "@/lib/site";
+import { blogAuthors, toBlogLocale } from "@/lib/data/blog";
+import { serviceSlugs } from "@/lib/data/services";
+import type { OpeningHoursSpecification } from "@/lib/seo/types";
 import { filterMessages, SHARED_NAMESPACES } from "@/lib/i18n/namespaces";
+
+const BUSINESS_HOURS: OpeningHoursSpecification = {
+  "@type": "OpeningHoursSpecification",
+  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  opens: "09:00",
+  closes: "18:00",
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -36,6 +53,9 @@ export default async function localeLayout({
   setRequestLocale(locale);
   const allMessages = await getMessages();
   const messages = filterMessages(allMessages, SHARED_NAMESPACES);
+  const tOrg = await getTranslations({ locale, namespace: "seo.organization" });
+  const tServices = await getTranslations({ locale, namespace: "serviceDetail.services" });
+  const founder = blogAuthors[FOUNDER_AUTHOR_ID];
 
   return (
     <html
@@ -59,7 +79,7 @@ export default async function localeLayout({
           id={ORG_ID}
           name="ShineTechData"
           url={SITE_URL}
-          description="Data analysis, business intelligence, machine learning and process automation consulting for small and mid-sized businesses, based in San Pedro de Macorís, Dominican Republic."
+          description={tOrg("description")}
           logo={`${SITE_URL}/images/navbarFooter/logo-light.webp`}
           email="contact@shinetechdata.com"
           telephone="+1-829-584-9184"
@@ -79,14 +99,29 @@ export default async function localeLayout({
               telephone: "+1-829-584-9184",
               email: "contact@shinetechdata.com",
               availableLanguage: ["Spanish", "English"],
-              hoursAvailable: {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                opens: "09:00",
-                closes: "18:00",
-              },
+              hoursAvailable: BUSINESS_HOURS,
             },
           ]}
+          openingHoursSpecification={[BUSINESS_HOURS]}
+          founder={{
+            "@type": "Person",
+            "@id": personId(founder.id),
+            name: founder.name,
+            jobTitle: founder.jobTitle[toBlogLocale(locale)],
+            sameAs: founder.sameAs,
+          }}
+          hasOfferCatalog={{
+            "@type": "OfferCatalog",
+            name: tOrg("catalogName"),
+            itemListElement: serviceSlugs.map((slug) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: tServices(`${slug}.title`),
+                url: `${SITE_URL}/${locale}/services/${slug}/`,
+              },
+            })),
+          }}
           sameAs={[
             "https://www.linkedin.com/company/shine-tech-data/",
             "https://clutch.co/profile/shinetechdata",
