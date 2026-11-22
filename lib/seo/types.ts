@@ -49,6 +49,33 @@ export interface Organization {
   areaServed?: string[];
   knowsLanguage?: string[];
   sameAs?: string[];
+  /** Business hours; LocalBusiness subtypes are read from here, not from contactPoint. */
+  openingHoursSpecification?: OpeningHoursSpecification[];
+  founder?: Person | EntityRef;
+  hasOfferCatalog?: OfferCatalog;
+}
+
+export interface Offer {
+  "@type": "Offer";
+  itemOffered: { "@type": "Service"; name: string; url: string };
+}
+
+export interface OfferCatalog {
+  "@type": "OfferCatalog";
+  name: string;
+  itemListElement: Offer[];
+}
+
+export interface WebPage {
+  "@type": "WebPage";
+  "@id": string;
+  url: string;
+  name: string;
+  description?: string;
+  inLanguage: string;
+  isPartOf: EntityRef;
+  about?: EntityRef;
+  publisher?: EntityRef;
 }
 
 export interface Person {
@@ -122,6 +149,7 @@ export type JsonLdSchema =
   | Organization
   | Person
   | WebSite
+  | WebPage
   | BreadcrumbList
   | Service
   | BlogPosting;

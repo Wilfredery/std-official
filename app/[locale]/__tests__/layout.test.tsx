@@ -4,10 +4,20 @@ import { describe, it, expect, vi } from "vitest";
 // Mocks — set up BEFORE importing the layout component
 // ============================================================
 
-vi.mock("next-intl/server", () => ({
-  getMessages: vi.fn().mockResolvedValue({}),
-  setRequestLocale: vi.fn(),
-}));
+vi.mock("next-intl/server", async () => {
+  const { createTranslator } = await vi.importActual<typeof import("next-intl")>("next-intl");
+  const messages = {
+    en: (await import("@/messages/en.json")).default,
+    es: (await import("@/messages/es.json")).default,
+  };
+  return {
+    getMessages: vi.fn().mockResolvedValue({}),
+    setRequestLocale: vi.fn(),
+    getTranslations: vi.fn(async ({ locale, namespace }: { locale: "en" | "es"; namespace: string }) =>
+      createTranslator({ locale, messages: messages[locale], namespace: namespace as never }),
+    ),
+  };
+});
 
 vi.mock("next/navigation", () => ({
   notFound: vi.fn(),
@@ -58,6 +68,8 @@ vi.mock("@/app/layout", () => ({
 // ============================================================
 import localeLayout from "@/app/[locale]/layout";
 import { renderToString } from "react-dom/server";
+import { SITE_URL } from "@/lib/site";
+import { serviceSlugs } from "@/lib/data/services";
 
 describe("Locale Layout — Vercel Analytics", () => {
   it("mounts the Analytics component", async () => {
@@ -154,3 +166,48 @@ describe("Locale Layout — <html lang> attribute (SEO-2)", () => {
     });
   });
 });
+
+describe("Locale Layout — business JSON-LD", () => {
+  async function organization(locale: "en" | "es") {
+    const jsx = await localeLayout({ children: <div />, params: Promise.resolve({ locale }) });
+    const html = renderToString(jsx);
+    const blocks = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/g)].map(
+      (m) => JSON.parse(m[1]),
+    );
+    return blocks.find((b) => b["@type"] === "ProfessionalService");
+  }
+
+  it("declares business hours on the business itself", async () => {
+    const org = await organization("en");
+    expect(org.openingHoursSpecification).toEqual([
+      expect.objectContaining({ opens: "09:00", closes: "18:00" }),
+    ]);
+  });
+
+  it("describes the business in the page language", async () => {
+    expect((await organization("es")).description).toMatch(/^Consultoría de análisis de datos/);
+    expect((await organization("en")).description).toMatch(/^Data analysis/);
+  });
+
+  it("links the founder with the same Person @id the blog uses for its author", async () => {
+    const org = await organization("es");
+    expect(org.founder).toMatchObject({
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person-diogenes-monegro`,
+      name: "Diogenes Monegro",
+      jobTitle: "CEO de ShineTechData",
+    });
+  });
+
+  it("lists every service, localized, in an OfferCatalog", async () => {
+    const org = await organization("es");
+    const items = org.hasOfferCatalog.itemListElement;
+    expect(items).toHaveLength(serviceSlugs.length);
+    expect(items[0].itemOffered).toEqual({
+      "@type": "Service",
+      name: "Análisis de Datos",
+      url: `${SITE_URL}/es/services/data-analysis/`,
+    });
+  });
+});
+

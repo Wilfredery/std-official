@@ -841,6 +841,10 @@
     "terms": {
       "title": "Terms of Service — ShineTechData",
       "description": "Read the website usage terms and service agreements of ShineTechData."
+    },
+    "organization": {
+      "description": "Data analysis, business intelligence, machine learning and process automation consulting for small and mid-sized businesses, based in San Pedro de Macorís, Dominican Republic.",
+      "catalogName": "Services"
     }
   },
   "notFound": {

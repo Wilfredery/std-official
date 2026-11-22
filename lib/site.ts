@@ -9,6 +9,14 @@ export const ORG_ID = `${SITE_URL}/#organization`;
 /** Stable `@id` of the WebSite entity. */
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
+/** Stable `@id` of a blog author (schema.org Person), keyed by content/blog/authors.json id. */
+export function personId(authorId: string): string {
+  return `${SITE_URL}/#person-${authorId}`;
+}
+
+/** Author id (content/blog/authors.json) of the company's founder. */
+export const FOUNDER_AUTHOR_ID = "diogenes-monegro";
+
 /** Markets the business serves (schema.org `areaServed`). */
 export const AREA_SERVED = ["Dominican Republic", "United States", "Latin America"];
 
