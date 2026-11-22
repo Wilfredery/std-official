@@ -67,7 +67,7 @@ No necesitas un almacén de datos ni un equipo de ingenieros para empezar. La ma
 
 Con honestidad: las licencias suelen ser la parte más barata. El costo real es tiempo: definir indicadores, ordenar datos, conectar sistemas y mantener todo funcionando cuando cambia un proceso o un sistema.
 
-Como referencia general, un primer tablero con una o dos fuentes en orden puede estar funcionando en cuestión de semanas. Cuando hay que reconciliar varias fuentes que no coinciden, el trabajo con los datos crece y es lo que más tiempo toma. Por eso no damos una cifra única: depende de cuántas fuentes tengas, de su calidad y de quién vaya a mantener el tablero. Si nadie en tu equipo tiene ese tiempo, contratar ayuda para la primera versión y dejar que tu equipo la mantenga es una opción razonable.
+Como referencia general, un primer tablero con una o dos fuentes en orden puede estar funcionando en cuestión de semanas. Cuando hay que reconciliar varias fuentes que no coinciden, el trabajo con los datos crece y es lo que más tiempo toma. Por eso no damos una cifra única: depende de cuántas fuentes tengas, de su calidad y de quién vaya a mantener el tablero. Si nadie en tu equipo tiene ese tiempo, contratar ayuda para la primera versión y dejar que tu equipo la mantenga es una opción razonable. Para comprobar que el esfuerzo vale la pena, explicamos [los beneficios de la inteligencia de negocios para pymes y cómo medirlos](/es/blog/business-intelligence-benefits-small-business/).
 
 ## Errores comunes al empezar
 

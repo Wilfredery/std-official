@@ -95,4 +95,4 @@ Tableau, Qlik y plataformas similares son potentes y muy usadas en empresas gran
 
 ## En resumen
 
-Elige la herramienta que se conecta a donde ya viven tus datos y que alguien de tu equipo pueda mantener. Empieza con un tablero, de tres a cinco indicadores y una o dos fuentes, y crece desde ahí. Si quieres ayuda para elegir y construir la primera versión, en ShineTechData ayudamos a las pymes a definir sus indicadores, ordenar sus datos y montar tableros que su equipo de verdad usa.
+Elige la herramienta que se conecta a donde ya viven tus datos y que alguien de tu equipo pueda mantener. Empieza con un tablero, de tres a cinco indicadores y una o dos fuentes, y crece desde ahí. Cuando ya esté funcionando, revisa [qué beneficios debería darte la inteligencia de negocios y cómo medirlos](/es/blog/business-intelligence-benefits-small-business/). Si quieres ayuda para elegir y construir la primera versión, en ShineTechData ayudamos a las pymes a definir sus indicadores, ordenar sus datos y montar tableros que su equipo de verdad usa.

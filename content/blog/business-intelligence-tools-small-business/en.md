@@ -95,4 +95,4 @@ Tableau, Qlik and similar platforms are powerful and widely used in large compan
 
 ## The bottom line
 
-Pick the tool that connects to where your data already lives and that someone on your team can maintain. Start with one dashboard, three to five KPIs and one or two sources, then grow from there. If you'd like help choosing and building the first version, ShineTechData helps small businesses define their KPIs, tidy their data and set up dashboards their team actually uses.
+Pick the tool that connects to where your data already lives and that someone on your team can maintain. Start with one dashboard, three to five KPIs and one or two sources, then grow from there. Once it's running, see [what your small business should gain from BI and how to measure it](/en/blog/business-intelligence-benefits-small-business/). If you'd like help choosing and building the first version, ShineTechData helps small businesses define their KPIs, tidy their data and set up dashboards their team actually uses.
