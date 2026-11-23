@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="t d" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<title id="t">A restaurant's weekly dashboard</title>
+<desc id="d">SALES: $14,000 (per week). AVERAGE CHECK: $25 (per check). FOOD COST: 35% (target: 30%). LABOR COST: 30% (of sales). SALES BY DAY ($): Mon 1,200, Tue 1,100, Wed 1,600, Thu 1,900, Fri 3,200, Sat 3,400, Sun 1,600. MENU: Mixed grill, 140, 48%, Fix portion; Burger, 180, 31%, Keep; Pasta of the day, 60, 22%, Promote; Caesar salad, 35, 40%, Rework or cut. Example values, not real data.</desc>
+<rect width="960" height="600" rx="24" fill="#16141d"/>
+<text x="40" y="58" font-size="26" fill="#f5f5f7" font-weight="700" text-anchor="start">A restaurant's weekly dashboard</text>
+<rect x="839" y="36" width="81" height="28" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="879.5" y="55" font-size="12" fill="#a1a1b5" font-weight="700" text-anchor="middle" letter-spacing="1">EXAMPLE</text>
+<rect x="40" y="88" width="208" height="108" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="60" y="118" font-size="12" fill="#a1a1b5" font-weight="600" text-anchor="start" letter-spacing="0.5">SALES</text>
+<text x="60" y="158" font-size="30" fill="#f5f5f7" font-weight="700" text-anchor="start">$14,000</text>
+<text x="60" y="180" font-size="13" fill="#a1a1b5" font-weight="400" text-anchor="start">per week</text>
+<rect x="264" y="88" width="208" height="108" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="284" y="118" font-size="12" fill="#a1a1b5" font-weight="600" text-anchor="start" letter-spacing="0.5">AVERAGE CHECK</text>
+<text x="284" y="158" font-size="30" fill="#f5f5f7" font-weight="700" text-anchor="start">$25</text>
+<text x="284" y="180" font-size="13" fill="#a1a1b5" font-weight="400" text-anchor="start">per check</text>
+<rect x="488" y="88" width="208" height="108" rx="14" fill="#211e2c" stroke="#f87171" stroke-width="1.5"/>
+<text x="508" y="118" font-size="12" fill="#a1a1b5" font-weight="600" text-anchor="start" letter-spacing="0.5">FOOD COST</text>
+<text x="508" y="158" font-size="30" fill="#f87171" font-weight="700" text-anchor="start">35%</text>
+<text x="508" y="180" font-size="13" fill="#f87171" font-weight="600" text-anchor="start">target: 30%</text>
+<rect x="712" y="88" width="208" height="108" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="732" y="118" font-size="12" fill="#a1a1b5" font-weight="600" text-anchor="start" letter-spacing="0.5">LABOR COST</text>
+<text x="732" y="158" font-size="30" fill="#f5f5f7" font-weight="700" text-anchor="start">30%</text>
+<text x="732" y="180" font-size="13" fill="#a1a1b5" font-weight="400" text-anchor="start">of sales</text>
+<rect x="40" y="216" width="400" height="344" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="60" y="248" font-size="12" fill="#a1a1b5" font-weight="600" text-anchor="start" letter-spacing="0.5">SALES BY DAY ($)</text>
+<rect x="69.7" y="442.4" width="32" height="77.6" rx="6" fill="#5b4a8a"/>
+<text x="85.7" y="434.4" font-size="11" fill="#a1a1b5" font-weight="400" text-anchor="middle">1,200</text>
+<text x="85.7" y="542" font-size="13" fill="#a1a1b5" font-weight="400" text-anchor="middle">Mon</text>
+<rect x="121.1" y="448.8" width="32" height="71.2" rx="6" fill="#363149"/>
+<text x="137.1" y="440.8" font-size="11" fill="#a1a1b5" font-weight="400" text-anchor="middle">1,100</text>
+<text x="137.1" y="542" font-size="13" fill="#a1a1b5" font-weight="400" text-anchor="middle">Tue</text>
+<rect x="172.6" y="416.5" width="32" height="103.5" rx="6" fill="#5b4a8a"/>
+<text x="188.6" y="408.5" font-size="11" fill="#a1a1b5" font-weight="400" text-anchor="middle">1,600</text>
+<text x="188.6" y="542" font-size="13" fill="#a1a1b5" font-weight="400" text-anchor="middle">Wed</text>
+<rect x="224.0" y="397.1" width="32" height="122.9" rx="6" fill="#5b4a8a"/>
+<text x="240.0" y="389.1" font-size="11" fill="#a1a1b5" font-weight="400" text-anchor="middle">1,900</text>
+<text x="240.0" y="542" font-size="13" fill="#a1a1b5" font-weight="400" text-anchor="middle">Thu</text>
+<rect x="275.4" y="312.9" width="32" height="207.1" rx="6" fill="#8b5cf6"/>
+<text x="291.4" y="304.9" font-size="11" fill="#c4b5fd" font-weight="600" text-anchor="middle">3,200</text>
+<text x="291.4" y="542" font-size="13" fill="#f5f5f7" font-weight="600" text-anchor="middle">Fri</text>
+<rect x="326.9" y="300.0" width="32" height="220.0" rx="6" fill="#8b5cf6"/>
+<text x="342.9" y="292.0" font-size="11" fill="#c4b5fd" font-weight="600" text-anchor="middle">3,400</text>
+<text x="342.9" y="542" font-size="13" fill="#f5f5f7" font-weight="600" text-anchor="middle">Sat</text>
+<rect x="378.3" y="416.5" width="32" height="103.5" rx="6" fill="#5b4a8a"/>
+<text x="394.3" y="408.5" font-size="11" fill="#a1a1b5" font-weight="400" text-anchor="middle">1,600</text>
+<text x="394.3" y="542" font-size="13" fill="#a1a1b5" font-weight="400" text-anchor="middle">Sun</text>
+<line x1="60" y1="520" x2="420" y2="520" stroke="#363149" stroke-width="1"/>
+<rect x="464" y="216" width="456" height="344" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="484" y="248" font-size="12" fill="#a1a1b5" font-weight="600" text-anchor="start" letter-spacing="0.5">MENU</text>
+<text x="484" y="288" font-size="12" fill="#a1a1b5" font-weight="600" text-anchor="start" letter-spacing="0.5">DISH</text>
+<text x="686" y="288" font-size="12" fill="#a1a1b5" font-weight="600" text-anchor="middle" letter-spacing="0.5">SOLD</text>
+<text x="756" y="288" font-size="12" fill="#a1a1b5" font-weight="600" text-anchor="middle" letter-spacing="0.5">COST</text>
+<text x="800" y="288" font-size="12" fill="#a1a1b5" font-weight="600" text-anchor="start" letter-spacing="0.5">ACTION</text>
+<line x1="484" y1="302" x2="900" y2="302" stroke="#363149" stroke-width="1"/>
+<text x="484" y="346" font-size="15" fill="#f5f5f7" font-weight="600" text-anchor="start">Mixed grill</text>
+<text x="686" y="346" font-size="16" fill="#d4d4dc" font-weight="400" text-anchor="middle">140</text>
+<text x="756" y="346" font-size="16" fill="#f87171" font-weight="700" text-anchor="middle">48%</text>
+<text x="800" y="346" font-size="13" fill="#c4b5fd" font-weight="600" text-anchor="start">Fix portion</text>
+<line x1="484" y1="372" x2="900" y2="372" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="484" y="406" font-size="15" fill="#f5f5f7" font-weight="600" text-anchor="start">Burger</text>
+<text x="686" y="406" font-size="16" fill="#d4d4dc" font-weight="400" text-anchor="middle">180</text>
+<text x="756" y="406" font-size="16" fill="#d4d4dc" font-weight="700" text-anchor="middle">31%</text>
+<text x="800" y="406" font-size="13" fill="#a1a1b5" font-weight="600" text-anchor="start">Keep</text>
+<line x1="484" y1="432" x2="900" y2="432" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="484" y="466" font-size="15" fill="#f5f5f7" font-weight="600" text-anchor="start">Pasta of the day</text>
+<text x="686" y="466" font-size="16" fill="#d4d4dc" font-weight="400" text-anchor="middle">60</text>
+<text x="756" y="466" font-size="16" fill="#4ade80" font-weight="700" text-anchor="middle">22%</text>
+<text x="800" y="466" font-size="13" fill="#c4b5fd" font-weight="600" text-anchor="start">Promote</text>
+<line x1="484" y1="492" x2="900" y2="492" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="484" y="526" font-size="15" fill="#f5f5f7" font-weight="600" text-anchor="start">Caesar salad</text>
+<text x="686" y="526" font-size="16" fill="#d4d4dc" font-weight="400" text-anchor="middle">35</text>
+<text x="756" y="526" font-size="16" fill="#f87171" font-weight="700" text-anchor="middle">40%</text>
+<text x="800" y="526" font-size="13" fill="#c4b5fd" font-weight="600" text-anchor="start">Rework or cut</text>
+<text x="40" y="582" font-size="12" fill="#a1a1b5" font-weight="400" text-anchor="start">Example values, not real data.</text>
+</svg>
