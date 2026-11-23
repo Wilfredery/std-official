@@ -148,5 +148,17 @@
     "publisher": "National Restaurant Association",
     "year": 2026,
     "url": "https://restaurant.org/research-and-media/media/press-releases/persistent-cost-increases-and-enduring-demand-will-shape-the-restaurant-industry-in-2026/"
+  },
+  "precisely2025Outlook": {
+    "title": "2025 Planning Insights: Data Quality Remains the Top Data Integrity Challenge",
+    "publisher": "Precisely (with Drexel LeBow's 2025 Outlook: Data Integrity Trends and Insights)",
+    "year": 2024,
+    "url": "https://www.precisely.com/blog/data-integrity/2025-planning-insights-data-quality-remains-the-top-data-integrity-challenges"
+  },
+  "verizonDbir2025": {
+    "title": "Verizon's 2025 Data Breach Investigations Report: Alarming surge in cyberattacks through third-parties",
+    "publisher": "Verizon",
+    "year": 2025,
+    "url": "https://www.verizon.com/about/news/2025-data-breach-investigations-report"
   }
 }
