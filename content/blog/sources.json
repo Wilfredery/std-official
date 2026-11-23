@@ -160,5 +160,23 @@
     "publisher": "Verizon",
     "year": 2025,
     "url": "https://www.verizon.com/about/news/2025-data-breach-investigations-report"
+  },
+  "censusAiUse2026": {
+    "title": "Large Firms With at Least 20 Employees Biggest AI Users",
+    "publisher": "U.S. Census Bureau (Business Trends and Outlook Survey)",
+    "year": 2026,
+    "url": "https://www.census.gov/library/stories/2026/05/ai-use-businesses.html"
+  },
+  "usChamberSmallBusiness2026": {
+    "title": "Empowering Small Business: The Impact of Technology on U.S. Small Business (2026)",
+    "publisher": "U.S. Chamber of Commerce Technology Engagement Center",
+    "year": 2026,
+    "url": "https://www.uschamber.com/technology/2026-empowering-small-business-report"
+  },
+  "fedAiAdoption2026": {
+    "title": "Monitoring AI Adoption in the U.S. Economy",
+    "publisher": "Board of Governors of the Federal Reserve System (FEDS Notes)",
+    "year": 2026,
+    "url": "https://www.federalreserve.gov/econres/notes/feds-notes/monitoring-ai-adoption-in-the-u-s-economy-20260403.html"
   }
 }

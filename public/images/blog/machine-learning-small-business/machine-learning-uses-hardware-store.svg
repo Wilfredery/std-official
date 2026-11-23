@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="570" viewBox="0 0 960 570" role="img" aria-labelledby="t d" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<title id="t">5 machine learning uses in a hardware store</title>
+<desc id="d">Demand forecasting: How much of each product to buy? Data it uses: Daily sales, season and holidays. Result in the example: Stockouts: from 38 to 11 a month. At-risk customers: Which contractor is about to stop buying? Data it uses: Purchase frequency and amount. Result in the example: 14 of 40 at-risk accounts won back. Segmentation: What customer groups do I have? Data it uses: What, when and how much each one buys. Result in the example: 4 groups with 4 different offers. Products bought together: What to offer at checkout? Data it uses: 3 years of sales receipts. Result in the example: Average ticket +8%. Anomalies: Which transaction isn't normal? Data it uses: Cash, discounts and returns. Result in the example: Daily alert reviewed in 5 minutes. Illustrative hardware store with 2 locations and 18 employees. Results after 6 months.</desc>
+<rect width="960" height="570" rx="24" fill="#16141d"/>
+<text x="40" y="58" font-size="26" fill="#f5f5f7" font-weight="700">5 machine learning uses in a hardware store</text>
+<rect x="840.5" y="36" width="79.5" height="28" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="880.2" y="55" font-size="12" fill="#a1a1b5" font-weight="700" letter-spacing="1" text-anchor="middle">EXAMPLE</text>
+<rect x="40" y="88" width="880" height="416" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<rect x="690" y="96" width="222" height="400" rx="10" fill="#8b5cf6" fill-opacity="0.14"/>
+<text x="56" y="118" font-size="12" fill="#a1a1b5" font-weight="600" letter-spacing="0.5">USE</text>
+<text x="266" y="118" font-size="12" fill="#a1a1b5" font-weight="600" letter-spacing="0.5">QUESTION IT ANSWERS</text>
+<text x="486" y="118" font-size="12" fill="#a1a1b5" font-weight="600" letter-spacing="0.5">DATA IT USES</text>
+<text x="706" y="118" font-size="12" fill="#c4b5fd" font-weight="600" letter-spacing="0.5">RESULT IN THE EXAMPLE</text>
+<line x1="40" y1="136" x2="920" y2="136" stroke="#363149" stroke-width="1"/>
+<text x="56" y="177.0" font-size="15" fill="#f5f5f7" font-weight="600">Demand forecasting</text>
+<text x="266" y="167.0" font-size="14" fill="#d4d4dc" font-weight="400">How much of each</text>
+<text x="266" y="187.0" font-size="14" fill="#d4d4dc" font-weight="400">product to buy?</text>
+<text x="486" y="167.0" font-size="14" fill="#d4d4dc" font-weight="400">Daily sales,</text>
+<text x="486" y="187.0" font-size="14" fill="#d4d4dc" font-weight="400">season and holidays</text>
+<text x="706" y="167.0" font-size="15" fill="#c4b5fd" font-weight="600">Stockouts:</text>
+<text x="706" y="187.0" font-size="15" fill="#c4b5fd" font-weight="600">from 38 to 11 a month</text>
+<line x1="56" y1="208" x2="904" y2="208" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="249.0" font-size="15" fill="#f5f5f7" font-weight="600">At-risk customers</text>
+<text x="266" y="239.0" font-size="14" fill="#d4d4dc" font-weight="400">Which contractor is</text>
+<text x="266" y="259.0" font-size="14" fill="#d4d4dc" font-weight="400">about to stop buying?</text>
+<text x="486" y="239.0" font-size="14" fill="#d4d4dc" font-weight="400">Purchase frequency</text>
+<text x="486" y="259.0" font-size="14" fill="#d4d4dc" font-weight="400">and amount</text>
+<text x="706" y="239.0" font-size="15" fill="#c4b5fd" font-weight="600">14 of 40 at-risk</text>
+<text x="706" y="259.0" font-size="15" fill="#c4b5fd" font-weight="600">accounts won back</text>
+<line x1="56" y1="280" x2="904" y2="280" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="321.0" font-size="15" fill="#f5f5f7" font-weight="600">Segmentation</text>
+<text x="266" y="311.0" font-size="14" fill="#d4d4dc" font-weight="400">What customer groups</text>
+<text x="266" y="331.0" font-size="14" fill="#d4d4dc" font-weight="400">do I have?</text>
+<text x="486" y="311.0" font-size="14" fill="#d4d4dc" font-weight="400">What, when and how</text>
+<text x="486" y="331.0" font-size="14" fill="#d4d4dc" font-weight="400">much each one buys</text>
+<text x="706" y="311.0" font-size="15" fill="#c4b5fd" font-weight="600">4 groups with</text>
+<text x="706" y="331.0" font-size="15" fill="#c4b5fd" font-weight="600">4 different offers</text>
+<line x1="56" y1="352" x2="904" y2="352" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="383.0" font-size="15" fill="#f5f5f7" font-weight="600">Products bought</text>
+<text x="56" y="403.0" font-size="15" fill="#f5f5f7" font-weight="600">together</text>
+<text x="266" y="383.0" font-size="14" fill="#d4d4dc" font-weight="400">What to offer</text>
+<text x="266" y="403.0" font-size="14" fill="#d4d4dc" font-weight="400">at checkout?</text>
+<text x="486" y="383.0" font-size="14" fill="#d4d4dc" font-weight="400">3 years of</text>
+<text x="486" y="403.0" font-size="14" fill="#d4d4dc" font-weight="400">sales receipts</text>
+<text x="706" y="383.0" font-size="15" fill="#c4b5fd" font-weight="600">Average ticket</text>
+<text x="706" y="403.0" font-size="15" fill="#c4b5fd" font-weight="600">+8%</text>
+<line x1="56" y1="424" x2="904" y2="424" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="465.0" font-size="15" fill="#f5f5f7" font-weight="600">Anomalies</text>
+<text x="266" y="455.0" font-size="14" fill="#d4d4dc" font-weight="400">Which transaction</text>
+<text x="266" y="475.0" font-size="14" fill="#d4d4dc" font-weight="400">isn't normal?</text>
+<text x="486" y="455.0" font-size="14" fill="#d4d4dc" font-weight="400">Cash, discounts</text>
+<text x="486" y="475.0" font-size="14" fill="#d4d4dc" font-weight="400">and returns</text>
+<text x="706" y="455.0" font-size="15" fill="#c4b5fd" font-weight="600">Daily alert reviewed</text>
+<text x="706" y="475.0" font-size="15" fill="#c4b5fd" font-weight="600">in 5 minutes</text>
+<text x="40" y="542" font-size="13" fill="#a1a1b5">Illustrative hardware store with 2 locations and 18 employees. Results after 6 months.</text>
+</svg>

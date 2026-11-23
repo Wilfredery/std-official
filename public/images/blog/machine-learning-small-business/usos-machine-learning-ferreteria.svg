@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="570" viewBox="0 0 960 570" role="img" aria-labelledby="t d" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<title id="t">5 usos del machine learning en una ferretería</title>
+<desc id="d">Pronóstico de demanda: ¿Cuánto comprar de cada producto? Datos que usa: Ventas diarias, temporada y feriados. Resultado en el ejemplo: Quiebres de stock: de 38 a 11 al mes. Clientes en riesgo: ¿Qué contratista está por dejar de comprar? Datos que usa: Frecuencia y monto de compras. Resultado en el ejemplo: 14 de 40 cuentas en riesgo recuperadas. Segmentación: ¿Qué grupos de clientes tengo? Datos que usa: Qué, cuándo y cuánto compra cada uno. Resultado en el ejemplo: 4 grupos con 4 ofertas distintas. Productos que van juntos: ¿Qué ofrecer en la caja? Datos que usa: Tickets de venta de 3 años. Resultado en el ejemplo: Ticket promedio +8%. Anomalías: ¿Qué movimiento no es normal? Datos que usa: Caja, descuentos y devoluciones. Resultado en el ejemplo: Alerta diaria que se revisa en 5 minutos. Ferretería ilustrativa con 2 sucursales y 18 empleados. Resultados a los 6 meses.</desc>
+<rect width="960" height="570" rx="24" fill="#16141d"/>
+<text x="40" y="58" font-size="26" fill="#f5f5f7" font-weight="700">5 usos del machine learning en una ferretería</text>
+<rect x="840.5" y="36" width="79.5" height="28" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="880.2" y="55" font-size="12" fill="#a1a1b5" font-weight="700" letter-spacing="1" text-anchor="middle">EJEMPLO</text>
+<rect x="40" y="88" width="880" height="416" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<rect x="690" y="96" width="222" height="400" rx="10" fill="#8b5cf6" fill-opacity="0.14"/>
+<text x="56" y="118" font-size="12" fill="#a1a1b5" font-weight="600" letter-spacing="0.5">USO</text>
+<text x="266" y="118" font-size="12" fill="#a1a1b5" font-weight="600" letter-spacing="0.5">PREGUNTA QUE RESPONDE</text>
+<text x="486" y="118" font-size="12" fill="#a1a1b5" font-weight="600" letter-spacing="0.5">DATOS QUE USA</text>
+<text x="706" y="118" font-size="12" fill="#c4b5fd" font-weight="600" letter-spacing="0.5">RESULTADO EN EL EJEMPLO</text>
+<line x1="40" y1="136" x2="920" y2="136" stroke="#363149" stroke-width="1"/>
+<text x="56" y="177.0" font-size="15" fill="#f5f5f7" font-weight="600">Pronóstico de demanda</text>
+<text x="266" y="167.0" font-size="14" fill="#d4d4dc" font-weight="400">¿Cuánto comprar de</text>
+<text x="266" y="187.0" font-size="14" fill="#d4d4dc" font-weight="400">cada producto?</text>
+<text x="486" y="167.0" font-size="14" fill="#d4d4dc" font-weight="400">Ventas diarias,</text>
+<text x="486" y="187.0" font-size="14" fill="#d4d4dc" font-weight="400">temporada y feriados</text>
+<text x="706" y="167.0" font-size="15" fill="#c4b5fd" font-weight="600">Quiebres de stock:</text>
+<text x="706" y="187.0" font-size="15" fill="#c4b5fd" font-weight="600">de 38 a 11 al mes</text>
+<line x1="56" y1="208" x2="904" y2="208" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="249.0" font-size="15" fill="#f5f5f7" font-weight="600">Clientes en riesgo</text>
+<text x="266" y="239.0" font-size="14" fill="#d4d4dc" font-weight="400">¿Qué contratista está</text>
+<text x="266" y="259.0" font-size="14" fill="#d4d4dc" font-weight="400">por dejar de comprar?</text>
+<text x="486" y="239.0" font-size="14" fill="#d4d4dc" font-weight="400">Frecuencia y monto</text>
+<text x="486" y="259.0" font-size="14" fill="#d4d4dc" font-weight="400">de compras</text>
+<text x="706" y="239.0" font-size="15" fill="#c4b5fd" font-weight="600">14 de 40 cuentas</text>
+<text x="706" y="259.0" font-size="15" fill="#c4b5fd" font-weight="600">en riesgo recuperadas</text>
+<line x1="56" y1="280" x2="904" y2="280" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="321.0" font-size="15" fill="#f5f5f7" font-weight="600">Segmentación</text>
+<text x="266" y="311.0" font-size="14" fill="#d4d4dc" font-weight="400">¿Qué grupos de</text>
+<text x="266" y="331.0" font-size="14" fill="#d4d4dc" font-weight="400">clientes tengo?</text>
+<text x="486" y="311.0" font-size="14" fill="#d4d4dc" font-weight="400">Qué, cuándo y</text>
+<text x="486" y="331.0" font-size="14" fill="#d4d4dc" font-weight="400">cuánto compra cada uno</text>
+<text x="706" y="311.0" font-size="15" fill="#c4b5fd" font-weight="600">4 grupos con</text>
+<text x="706" y="331.0" font-size="15" fill="#c4b5fd" font-weight="600">4 ofertas distintas</text>
+<line x1="56" y1="352" x2="904" y2="352" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="383.0" font-size="15" fill="#f5f5f7" font-weight="600">Productos que</text>
+<text x="56" y="403.0" font-size="15" fill="#f5f5f7" font-weight="600">van juntos</text>
+<text x="266" y="383.0" font-size="14" fill="#d4d4dc" font-weight="400">¿Qué ofrecer</text>
+<text x="266" y="403.0" font-size="14" fill="#d4d4dc" font-weight="400">en la caja?</text>
+<text x="486" y="383.0" font-size="14" fill="#d4d4dc" font-weight="400">Tickets de venta</text>
+<text x="486" y="403.0" font-size="14" fill="#d4d4dc" font-weight="400">de 3 años</text>
+<text x="706" y="383.0" font-size="15" fill="#c4b5fd" font-weight="600">Ticket promedio</text>
+<text x="706" y="403.0" font-size="15" fill="#c4b5fd" font-weight="600">+8%</text>
+<line x1="56" y1="424" x2="904" y2="424" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="465.0" font-size="15" fill="#f5f5f7" font-weight="600">Anomalías</text>
+<text x="266" y="455.0" font-size="14" fill="#d4d4dc" font-weight="400">¿Qué movimiento</text>
+<text x="266" y="475.0" font-size="14" fill="#d4d4dc" font-weight="400">no es normal?</text>
+<text x="486" y="455.0" font-size="14" fill="#d4d4dc" font-weight="400">Caja, descuentos</text>
+<text x="486" y="475.0" font-size="14" fill="#d4d4dc" font-weight="400">y devoluciones</text>
+<text x="706" y="455.0" font-size="15" fill="#c4b5fd" font-weight="600">Alerta diaria que se</text>
+<text x="706" y="475.0" font-size="15" fill="#c4b5fd" font-weight="600">revisa en 5 minutos</text>
+<text x="40" y="542" font-size="13" fill="#a1a1b5">Ferretería ilustrativa con 2 sucursales y 18 empleados. Resultados a los 6 meses.</text>
+</svg>

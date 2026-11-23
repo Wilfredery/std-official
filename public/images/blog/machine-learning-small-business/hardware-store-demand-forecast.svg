@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="t d" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<title id="t">Demand forecast: gray cement (bags per week)</title>
+<desc id="d">Actual sales: Wk 1 180, Wk 2 175, Wk 3 190, Wk 4 200, Wk 5 195, Wk 6 210, Wk 7 220, Wk 8 215, Wk 9 230, Wk 10 250, Wk 11 245, Wk 12 260, Wk 13 300, Wk 14 320, Wk 15 310, Wk 16 290. Machine learning model (Test: weeks 13 to 16): Wk 13 281, Wk 14 305, Wk 15 327, Wk 16 271. 8-week average: 228. Model error: 6%. Average error: 25%. Next weeks: Wk 17 285, Wk 18 300. Illustrative data. The model is trained on weeks 1 to 12 and checked against what happened in weeks 13 to 16.</desc>
+<rect width="960" height="560" rx="24" fill="#16141d"/>
+<text x="40" y="58" font-size="24" fill="#f5f5f7" font-weight="700">Demand forecast: gray cement (bags per week)</text>
+<rect x="840.5" y="36" width="79.5" height="28" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="880.2" y="55" font-size="12" fill="#a1a1b5" font-weight="700" letter-spacing="1" text-anchor="middle">EXAMPLE</text>
+<rect x="40" y="84" width="880" height="410" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<rect x="637.9" y="120" width="190.6" height="310" fill="#8b5cf6" fill-opacity="0.10"/>
+<text x="733.2" y="138" font-size="12" fill="#c4b5fd" font-weight="600" text-anchor="middle">Test: weeks 13 to 16</text>
+<text x="876.2" y="138" font-size="12" fill="#a1a1b5" font-weight="600" text-anchor="middle">Next weeks</text>
+<line x1="90" y1="430.0" x2="900" y2="430.0" stroke="#363149" stroke-width="1"/>
+<text x="80" y="434.0" font-size="12" fill="#a1a1b5" text-anchor="end">150</text>
+<line x1="90" y1="360.0" x2="900" y2="360.0" stroke="#363149" stroke-width="1"/>
+<text x="80" y="364.0" font-size="12" fill="#a1a1b5" text-anchor="end">200</text>
+<line x1="90" y1="290.0" x2="900" y2="290.0" stroke="#363149" stroke-width="1"/>
+<text x="80" y="294.0" font-size="12" fill="#a1a1b5" text-anchor="end">250</text>
+<line x1="90" y1="220.0" x2="900" y2="220.0" stroke="#363149" stroke-width="1"/>
+<text x="80" y="224.0" font-size="12" fill="#a1a1b5" text-anchor="end">300</text>
+<line x1="90" y1="150.0" x2="900" y2="150.0" stroke="#363149" stroke-width="1"/>
+<text x="80" y="154.0" font-size="12" fill="#a1a1b5" text-anchor="end">350</text>
+<text x="80" y="120" font-size="12" fill="#a1a1b5" text-anchor="end" font-weight="600">Bags</text>
+<text x="90.0" y="452" font-size="12" fill="#a1a1b5" text-anchor="middle">1</text>
+<text x="185.3" y="452" font-size="12" fill="#a1a1b5" text-anchor="middle">3</text>
+<text x="280.6" y="452" font-size="12" fill="#a1a1b5" text-anchor="middle">5</text>
+<text x="375.9" y="452" font-size="12" fill="#a1a1b5" text-anchor="middle">7</text>
+<text x="471.2" y="452" font-size="12" fill="#a1a1b5" text-anchor="middle">9</text>
+<text x="566.5" y="452" font-size="12" fill="#a1a1b5" text-anchor="middle">11</text>
+<text x="661.8" y="452" font-size="12" fill="#a1a1b5" text-anchor="middle">13</text>
+<text x="757.1" y="452" font-size="12" fill="#a1a1b5" text-anchor="middle">15</text>
+<text x="804.7" y="452" font-size="12" fill="#a1a1b5" text-anchor="middle">16</text>
+<text x="852.4" y="452" font-size="12" fill="#a1a1b5" text-anchor="middle">17</text>
+<text x="900.0" y="452" font-size="12" fill="#a1a1b5" text-anchor="middle">18</text>
+<text x="900" y="472" font-size="12" fill="#a1a1b5" text-anchor="end">Wk</text>
+<line x1="661.8" y1="320.6" x2="804.7" y2="320.6" stroke="#f87171" stroke-width="3" stroke-dasharray="8 6"/>
+<polygon points="804.7,232.6 852.4,213.0 900.0,192.0 900.0,248.0 852.4,269.0 804.7,288.6" fill="#8b5cf6" fill-opacity="0.18"/>
+<polyline points="804.7,260.6 852.4,241.0 900.0,220.0" fill="none" stroke="#c4b5fd" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+<polyline points="90.0,388.0 137.6,395.0 185.3,374.0 232.9,360.0 280.6,367.0 328.2,346.0 375.9,332.0 423.5,339.0 471.2,318.0 518.8,290.0 566.5,297.0 614.1,276.0 661.8,220.0 709.4,192.0 757.1,206.0 804.7,234.0" fill="none" stroke="#f5f5f7" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="90.0" cy="388.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="137.6" cy="395.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="185.3" cy="374.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="232.9" cy="360.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="280.6" cy="367.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="328.2" cy="346.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="375.9" cy="332.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="423.5" cy="339.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="471.2" cy="318.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="518.8" cy="290.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="566.5" cy="297.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="614.1" cy="276.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="661.8" cy="220.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="709.4" cy="192.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="757.1" cy="206.0" r="3.5" fill="#f5f5f7"/>
+<circle cx="804.7" cy="234.0" r="3.5" fill="#f5f5f7"/>
+<polyline points="661.8,246.6 709.4,213.0 757.1,182.2 804.7,260.6" fill="none" stroke="#c4b5fd" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="661.8" cy="246.6" r="5" fill="#8b5cf6" stroke="#c4b5fd" stroke-width="2"/>
+<circle cx="709.4" cy="213.0" r="5" fill="#8b5cf6" stroke="#c4b5fd" stroke-width="2"/>
+<circle cx="757.1" cy="182.2" r="5" fill="#8b5cf6" stroke="#c4b5fd" stroke-width="2"/>
+<circle cx="804.7" cy="260.6" r="5" fill="#8b5cf6" stroke="#c4b5fd" stroke-width="2"/>
+<rect x="102" y="116" width="230" height="64" rx="10" fill="#16141d" stroke="#363149" stroke-width="1.5"/>
+<text x="118" y="140" font-size="15" fill="#c4b5fd" font-weight="700">Model error: 6%</text>
+<text x="118" y="166" font-size="15" fill="#f87171" font-weight="700">Average error: 25%</text>
+<line x1="56" y1="519" x2="84" y2="519" stroke="#f5f5f7" stroke-width="3"/>
+<text x="94" y="524" font-size="14" fill="#d4d4dc">Actual sales</text>
+<line x1="221.2" y1="519" x2="249.2" y2="519" stroke="#c4b5fd" stroke-width="3"/>
+<text x="259.2" y="524" font-size="14" fill="#d4d4dc">Machine learning model</text>
+<line x1="462.4" y1="519" x2="490.4" y2="519" stroke="#f87171" stroke-width="3" stroke-dasharray="8 6"/>
+<text x="500.4" y="524" font-size="14" fill="#d4d4dc">8-week average</text>
+</svg>
