@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/lib/i18n/navigation";
 import { routing } from "@/lib/i18n/routing";
 import { cn } from "@/lib/utils";
-import { englishPathFor } from "@/lib/data/landings";
+import { alternatePathFor } from "@/lib/data/landings";
 
 const localeLabels: Record<string, string> = {
   es: "ES",
@@ -26,9 +26,9 @@ export function LanguageSwitcher() {
   const pathname = usePathname();
 
   function handleSwitch(newLocale: string) {
-    // Spanish-only landings have no English twin: send EN to the closest
-    // English page instead of a 404.
-    const target = newLocale === "en" ? (englishPathFor(pathname) ?? pathname) : pathname;
+    // Landings exist in one locale only: switching away from one lands on its
+    // closest page in the other locale instead of a 404.
+    const target = alternatePathFor(pathname, newLocale) ?? pathname;
     router.replace(target, { locale: newLocale });
   }
 

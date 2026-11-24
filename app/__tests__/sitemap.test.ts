@@ -9,10 +9,10 @@ vi.hoisted(() => vi.setSystemTime(new Date("2026-06-17")));
 import sitemap from "@/app/sitemap";
 import { PAGES_UPDATED_AT, SITE_URL } from "@/lib/site";
 import { blogPosts } from "@/lib/data/blog";
-import { landings, LANDINGS_UPDATED_AT } from "@/lib/data/landings";
+import { landings } from "@/lib/data/landings";
 
 const isLanding = (url: string) =>
-  landings.some((l) => url.endsWith(`/es/${l.slug}/`));
+  landings.some((l) => url.endsWith(`/${l.locale}/${l.slug}/`));
 
 describe("sitemap.ts", () => {
   it("generates exactly 26 + blog post + landing <url> entries (REQ-2)", () => {
@@ -21,7 +21,7 @@ describe("sitemap.ts", () => {
     // 7 static routes (incl. /blog/) × 2 locales = 14
     // 6 service slugs × 2 locales = 12
     // N blog posts × 2 locales
-    // M Spanish-only landings × 1 locale
+    // M single-locale landings × 1 locale
     expect(entries).toHaveLength(26 + blogPosts.length * 2 + landings.length);
   });
 
@@ -228,38 +228,40 @@ describe("sitemap.ts", () => {
     }
   });
 
-  describe("Spanish-only landings", () => {
-    it("lists exactly one es URL per landing", () => {
+  describe("single-locale landings", () => {
+    it("lists exactly one URL per landing, in its own locale", () => {
       const entries = sitemap();
 
       for (const landing of landings) {
         const matching = entries.filter((e) => e.url.includes(landing.slug));
         expect(matching).toHaveLength(1);
-        expect(matching[0].url).toBe(`${SITE_URL}/es/${landing.slug}/`);
+        expect(matching[0].url).toBe(`${SITE_URL}/${landing.locale}/${landing.slug}/`);
       }
       expect(landings.map((l) => l.slug)).toEqual([
         "consultoria-de-datos-republica-dominicana",
         "consultor-power-bi-republica-dominicana",
+        "business-intelligence-for-local-government",
       ]);
     });
 
-    it("has only a self-referencing es alternate (no en, no x-default)", () => {
+    it("has only a self-referencing alternate in its locale (no x-default)", () => {
       const entries = sitemap().filter((e) => isLanding(e.url));
 
       expect(entries).toHaveLength(landings.length);
-      for (const entry of entries) {
-        expect(entry.alternates?.languages).toEqual({ es: entry.url });
+      for (const landing of landings) {
+        const entry = entries.find((e) => e.url.endsWith(`/${landing.slug}/`))!;
+        expect(entry.alternates?.languages).toEqual({ [landing.locale]: entry.url });
       }
     });
 
-    it("uses priority 0.8, monthly and the landings lastmod", () => {
+    it("uses priority 0.8, monthly and each landing's lastmod", () => {
       const entries = sitemap().filter((e) => isLanding(e.url));
 
-      expect(LANDINGS_UPDATED_AT).toBe("2026-11-16");
-      for (const entry of entries) {
+      for (const landing of landings) {
+        const entry = entries.find((e) => e.url.endsWith(`/${landing.slug}/`))!;
         expect(entry.priority).toBe(0.8);
         expect(entry.changeFrequency).toBe("monthly");
-        expect(entry.lastModified).toBe("2026-11-16");
+        expect(entry.lastModified).toBe(landing.updatedAt);
         expect(entry.url).toMatch(/\/$/);
       }
     });

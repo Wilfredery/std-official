@@ -1,12 +1,12 @@
 import { JsonLd } from "@/components/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { landingUi, landingPath, type Landing } from "@/lib/data/landings";
+import { landingLocaleTags, landingUi, landingPath, type Landing } from "@/lib/data/landings";
 import { ORG_ID, SITE_URL } from "@/lib/site";
 import type { Service } from "@/lib/seo/types";
 
-/** Absolute canonical URL of a landing (always Spanish, trailing slash). */
+/** Absolute canonical URL of a landing (in its own locale, trailing slash). */
 export function landingUrl(landing: Landing): string {
-  return `${SITE_URL}/es${landingPath(landing.slug)}`;
+  return `${SITE_URL}/${landing.locale}${landingPath(landing.slug)}`;
 }
 
 // FAQPage is not part of the shared lib/seo/types union, so it is typed
@@ -26,7 +26,7 @@ export function buildFaqSchema(landing: Landing): FaqPageSchema {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    inLanguage: "es-DO",
+    inLanguage: landingLocaleTags[landing.locale].lang,
     mainEntity: landing.faq.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -42,8 +42,8 @@ export function buildServiceSchema(landing: Landing): Service {
     description: landing.seoDescription,
     url: landingUrl(landing),
     serviceType: landing.serviceName,
-    areaServed: ["Dominican Republic"],
-    inLanguage: "es-DO",
+    areaServed: landing.areaServed,
+    inLanguage: landingLocaleTags[landing.locale].lang,
     provider: { "@id": ORG_ID },
   };
 }
@@ -54,7 +54,7 @@ export function LandingJsonLd({ landing }: { landing: Landing }) {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: landingUi.home, url: `${SITE_URL}/es/` },
+          { name: landingUi[landing.locale].home, url: `${SITE_URL}/${landing.locale}/` },
           { name: landing.breadcrumbName, url },
         ]}
       />

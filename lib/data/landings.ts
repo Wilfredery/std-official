@@ -1,5 +1,7 @@
 /**
- * Spanish-only SEO landing pages (no English equivalent).
+ * Single-locale SEO landing pages: each exists in one locale only (`locale`)
+ * and has no translation; the language switcher sends users to its
+ * `alternatePath` instead.
  *
  * Content lives here as typed data, like `lib/data/blog.ts`, and is rendered by
  * the shared `components/landing/LandingPage.tsx`. Internal links are
@@ -32,9 +34,17 @@ export interface LandingFaq {
   answer: string;
 }
 
+export type LandingLocale = "es" | "en";
+
 export interface Landing {
-  /** URL segment under `/es/` and folder name under `app/[locale]/`. */
+  /** URL segment under `/{locale}/` and folder name under `app/[locale]/`. */
   slug: string;
+  /** The only locale the landing exists in. */
+  locale: LandingLocale;
+  /** schema.org Service `areaServed`. */
+  areaServed: string[];
+  /** ISO date of the last meaningful edit (sitemap `lastmod`). */
+  updatedAt: string;
   /** Full `<title>` (≤60 chars). */
   seoTitle: string;
   /** Meta description (≤160 chars). */
@@ -55,34 +65,54 @@ export interface Landing {
     bookingLabel: string;
     contactLabel: string;
   };
-  /** English page the language switcher sends users to (locale-agnostic path). */
-  englishEquivalent: string;
+  /**
+   * Page in the other locale the language switcher sends users to
+   * (locale-agnostic path), since the landing has no translation.
+   */
+  alternatePath: string;
 }
 
-/** UI strings shared by both landings (Spanish only). */
-export const landingUi = {
-  home: "Inicio",
-  faqTitle: "Preguntas frecuentes",
-  breadcrumbAria: "Ruta de navegación",
-  related: "Relacionado",
-  newTab: "(se abre en una pestaña nueva)",
-} as const;
+/** UI strings shared by the landings, per locale. */
+export const landingUi: Record<
+  LandingLocale,
+  { home: string; faqTitle: string; breadcrumbAria: string; newTab: string }
+> = {
+  es: {
+    home: "Inicio",
+    faqTitle: "Preguntas frecuentes",
+    breadcrumbAria: "Ruta de navegación",
+    newTab: "(se abre en una pestaña nueva)",
+  },
+  en: {
+    home: "Home",
+    faqTitle: "Frequently asked questions",
+    breadcrumbAria: "Breadcrumb",
+    newTab: "(opens in a new tab)",
+  },
+};
 
-/** ISO date of the last meaningful edit of the landings (sitemap `lastmod`). */
-export const LANDINGS_UPDATED_AT = "2026-11-16";
+/** Open Graph `locale` and schema.org `inLanguage` per landing locale. */
+export const landingLocaleTags: Record<LandingLocale, { og: string; lang: string }> = {
+  es: { og: "es_DO", lang: "es-DO" },
+  en: { og: "en_US", lang: "en-US" },
+};
 
 export const landingSlugs = [
   "consultoria-de-datos-republica-dominicana",
   "consultor-power-bi-republica-dominicana",
+  "business-intelligence-for-local-government",
 ] as const;
 
 export type LandingSlug = (typeof landingSlugs)[number];
 
 const DATOS = "consultoria-de-datos-republica-dominicana" satisfies LandingSlug;
 const POWER_BI = "consultor-power-bi-republica-dominicana" satisfies LandingSlug;
+const LOCAL_GOV = "business-intelligence-for-local-government" satisfies LandingSlug;
 
 const consultoriaDatos: Landing = {
   slug: DATOS,
+  locale: "es",
+  areaServed: ["Dominican Republic"],
   seoTitle: "Consultoría de datos en República Dominicana | ShineTechData",
   seoDescription:
     "Consultoría de datos para pymes en República Dominicana: ordenamos tu Excel, ERP y POS, y los convertimos en reportes claros. Agenda 30 min gratis.",
@@ -252,11 +282,14 @@ const consultoriaDatos: Landing = {
     bookingLabel: "Agendar llamada gratuita",
     contactLabel: "Escríbenos",
   },
-  englishEquivalent: "/services/data-analysis/",
+  updatedAt: "2026-11-16",
+  alternatePath: "/services/data-analysis/",
 };
 
 const consultorPowerBi: Landing = {
   slug: POWER_BI,
+  locale: "es",
+  areaServed: ["Dominican Republic"],
   seoTitle: "Consultor Power BI en República Dominicana | ShineTechData",
   seoDescription:
     "Consultor Power BI en República Dominicana: dashboards, Power Query, DAX e implementación de Power BI para pymes. Agenda una llamada gratis de 30 min.",
@@ -438,20 +471,189 @@ const consultorPowerBi: Landing = {
     bookingLabel: "Agendar llamada gratuita",
     contactLabel: "Escríbenos",
   },
-  englishEquivalent: "/services/business-intelligence/",
+  updatedAt: "2026-11-16",
+  alternatePath: "/services/business-intelligence/",
 };
 
-export const landings: Landing[] = [consultoriaDatos, consultorPowerBi];
+const biLocalGovernment: Landing = {
+  slug: LOCAL_GOV,
+  locale: "en",
+  areaServed: ["United States"],
+  updatedAt: "2026-11-23",
+  seoTitle: "Business Intelligence for Local Government | ShineTechData",
+  seoDescription:
+    "Business intelligence for local government: dashboards for permits, 311, budget, utilities and overtime, built on the systems your city already uses.",
+  eyebrow: "Local government analytics",
+  h1: "Business intelligence for local government: dashboards for small cities, towns and counties",
+  intro:
+    "Your city already has the data it needs to run better. It sits in the permitting system, the 311 or work order system, the financial system, utility billing and payroll. What's missing is a way to see it together. ShineTechData builds business intelligence dashboards for small cities, towns, counties and special districts in the United States: we connect the systems you already use, agree on a short list of indicators with your departments, and leave dashboards that refresh on their own, ready for staff meetings and council reports.",
+  breadcrumbName: "Business intelligence for local government",
+  serviceName: "Business intelligence for local government",
+  blocks: [
+    { type: "h2", text: "The data problems we see most in small local governments" },
+    {
+      type: "p",
+      text: "Small governments run on lean teams. The same few people keep systems running, answer residents and prepare reports, so measurement is usually the first thing to slip. These are the patterns that repeat:",
+    },
+    {
+      type: "ul",
+      items: [
+        "Each department lives in its own system: permits in one, 311 requests in another, budget in the financial system, water accounts in utility billing. Nobody sees the whole picture.",
+        "Council and board reports are built by hand. Someone copies figures from three systems into a spreadsheet every month, and the numbers are already old when they're presented.",
+        "Residents ask how long a permit or a repair takes, and nobody can answer without digging through records.",
+        "Departments define the same metric differently. A permit 'starts' when it's submitted for one team and when it's complete for another, so meetings turn into arguments about numbers.",
+        "Costs like overtime or unbilled water show up at the end of the fiscal year, when it's too late to act.",
+        "The IT team is small and busy keeping the lights on, so reporting projects never reach the top of the list.",
+      ],
+    },
+    {
+      type: "p",
+      text: "None of this calls for replacing your systems. In most cases the fix starts with connecting what you already have and measuring a few things that really matter to residents and to the council.",
+    },
+    { type: "h2", text: "Dashboards we build for cities and counties" },
+    {
+      type: "p",
+      text: "Every government is different, so we start from your questions, not from a template. These are the dashboards that most often pay off first:",
+    },
+    {
+      type: "ul",
+      items: [
+        "Permits and inspections: open applications by type and stage, days waiting, and the bottleneck of the week.",
+        "311 and service requests: open requests on a map, time to close by type, and the neighborhoods that wait the longest.",
+        "Budget vs. actual: spending by department each month, with a projection of where the fiscal year will end.",
+        "Utility billing: water produced vs. water billed by sector, and accounts with readings that suggest a broken meter.",
+        "Overtime and staffing: overtime hours by department, crew and reason, every pay period instead of once a year.",
+        "Public transparency: a resident-facing version with aggregated figures, once the internal dashboards are trusted.",
+      ],
+    },
+    {
+      type: "rich",
+      parts: [
+        "These dashboards are built on our ",
+        { text: "business intelligence", href: "/services/business-intelligence/" },
+        " and ",
+        { text: "data analysis", href: "/services/data-analysis/" },
+        " services. When the source data has duplicates or inconsistent definitions, we start with a ",
+        { text: "data audit", href: "/services/data-auditing/" },
+        " so the dashboards show figures your departments agree on.",
+      ],
+    },
+    { type: "h2", text: "How a pilot works" },
+    {
+      type: "p",
+      text: "We recommend starting small: one dashboard, one department, one question the council asks over and over. A visible first result builds trust faster than a long plan, and a tight scope is easier for your purchasing office to review.",
+    },
+    {
+      type: "ol",
+      items: [
+        "Discovery call: we listen to the problem, see which systems hold the data and agree on the question the first dashboard must answer.",
+        "Data review: we look at exports or read-only connections from your systems and check how clean the data is.",
+        "Definitions: we agree with the department on what each indicator means, so the numbers hold up in a public meeting.",
+        "Build: we connect the sources and build the dashboard, usually in Power BI if your government already licenses Microsoft tools.",
+        "Handover: we train the people who will use it and document how it refreshes, so you don't depend on us to keep it running.",
+        "Next step: with the first dashboard in use, you decide whether to extend it to other departments.",
+      ],
+    },
+    { type: "h2", text: "Procurement, security and public records" },
+    {
+      type: "p",
+      text: "We know that buying services in government follows rules. A pilot with a defined scope and a written quote often fits within the small-purchase limits many cities and counties use, which vary by state and locality. Your purchasing office decides the right path, and we provide the scope, quote and documentation it asks for.",
+    },
+    {
+      type: "p",
+      text: "On security, we work with the minimum data each dashboard needs, prefer read-only access to your systems, and agree with your IT team on who can see what. Dashboards shared with the public should show aggregated figures, never names, addresses or account numbers. Public records and privacy rules differ by state, so we design with your attorney's or clerk's guidance, not around it.",
+    },
+    { type: "h2", text: "Who we work with" },
+    {
+      type: "p",
+      text: "Our focus is small and mid-sized local governments that don't have a dedicated analytics team: cities and towns, counties, school districts, water and utility districts, and housing authorities. We work remotely with video calls and shared workspaces, and we write in plain English for the people who will use the dashboards every day, not for specialists.",
+    },
+    {
+      type: "rich",
+      parts: [
+        "If you want to see the approach applied to a full example, read our articles on the ",
+        { text: "blog", href: "/blog/" },
+        ", where we walk through dashboards step by step with real data sources.",
+      ],
+    },
+    {
+      type: "links",
+      title: "Keep exploring",
+      items: [
+        { label: "Business intelligence", href: "/services/business-intelligence/" },
+        { label: "Data analysis", href: "/services/data-analysis/" },
+        { label: "Data auditing", href: "/services/data-auditing/" },
+        { label: "Process automation", href: "/services/process-automation/" },
+        { label: "Data and AI blog", href: "/blog/" },
+      ],
+    },
+  ],
+  faq: [
+    {
+      question: "What is business intelligence for local government?",
+      answer:
+        "It's the practice of pulling data from the systems a government already uses, such as permitting, 311, finance, utility billing and payroll, and turning it into dashboards that update themselves. The goal is to answer operational questions quickly: where work is backing up, where money is leaking and which residents are waiting the longest.",
+    },
+    {
+      question: "Do we need to replace our current systems?",
+      answer:
+        "No. Business intelligence sits on top of the systems you already have. We work with exports or read-only connections, so your departments keep working the way they do today while the dashboards bring the information together.",
+    },
+    {
+      question: "Which tools do you use?",
+      answer:
+        "We usually build in Power BI, because many governments already license Microsoft tools and staff are familiar with them. If your organization uses another platform, we adapt to it rather than asking you to buy something new.",
+    },
+    {
+      question: "How long does a first dashboard take?",
+      answer:
+        "It depends on how many sources are involved and how clean the data is. A single dashboard for one department is the fastest path, which is why we recommend a pilot. We show progress early instead of waiting until the end of the project.",
+    },
+    {
+      question: "How much does it cost?",
+      answer:
+        "It depends on the scope: how many systems, how many indicators and whether you need a resident-facing version. We don't publish fixed prices because every government is different. After a free 30-minute call, we send a written scope and quote your purchasing office can review.",
+    },
+    {
+      question: "How do you handle residents' personal data?",
+      answer:
+        "We use only the data each dashboard needs, prefer read-only access and agree on permissions with your IT team. Anything shared with the public is aggregated, without names, addresses or account numbers. For legal questions about public records or privacy, we follow the guidance of your attorney or clerk.",
+    },
+    {
+      question: "Can our staff maintain the dashboards after the project?",
+      answer:
+        "Yes. Handover is part of the work: we train the people who will use and update the dashboards and document how the data refreshes, so your team isn't dependent on us for day-to-day use.",
+    },
+    {
+      question: "Do you work with counties, school districts and special districts too?",
+      answer:
+        "Yes. The same approach works for any public organization with operational data spread across several systems, including counties, school districts, water and utility districts and housing authorities.",
+    },
+  ],
+  cta: {
+    title: "Book a free 30-minute call",
+    text: "Tell us which question your council or residents ask most often, and we'll show you how a first dashboard could answer it with the systems you already have.",
+    bookingLabel: "Book a free call",
+    contactLabel: "Contact us",
+  },
+  alternatePath: "/services/business-intelligence/",
+};
 
-/** Short labels for the Spanish footer's service column. */
+export const landings: Landing[] = [consultoriaDatos, consultorPowerBi, biLocalGovernment];
+
+/** Short labels for the footer's service column (each shown in its landing's locale). */
 const footerLabels: Record<LandingSlug, string> = {
   [DATOS]: "Consultoría de datos en RD",
   [POWER_BI]: "Consultor Power BI en RD",
+  [LOCAL_GOV]: "BI for local government",
 };
 
-export const landingFooterLinks: { href: string; label: string }[] = landings.map(
-  (l) => ({ href: landingPath(l.slug), label: footerLabels[l.slug as LandingSlug] }),
-);
+/** Footer links to the landings that exist in `locale`. */
+export function landingFooterLinks(locale: string): { href: string; label: string }[] {
+  return landings
+    .filter((l) => l.locale === locale)
+    .map((l) => ({ href: landingPath(l.slug), label: footerLabels[l.slug as LandingSlug] }));
+}
 
 export function getLandingBySlug(slug: string): Landing | undefined {
   return landings.find((l) => l.slug === slug);
@@ -469,14 +671,16 @@ function normalizePath(pathname: string): string {
 }
 
 /**
- * Where the English language switch should land for a given locale-less
- * pathname. Landings have no English twin, so they map to the closest English
- * service page; every other path returns `null` (keep the same path).
+ * Where a switch to `targetLocale` should land for a given locale-less
+ * pathname. A landing exists in one locale only, so switching away from it
+ * maps to its `alternatePath`; every other case returns `null` (keep the same
+ * path).
  */
-export function englishPathFor(pathname: string): string | null {
+export function alternatePathFor(pathname: string, targetLocale: string): string | null {
   const normalized = normalizePath(pathname);
   const landing = landings.find((l) => landingPath(l.slug) === normalized);
-  return landing?.englishEquivalent ?? null;
+  if (!landing || landing.locale === targetLocale) return null;
+  return landing.alternatePath;
 }
 
 function inlineText(parts: LandingInline[]): string {
@@ -522,7 +726,7 @@ export function landingWordCount(landing: Landing): number {
 
 /** Every internal href used by a landing (inline, link cards). */
 export function landingInternalHrefs(landing: Landing): string[] {
-  const hrefs: string[] = [landing.englishEquivalent];
+  const hrefs: string[] = [landing.alternatePath];
   for (const block of landing.blocks) {
     if (block.type === "rich") {
       for (const p of block.parts) if (typeof p !== "string") hrefs.push(p.href);

@@ -151,7 +151,7 @@ describe("Footer", () => {
     expect(servicesHeading).toBeInTheDocument();
   });
 
-  // ---- Spanish-only landing links ----
+  // ---- Single-locale landing links ----
 
   it("links both Spanish landings from the Spanish footer", () => {
     render(<Footer />, { locale: "es" });
@@ -167,6 +167,19 @@ describe("Footer", () => {
 
     expect(screen.queryByText("Consultoría de datos en RD")).not.toBeInTheDocument();
     expect(screen.queryByText("Consultor Power BI en RD")).not.toBeInTheDocument();
+  });
+
+  it("links the English landing from the English footer only", () => {
+    render(<Footer />, { locale: "en" });
+    expect(screen.getByText("BI for local government").closest("a")).toHaveAttribute(
+      "href",
+      "/business-intelligence-for-local-government/",
+    );
+  });
+
+  it("does not link the English landing from the Spanish footer", () => {
+    render(<Footer />, { locale: "es" });
+    expect(screen.queryByText("BI for local government")).not.toBeInTheDocument();
   });
 
   // ---- Navigation / Company links ----

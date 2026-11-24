@@ -23,13 +23,39 @@ vi.mock("@/lib/i18n/navigation", () => ({
 
 import * as dataPage from "@/app/[locale]/consultoria-de-datos-republica-dominicana/page";
 import * as biPage from "@/app/[locale]/consultor-power-bi-republica-dominicana/page";
+import * as localGovPage from "@/app/[locale]/business-intelligence-for-local-government/page";
 import { BOOKING_URL, ORG_ID, SITE_URL } from "@/lib/site";
-import { getLandingBySlug, landings } from "@/lib/data/landings";
+import { getLandingBySlug, landings, landingUi } from "@/lib/data/landings";
 
 const pages = [
-  { slug: "consultoria-de-datos-republica-dominicana", mod: dataPage },
-  { slug: "consultor-power-bi-republica-dominicana", mod: biPage },
-];
+  {
+    slug: "consultoria-de-datos-republica-dominicana",
+    mod: dataPage,
+    locale: "es",
+    other: "en",
+    og: "es_DO",
+    lang: "es-DO",
+    area: ["Dominican Republic"],
+  },
+  {
+    slug: "consultor-power-bi-republica-dominicana",
+    mod: biPage,
+    locale: "es",
+    other: "en",
+    og: "es_DO",
+    lang: "es-DO",
+    area: ["Dominican Republic"],
+  },
+  {
+    slug: "business-intelligence-for-local-government",
+    mod: localGovPage,
+    locale: "en",
+    other: "es",
+    og: "en_US",
+    lang: "en-US",
+    area: ["United States"],
+  },
+] as const;
 
 function jsonLdOf(container: HTMLElement) {
   return Array.from(
@@ -37,30 +63,31 @@ function jsonLdOf(container: HTMLElement) {
   ).map((s) => JSON.parse(s.innerHTML));
 }
 
-describe.each(pages)("landing page $slug", ({ slug, mod }) => {
+describe.each(pages)("landing page $slug", ({ slug, mod, locale, other, og, lang, area }) => {
   const landing = getLandingBySlug(slug)!;
-  const canonical = `${SITE_URL}/es/${slug}/`;
+  const canonical = `${SITE_URL}/${locale}/${slug}/`;
 
   beforeEach(() => {
     notFoundMock.mockClear();
   });
 
-  it("is statically generated for Spanish only and 404s everything else", () => {
+  it("is statically generated for its own locale only and 404s everything else", () => {
+    expect(landing.locale).toBe(locale);
     expect(mod.dynamicParams).toBe(false);
-    expect(mod.generateStaticParams()).toEqual([{ locale: "es" }]);
+    expect(mod.generateStaticParams()).toEqual([{ locale }]);
   });
 
-  it("returns canonical, es-only hreflang, OG (es_DO) and Twitter metadata", async () => {
-    const meta = await mod.generateMetadata({ params: Promise.resolve({ locale: "es" }) });
+  it("returns canonical, single-locale hreflang, OG and Twitter metadata", async () => {
+    const meta = await mod.generateMetadata({ params: Promise.resolve({ locale }) });
 
     expect(meta.title).toBe(landing.seoTitle);
     expect(meta.description).toBe(landing.seoDescription);
     expect(meta.alternates?.canonical).toBe(canonical);
     expect(canonical.endsWith("/")).toBe(true);
-    expect(meta.alternates?.languages).toEqual({ es: canonical });
+    expect(meta.alternates?.languages).toEqual({ [locale]: canonical });
     expect(meta.openGraph).toMatchObject({
       url: canonical,
-      locale: "es_DO",
+      locale: og,
       siteName: "ShineTechData",
       images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630 }],
     });
@@ -70,16 +97,16 @@ describe.each(pages)("landing page $slug", ({ slug, mod }) => {
     });
   });
 
-  it("renders nothing and 404s for the English locale", async () => {
+  it("renders nothing and 404s for the other locale", async () => {
     await expect(
-      mod.default({ params: Promise.resolve({ locale: "en" }) }),
+      mod.default({ params: Promise.resolve({ locale: other }) }),
     ).rejects.toThrow("NEXT_NOT_FOUND");
     expect(notFoundMock).toHaveBeenCalled();
-    expect(await mod.generateMetadata({ params: Promise.resolve({ locale: "en" }) })).toEqual({});
+    expect(await mod.generateMetadata({ params: Promise.resolve({ locale: other }) })).toEqual({});
   });
 
   it("renders H1, booking + contact CTAs and real internal links", async () => {
-    const ui = await mod.default({ params: Promise.resolve({ locale: "es" }) });
+    const ui = await mod.default({ params: Promise.resolve({ locale }) });
     const { container, getAllByRole } = render(ui);
 
     const h1 = container.querySelector("h1");
@@ -93,8 +120,9 @@ describe.each(pages)("landing page $slug", ({ slug, mod }) => {
     expect(hrefs).toContain("/services/business-intelligence/");
     expect(hrefs).toContain("/services/data-auditing/");
     expect(hrefs).toContain("/blog/");
-    const other = landings.find((l) => l.slug !== slug)!;
-    expect(hrefs).toContain(`/${other.slug}/`);
+    for (const sibling of landings.filter((l) => l.slug !== slug && l.locale === locale)) {
+      expect(hrefs).toContain(`/${sibling.slug}/`);
+    }
 
     const booking = getAllByRole("link").find((a) => a.getAttribute("href") === BOOKING_URL)!;
     expect(booking).toHaveAttribute("target", "_blank");
@@ -102,7 +130,7 @@ describe.each(pages)("landing page $slug", ({ slug, mod }) => {
   });
 
   it("emits BreadcrumbList, Service and FAQPage JSON-LD", async () => {
-    const ui = await mod.default({ params: Promise.resolve({ locale: "es" }) });
+    const ui = await mod.default({ params: Promise.resolve({ locale }) });
     const { container } = render(ui);
     const schemas = jsonLdOf(container);
 
@@ -110,7 +138,12 @@ describe.each(pages)("landing page $slug", ({ slug, mod }) => {
     expect(Object.keys(byType).sort()).toEqual(["BreadcrumbList", "FAQPage", "Service"]);
 
     expect(byType.BreadcrumbList.itemListElement).toEqual([
-      { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE_URL}/es/` },
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: landingUi[locale].home,
+        item: `${SITE_URL}/${locale}/`,
+      },
       { "@type": "ListItem", position: 2, name: landing.breadcrumbName, item: canonical },
     ]);
 
@@ -118,8 +151,8 @@ describe.each(pages)("landing page $slug", ({ slug, mod }) => {
       "@context": "https://schema.org",
       name: landing.serviceName,
       url: canonical,
-      areaServed: ["Dominican Republic"],
-      inLanguage: "es-DO",
+      areaServed: area,
+      inLanguage: lang,
       provider: { "@id": ORG_ID },
     });
 

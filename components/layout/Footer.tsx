@@ -19,8 +19,8 @@ export function Footer() {
   const detailT = useTranslations("serviceDetail");
   const locale = useLocale();
   const year = new Date().getFullYear();
-  // Spanish-only landings are linked from the Spanish footer only.
-  const landingLinks = locale === "es" ? landingFooterLinks : [];
+  // Each landing exists in one locale and is linked from that locale's footer only.
+  const landingLinks = landingFooterLinks(locale);
 
   return (
     <footer className="border-t border-border mt-24">

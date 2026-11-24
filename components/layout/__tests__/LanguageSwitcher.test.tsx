@@ -97,7 +97,7 @@ describe("LanguageSwitcher", () => {
     expect(mockReplace).toHaveBeenCalledWith("/en", { locale: "en" });
   });
 
-  describe("Spanish-only landings", () => {
+  describe("single-locale landings", () => {
     it.each([
       ["/consultoria-de-datos-republica-dominicana/", "/services/data-analysis/"],
       ["/consultor-power-bi-republica-dominicana/", "/services/business-intelligence/"],
@@ -119,6 +119,26 @@ describe("LanguageSwitcher", () => {
         "/consultor-power-bi-republica-dominicana/",
         { locale: "es" },
       );
+    });
+
+    it("switching the English landing to ES lands on the Spanish BI service", () => {
+      vi.mocked(usePathname).mockReturnValue("/business-intelligence-for-local-government/");
+      render(<LanguageSwitcher />, { locale: "en" });
+
+      fireEvent.click(screen.getByText("ES"));
+      expect(mockReplace).toHaveBeenCalledWith("/services/business-intelligence/", {
+        locale: "es",
+      });
+    });
+
+    it("keeps the same path when switching the English landing to EN", () => {
+      vi.mocked(usePathname).mockReturnValue("/business-intelligence-for-local-government/");
+      render(<LanguageSwitcher />, { locale: "en" });
+
+      fireEvent.click(screen.getByText("EN"));
+      expect(mockReplace).toHaveBeenCalledWith("/business-intelligence-for-local-government/", {
+        locale: "en",
+      });
     });
 
     it("does not remap other pages when switching to EN", () => {
