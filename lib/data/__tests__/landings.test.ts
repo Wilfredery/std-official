@@ -9,7 +9,7 @@ import {
   landingInternalHrefs,
   landingTexts,
   landingWordCount,
-  englishPathFor,
+  alternatePathFor,
   getLandingBySlug,
 } from "@/lib/data/landings";
 import { serviceSlugs } from "@/lib/data/services";
@@ -28,7 +28,7 @@ function isRealRoute(href: string): boolean {
 }
 
 describe("landings data", () => {
-  it("defines both Spanish landings with their route folders", () => {
+  it("defines every landing with its route folder", () => {
     expect(landings.map((l) => l.slug)).toEqual([...landingSlugs]);
     for (const l of landings) {
       const page = path.join(process.cwd(), "app", "[locale]", l.slug, "page.tsx");
@@ -61,6 +61,9 @@ describe("landings data", () => {
     expect(getLandingBySlug("consultor-power-bi-republica-dominicana")!.h1).toMatch(
       /consultor power bi en república dominicana/i,
     );
+    expect(getLandingBySlug("business-intelligence-for-local-government")!.h1).toMatch(
+      /business intelligence for local government/i,
+    );
   });
 
   it.each(landings.map((l) => [l.slug, l] as const))(
@@ -78,13 +81,14 @@ describe("landings data", () => {
     "%s: links the required related pages",
     (_s, l) => {
       const hrefs = new Set(landingInternalHrefs(l));
-      const other = landings.find((o) => o.slug !== l.slug)!;
+      // Sibling landings in the same locale cross-link; other locales can't.
+      const siblings = landings.filter((o) => o.slug !== l.slug && o.locale === l.locale);
       for (const required of [
         "/services/data-analysis/",
         "/services/business-intelligence/",
         "/services/data-auditing/",
         "/blog/",
-        landingPath(other.slug),
+        ...siblings.map((o) => landingPath(o.slug)),
       ]) {
         expect(hrefs.has(required), `${l.slug} should link ${required}`).toBe(true);
       }
@@ -101,40 +105,59 @@ describe("landings data", () => {
       "años de experiencia",
       "clientes satisfechos",
       "testimonio",
+      "certified",
+      "guarantee",
+      "years of experience",
+      "satisfied clients",
+      "testimonial",
     ]) {
       expect(text, `copy contains "${banned}"`).not.toContain(banned);
     }
   });
 });
 
-describe("englishPathFor", () => {
-  it("maps each landing to its English service page", () => {
-    expect(englishPathFor("/consultoria-de-datos-republica-dominicana/")).toBe(
+describe("alternatePathFor", () => {
+  it("maps each Spanish landing to its English service page", () => {
+    expect(alternatePathFor("/consultoria-de-datos-republica-dominicana/", "en")).toBe(
       "/services/data-analysis/",
     );
-    expect(englishPathFor("/consultor-power-bi-republica-dominicana/")).toBe(
+    expect(alternatePathFor("/consultor-power-bi-republica-dominicana/", "en")).toBe(
       "/services/business-intelligence/",
     );
   });
 
+  it("maps the English landing to its Spanish service page", () => {
+    expect(alternatePathFor("/business-intelligence-for-local-government/", "es")).toBe(
+      "/services/business-intelligence/",
+    );
+  });
+
+  it("keeps the path when switching to the landing's own locale", () => {
+    expect(alternatePathFor("/consultor-power-bi-republica-dominicana/", "es")).toBeNull();
+    expect(alternatePathFor("/business-intelligence-for-local-government/", "en")).toBeNull();
+  });
+
   it("tolerates a missing trailing slash", () => {
-    expect(englishPathFor("/consultor-power-bi-republica-dominicana")).toBe(
+    expect(alternatePathFor("/consultor-power-bi-republica-dominicana", "en")).toBe(
       "/services/business-intelligence/",
     );
   });
 
   it("returns null for any other path", () => {
     for (const p of ["/", "/services/", "/blog/some-post/", "/consultoria-de-datos/"]) {
-      expect(englishPathFor(p)).toBeNull();
+      expect(alternatePathFor(p, "en")).toBeNull();
+      expect(alternatePathFor(p, "es")).toBeNull();
     }
   });
 });
 
 describe("landingFooterLinks", () => {
-  it("has one short link per landing", () => {
-    expect(landingFooterLinks.map((l) => l.href)).toEqual(
-      landings.map((l) => landingPath(l.slug)),
+  it.each(["es", "en"])("has one short link per %s landing", (locale) => {
+    const links = landingFooterLinks(locale);
+    expect(links.map((l) => l.href)).toEqual(
+      landings.filter((l) => l.locale === locale).map((l) => landingPath(l.slug)),
     );
-    for (const l of landingFooterLinks) expect(l.label.length).toBeLessThan(40);
+    expect(links.length).toBeGreaterThan(0);
+    for (const l of links) expect(l.label.length).toBeLessThan(40);
   });
 });

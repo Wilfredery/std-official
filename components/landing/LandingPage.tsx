@@ -77,6 +77,7 @@ function Block({ block }: { block: LandingBlock }) {
 }
 
 export function LandingPage({ landing }: { landing: Landing }) {
+  const ui = landingUi[landing.locale];
   return (
     <>
       <LandingJsonLd landing={landing} />
@@ -84,11 +85,11 @@ export function LandingPage({ landing }: { landing: Landing }) {
       <article className="relative mx-auto max-w-3xl px-4 sm:px-6 pt-12">
         <div className="absolute inset-x-0 top-0 h-72 hero-glow -z-10" />
 
-        <nav aria-label={landingUi.breadcrumbAria} className="text-sm text-muted-foreground">
+        <nav aria-label={ui.breadcrumbAria} className="text-sm text-muted-foreground">
           <ol className="flex flex-wrap items-center gap-2">
             <li>
               <Link href="/" prefetch={false} className="hover:text-primary transition-colors">
-                {landingUi.home}
+                {ui.home}
               </Link>
             </li>
             <li aria-hidden="true">/</li>
@@ -107,7 +108,7 @@ export function LandingPage({ landing }: { landing: Landing }) {
             {landing.intro}
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
-            <BookingButton label={landing.cta.bookingLabel} newTabLabel={landingUi.newTab} />
+            <BookingButton label={landing.cta.bookingLabel} newTabLabel={ui.newTab} />
             <ContactButton label={landing.cta.contactLabel} />
           </div>
         </header>
@@ -120,7 +121,7 @@ export function LandingPage({ landing }: { landing: Landing }) {
 
         <section className="mt-16" aria-labelledby="landing-faq">
           <h2 id="landing-faq" className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-8">
-            {landingUi.faqTitle}
+            {ui.faqTitle}
           </h2>
           <div className="flex flex-col gap-4">
             {landing.faq.map((item) => (
@@ -152,7 +153,7 @@ export function LandingPage({ landing }: { landing: Landing }) {
           text={landing.cta.text}
           bookingLabel={landing.cta.bookingLabel}
           contactLabel={landing.cta.contactLabel}
-          newTabLabel={landingUi.newTab}
+          newTabLabel={ui.newTab}
         />
       </article>
     </>

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { serviceSlugs } from "@/lib/data/services";
 import { blogPosts } from "@/lib/data/blog";
-import { landings, landingPath, LANDINGS_UPDATED_AT } from "@/lib/data/landings";
+import { landings, landingPath } from "@/lib/data/landings";
 import { locales, PAGES_UPDATED_AT, SITE_URL } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
 
@@ -129,13 +129,13 @@ function generateBlogEntries(): MetadataRoute.Sitemap {
 }
 
 /**
- * Spanish-only landings: a single `es` entry whose only alternate is itself
- * (no English equivalent, so no `en` and no `x-default`).
+ * Single-locale landings: one entry in the landing's locale whose only
+ * alternate is itself (no translation, so no other locale and no `x-default`).
  */
 function generateLandingEntries(): MetadataRoute.Sitemap {
   return landings.map((landing) => {
-    const url = buildLocaleUrl("es", landingPath(landing.slug));
-    return buildEntry(url, { es: url }, "landing", LANDINGS_UPDATED_AT);
+    const url = buildLocaleUrl(landing.locale, landingPath(landing.slug));
+    return buildEntry(url, { [landing.locale]: url }, "landing", landing.updatedAt);
   });
 }
 
