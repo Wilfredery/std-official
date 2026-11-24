@@ -178,5 +178,23 @@
     "publisher": "Board of Governors of the Federal Reserve System (FEDS Notes)",
     "year": 2026,
     "url": "https://www.federalreserve.gov/econres/notes/feds-notes/monitoring-ai-adoption-in-the-u-s-economy-20260403.html"
+  },
+  "censusGovOrg2026": {
+    "title": "Government Organization Summary Report: 2022 and 2025",
+    "publisher": "U.S. Census Bureau",
+    "year": 2026,
+    "url": "https://www.census.gov/library/publications/2026/econ/govtorg2225.html"
+  },
+  "censusCities2025": {
+    "title": "Population Growth Reported Across Cities and Towns in All U.S. Regions",
+    "publisher": "U.S. Census Bureau (Vintage 2024 Population Estimates)",
+    "year": 2025,
+    "url": "https://www.census.gov/newsroom/press-releases/2025/vintage-2024-popest.html"
+  },
+  "deloitteCountyCio2026": {
+    "title": "2026 County CIO Insights",
+    "publisher": "Deloitte (via the National Association of Counties, NACo)",
+    "year": 2026,
+    "url": "https://www.naco.org/sites/default/files/2026-07/2026%20County%20CIO%20Insights.pdf"
   }
 }

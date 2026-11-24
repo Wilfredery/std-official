@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="570" viewBox="0 0 960 570" role="img" aria-labelledby="t d" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<title id="t">5 tableros para una ciudad pequeña</title>
+<desc id="d">Permisos e inspecciones: ¿Dónde se atascan las solicitudes? Datos que usa: Sistema de permisos. Resultado en el ejemplo: Días para emitir: de 34 a 19. Solicitudes 311: ¿Qué vecindarios esperan más? Datos que usa: 311 y órdenes de trabajo. Resultado en el ejemplo: Tiempo para cerrar: de 9 a 4 días. Presupuesto vs. gasto real: ¿Cada departamento va en presupuesto? Datos que usa: Sistema financiero. Resultado en el ejemplo: Informe al concejo: de 30 a 4 horas. Facturación de agua: ¿Cuánta agua nunca cobramos? Datos que usa: Medidores de producción y facturación. Resultado en el ejemplo: Agua no facturada: de 18% a 13%. Horas extra: ¿A dónde se van las horas extra? Datos que usa: Nómina y calendarios. Resultado en el ejemplo: Horas extra en obras públicas: -12%. Ciudad ilustrativa de 18,000 habitantes y 140 empleados. Resultados a los 6 a 12 meses.</desc>
+<rect width="960" height="570" rx="24" fill="#16141d"/>
+<text x="40" y="58" font-size="26" fill="#f5f5f7" font-weight="700">5 tableros para una ciudad pequeña</text>
+<rect x="840.4" y="36" width="79.6" height="28" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<text x="880.2" y="55" font-size="12" fill="#a1a1b5" font-weight="700" letter-spacing="1" text-anchor="middle">EJEMPLO</text>
+<rect x="40" y="88" width="880" height="416" rx="14" fill="#211e2c" stroke="#363149" stroke-width="1.5"/>
+<rect x="690" y="96" width="222" height="400" rx="10" fill="#8b5cf6" fill-opacity="0.14"/>
+<text x="56" y="118" font-size="12" fill="#a1a1b5" font-weight="600" letter-spacing="0.5">TABLERO</text>
+<text x="266" y="118" font-size="12" fill="#a1a1b5" font-weight="600" letter-spacing="0.5">PREGUNTA QUE RESPONDE</text>
+<text x="486" y="118" font-size="12" fill="#a1a1b5" font-weight="600" letter-spacing="0.5">DATOS QUE USA</text>
+<text x="706" y="118" font-size="12" fill="#c4b5fd" font-weight="600" letter-spacing="0.5">RESULTADO EN EL EJEMPLO</text>
+<line x1="40" y1="136" x2="920" y2="136" stroke="#363149" stroke-width="1"/>
+<text x="56" y="167.0" font-size="15" fill="#f5f5f7" font-weight="600">Permisos e</text>
+<text x="56" y="187.0" font-size="15" fill="#f5f5f7" font-weight="600">inspecciones</text>
+<text x="266" y="167.0" font-size="14" fill="#d4d4dc" font-weight="400">¿Dónde se atascan</text>
+<text x="266" y="187.0" font-size="14" fill="#d4d4dc" font-weight="400">las solicitudes?</text>
+<text x="486" y="167.0" font-size="14" fill="#d4d4dc" font-weight="400">Sistema de</text>
+<text x="486" y="187.0" font-size="14" fill="#d4d4dc" font-weight="400">permisos</text>
+<text x="706" y="167.0" font-size="15" fill="#c4b5fd" font-weight="600">Días para emitir:</text>
+<text x="706" y="187.0" font-size="15" fill="#c4b5fd" font-weight="600">de 34 a 19</text>
+<line x1="56" y1="208" x2="904" y2="208" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="249.0" font-size="15" fill="#f5f5f7" font-weight="600">Solicitudes 311</text>
+<text x="266" y="239.0" font-size="14" fill="#d4d4dc" font-weight="400">¿Qué vecindarios</text>
+<text x="266" y="259.0" font-size="14" fill="#d4d4dc" font-weight="400">esperan más?</text>
+<text x="486" y="239.0" font-size="14" fill="#d4d4dc" font-weight="400">311 y órdenes</text>
+<text x="486" y="259.0" font-size="14" fill="#d4d4dc" font-weight="400">de trabajo</text>
+<text x="706" y="239.0" font-size="15" fill="#c4b5fd" font-weight="600">Tiempo para cerrar:</text>
+<text x="706" y="259.0" font-size="15" fill="#c4b5fd" font-weight="600">de 9 a 4 días</text>
+<line x1="56" y1="280" x2="904" y2="280" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="311.0" font-size="15" fill="#f5f5f7" font-weight="600">Presupuesto vs.</text>
+<text x="56" y="331.0" font-size="15" fill="#f5f5f7" font-weight="600">gasto real</text>
+<text x="266" y="311.0" font-size="14" fill="#d4d4dc" font-weight="400">¿Cada departamento</text>
+<text x="266" y="331.0" font-size="14" fill="#d4d4dc" font-weight="400">va en presupuesto?</text>
+<text x="486" y="311.0" font-size="14" fill="#d4d4dc" font-weight="400">Sistema</text>
+<text x="486" y="331.0" font-size="14" fill="#d4d4dc" font-weight="400">financiero</text>
+<text x="706" y="311.0" font-size="15" fill="#c4b5fd" font-weight="600">Informe al concejo:</text>
+<text x="706" y="331.0" font-size="15" fill="#c4b5fd" font-weight="600">de 30 a 4 horas</text>
+<line x1="56" y1="352" x2="904" y2="352" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="383.0" font-size="15" fill="#f5f5f7" font-weight="600">Facturación</text>
+<text x="56" y="403.0" font-size="15" fill="#f5f5f7" font-weight="600">de agua</text>
+<text x="266" y="383.0" font-size="14" fill="#d4d4dc" font-weight="400">¿Cuánta agua</text>
+<text x="266" y="403.0" font-size="14" fill="#d4d4dc" font-weight="400">nunca cobramos?</text>
+<text x="486" y="383.0" font-size="14" fill="#d4d4dc" font-weight="400">Medidores de</text>
+<text x="486" y="403.0" font-size="14" fill="#d4d4dc" font-weight="400">producción y facturación</text>
+<text x="706" y="383.0" font-size="15" fill="#c4b5fd" font-weight="600">Agua no facturada:</text>
+<text x="706" y="403.0" font-size="15" fill="#c4b5fd" font-weight="600">de 18% a 13%</text>
+<line x1="56" y1="424" x2="904" y2="424" stroke="#363149" stroke-width="1" stroke-opacity="0.6"/>
+<text x="56" y="465.0" font-size="15" fill="#f5f5f7" font-weight="600">Horas extra</text>
+<text x="266" y="455.0" font-size="14" fill="#d4d4dc" font-weight="400">¿A dónde se van</text>
+<text x="266" y="475.0" font-size="14" fill="#d4d4dc" font-weight="400">las horas extra?</text>
+<text x="486" y="455.0" font-size="14" fill="#d4d4dc" font-weight="400">Nómina y</text>
+<text x="486" y="475.0" font-size="14" fill="#d4d4dc" font-weight="400">calendarios</text>
+<text x="706" y="455.0" font-size="15" fill="#c4b5fd" font-weight="600">Horas extra en obras</text>
+<text x="706" y="475.0" font-size="15" fill="#c4b5fd" font-weight="600">públicas: -12%</text>
+<text x="40" y="542" font-size="13" fill="#a1a1b5">Ciudad ilustrativa de 18,000 habitantes y 140 empleados. Resultados a los 6 a 12 meses.</text>
+</svg>
