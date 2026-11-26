@@ -956,7 +956,7 @@
           "heading": "1. Information We Collect",
           "items": [
             "Direct contact data: full name, institutional email, phone, and company name, collected through contact, support, or quote request forms.",
-            "Project data and samples: descriptive documents, process flows, or test database files voluntarily provided by the client for the diagnostic phase. Sales files sent through the blog's free analysis form reach us by email (sent through Resend), are not stored on the website, and are used only to prepare that analysis.",
+            "Project data and samples: descriptive documents, process flows, or test database files voluntarily provided by the client for the diagnostic phase.",
             "Technical navigation data: technical cookies, IP addresses, and session metadata for corporate web interface performance audits. We use Vercel Analytics and PostHog (analytics cookies, page views, clicks, and anonymized session recordings with form inputs masked) to understand how visitors use the site and improve it."
           ]
         },
