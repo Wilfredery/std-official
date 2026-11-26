@@ -58,7 +58,6 @@ Primer párrafo. Se puede usar **negrita**, *cursiva* y [links](/es/services/bus
 
 - Sections start at `##`. The title is already the page's `<h1>`.
 - Images: `![alt text](/images/blog/<slug>/file.svg "optional caption")` on its own line. Files live in `public/images/blog/<slug>/`, SVG only, with width/height or a viewBox. Alt text is required (the build fails without it); describe what the image shows, in the post's language.
-- Free analysis form: `::analysis-request` on its own line shows the form where readers send their sales file and work email; it arrives at `ANALYSIS_INBOX` through Resend (`app/api/analysis-request/`).
 - Each post cites 2-3 sources. Every statistic in the body needs one.
 
 ## sources.json

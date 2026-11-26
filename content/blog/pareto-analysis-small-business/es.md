@@ -61,10 +61,6 @@ No necesitas software especial. Con Excel o Google Sheets alcanza para empezar.
 
 Para la tienda armamos el análisis en Python, con gráficos en matplotlib. La lógica es la misma de la hoja de cálculo, solo que automatizada.
 
-¿Quieres ver el tuyo? Envíanos tus ventas por producto de los últimos 12 meses, en Excel o CSV, tal como salen de tu punto de venta. Preparamos tu clasificación ABC con estos mismos gráficos y te la enviamos a tu correo, gratis.
-
-::analysis-request
-
 ## Lo que encontró la tienda
 
 El resultado fue casi de libro: 24 productos, el 20% del catálogo, generan el 80% de las ventas. Y 22 de esos 24 son comida y arena para perros y gatos.

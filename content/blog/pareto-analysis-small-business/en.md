@@ -61,10 +61,6 @@ You don't need special software. Excel or Google Sheets is enough to start.
 
 For the store, we built the analysis in Python, with matplotlib charts. The logic is the same as the spreadsheet's, just automated.
 
-Want to see yours? Send us your sales by product for the last 12 months, in Excel or CSV, exactly as they come out of your point of sale. We'll build your ABC classification with these same charts and email it to you, free.
-
-::analysis-request
-
 ## What the store found
 
 The result was almost textbook: 24 products, 20% of the catalog, bring in 80% of sales. And 22 of those 24 are dog food, cat food and cat litter.
