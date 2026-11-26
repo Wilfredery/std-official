@@ -1,9 +1,11 @@
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import { languageAlternates } from "@/lib/seo/alternates";
-import { blogUi, latestPosts, toBlogLocale } from "@/lib/data/blog";
-import { PostCard } from "@/components/blog/PostCard";
+import { blogUi, latestPosts, readingMinutes, toBlogLocale } from "@/lib/data/blog";
+import { BlogExplorer } from "@/components/blog/BlogExplorer";
+import { formatPostDate } from "@/components/blog/BlogPostBody";
+import type { BlogCardData, BlogTopic } from "@/components/blog/blogSearch";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 
 export async function generateMetadata({
@@ -52,8 +54,32 @@ export default async function BlogPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const ui = blogUi[toBlogLocale(locale)];
-  const posts = latestPosts();
+  const lang = toBlogLocale(locale);
+  const ui = blogUi[lang];
+  const serviceT = await getTranslations("serviceDetail");
+
+  const cards: BlogCardData[] = latestPosts().map((post) => {
+    const content = post.content[lang];
+    return {
+      slug: post.slug,
+      title: content.title,
+      description: content.description,
+      publishedAt: post.publishedAt,
+      dateLabel: formatPostDate(post.publishedAt, locale),
+      minutes: readingMinutes(content),
+      topic: post.relatedService,
+      topicLabel: serviceT(`services.${post.relatedService}.title`),
+    };
+  });
+
+  // One chip per topic that has posts, most posts first.
+  const topics: BlogTopic[] = [];
+  for (const card of cards) {
+    const existing = topics.find((t) => t.slug === card.topic);
+    if (existing) existing.count += 1;
+    else topics.push({ slug: card.topic, label: card.topicLabel, count: 1 });
+  }
+  topics.sort((a, b) => b.count - a.count);
 
   return (
     <>
@@ -79,13 +105,24 @@ export default async function BlogPage({
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
-            <li key={post.slug}>
-              <PostCard post={post} locale={locale} />
-            </li>
-          ))}
-        </ul>
+        <BlogExplorer
+          posts={cards}
+          topics={topics}
+          ui={{
+            searchLabel: ui.searchLabel,
+            searchPlaceholder: ui.searchPlaceholder,
+            topicsLabel: ui.topicsLabel,
+            allTopics: ui.allTopics,
+            featured: ui.featured,
+            resultsOne: ui.resultsOne,
+            resultsMany: ui.resultsMany,
+            noResultsTitle: ui.noResultsTitle,
+            noResultsText: ui.noResultsText,
+            clearFilters: ui.clearFilters,
+            readMore: ui.readMore,
+            minRead: ui.minRead,
+          }}
+        />
       </section>
     </>
   );

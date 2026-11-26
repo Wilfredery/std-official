@@ -99,6 +99,17 @@ export const blogUi: Record<
     opensInNewTab: string;
     by: string;
     aboutAuthor: string;
+    searchLabel: string;
+    searchPlaceholder: string;
+    topicsLabel: string;
+    allTopics: string;
+    featured: string;
+    /** Result count; `{n}` is replaced with the number. */
+    resultsOne: string;
+    resultsMany: string;
+    noResultsTitle: string;
+    noResultsText: string;
+    clearFilters: string;
   }
 > = {
   es: {
@@ -122,6 +133,16 @@ export const blogUi: Record<
     opensInNewTab: "se abre en una pestaña nueva",
     by: "Por",
     aboutAuthor: "Sobre el autor",
+    searchLabel: "Buscar artículos",
+    searchPlaceholder: "Busca por tema: Power BI, machine learning, gobernanza…",
+    topicsLabel: "Filtrar por tema",
+    allTopics: "Todos",
+    featured: "Lo más nuevo",
+    resultsOne: "{n} artículo",
+    resultsMany: "{n} artículos",
+    noResultsTitle: "No encontramos artículos con esa búsqueda",
+    noResultsText: "Prueba con otra palabra o quita el filtro de tema.",
+    clearFilters: "Ver todos los artículos",
   },
   en: {
     eyebrow: "Blog",
@@ -144,6 +165,16 @@ export const blogUi: Record<
     opensInNewTab: "opens in a new tab",
     by: "By",
     aboutAuthor: "About the author",
+    searchLabel: "Search articles",
+    searchPlaceholder: "Search by topic: Power BI, machine learning, governance…",
+    topicsLabel: "Filter by topic",
+    allTopics: "All",
+    featured: "Latest",
+    resultsOne: "{n} article",
+    resultsMany: "{n} articles",
+    noResultsTitle: "No articles match that search",
+    noResultsText: "Try another word or remove the topic filter.",
+    clearFilters: "See all articles",
   },
 };
 
