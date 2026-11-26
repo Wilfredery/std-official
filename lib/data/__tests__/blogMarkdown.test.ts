@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import { ANALYSIS_REQUEST_MARKER } from "@/lib/analysisRequest";
 import {
   parseBlogAuthors,
   parseBlogMeta,
@@ -114,6 +115,11 @@ describe("parseBlogPostContent", () => {
     expect(() =>
       parseBlogPostContent(post({ body: "![Logo](https://cdn.example.com/a.svg)" }), "es.md", sources, fixedSize),
     ).toThrow(/must be a local path under \/images\/blog\//);
+  });
+
+  it("leaves a placeholder for the free-analysis form on a ::analysis-request line", () => {
+    const { html } = parseBlogPostContent(post({ body: "Intro.\n\n::analysis-request\n\nFin." }), "es.md", sources, fixedSize);
+    expect(html).toBe(`<p>Intro.</p>\n${ANALYSIS_REQUEST_MARKER}\n<p>Fin.</p>\n`);
   });
 });
 
