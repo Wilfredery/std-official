@@ -1,0 +1,678 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="560" role="img" aria-labelledby="t d" viewBox="0 0 691.2 403.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<title id="t">Pareto curve: a few items, almost all of the sales</title>
+<desc id="d">Class A: 24 products (20%), 80% of sales, 73% of gross profit, 24% margin. Class B: 35 products (29%), 15% of sales, 19% of gross profit, 34% margin. Class C: 61 products (51%), 5% of sales, 9% of gross profit, 48% margin. Illustrative data from an independent pet supply store.</desc>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 403.2 
+L 691.2 403.2 
+L 691.2 0 
+L 0 0 
+z
+" style="fill: #16141d"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 69.12 342.72 
+L 656.64 342.72 
+L 656.64 76.608 
+L 69.12 76.608 
+z
+" style="fill: #211e2c"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 69.12 342.72 
+L 69.12 76.608 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2"/>
+     <g id="text_1">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="69.12" y="354.578281" transform="rotate(-0 69.12 354.578281)">0%</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 186.624 342.72 
+L 186.624 76.608 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4"/>
+     <g id="text_2">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="186.624" y="354.578281" transform="rotate(-0 186.624 354.578281)">20%</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 304.128 342.72 
+L 304.128 76.608 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6"/>
+     <g id="text_3">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="304.128" y="354.578281" transform="rotate(-0 304.128 354.578281)">40%</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 421.632 342.72 
+L 421.632 76.608 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8"/>
+     <g id="text_4">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="421.632" y="354.578281" transform="rotate(-0 421.632 354.578281)">60%</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 539.136 342.72 
+L 539.136 76.608 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10"/>
+     <g id="text_5">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="539.136" y="354.578281" transform="rotate(-0 539.136 354.578281)">80%</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 656.64 342.72 
+L 656.64 76.608 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12"/>
+     <g id="text_6">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="656.64" y="354.578281" transform="rotate(-0 656.64 354.578281)">100%</text>
+     </g>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="362.88" y="369.224219" transform="rotate(-0 362.88 369.224219)">% of products (best seller first)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_13">
+      <path d="M 69.12 342.72 
+L 656.64 342.72 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14"/>
+     <g id="text_8">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="65.62" y="346.899141" transform="rotate(-0 65.62 346.899141)">0%</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_15">
+      <path d="M 69.12 290.541176 
+L 656.64 290.541176 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16"/>
+     <g id="text_9">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="65.62" y="294.720317" transform="rotate(-0 65.62 294.720317)">20%</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_17">
+      <path d="M 69.12 238.362353 
+L 656.64 238.362353 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_18"/>
+     <g id="text_10">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="65.62" y="242.541494" transform="rotate(-0 65.62 242.541494)">40%</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_19">
+      <path d="M 69.12 186.183529 
+L 656.64 186.183529 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_20"/>
+     <g id="text_11">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="65.62" y="190.36267" transform="rotate(-0 65.62 190.36267)">60%</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_21">
+      <path d="M 69.12 134.004706 
+L 656.64 134.004706 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_22"/>
+     <g id="text_12">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="65.62" y="138.183847" transform="rotate(-0 65.62 138.183847)">80%</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_23">
+      <path d="M 69.12 81.825882 
+L 656.64 81.825882 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_24"/>
+     <g id="text_13">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="65.62" y="86.005023" transform="rotate(-0 65.62 86.005023)">100%</text>
+     </g>
+    </g>
+    <g id="text_14">
+     <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="27.884375" y="209.664" transform="rotate(-90 27.884375 209.664)">Cumulative % of sales</text>
+    </g>
+   </g>
+   <g id="FillBetweenPolyCollection_1">
+    <defs>
+     <path id="m826211429b" d="M 69.12 -60.48 
+L 69.12 -60.48 
+L 74.016 -60.48 
+L 78.912 -60.48 
+L 83.808 -60.48 
+L 88.704 -60.48 
+L 93.6 -60.48 
+L 98.496 -60.48 
+L 103.392 -60.48 
+L 108.288 -60.48 
+L 113.184 -60.48 
+L 118.08 -60.48 
+L 122.976 -60.48 
+L 127.872 -60.48 
+L 132.768 -60.48 
+L 137.664 -60.48 
+L 142.56 -60.48 
+L 147.456 -60.48 
+L 152.352 -60.48 
+L 157.248 -60.48 
+L 162.144 -60.48 
+L 167.04 -60.48 
+L 171.936 -60.48 
+L 176.832 -60.48 
+L 181.728 -60.48 
+L 186.624 -60.48 
+L 186.624 -270.433522 
+L 186.624 -270.433522 
+L 181.728 -267.901543 
+L 176.832 -265.188948 
+L 171.936 -262.279013 
+L 167.04 -259.155013 
+L 162.144 -255.790191 
+L 157.248 -252.157789 
+L 152.352 -248.231048 
+L 147.456 -243.973177 
+L 142.56 -239.347383 
+L 137.664 -234.306839 
+L 132.768 -228.801375 
+L 127.872 -222.76744 
+L 122.976 -216.134794 
+L 118.08 -208.816473 
+L 113.184 -200.712135 
+L 108.288 -191.704714 
+L 103.392 -181.64704 
+L 98.496 -170.365187 
+L 93.6 -157.645089 
+L 88.704 -143.222512 
+L 83.808 -126.766325 
+L 78.912 -107.868468 
+L 74.016 -86.000469 
+L 69.12 -60.48 
+z
+"/>
+    </defs>
+    <g clip-path="url(#p9f420e319e)">
+     <use xlink:href="#m826211429b" x="0" y="403.2" style="fill: #c4b5fd; fill-opacity: 0.85"/>
+    </g>
+   </g>
+   <g id="FillBetweenPolyCollection_2">
+    <defs>
+     <path id="m340cd64ec2" d="M 186.624 -270.433522 
+L 186.624 -60.48 
+L 191.52 -60.48 
+L 196.416 -60.48 
+L 201.312 -60.48 
+L 206.208 -60.48 
+L 211.104 -60.48 
+L 216 -60.48 
+L 220.896 -60.48 
+L 225.792 -60.48 
+L 230.688 -60.48 
+L 235.584 -60.48 
+L 240.48 -60.48 
+L 245.376 -60.48 
+L 250.272 -60.48 
+L 255.168 -60.48 
+L 260.064 -60.48 
+L 264.96 -60.48 
+L 269.856 -60.48 
+L 274.752 -60.48 
+L 279.648 -60.48 
+L 284.544 -60.48 
+L 289.44 -60.48 
+L 294.336 -60.48 
+L 299.232 -60.48 
+L 304.128 -60.48 
+L 309.024 -60.48 
+L 313.92 -60.48 
+L 318.816 -60.48 
+L 323.712 -60.48 
+L 328.608 -60.48 
+L 333.504 -60.48 
+L 338.4 -60.48 
+L 343.296 -60.48 
+L 348.192 -60.48 
+L 353.088 -60.48 
+L 357.984 -60.48 
+L 357.984 -308.533609 
+L 357.984 -308.533609 
+L 353.088 -308.068688 
+L 348.192 -307.587044 
+L 343.296 -307.088675 
+L 338.4 -306.570239 
+L 333.504 -306.031733 
+L 328.608 -305.47316 
+L 323.712 -304.891172 
+L 318.816 -304.285772 
+L 313.92 -303.656958 
+L 309.024 -303.001387 
+L 304.128 -302.319057 
+L 299.232 -301.606624 
+L 294.336 -300.864089 
+L 289.44 -300.088106 
+L 284.544 -299.278676 
+L 279.648 -298.432453 
+L 274.752 -297.546094 
+L 269.856 -296.616252 
+L 264.96 -295.642929 
+L 260.064 -294.622779 
+L 255.168 -293.552458 
+L 250.272 -292.425276 
+L 245.376 -291.241233 
+L 240.48 -289.99364 
+L 235.584 -288.679152 
+L 230.688 -287.294424 
+L 225.792 -285.829422 
+L 220.896 -284.280801 
+L 216 -282.641872 
+L 211.104 -280.905945 
+L 206.208 -279.062986 
+L 201.312 -277.106305 
+L 196.416 -275.022524 
+L 191.52 -272.801607 
+L 186.624 -270.433522 
+z
+"/>
+    </defs>
+    <g clip-path="url(#p9f420e319e)">
+     <use xlink:href="#m340cd64ec2" x="0" y="403.2" style="fill: #8b5cf6; fill-opacity: 0.85"/>
+    </g>
+   </g>
+   <g id="FillBetweenPolyCollection_3">
+    <defs>
+     <path id="m88d7b6d224" d="M 357.984 -308.533609 
+L 357.984 -60.48 
+L 362.88 -60.48 
+L 367.776 -60.48 
+L 372.672 -60.48 
+L 377.568 -60.48 
+L 382.464 -60.48 
+L 387.36 -60.48 
+L 392.256 -60.48 
+L 397.152 -60.48 
+L 402.048 -60.48 
+L 406.944 -60.48 
+L 411.84 -60.48 
+L 416.736 -60.48 
+L 421.632 -60.48 
+L 426.528 -60.48 
+L 431.424 -60.48 
+L 436.32 -60.48 
+L 441.216 -60.48 
+L 446.112 -60.48 
+L 451.008 -60.48 
+L 455.904 -60.48 
+L 460.8 -60.48 
+L 465.696 -60.48 
+L 470.592 -60.48 
+L 475.488 -60.48 
+L 480.384 -60.48 
+L 485.28 -60.48 
+L 490.176 -60.48 
+L 495.072 -60.48 
+L 499.968 -60.48 
+L 504.864 -60.48 
+L 509.76 -60.48 
+L 514.656 -60.48 
+L 519.552 -60.48 
+L 524.448 -60.48 
+L 529.344 -60.48 
+L 534.24 -60.48 
+L 539.136 -60.48 
+L 544.032 -60.48 
+L 548.928 -60.48 
+L 553.824 -60.48 
+L 558.72 -60.48 
+L 563.616 -60.48 
+L 568.512 -60.48 
+L 573.408 -60.48 
+L 578.304 -60.48 
+L 583.2 -60.48 
+L 588.096 -60.48 
+L 592.992 -60.48 
+L 597.888 -60.48 
+L 602.784 -60.48 
+L 607.68 -60.48 
+L 612.576 -60.48 
+L 617.472 -60.48 
+L 622.368 -60.48 
+L 627.264 -60.48 
+L 632.16 -60.48 
+L 637.056 -60.48 
+L 641.952 -60.48 
+L 646.848 -60.48 
+L 651.744 -60.48 
+L 656.64 -60.48 
+L 656.64 -321.374118 
+L 656.64 -321.374118 
+L 651.744 -321.280465 
+L 646.848 -321.186811 
+L 641.952 -321.089814 
+L 637.056 -320.989471 
+L 632.16 -320.889128 
+L 627.264 -320.785441 
+L 622.368 -320.681754 
+L 617.472 -320.574722 
+L 612.576 -320.464345 
+L 607.68 -320.353968 
+L 602.784 -320.240246 
+L 597.888 -320.12318 
+L 592.992 -320.002769 
+L 588.096 -319.882358 
+L 583.2 -319.758602 
+L 578.304 -319.631501 
+L 573.408 -319.501056 
+L 568.512 -319.367266 
+L 563.616 -319.230131 
+L 558.72 -319.089651 
+L 553.824 -318.945827 
+L 548.928 -318.798657 
+L 544.032 -318.648144 
+L 539.136 -318.494285 
+L 534.24 -318.337081 
+L 529.344 -318.176533 
+L 524.448 -318.01264 
+L 519.552 -317.842058 
+L 514.656 -317.668131 
+L 509.76 -317.490859 
+L 504.864 -317.310242 
+L 499.968 -317.122936 
+L 495.072 -316.932285 
+L 490.176 -316.734945 
+L 485.28 -316.534259 
+L 480.384 -316.326885 
+L 475.488 -316.11282 
+L 470.592 -315.892067 
+L 465.696 -315.667968 
+L 460.8 -315.43718 
+L 455.904 -315.199703 
+L 451.008 -314.955536 
+L 446.112 -314.704679 
+L 441.216 -314.443788 
+L 436.32 -314.176208 
+L 431.424 -313.901938 
+L 426.528 -313.617634 
+L 421.632 -313.326641 
+L 416.736 -313.025613 
+L 411.84 -312.714551 
+L 406.944 -312.393455 
+L 402.048 -312.062324 
+L 397.152 -311.721159 
+L 392.256 -311.36996 
+L 387.36 -311.005382 
+L 382.464 -310.627425 
+L 377.568 -310.236088 
+L 372.672 -309.831373 
+L 367.776 -309.413279 
+L 362.88 -308.981806 
+L 357.984 -308.533609 
+z
+"/>
+    </defs>
+    <g clip-path="url(#p9f420e319e)">
+     <use xlink:href="#m88d7b6d224" x="0" y="403.2" style="fill: #6747c7; fill-opacity: 0.85"/>
+    </g>
+   </g>
+   <g id="line2d_25">
+    <path d="M 69.12 342.72 
+L 656.64 81.825882 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke-dasharray: 4.8,4.8; stroke-dashoffset: 0; stroke: #a1a1b5; stroke-width: 1.2"/>
+   </g>
+   <g id="line2d_26">
+    <path d="M 69.12 342.72 
+L 74.016 317.199531 
+L 78.912 295.331532 
+L 83.808 276.433675 
+L 88.704 259.977488 
+L 93.6 245.554911 
+L 98.496 232.834813 
+L 103.392 221.55296 
+L 108.288 211.495286 
+L 113.184 202.487865 
+L 118.08 194.383527 
+L 122.976 187.065206 
+L 127.872 180.43256 
+L 132.768 174.398625 
+L 137.664 168.893161 
+L 142.56 163.852617 
+L 147.456 159.226823 
+L 152.352 154.968952 
+L 157.248 151.042211 
+L 162.144 147.409809 
+L 167.04 144.044987 
+L 171.936 140.920987 
+L 176.832 138.011052 
+L 181.728 135.298457 
+L 186.624 132.766478 
+L 191.52 130.398393 
+L 196.416 128.177476 
+L 201.312 126.093695 
+L 206.208 124.137014 
+L 211.104 122.294055 
+L 216 120.558128 
+L 220.896 118.919199 
+L 225.792 117.370578 
+L 230.688 115.905576 
+L 235.584 114.520848 
+L 240.48 113.20636 
+L 245.376 111.958767 
+L 250.272 110.774724 
+L 255.168 109.647542 
+L 260.064 108.577221 
+L 264.96 107.557071 
+L 269.856 106.583748 
+L 274.752 105.653906 
+L 279.648 104.767547 
+L 284.544 103.921324 
+L 289.44 103.111894 
+L 294.336 102.335911 
+L 299.232 101.593376 
+L 304.128 100.880943 
+L 309.024 100.198613 
+L 313.92 99.543042 
+L 318.816 98.914228 
+L 323.712 98.308828 
+L 328.608 97.72684 
+L 333.504 97.168267 
+L 338.4 96.629761 
+L 343.296 96.111325 
+L 348.192 95.612956 
+L 353.088 95.131312 
+L 357.984 94.666391 
+L 362.88 94.218194 
+L 367.776 93.786721 
+L 372.672 93.368627 
+L 377.568 92.963912 
+L 382.464 92.572575 
+L 387.36 92.194618 
+L 392.256 91.83004 
+L 397.152 91.478841 
+L 402.048 91.137676 
+L 406.944 90.806545 
+L 411.84 90.485449 
+L 416.736 90.174387 
+L 421.632 89.873359 
+L 426.528 89.582366 
+L 431.424 89.298062 
+L 436.32 89.023792 
+L 441.216 88.756212 
+L 446.112 88.495321 
+L 451.008 88.244464 
+L 455.904 88.000297 
+L 460.8 87.76282 
+L 465.696 87.532032 
+L 470.592 87.307933 
+L 475.488 87.08718 
+L 480.384 86.873115 
+L 485.28 86.665741 
+L 490.176 86.465055 
+L 495.072 86.267715 
+L 499.968 86.077064 
+L 504.864 85.889758 
+L 509.76 85.709141 
+L 514.656 85.531869 
+L 519.552 85.357942 
+L 524.448 85.18736 
+L 529.344 85.023467 
+L 534.24 84.862919 
+L 539.136 84.705715 
+L 544.032 84.551856 
+L 548.928 84.401343 
+L 553.824 84.254173 
+L 558.72 84.110349 
+L 563.616 83.969869 
+L 568.512 83.832734 
+L 573.408 83.698944 
+L 578.304 83.568499 
+L 583.2 83.441398 
+L 588.096 83.317642 
+L 592.992 83.197231 
+L 597.888 83.07682 
+L 602.784 82.959754 
+L 607.68 82.846032 
+L 612.576 82.735655 
+L 617.472 82.625278 
+L 622.368 82.518246 
+L 627.264 82.414559 
+L 632.16 82.310872 
+L 637.056 82.210529 
+L 641.952 82.110186 
+L 646.848 82.013189 
+L 651.744 81.919535 
+L 656.64 81.825882 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #f5f5f7; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_27">
+    <path d="M 186.624 342.72 
+L 186.624 132.766478 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke-dasharray: 2,3; stroke-dashoffset: 0; stroke: #f5f5f7"/>
+   </g>
+   <g id="line2d_28">
+    <path d="M 69.12 132.766478 
+L 186.624 132.766478 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke-dasharray: 2,3; stroke-dashoffset: 0; stroke: #f5f5f7"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 69.12 342.72 
+L 69.12 76.608 
+" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 69.12 342.72 
+L 656.64 342.72 
+" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_29">
+    <path d="M 186.624 342.72 
+L 186.624 132.766478 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #211e2c; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_30">
+    <path d="M 357.984 342.72 
+L 357.984 94.666391 
+" clip-path="url(#p9f420e319e)" style="fill: none; stroke: #211e2c; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 10px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: start; fill: #a1a1b5" x="433.3824" y="199.228235" transform="rotate(-24 433.3824 199.228235)">If every product sold the same</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 255.676882 164.767365 
+Q 222.058699 149.187832 188.440516 133.608298 
+" style="fill: none; stroke: #d4d4dc; stroke-linecap: round"/>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 12px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(233.6256 176.725809)">20% of products</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(233.6256 190.163184)">= 80% of sales</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 14px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #16141d" x="127.872" y="332.284235" transform="rotate(-0 127.872 332.284235)">A</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 14px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #f5f5f7" x="272.304" y="332.284235" transform="rotate(-0 272.304 332.284235)">B</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 14px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #f5f5f7" x="507.312" y="332.284235" transform="rotate(-0 507.312 332.284235)">C</text>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="mbc6421befa" d="M 0 4.1833 
+C 1.109424 4.1833 2.173559 3.742521 2.95804 2.95804 
+C 3.742521 2.173559 4.1833 1.109424 4.1833 0 
+C 4.1833 -1.109424 3.742521 -2.173559 2.95804 -2.95804 
+C 2.173559 -3.742521 1.109424 -4.1833 0 -4.1833 
+C -1.109424 -4.1833 -2.173559 -3.742521 -2.95804 -2.95804 
+C -3.742521 -2.173559 -4.1833 -1.109424 -4.1833 0 
+C -4.1833 1.109424 -3.742521 2.173559 -2.95804 2.95804 
+C -2.173559 3.742521 -1.109424 4.1833 0 4.1833 
+z
+" style="stroke: #211e2c; stroke-width: 2"/>
+    </defs>
+    <g clip-path="url(#p9f420e319e)">
+     <use xlink:href="#mbc6421befa" x="186.624" y="132.766478" style="fill: #f5f5f7; stroke: #211e2c; stroke-width: 2"/>
+    </g>
+   </g>
+  </g>
+  <g id="text_20">
+   <text style="font-weight: 700; font-size: 17px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: start; fill: #f5f5f7" x="29.0304" y="38.304" transform="rotate(-0 29.0304 38.304)">Pareto curve: a few items, almost all of the sales</text>
+  </g>
+  <g id="text_21">
+   <g id="patch_6">
+    <path d="M 615.758344 45.125719 
+L 656.946 45.125719 
+Q 665.046 45.125719 665.046 37.025719 
+L 665.046 34.615406 
+Q 665.046 26.515406 656.946 26.515406 
+L 615.758344 26.515406 
+Q 607.658344 26.515406 607.658344 34.615406 
+L 607.658344 37.025719 
+Q 607.658344 45.125719 615.758344 45.125719 
+z
+" style="fill: #211e2c; stroke: #363149; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <text style="font-weight: 700; font-size: 9px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="660.096" y="38.304" transform="rotate(-0 660.096 38.304)">EXAMPLE</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p9f420e319e">
+   <rect x="69.12" y="76.608" width="587.52" height="266.112"/>
+  </clipPath>
+ </defs>
+</svg>

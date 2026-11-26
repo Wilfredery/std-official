@@ -1,3 +1,8 @@
+import { Fragment } from "react";
+import { ANALYSIS_REQUEST_MARKER } from "@/lib/analysisRequest";
+import type { BlogLocale } from "@/lib/data/blog";
+import { AnalysisRequestForm } from "./AnalysisRequestForm";
+
 // Styles mirror the old block renderer, applied to the HTML that marked emits.
 const BODY_CLASSES = [
   "space-y-6 text-base sm:text-lg leading-relaxed text-foreground/90",
@@ -16,9 +21,25 @@ const BODY_CLASSES = [
   "[&_pre]:text-sm [&_pre]:leading-relaxed focus-visible:[&_pre]:outline-2 focus-visible:[&_pre]:outline-ring",
 ].join(" ");
 
-/** Renders a post body. `html` comes from the repo's own Markdown (lib/data/blog.ts). */
-export function BlogPostBody({ html }: { html: string }) {
-  return <div className={BODY_CLASSES} dangerouslySetInnerHTML={{ __html: html }} />;
+/**
+ * Renders a post body. `html` comes from the repo's own Markdown (lib/data/blog.ts);
+ * each `::analysis-request` placeholder becomes the free-analysis form.
+ */
+export function BlogPostBody({ html, lang }: { html: string; lang: BlogLocale }) {
+  const parts = html.split(ANALYSIS_REQUEST_MARKER);
+  if (parts.length === 1) {
+    return <div className={BODY_CLASSES} dangerouslySetInnerHTML={{ __html: html }} />;
+  }
+  return (
+    <div className={BODY_CLASSES}>
+      {parts.map((part, i) => (
+        <Fragment key={i}>
+          {i > 0 && <AnalysisRequestForm lang={lang} />}
+          {part.trim() !== "" && <div className="space-y-6" dangerouslySetInnerHTML={{ __html: part }} />}
+        </Fragment>
+      ))}
+    </div>
+  );
 }
 
 export function formatPostDate(iso: string, locale: string): string {

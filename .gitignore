@@ -45,3 +45,7 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /.lighthouseci/
+
+# python (analytics/)
+__pycache__/
+.pytest_cache/

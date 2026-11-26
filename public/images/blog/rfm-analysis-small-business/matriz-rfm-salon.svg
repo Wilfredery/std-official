@@ -1,0 +1,380 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="560" role="img" aria-labelledby="t d" viewBox="0 0 691.2 403.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<title id="t">Clientes según recencia y frecuencia + gasto</title>
+<desc id="d">Campeones: 237 clientes (28%), 62% de los ingresos. Nuevos y prometedores: 99 clientes (12%), 4% de los ingresos. Necesitan atención: 167 clientes (20%), 13% de los ingresos. En riesgo: 82 clientes (10%), 15% de los ingresos. Perdidos: 255 clientes (30%), 6% de los ingresos. Datos ilustrativos de un salón de belleza independiente.</desc>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 403.2 
+L 691.2 403.2 
+L 691.2 0 
+L 0 0 
+z
+" style="fill: #16141d"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 69.12 350.784 
+L 580.608 350.784 
+L 580.608 68.544 
+L 69.12 68.544 
+z
+" style="fill: #211e2c"/>
+   </g>
+   <g clip-path="url(#p595efb1ac7)">
+    <image xlink:href="data:image/png;base64,
+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" id="image79b6cc2aaa" transform="scale(1 -1) translate(0 -282.24)" x="69.12" y="-68.544" width="511.92" height="282.24"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="120.2688" y="362.642281" transform="rotate(-0 120.2688 362.642281)">1</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="222.5664" y="362.642281" transform="rotate(-0 222.5664 362.642281)">2</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="324.864" y="362.642281" transform="rotate(-0 324.864 362.642281)">3</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="427.1616" y="362.642281" transform="rotate(-0 427.1616 362.642281)">4</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5"/>
+     <g id="text_5">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="529.4592" y="362.642281" transform="rotate(-0 529.4592 362.642281)">5</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="324.864" y="377.288219" transform="rotate(-0 324.864 377.288219)">Frecuencia y gasto (FM): 1 = poco, 5 = mucho</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_6"/>
+     <g id="text_7">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="65.62" y="326.739141" transform="rotate(-0 65.62 326.739141)">1</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_7"/>
+     <g id="text_8">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="65.62" y="270.291141" transform="rotate(-0 65.62 270.291141)">2</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_8"/>
+     <g id="text_9">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="65.62" y="213.843141" transform="rotate(-0 65.62 213.843141)">3</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_9"/>
+     <g id="text_10">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="65.62" y="157.395141" transform="rotate(-0 65.62 157.395141)">4</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_10"/>
+     <g id="text_11">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="65.62" y="100.947141" transform="rotate(-0 65.62 100.947141)">5</text>
+     </g>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="52.333594" y="209.664" transform="rotate(-90 52.333594 209.664)">Recencia (R): 5 = vino hace poco</text>
+    </g>
+   </g>
+   <g id="line2d_11">
+    <path d="M 171.4176 350.784 
+L 171.4176 68.544 
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #211e2c; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_12">
+    <path d="M 69.12 294.336 
+L 580.608 294.336 
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #211e2c; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_13">
+    <path d="M 273.7152 350.784 
+L 273.7152 68.544 
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #211e2c; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_14">
+    <path d="M 69.12 237.888 
+L 580.608 237.888 
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #211e2c; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_15">
+    <path d="M 376.0128 350.784 
+L 376.0128 68.544 
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #211e2c; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_16">
+    <path d="M 69.12 181.44 
+L 580.608 181.44 
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #211e2c; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_17">
+    <path d="M 478.3104 350.784 
+L 478.3104 68.544 
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #211e2c; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_18">
+    <path d="M 69.12 124.992 
+L 580.608 124.992 
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #211e2c; stroke-width: 2; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 376.0128 181.44 
+L 580.608 181.44 
+L 580.608 68.544 
+L 376.0128 68.544 
+L 376.0128 181.44 
+z
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #f5f5f7; stroke-width: 2.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 69.12 181.44 
+L 376.0128 181.44 
+L 376.0128 68.544 
+L 69.12 68.544 
+L 69.12 181.44 
+z
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #f5f5f7; stroke-width: 2.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 69.12 237.888 
+L 580.608 237.888 
+L 580.608 181.44 
+L 69.12 181.44 
+L 69.12 237.888 
+z
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #f5f5f7; stroke-width: 2.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 273.7152 350.784 
+L 580.608 350.784 
+L 580.608 237.888 
+L 273.7152 237.888 
+L 273.7152 350.784 
+z
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #f5f5f7; stroke-width: 2.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 69.12 350.784 
+L 273.7152 350.784 
+L 273.7152 237.888 
+L 69.12 237.888 
+L 69.12 350.784 
+z
+" clip-path="url(#p595efb1ac7)" style="fill: none; stroke: #f5f5f7; stroke-width: 2.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_13">
+    <g id="patch_8">
+     <path d="M 377.469384 141.914637 
+L 579.151416 141.914637 
+Q 583.876416 141.914637 583.876416 137.189637 
+L 583.876416 112.876395 
+Q 583.876416 108.151395 579.151416 108.151395 
+L 377.469384 108.151395 
+Q 372.744384 108.151395 372.744384 112.876395 
+L 372.744384 137.189637 
+Q 372.744384 141.914637 377.469384 141.914637 
+z
+" style="fill: #211e2c; opacity: 0.88"/>
+    </g>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(444.095166 120.772723)">Campeones</text>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(377.469384 134.923934)">237 clientes · 62% de los ingresos</text>
+   </g>
+   <g id="text_14">
+    <g id="patch_9">
+     <path d="M 129.031087 141.955652 
+L 316.101712 141.955652 
+Q 320.826712 141.955652 320.826712 137.230652 
+L 320.826712 112.753348 
+Q 320.826712 108.028348 316.101712 108.028348 
+L 129.031087 108.028348 
+Q 124.306087 108.028348 124.306087 112.753348 
+L 124.306087 137.230652 
+Q 124.306087 141.955652 129.031087 141.955652 
+z
+" style="fill: #211e2c; opacity: 0.88"/>
+    </g>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(151.948158 120.731707)">Nuevos y prometedores</text>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(129.031087 134.964949)">99 clientes · 4% de los ingresos</text>
+   </g>
+   <g id="text_15">
+    <g id="patch_10">
+     <path d="M 224.022984 226.586637 
+L 425.705016 226.586637 
+Q 430.430016 226.586637 430.430016 221.861637 
+L 430.430016 197.548395 
+Q 430.430016 192.823395 425.705016 192.823395 
+L 224.022984 192.823395 
+Q 219.297984 192.823395 219.297984 197.548395 
+L 219.297984 221.861637 
+Q 219.297984 226.586637 224.022984 226.586637 
+z
+" style="fill: #211e2c; opacity: 0.88"/>
+    </g>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(268.087711 205.444723)">Necesitan atención</text>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(224.022984 219.595934)">167 clientes · 13% de los ingresos</text>
+   </g>
+   <g id="text_16">
+    <g id="patch_11">
+     <path d="M 329.973436 311.299652 
+L 524.349764 311.299652 
+Q 529.074764 311.299652 529.074764 306.574652 
+L 529.074764 282.097348 
+Q 529.074764 277.372348 524.349764 277.372348 
+L 329.973436 277.372348 
+Q 325.248436 277.372348 325.248436 282.097348 
+L 325.248436 306.574652 
+Q 325.248436 311.299652 329.973436 311.299652 
+z
+" style="fill: #211e2c; opacity: 0.88"/>
+    </g>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(399.571209 290.075707)">En riesgo</text>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(329.973436 304.308949)">82 clientes · 15% de los ingresos</text>
+   </g>
+   <g id="text_17">
+    <g id="patch_12">
+     <path d="M 74.229436 311.258637 
+L 268.605764 311.258637 
+Q 273.330764 311.258637 273.330764 306.533637 
+L 273.330764 282.220395 
+Q 273.330764 277.495395 268.605764 277.495395 
+L 74.229436 277.495395 
+Q 69.504436 277.495395 69.504436 282.220395 
+L 69.504436 306.533637 
+Q 69.504436 311.258637 74.229436 311.258637 
+z
+" style="fill: #211e2c; opacity: 0.88"/>
+    </g>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(145.372678 290.116723)">Perdidos</text>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7" transform="translate(74.229436 304.267934)">255 clientes · 6% de los ingresos</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_13">
+    <path d="M 601.344 350.784 
+L 613.7856 350.784 
+L 613.7856 68.544 
+L 601.344 68.544 
+z
+" style="fill: #211e2c"/>
+   </g>
+   <image xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAABEAAAGICAYAAACncwvFAAABwUlEQVR4nO2bsXFDMQxD39NplTTZIPsP5vRuqQKHowbAESRIUPq2vz9/H4bnilMMzhgBuDiP5PogmPOGDi/oGFMdUiJxdVKukxvUxT6hY0rvYEZOzhiBRzq5SXTMADljBNbQwx0QqrrYmC5mF7/vs4YebRmUGToxdEyJhK6h5OokWfasoef2DntDD740uYaeLHtTdEIXHdfQ2w2dILGZAXLGCBS+s5mSWFcnyTqhygHpWsste6O2iw5r6N2GfoJuo3TRsYqOMdWh67cWbHXqq2MKHcsSSwwdu+hQRce2tdw5CFVD6ZZVx5jq0DUKiEmsK/v26lgl+xtEh1NFx6rquPvJ91kv7pc9XYufu5+07ye0/VvTqlFADB1TIrFM9lRZBiv75C5mh1JuddxL0/dZ2fdfmvRJTmiiYwwduuj45Dug80jOHII+sZ0qOsZEQpdOXMtIvgP6AMQVW3DvGFMduugYEwltiXUOwmnSyc2pDl103P0kuDq0ic0XIBRV5zyJxC6d0EXHnbH9LzmOQc48DlZs4WIzJRK7ZixddGyzDF+AMD5nDsGKLV1sZICcOQT7pSm9i22SPTGyt6yLfQASQ+cfLUcIgwQNk4sAAAAASUVORK5CYII=" id="image0b58ec4dc2" transform="scale(1 -1) translate(0 -282.24)" x="601.2" y="-68.4" width="12.24" height="282.24"/>
+   <g id="matplotlib.axis_3"/>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_6">
+     <g id="line2d_19">
+      <path d="M 601.344 350.784 
+L 613.7856 350.784 
+" clip-path="url(#p8553d5a8ab)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_20"/>
+     <g id="text_18">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: start; fill: #a1a1b5" x="617.2856" y="354.963141" transform="rotate(-0 617.2856 354.963141)">0</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_21">
+      <path d="M 601.344 290.087226 
+L 613.7856 290.087226 
+" clip-path="url(#p8553d5a8ab)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_22"/>
+     <g id="text_19">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: start; fill: #a1a1b5" x="617.2856" y="294.266366" transform="rotate(-0 617.2856 294.266366)">20</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_23">
+      <path d="M 601.344 229.390452 
+L 613.7856 229.390452 
+" clip-path="url(#p8553d5a8ab)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_24"/>
+     <g id="text_20">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: start; fill: #a1a1b5" x="617.2856" y="233.569592" transform="rotate(-0 617.2856 233.569592)">40</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_25">
+      <path d="M 601.344 168.693677 
+L 613.7856 168.693677 
+" clip-path="url(#p8553d5a8ab)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_26"/>
+     <g id="text_21">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: start; fill: #a1a1b5" x="617.2856" y="172.872818" transform="rotate(-0 617.2856 172.872818)">60</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_27">
+      <path d="M 601.344 107.996903 
+L 613.7856 107.996903 
+" clip-path="url(#p8553d5a8ab)" style="fill: none; stroke: #363149; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_28"/>
+     <g id="text_22">
+      <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: start; fill: #a1a1b5" x="617.2856" y="112.176044" transform="rotate(-0 617.2856 112.176044)">80</text>
+     </g>
+    </g>
+    <g id="text_23">
+     <text style="font-size: 11px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; fill: #a1a1b5" x="643.641381" y="209.664" transform="rotate(-90 643.641381 209.664)">Clientes por celda</text>
+    </g>
+   </g>
+   <g id="LineCollection_1"/>
+  </g>
+  <g id="text_24">
+   <text style="font-weight: 700; font-size: 17px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: start; fill: #f5f5f7" x="29.0304" y="38.304" transform="rotate(-0 29.0304 38.304)">Clientes según recencia y frecuencia + gasto</text>
+  </g>
+  <g id="text_25">
+   <g id="patch_14">
+    <path d="M 618.9885 45.125719 
+L 656.946 45.125719 
+Q 665.046 45.125719 665.046 37.025719 
+L 665.046 34.615406 
+Q 665.046 26.515406 656.946 26.515406 
+L 618.9885 26.515406 
+Q 610.8885 26.515406 610.8885 34.615406 
+L 610.8885 37.025719 
+Q 610.8885 45.125719 618.9885 45.125719 
+z
+" style="fill: #211e2c; stroke: #363149; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <text style="font-weight: 700; font-size: 9px; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; text-anchor: end; fill: #a1a1b5" x="660.096" y="38.304" transform="rotate(-0 660.096 38.304)">EJEMPLO</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p595efb1ac7">
+   <rect x="69.12" y="68.544" width="511.488" height="282.24"/>
+  </clipPath>
+  <clipPath id="p8553d5a8ab">
+   <rect x="601.344" y="68.544" width="12.4416" height="282.24"/>
+  </clipPath>
+ </defs>
+</svg>

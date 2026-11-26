@@ -1,6 +1,7 @@
 import matter from "gray-matter";
 import { Marked } from "marked";
 import { serviceSlugs, type ServiceSlug } from "@/lib/data/services";
+import { ANALYSIS_REQUEST_MARKER } from "@/lib/analysisRequest";
 import type { BlogAuthor, BlogLocale, BlogPostContent, BlogSource } from "@/lib/data/blog";
 
 /**
@@ -181,6 +182,19 @@ function markedFor(file: string, imageSize: ImageSizeResolver): Marked {
   const IMAGE_DIR = "/images/blog/";
   return new Marked({
     gfm: true,
+    // `::analysis-request` on its own line: where BlogPostBody puts the free-analysis form.
+    extensions: [
+      {
+        name: "analysisRequest",
+        level: "block",
+        start: (src) => src.match(/^::analysis-request/m)?.index,
+        tokenizer(src) {
+          const match = /^::analysis-request[ \t]*(?:\n+|$)/.exec(src);
+          return match ? { type: "analysisRequest", raw: match[0] } : undefined;
+        },
+        renderer: () => `${ANALYSIS_REQUEST_MARKER}\n`,
+      },
+    ],
     // The page renders the title as <h1>; sections in the body start at ##.
     // Checked on tokens so a "# comment" inside a code block is not a heading.
     walkTokens(token) {
