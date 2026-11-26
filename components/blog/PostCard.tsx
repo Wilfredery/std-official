@@ -7,6 +7,7 @@ import {
   type BlogPost,
 } from "@/lib/data/blog";
 import { formatPostDate } from "@/components/blog/BlogPostBody";
+import { PostTitleTransition } from "@/components/ui/ViewTransition";
 
 interface PostCardProps {
   post: BlogPost;
@@ -24,7 +25,7 @@ export function PostCard({ post, locale, headingLevel = "h2" }: PostCardProps) {
   return (
     <Link
       href={`/blog/${post.slug}/`}
-      prefetch={false}
+      transitionTypes={["nav-forward"]}
       className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6
         transition-all hover:border-primary/50 hover:shadow-lg focus-visible:outline-2
         focus-visible:outline-offset-2 focus-visible:outline-ring"
@@ -35,9 +36,11 @@ export function PostCard({ post, locale, headingLevel = "h2" }: PostCardProps) {
         </time>{" "}
         · {readingMinutes(content)} {ui.minRead}
       </p>
-      <Heading className="mt-3 text-xl font-bold tracking-tight group-hover:text-primary transition-colors">
-        {content.title}
-      </Heading>
+      <PostTitleTransition slug={post.slug}>
+        <Heading className="mt-3 text-xl font-bold tracking-tight group-hover:text-primary transition-colors">
+          {content.title}
+        </Heading>
+      </PostTitleTransition>
       <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">
         {content.description}
       </p>
