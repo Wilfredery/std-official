@@ -51,6 +51,7 @@ export function Navbar() {
   return (
     <>
       <header
+        style={{ viewTransitionName: "site-header" }}
         data-testid={scrolled ? "navbar-scrolled" : "navbar"}
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-300",

@@ -20,6 +20,7 @@ import { CtaButton } from "@/components/home/cta/CtaButton";
 import { JsonLd } from "@/components/JsonLd";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import type { BlogPosting, Person } from "@/lib/seo/types";
+import { PageTransition, PostTitleTransition } from "@/components/ui/ViewTransition";
 
 // The share image comes from the colocated opengraph-image.tsx / twitter-image.tsx
 // file conventions (file-based metadata overrides `images` in generateMetadata),
@@ -137,11 +138,12 @@ export default async function BlogPostPage({
         }}
       />
 
+      <PageTransition>
       <article className="relative mx-auto max-w-3xl px-4 sm:px-6 pt-12">
         <div className="absolute inset-x-0 top-0 h-72 hero-glow -z-10" />
         <Link
           href="/blog/"
-          prefetch={false}
+          transitionTypes={["nav-back"]}
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
         >
           <ArrowLeft className="size-4" />
@@ -158,9 +160,11 @@ export default async function BlogPostPage({
             </time>{" "}
             · {readingMinutes(content)} {ui.minRead}
           </p>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            {content.title}
-          </h1>
+          <PostTitleTransition slug={slug}>
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+              {content.title}
+            </h1>
+          </PostTitleTransition>
           <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
             {content.description}
           </p>
@@ -222,16 +226,21 @@ export default async function BlogPostPage({
               <li key={p.slug}>
                 <Link
                   href={`/blog/${p.slug}/`}
-                  prefetch={false}
+                  transitionTypes={["nav-forward"]}
                   className="block h-full gradient-border-card p-5 hover-glow transition-all"
                 >
-                  <span className="font-semibold leading-snug">{p.content[lang].title}</span>
+                  <PostTitleTransition slug={p.slug}>
+                    <span className="inline-block font-semibold leading-snug">
+                      {p.content[lang].title}
+                    </span>
+                  </PostTitleTransition>
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
       </article>
+      </PageTransition>
     </>
   );
 }

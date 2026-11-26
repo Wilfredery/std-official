@@ -7,6 +7,7 @@ import { BlogExplorer } from "@/components/blog/BlogExplorer";
 import { formatPostDate } from "@/components/blog/BlogPostBody";
 import type { BlogCardData, BlogTopic } from "@/components/blog/blogSearch";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { PageTransition } from "@/components/ui/ViewTransition";
 
 export async function generateMetadata({
   params,
@@ -89,6 +90,7 @@ export default async function BlogPage({
           { name: ui.eyebrow, url: `${SITE_URL}/${locale}/blog/` },
         ]}
       />
+      <PageTransition>
       <section className="relative overflow-hidden pt-15 pb-10">
         <div className="absolute inset-0 hero-glow -z-10" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
@@ -124,6 +126,7 @@ export default async function BlogPage({
           }}
         />
       </section>
+      </PageTransition>
     </>
   );
 }

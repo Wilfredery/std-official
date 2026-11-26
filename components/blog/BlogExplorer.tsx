@@ -8,6 +8,7 @@ import { Link } from "@/lib/i18n/navigation";
 import { services, type ServiceSlug } from "@/lib/data/services";
 import { cn } from "@/lib/utils";
 import { filterPosts, type BlogCardData, type BlogTopic } from "@/components/blog/blogSearch";
+import { PostTitleTransition } from "@/components/ui/ViewTransition";
 
 export interface BlogExplorerUi {
   searchLabel: string;
@@ -92,7 +93,7 @@ function FeaturedCard({ post, ui }: { post: BlogCardData; ui: BlogExplorerUi }) 
   return (
     <Link
       href={`/blog/${post.slug}/`}
-      prefetch={false}
+      transitionTypes={["nav-forward"]}
       className="group grid overflow-hidden rounded-3xl border border-border bg-card transition-all
         hover:border-primary/50 hover:shadow-xl md:grid-cols-5 focus-visible:outline-2
         focus-visible:outline-offset-2 focus-visible:outline-ring"
@@ -118,9 +119,11 @@ function FeaturedCard({ post, ui }: { post: BlogCardData; ui: BlogExplorerUi }) 
           <TopicBadge post={post} />
           <PostMeta post={post} ui={ui} />
         </div>
-        <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl group-hover:text-primary transition-colors">
-          {post.title}
-        </h2>
+        <PostTitleTransition slug={post.slug}>
+          <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl group-hover:text-primary transition-colors">
+            {post.title}
+          </h2>
+        </PostTitleTransition>
         <p className="text-muted-foreground leading-relaxed">{post.description}</p>
         <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
           {ui.readMore}
@@ -136,7 +139,7 @@ function PostCard({ post, ui }: { post: BlogCardData; ui: BlogExplorerUi }) {
   return (
     <Link
       href={`/blog/${post.slug}/`}
-      prefetch={false}
+      transitionTypes={["nav-forward"]}
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card
         transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg focus-visible:outline-2
         focus-visible:outline-offset-2 focus-visible:outline-ring"
@@ -155,9 +158,11 @@ function PostCard({ post, ui }: { post: BlogCardData; ui: BlogExplorerUi }) {
       </div>
       <div className="flex flex-1 flex-col p-6">
         <PostMeta post={post} ui={ui} />
-        <h2 className="mt-3 text-xl font-bold tracking-tight group-hover:text-primary transition-colors">
-          {post.title}
-        </h2>
+        <PostTitleTransition slug={post.slug}>
+          <h2 className="mt-3 text-xl font-bold tracking-tight group-hover:text-primary transition-colors">
+            {post.title}
+          </h2>
+        </PostTitleTransition>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">
           {post.description}
         </p>
